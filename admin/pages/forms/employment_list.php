@@ -81,7 +81,7 @@
                       //vandv comment
                      // $row['phone'] = Decrypt($row['phone'],$secret_key,$secret_iv);
 
-                      $$row['contents'] = nl2br($row['contents']);
+                      $row['contents'] = nl2br($row['contents']);
                       echo "<tr id='tr_$row[0]'><td>$nIndex</td>
                         <td>".$row['inquiry_type']."</td>
                         <td>".$row['write_user']."</td>

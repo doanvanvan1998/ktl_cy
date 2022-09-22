@@ -29,8 +29,9 @@
   <?php
     include "../../php/sub_nav.php";
     include "../../php/sub_left_menu.php";
-    $Id = $_GET["Id"];
-    echo "<input type='hidden' id='Id' value='$Id'/>";
+//    comment quang
+//    $Id = $_GET["Id"];
+//    echo "<input type='hidden' id='Id' value='$Id'/>";
   ?>
 
   <!-- Content Wrapper. Contains page content -->

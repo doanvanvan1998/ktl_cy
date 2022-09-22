@@ -82,6 +82,7 @@
                       include "php/mysql.php";
                       include "php/crypt.php";
 
+
                       $nIndex = 1;
                       $query="select id,username,phone,email,apply_num,result_check_num,result_check from recruit_able_user where apply_step=5  order by id desc";
                       $Uresult = mysqli_query($con,$query);
