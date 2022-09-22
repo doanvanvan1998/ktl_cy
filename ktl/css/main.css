@@ -1,0 +1,314 @@
+.wrap {
+  width:100%;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  overflow-x:hidden;
+  padding-top:0;
+}
+.header_wrap {
+  position:fixed;
+  left:0;
+  top:0;
+  width:100%;
+  z-index:9999;
+  box-sizing:border-box;
+  border-bottom:1px solid rgba(255,255,255,0.12);
+  background:none;
+}
+.header_wrap > .flex {
+  justify-content:space-between;
+  height:4.1rem;
+  box-sizing:border-box;
+}
+.header_wrap > .flex .logo a img {
+  width:10rem;
+  height:1.7rem;
+}
+.header_wrap > .flex .sub {
+  position:relative;
+  gap:1.05rem;
+  grid-gap:1.05rem;
+}
+.header_wrap > .flex .sub::before {
+  content:'';
+  position:absolute;
+  left:56%;
+  top:52%;
+  transform:translate(-50%,-50%);
+  width:1px;
+  height:0.55rem;
+  background:#d6d6d6;
+  z-index:100;
+}
+.header_wrap > .flex .sub a {
+  display:inline-flex;
+  align-items:center;
+  font-size:0.65rem;
+  letter-spacing:0;
+  font-weight:var(--medium);
+  color:var(--base-white);
+  height:4.1rem;
+}
+
+.header_wrap > .flex .mobile_menu {
+  width:1.1rem;
+  height:0.9rem;
+  background:url(../images/btns/btn_menu.png)no-repeat center / cover;
+  cursor:pointer;
+}
+.header_wrap > .flex .mobile_menu.on {
+  background:url(../images/btns/btn_menu_close2.png)no-repeat center / cover;
+}
+.main {
+  position:relative;
+  width:100%;
+  height:100%;
+  box-sizing:border-box;
+  background:url(../images/banner/banner_main.png)no-repeat center top / cover;
+}
+.main::after {
+  content:'';
+  position:absolute;
+  left:0;
+  top:0;
+  width:40%;
+  min-width:25rem;
+  height:100%;
+  background:#0f1e39;
+  z-index:10;
+}
+.main::before {
+  content:'';
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,0) 0% , rgba(0,0,0,0.5));
+  z-index:1;
+}
+.main > .container {
+  position:relative;
+  height:100%;
+}
+.main > .container .borderline.flex-direction {
+  position:relative;
+  justify-content:center;
+  height:100%;
+  border-left:1px solid rgba(255,255,255,0.12);
+  border-right:1px solid rgba(255,255,255,0.12);
+  margin-left:-1px;
+  margin-right:-1px;
+  box-sizing:border-box;
+  z-index:100;
+}
+.main .title {
+  gap:1.8rem;
+  grid-gap:1.8rem;
+  z-index:10;
+  box-sizing:border-box;
+}
+.main .title h2 {
+  font-size:2.5rem;
+  line-height:3.2rem;
+  letter-spacing:-0.45px;
+  color:var(--base-white);
+  font-weight:var(--extrabold);
+}
+.main .title h2 span{
+  font-size:2.5rem;
+  line-height:3.2rem;
+  letter-spacing:-0.45px;
+  color:var(--base-white);
+  font-weight:100;
+}
+.main .title p {
+  font-size:0.8rem;
+  line-height:1.4rem;
+  letter-spacing:-0.15px;
+  color:var(--base-white);
+  font-weight:200;
+}
+.btn_more a {
+  position:relative;
+  justify-content:center;
+  width:12.2rem;
+  height:3.25rem;
+  border:1px solid var(--base-white);
+  box-sizing:border-box;
+  gap:0.5rem;
+  grid-gap:0.5rem;
+  z-index:100;
+  margin-top:9.4rem;
+}
+.btn_more a span {
+  font-size:0.9rem;
+  letter-spacing:-0.16px;
+  color:var(--base-white);
+  font-weight:var(--bold);
+}
+.btn_more a img {
+  width:1.85rem;
+  height:0.55rem;
+}
+.main .copy {
+  position:absolute;
+  right:-7%;
+  bottom:15%;
+  z-index:100;
+  transform:rotate(90deg);
+}
+.main .copy span {
+  font-size:0.55rem;
+  letter-spacing:0;
+  color:rgba(255,255,255,0.5);
+  font-weight:var(--medium)
+}
+.main_con {
+  height:100%;
+  max-height:12rem;
+  background:url(../images/banner/banner_shortcut.png)no-repeat center center / cover;
+}
+.main_con .container {
+  height:100%;
+  justify-content:center;
+}
+.main_con .con_left {
+  display:none;
+  background:linear-gradient(to right , #3243e8 0% , #3b73e4 100%);
+  height:100%;
+  justify-content:center;
+  flex:1;
+}
+.main_con .con_left > span {
+  font-size:0.65rem;
+  letter-spacing:-0.12px;
+  color:#679aff;
+  font-weight:var(--bold);
+}
+.main_con .con_left > h6 {
+  font-size:1.3rem;
+  line-height:1.9rem;
+  letter-spacing:-0.24px;
+  color:var(--base-white);
+  font-weight:var(--extrabold);
+}
+.main_con .con_left > p {
+  font-size:0.65rem;
+  letter-spacing:-0.12px;
+  color:var(--base-white);
+  font-weight:var(--regular);
+}
+.main_con .con_center {
+  flex:0.7;
+  height:100%;
+  justify-content:center;
+}
+.main_con .con_center .contitle {
+  gap:1.3rem;
+  grid-gap:1.3rem;
+  align-items:center;
+}
+.main_con .con_center:hover .contitle a {
+  text-decoration:underline;
+}
+.main_con .con_center .contitle a {
+  font-size:0.9rem;
+  line-height:1.2rem;
+  letter-spacing:-0.16px;
+  color:var(--base-white);
+  font-weight:var(--regular);
+}
+.main_con .con_center .contitle a span {
+  font-weight:var(--extrabold);
+}
+.main_con .con_center .contitle a img {
+  width:3.3rem;
+  height:3.3rem;
+}
+.main_con .con_right {
+  display:none;
+  flex:1;
+  height:100%;
+  justify-content:center;
+  background:var(--base-white);
+}
+.main_con .con_right .flex {
+  gap:2.55rem;
+  grid-gap:2.55rem;
+  margin-left:14%;
+}
+.main_con .con_right .flex img {
+  width:5.85rem;
+  height:5.85rem;
+}
+.main_con .con_right .flex .righttitle {
+  gap:0.8rem;
+  grid-gap:0.8rem;
+}
+.main_con .con_right .flex .righttitle h6 {
+  font-size:1.1rem;
+  line-height:1.5rem;
+  letter-spacing:-0.2px;
+  color:#424242;
+  font-weight:var(--bold);
+}
+.main_con .con_right .flex .righttitle p {
+  font-size:0.65rem;
+  line-height:1.05rem;
+  letter-spacing:-0.12px;
+  color:#808080;
+  font-weight:var(--medium);
+}
+
+
+
+@media screen and (max-width:961px){
+  .main::after {display:none;}
+}
+@media screen and (max-width:501px){
+  .header_wrap {height:2.8rem;}
+  .header_wrap > .flex {height:2.8rem;}
+  .header_wrap > .flex .logo a img {width:7.4rem;height:1.3rem;}
+  .main {height:100%;}
+  .main > .container {max-width:100%;min-width:100%;}
+  .main .title {gap:1.5rem;grid-gap:1.5rem; border:none; margin:0;}
+  .main .title h2 {font-size:1.7rem;line-height:2.1rem;letter-spacing:-0.31px;}
+  .main .title p {font-size:0.7rem;line-height:1.2rem;letter-spacing:-0.13px;}
+  .main_con {background:none;max-height:9rem}
+  .main_con .container {max-width:100%;min-width:100%; padding:0;}
+  .main_con .con_left {display:none;}
+  .main_con .con_right {display:none;}
+  .main_con .con_center {width:100%; flex:auto; background:url(../images/banner/banner_shortcut.png)no-repeat center center / cover;}
+  .main .copy {right:-3rem;}
+  .main .copy span {font-size:0.5rem;}
+  .main_con .con_center .contitle a {font-size:0.8rem;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  */

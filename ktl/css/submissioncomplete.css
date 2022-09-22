@@ -1,0 +1,166 @@
+.wrap {
+  overflow-y:scroll;
+}
+.contents_wrap .container {
+  max-width:32rem;
+}
+.container .flex-direction {
+  align-items:center;
+  justify-content:center;
+  margin:8rem 0 15rem;
+}
+.container .flex-direction img {
+  width:4rem;
+  height:4rem;
+  margin-bottom:3.2rem;
+}
+.container .flex-direction h2 {
+  font-size:1.9rem;
+  letter-spacing:-0.35px;
+  line-height:1.5rem;
+  color:#212121;
+  font-weight:var(--bold);
+  padding-bottom:1.8rem;
+}
+.container .flex-direction p {
+  font-size:0.75rem;
+  line-height:1.2rem;
+  color:#aaa;
+  font-weight:var(--medium);
+  text-align:center;
+  padding-bottom:7rem;
+}
+.container .flex-direction .btns {
+  gap:0.9rem;
+  grid-gap:0.9rem;
+}
+.container .flex-direction .btns .btn {
+  justify-content:center;
+  cursor:pointer;
+  width:12rem;
+  height:3.2rem;
+  border-radius:0.2rem;
+  box-sizing:border-box;
+}
+.container .flex-direction .btns .btn span {
+  font-size:0.85rem;
+  letter-spacing:0;
+  font-weight:var(--bold);
+}
+.container .flex-direction .btns .btn_applicationcheck {
+  background:#e6e7eb;
+}
+.container .flex-direction .btns .btn_applicationcheck span {
+  color:#333d4c;
+}
+.container .flex-direction .btns .btn_movemain {
+  background:#e9f2fe;
+}
+.container .flex-direction .btns .btn_movemain span {
+  color:#0559b5;
+}
+
+
+
+
+.popup_wrap {
+  display:none;
+  position:fixed;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  background:rgba(0,0,0,0.5);
+  z-index:9999;
+}
+.popup_wrap .popup {
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  background:#f9fafb;
+  padding:1.6rem 3.4rem;
+  border-radius:0.6rem;
+  width:100%;
+  max-width:40rem;
+  height:37.4rem;
+  overflow:auto;
+  box-sizing:border-box;
+}
+.popup_title {
+  justify-content:space-between;
+}
+.popup_title .slogo img {
+  width:2rem;
+  height:1.15rem;
+}
+.popup_title .btn_cancel {
+  width:0.9rem;
+  height:0.9rem;
+  padding:0.2rem;
+  cursor:pointer;
+}
+.popup_complete_wrap .popup_complete .complete_title {
+  margin:1.35rem 0 1.7rem;
+}
+.popup_complete_wrap .popup_complete .complete_title h6 {
+  font-size:1.2rem;
+  line-height:1.8rem;
+  letter-spacing:0.22px;
+  color:#212121;
+  font-weight:var(--semibold);
+}
+.popup_complete_wrap .popup_complete .complete_info {
+  padding:1.2rem 1rem;
+  background:#f4f6f9;
+  border:1px solid #e2e2e2;
+  gap:1.15rem;
+  grid-gap:1.15rem;
+}
+.popup_complete_wrap .popup_complete .complete_info .info {
+  padding-bottom:1.15rem;
+  border-bottom:1px solid #a6a6a6;
+}
+.popup_complete_wrap .popup_complete .complete_info .info strong {
+  font-size:0.75rem;
+  letter-spacing:0;
+  color:#757575;
+  font-weight:var(--semibold);
+  padding-bottom:0.9rem;
+}
+.popup_complete_wrap .popup_complete .complete_info .info span {
+  font-size:0.75rem;
+  letter-spacing:0;
+  color:#000;
+  font-weight:var(--medium);
+}
+.popup_complete_wrap .popup_complete .complete_info .info > .flex-direction {
+  gap:0.3rem;
+  grid-gap:0.3rem;
+}
+
+
+@media screen and (max-width:501px){
+  .contents_wrap > .container {max-width:100%;min-width:100%;margin-top:1.6rem;min-height:100vh;box-sizing:border-box;}
+  .container .flex-direction {margin:5rem 0 8.65rem;}
+  .container .flex-direction img {width:3.2rem;height:3.2rem;margin-bottom:2.1rem;}
+  .container .flex-direction h2 {font-size:1.15rem;letter-spacing:-0.21px;}
+  .container .flex-direction p {font-size:0.6rem;line-height:0.95rem;padding-bottom:4.9rem;}
+  .container .flex-direction .btns {width:100%;}
+  .container .flex-direction .btns .btn {width:100%;height:2.8rem;}
+  .container .flex-direction .btns .btn span {font-size:0.7rem;}
+  .popup_wrap .popup {width:calc(100% - 2rem);box-sizing:border-box;max-width:100%;padding:0.9rem;}
+  .popup_complete_wrap .popup_complete .complete_title h6 {font-size:0.9rem;}
+  .popup_complete_wrap .popup_complete .complete_info .info {padding-bottom:0.95rem;}
+  .popup_complete_wrap .popup_complete .complete_info .info strong {font-size:0.6rem;padding-bottom:0.6rem;}
+  .popup_complete_wrap .popup_complete .complete_info .info > .flex-direction p {font-size:0.6rem;color:#000;font-weight:var(--medium);}
+  .popup_complete_wrap .popup_complete .complete_info .info span{font-size:0.6rem;line-height:1.1rem;}
+
+}
+
+
+
+
+
+
+/*  */

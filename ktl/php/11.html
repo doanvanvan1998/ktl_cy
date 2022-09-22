@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<?php include 'php/common_header.php' ?>
+<link rel="stylesheet" href="css/applicationcorrectiondetail.css">
+<body>
+  <div class="wrap">
+    <?php include 'php/common_header_menu.php' ?>
+    <?php include 'php/common_usercheck.php' ?>
+    <?php
+      $user_rand_code = $_SESSION['apply_user_code'];
+      $Id = $_GET["Id"];
+      include "php/mysql.php";
+
+      $query="select user_address,user_detailAddress,sel_tab_num,step0_view_sel,step0_view_sel2,sel2_tab_num,sel3_tab_num,sel4_tab_num,data1,data2,data3,data4,data5,data6,data7,data8,check_phone,data12,data13 from apply_step_1 where userid='$row[2]'";
+      $ApplyResult1 = mysqli_query($con,$query);
+      $ApplyRow1 = mysqli_fetch_array($ApplyResult1);
+
+      $user_address = $ApplyRow1[0];
+      $user_detailAddress = $ApplyRow1[1];
+      $sel_tab_num = $ApplyRow1[2];
+      $step0_view_sel = $ApplyRow1[3];
+      $step0_view_sel2 = $ApplyRow1[4];
+      $sel2_tab_num = $ApplyRow1[5];
+      $sel3_tab_num = $ApplyRow1[6];
+      $sel4_tab_num = $ApplyRow1[7];
+      $sel4_tab_num = $ApplyRow1[7];
+      $data1 = $ApplyRow1['data1'];
+      $data2 = $ApplyRow1['data2'];
+      $data3 = $ApplyRow1['data3'];
+      $data4 = $ApplyRow1['data4'];
+      $data5 = $ApplyRow1['data5'];
+      $data6 = $ApplyRow1['data6'];
+      $data7 = $ApplyRow1['data7'];
+      $data8 = $ApplyRow1['data8'];
+      $check_phone = $ApplyRow1['check_phone'];
+      $data12 = $ApplyRow1['data12'];
+      $data13 = $ApplyRow1['data13'];
+
+      $userphone = Decrypt($userphone,$secret_key,$secret_iv);
+      $useremail = Decrypt($useremail,$secret_key,$secret_iv);
+      $check_phone = Decrypt($check_phone,$secret_key,$secret_iv);
+
+      $strStep = "";
+
+      if($row[1] == 1) { $strStep = "기본정보";}
+      else if($row[1] == 2) { $strStep = "학력/경력/대외활동";}
+      else if($row[1] == 3) { $strStep = "자격/수상/포트폴리오";}
+      else if($row[1] == 4) { $strStep = "자기소개서";}
+
+      mysqli_close($con);
+
+      echo "<input type='hidden' id='sel_tab_num' value='$sel_tab_num' />";  //장애여부
+      echo "<input type='hidden' id='sel2_tab_num' value='$sel2_tab_num' />";  //병역구분
+      echo "<input type='hidden' id='sel3_tab_num' value='$sel3_tab_num' />";  //작성자
+      echo "<input type='hidden' id='sel4_tab_num' value='$sel4_tab_num' />";  //보훈
+
+      echo "<input type='hidden' id='db_step0_view_sel' value='$step0_view_sel' />";
+      echo "<input type='hidden' id='db_step0_view_sel2' value='$step0_view_sel2' />";
+      echo "<input type='hidden' id='db_data3' value='$data3' />";
+    ?>
+    <div class="contents_wrap">
+      <div class="container">
+        <div class="main_title flex-direction">
+          <h2>2022년 한국산업기술시험원 기간제 장애·문화예술인 채용 (오케스트라단원 부문)</h2>
+          <div class="flex-direction">
+            <div class="flex">
+              <h6>수험번호</h6>
+              <span><?=$user_rand_code?></span>
+            </div>
+            <div class="flex">
+              <h6>공고기간</h6>
+              <span>2022.09.01 ~ 09.15</span>
+            </div>
+            <div class="flex">
+              <h6>지원서 업데이트</h6>
+              <span><?=$apply_date?></span>
+            </div>
+            <div class="flex">
+              <h6>접수현황</h6>
+              <span><?=$strStep?> 작성중</span>
+            </div>
+          </div>
+        </div>
+        <div class="step flex-direction">
+          <h2>지원서 작성</h2>
+          <ul class="step_list flex">
+            <li class="flex on step1_active">
+              <span>1. <span class="mobiletabview">기본정보</span></span>
+            </li>
+            <li class="flex step2_active">
+              <span>2. <span class="mobiletabview">학력/경력</span><span class="mobilenone">/대외활동</span></span>
+            </li>
+            <li class="flex step3_active">
+              <span>3. <span class="mobiletabview">자격증/수상</span><span class="mobilenone">/포토폴리오</span></span>
+            </li>
+            <li class="flex step4_active">
+              <span>4. <span class="mobiletabview">자기소개서</span></span>
+            </li>
+            <li class="flex step5_active">
+              <span>5. <span class="mobiletabview">최종제출</span></span>
+            </li>
+          </ul>
+          <div class="steps_wrap">
+            <div class="step_con step1">
+              <div class="basic_infomation_wrap">
+                <h2>기본정보</h2>
+              </div>
+              <div class="basic_infomation">
+                <div class="flex bordernone mobile">
+                  <div class="form_title flex-direction"><h6>이름</h6></div>
+                  <div class="form_con flex-direction"><span><?=$username?></span></div>
+                </div>
+                <div class="flex bordernone mobile">
+                  <div class="form_title"><h6>연락처</h6></div>
+                  <div class="form_con"><span><?=$userphone?></span></div>
+                </div>
+                <div class="flex">
+                  <div class="form_title"><h6>이메일</h6></div>
+                  <div class="form_con"><span><?=$useremail?></span></div>
+                </div>
+                <div class="flex baseline">
+                  <div class="form_title flex-direction">
+                    <h6>주소</h6>
+                  </div>
+                  <div class="form_con">
+                    <div class="flex-direction address_form">
+                      <div class="flex address_wrap">
+                        <div class="btn_address flex" onclick="execDaumPostcode()"><span>우편번호</span></div>
+                        <span>주민등록상 주소를 입력하세요.</span>
+                      </div>
+                      <input type="hidden" id='user_postcode'>
+                      <input type="text" placeholder="주소를 입력해주세요." id='user_address' value='<?=$user_address?>' onclick="execDaumPostcode()" required readonly>
+                      <input type="text" placeholder="상세 주소를 입력해주세요." value='<?=$user_detailAddress?>' id='user_detailAddress' required>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex">
+                  <div class="form_title flex-direction">
+                    <h6>장애여부</h6>
+                  </div>
+                  <div class="form_con">
+                    <div class="flex chse">
+                      <div class="choice flex">
+                        <?php
+                          if($sel_tab_num == 1)
+                          {
+                            echo "<div class='step0_tab step0_1_tab flex on' onclick='onStepTab_1(1,1)'><span>비대상</span></div>
+                            <div class='step0_tab step0_2_tab flex' onclick='onStepTab_1(2,1)'><span>대상</span></div>";
+                          }
+                          else
+                          {
+                            echo "<div class='step0_tab step0_1_tab flex' onclick='onStepTab_1(1,1)'><span>비대상</span></div>
+                            <div class='step0_tab step0_2_tab flex on' onclick='onStepTab_1(2,1)'><span>대상</span></div>";
+                          }
+                        ?>
+
+                      </div>
+                      <?php
+                        if($sel_tab_num == 1)
+                        {
+                          echo "<div class='step0_view selectbox flex' style='display:none;'>";
+                        }
+                        else
+                        {
+                          echo "<div class='step0_view selectbox flex'>";
+                        }
+                      ?>
+                        <select id='step0_view_sel'>
+                          <option value=0>장애정도</option>
+                          <option>중증 (기존1~3급)</option>
+                          <option>경증 (기존4~6급)</option>
+                        </select>
+                        <select id='step0_view_sel2'>
+                          <option value=0>내용</option>
+                          <option>간장애</option>
+                          <option>뇌전증장애(간질장애)</option>
+                          <option value='뇌병변장애'>뇌병변장애</option>
+                          <option>시각장애</option>
+                          <option>신장장애</option>
+                          <option>심장장애</option>
+                          <option>안면변형장애</option>
+                          <option>장루/요루장애</option>
+                          <option>정신장애</option>
+                          <option>청각장애</option>
+                          <option>호흡기장애</option>
+                          <option>지체장애</option>
+                          <option>언어장애</option>
+                          <option>지적장애(정신박약/정신지체)</option>
+                          <option>자폐성장애(발달장애)</option>
+                          <option>기타장애</option>
+                        </select>
+                      </div>
+                      <script>
+                        $("#step0_view_sel").val($("#db_step0_view_sel").val()).prop("selected", true);
+                        $("#step0_view_sel2").val($("#db_step0_view_sel").val()).prop("selected", true);
+                      </script>
+                    </div>
+                  </div>
+                </div>
+                <script>
+                  function onStepTab_1(Id,Num)
+                  {
+                    $("#sel_tab_num").val(Id);
+                    if(Id == 1)
+                    {
+                      $(".step0_view").hide();
+                      $("#step0_view_sel").val(0);
+                      $("#step0_view_sel2").val(0);
+
+                    }
+                    else
+                    {
+                      $(".step0_view").show();
+                    }
+                    $(".step0_tab").removeClass("on");
+                    $(".step0_"+Id+"_tab").addClass("on");
+                  }
+                </script>
+                <div class="flex">
+                  <div class="form_title flex-direction">
+                    <h6>보훈여부</h6>
+                  </div>
+                  <div class="form_con">
+                    <div class="flex chse">
+                      <div class="choice flex">
+                        <?php
+                          if($sel4_tab_num == 1)
+                          {
+                            echo "<div class='step_tab3 step3_1_tab flex on' onclick='onStepTab_4(1)'><span>비대상</span></div>
+                            <div class='step_tab3 step3_1_tab flex' onclick='onStepTab_4(2)'><span>대상</span></div>";
+                          }
+                          else
+                          {
+                            echo "<div class='step_tab3 step3_1_tab flex flex' onclick='onStepTab_4(1)'><span>비대상</span></div>
+                            <div class='step_tab3 step3_1_tab flex on' onclick='onStepTab_4(2)'><span>대상</span></div>";
+                          }
+                        ?>
+                      </div>
+                      <?php
+                        if($sel4_tab_num == 1)
+                        {
+                          echo "<div class='selectbox flex' id='military_view' style='display:none;'>";
+                        }
+                        else
+                        {
+                          echo "<div class='selectbox flex' id='military_view'>";
+                        }
+                      ?>
+                        <input type='text' id='data1' value='<?=$data1?>' placeholder="보훈번호"/>
+                        <input type='text' id='data2' value='<?=$data2?>' placeholder="관계"/>
+                        <select id='data3'>
+                          <option value="0">보훈비율</option>
+                          <option>5%</option>
+                          <option>10%</option>
+                        </select>
+                      </div>
+                      <script>
+                        $("#data3").val($("#db_data3").val()).prop("selected", true);
+                      </script>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex baseline bordernone mobile">
+                  <div class="form_title flex-direction mobilenone">
+                    <h6>병역사항</h6>
+                  </div>
+                  <div class="form_con">
+                    <div class="militaryservice flex-direction">
+                      <span>[병역사항]</span>
+                      <p>
+                        복무 중인 경우에는 미필로 선택하시기 바랍니다.<br>
+                        여성의 경우 “비대상”을 선택하시면 됩니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex bordernone mobile">
+                  <div class="form_title flex-direction">
+                    <h6>병역구분</h6>
+                  </div>
+                  <div class="form_con">
+                    <div class="choice chmy flex">
+                      <?php
+                        if($sel2_tab_num == 1)
+                        {
+                          echo "<div class='step_tab step_1_tab flex on' onclick='onStepTab_2(1)'><span>비대상</span></div>
+                          <div class='step_tab step_2_tab flex' onclick='onStepTab_2(2)'><span>군필</span></div>
+                          <div class='step_tab step_3_tab flex' onclick='onStepTab_2(3)'><span>미필</span></div>
+                          <div class='step_tab step_4_tab flex' onclick='onStepTab_2(4)'><span>면제</span></div>
+                          <div class='step_tab step_5_tab flex' onclick='onStepTab_2(5)'><span>복무중</span></div>";
+                        }
+                        else if($sel2_tab_num == 2)
+                        {
+                          echo "<div class='step_tab step_1_tab flex' onclick='onStepTab_2(1)'><span>비대상</span></div>
+                          <div class='step_tab step_2_tab flex on' onclick='onStepTab_2(2)'><span>군필</span></div>
+                          <div class='step_tab step_3_tab flex' onclick='onStepTab_2(3)'><span>미필</span></div>
+                          <div class='step_tab step_4_tab flex' onclick='onStepTab_2(4)'><span>면제</span></div>
+                          <div class='step_tab step_5_tab flex' onclick='onStepTab_2(5)'><span>복무중</span></div>";
+                        }
+                        else if($sel2_tab_num == 3)
+                        {
+                          echo "<div class='step_tab step_1_tab flex' onclick='onStepTab_2(1)'><span>비대상</span></div>
+                          <div class='step_tab step_2_tab flex' onclick='onStepTab_2(2)'><span>군필</span></div>
+                          <div class='step_tab step_3_tab flex on' onclick='onStepTab_2(3)'><span>미필</span></div>
+                          <div class='step_tab step_4_tab flex' onclick='onStepTab_2(4)'><span>면제</span></div>
+                          <div class='step_tab step_5_tab flex' onclick='onStepTab_2(5)'><span>복무중</span></div>";
+                        }
+                        else if($sel2_tab_num == 4)
+                        {
+                          echo "<div class='step_tab step_1_tab flex' onclick='onStepTab_2(1)'><span>비대상</span></div>
+                          <div class='step_tab step_2_tab flex' onclick='onStepTab_2(2)'><span>군필</span></div>
+                          <div class='step_tab step_3_tab flex' onclick='onStepTab_2(3)'><span>미필</span></div>
+                          <div class='step_tab step_4_tab flex on' onclick='onStepTab_2(4)'><span>면제</span></div>
+                          <div class='step_tab step_5_tab flex' onclick='onStepTab_2(5)'><span>복무중</span></div>";
+                        }
+                        else if($sel2_tab_num == 5)
+                        {
+                          echo "<div class='step_tab step_1_tab flex' onclick='onStepTab_2(1)'><span>비대상</span></div>
+                          <div class='step_tab step_2_tab flex' onclick='onStepTab_2(2)'><span>군필</span></div>
+                          <div class='step_tab step_3_tab flex' onclick='onStepTab_2(3)'><span>미필</span></div>
+                          <div class='step_tab step_4_tab flex' onclick='onStepTab_2(4)'><span>면제</span></div>
+                          <div class='step_tab step_5_tab flex on' onclick='onStepTab_2(5)'><span>복무중</span></div>";
+                        }
+                      ?>
+                    </div>
+                  </div>
+                </div>
+                <script>
+                  function onStepTab_4(Id)
+                  {
+                    $("#sel4_tab_num").val(Id);
+
+                    if(Id == 1) { $("#military_view").hide(); }
+                    else $("#military_view").show();
+
+                    $(".step_tab3").removeClass("on");
+                    $(".step3_"+Id+"_tab").addClass("on");
+
+                  }
+                  function onStepTab_2(Id)
+                  {
+                    $("#sel2_tab_num").val(Id);
+                    $(".step1_tab1").hide();
+                    $(".step1_tab2").hide();
+                    $(".step1_tab3").hide();
+
+                    $(".step_tab").removeClass("on");
+                    $(".step_"+Id+"_tab").addClass("on");
+
+                    if(Id == 2)
+                    {
+                      $(".step1_tab2").show();
+                      $(".step1_tab3").show();
+                    }
+                    else if(Id == 5)
+                    {
+                      $(".step1_tab1").show();
+                      $(".step1_tab3").show();
+                    }
+                  }
+                  function onStepTab_3(Id,Num)
+                  {
+                    $("#sel3_tab_num").val(Id);
+                    $("#agent_view").hide();
+                    $(".step_tab2").removeClass("on");
+                    $(".step2_"+Id+"_tab").addClass("on");
+
+                    if(Id != 1)
+                    {
+                      $("#agent_view").show();
+                    }
+                  }
+                </script>
+                <div class="flex sum bordernone mobile step1_tab1" style='display:none;'>
+                  <div class="form_title flex-direction">
+                    <h6>계급</h6>
+                  </div>
+                  <div class="form_con">
+                    <select class="log" id='data4'>
+                      <option value=0>계급을 선택하세요.</option>
+                      <option>이등병</option>
+                      <option>일병</option>
+                      <option>상병</option>
+                      <option>병장</option>
+                      <option>하사</option>
+                      <option>중사</option>
+                      <option>상사</option>
+                      <option>소위</option>
+                      <option>중위</option>
+                      <option>대위</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- 제대버튼 눌렀을 떄 -->
+                <div class="flex sum bordernone mobile step1_tab2" style='display:none;'>
+                  <div class="form_title flex-direction">
+                    <h6>제대구분</h6>
+                  </div>
+                  <div class="form_con">
+                    <select class="log" id='data5'>
+                      <option value="">제대구분을 선택하세요.</option>
+                      <option>만기 제대</option>
+                      <option>명예 제대</option>
+                      <option>불명예 제대</option>
+                      <option>의가사 제대</option>
+                      <option>의병 제대</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="flex sum step1_tab3" style='display:none;'>
+                  <div class="form_title flex-direction">
+                    <h6>복무기간</h6>
+                  </div>
+                  <div class="form_con">
+                    <div class="inputdatebox flex">
+                      <input type="date" id='data6'>
+                      <span>-</span>
+                      <input type="date" id='data7'>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex bordernone sum topval mobile">
+                  <div class="form_title flex-direction">
+                    <h6>작성자</h6>
+                  </div>
+                  <div class="form_con">
+                    <div class="choice chmy flex">
+                      <div class="step_tab2 step2_1_tab flex on" onclick='onStepTab_3(1)'><span>본인</span></div>
+                      <div class="step_tab2 step2_2_tab flex" onclick='onStepTab_3(2)'><span>보호자</span></div>
+                      <div class="step_tab2 step2_3_tab flex" onclick='onStepTab_3(3)'><span>대리인</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div style='height:10px;'></div>
+                <div id='agent_view' style='display:none;'>
+                  <div class="flex bordernone sum mobile">
+                    <div class="form_title flex-direction">
+                      <h6>이름</h6>
+                    </div>
+                    <div class="form_con">
+                      <div class="inputbox">
+                        <input type="text" id='data8' placeholder="이름을 입력해주세요." required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex bordernone sum mobile">
+                    <div class="form_title flex-direction">
+                      <h6>연락처</h6>
+                    </div>
+                    <div class="form_con">
+                      <div class="phonebox flex">
+                        <input type="text" id='data9' maxlength="3" required>
+                        <span class="linebar"></span>
+                        <input type="text" id='data10' maxlength="4" required>
+                        <span class="linebar"></span>
+                        <input type="text" id='data11' maxlength="4" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex bordernone sum mobile">
+                    <div class="form_title flex-direction">
+                      <h6>소속명</h6>
+                    </div>
+                    <div class="form_con">
+                      <div class="inputbox">
+                        <input type="text" id='data12' placeholder="소속명을 입력해주세요." required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex sum botval">
+                    <div class="form_title flex-direction">
+                      <h6>사유</h6>
+                    </div>
+                    <div class="form_con">
+                      <div class="inputbox">
+                        <input type="text" id='data13' placeholder="사유를 입력해주세요." required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex mobile">
+                    <div class="form_title flex-direction">
+                      <h6>대리인작성 동의</h6>
+                    </div>
+                    <div class="form_con">
+                      <div class="flex checkbtn">
+                        <div class="btn_contentcheck flex"><span>내용확인</span></div>
+                        <span><span>*</span> 필수항목에 동의해주세요.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="btns_wrap flex">
+                <div class="flex btn_prevstep btn" style="display:none"><span>이전단계</span></div>
+                <div class="flex btn_temporarystorage btn" onclick='onApplyTempSave(1)'><span>임시저장</span></div>
+                <div class="flex btn_nextstep btn" onclick="nextBtn(1);"><span>다음단계</span></div>
+              </div>
+            </div>
+            <script>
+              function onApplyTempSave(Id)
+              {
+                if(Id == 1)
+                {
+                  if($("#user_address").val() == "") { alert("주소를 입력하세요."); $("#user_address").focus(); return; }
+
+                  if($("#sel_tab_num").val() != 1)
+                  {
+                    if($("#step0_view_sel").val() == 0) { alert("장애정도를 선택하세요."); return; }
+                    else if($("#step0_view_sel2").val() == 0) { alert("장애내용을 선택하세요."); return; }
+                  }
+                  if($("#sel4_tab_num").val() != 1)
+                  {
+                    if($("#data1").val() == "") { alert("보훈번호를 입력하세요."); $("#data1").focus(); return; }
+                    else if($("#data2").val() == "") { alert("관계를 입력하세요."); $("#data2").focus(); return; }
+                    else if($("#data3").val() == 0) { alert("보훈비율을 선택하세요."); return; }
+                  }
+                  if($("#sel2_tab_num").val() == 2)
+                  {
+                    if($("#data5").val() == 0) { alert("제대구분을 선택하세요."); return; }
+                    else if($("#data6").val() == "") { alert("복무기간을 입력하세요."); $("#data6").focus(); return; }
+                    else if($("#data7").val() == "") { alert("복무기간을 선택하세요."); $("#data7").focus(); return; }
+                  }
+                  else if($("#sel2_tab_num").val() == 5)
+                  {
+                    if($("#data4").val() == 0) { alert("계급을 선택하세요."); return; }
+                    else if($("#data6").val() == "") { alert("복무기간을 입력하세요."); $("#data6").focus(); return; }
+                    else if($("#data7").val() == "") { alert("복무기간을 선택하세요."); $("#data7").focus(); return; }
+                  }
+                  if($("#sel3_tab_num").val() != 1)
+                  {
+                    if($("#data8").val() == "") { alert("이름을 입력하세요."); $("#data8").focus(); return; }
+                    else if($("#data9").val() == "" || $("#data10").val() == "" || $("#data11").val() == "") { alert("연락처를 입력하세요."); $("#data9").focus(); return; }
+                  }
+                  $.post("php/fnc/Apply_temp_save.php",
+                  {
+                    step : Id,
+                    user_id : $("#user_id").val(),
+                    user_address : $("#user_address").val(),
+                    user_detailAddress : $("#user_detailAddress").val(),
+                    sel_tab_num : $("#sel_tab_num").val(),
+                    step0_view_sel : $("#step0_view_sel").val(),
+                    step0_view_sel2 : $("#step0_view_sel2").val(),
+                    sel2_tab_num : $("#sel2_tab_num").val(),
+                    sel3_tab_num : $("#sel3_tab_num").val(),
+                    sel4_tab_num : $("#sel4_tab_num").val(),
+                    data1 : $("#data1").val(),
+                    data2 : $("#data2").val(),
+                    data3 : $("#data3").val(),
+                    data4 : $("#data4").val(),
+                    data5 : $("#data5").val(),
+                    data6 : $("#data6").val(),
+                    data7 : $("#data7").val(),
+                    data8 : $("#data8").val(),
+                    check_phone : $("#data9").val()+$("#data10").val()+$("#data11").val(),
+                    data12 : $("#data12").val(),
+                    data13 : $("#data13").val()
+                  },
+                   function(data,status){
+                   if(status != "fail"){
+                     alert("임시저장이 완료되었습니다.");
+                   }
+                   else
+                   {
+                    alert("네트워크 오류");
+                   }
+                  });
+                }
+
+              }
+            </script>
+            <div class="step_con step2">
+              <div class="basic_infomation_wrap">
+                <h2>학력/경력/대외활동</h2>
+              </div>
+              <div class="basic_infomation">
+                <div class="flex baseline">
+                  <div class="form_title flex-direction">
+                    <h6>학력</h6>
+                  </div>
+                  <div class="form_con allform flex-direction">
+                    <div class="flex scformbox">
+                      <div class="schoolbox">
+                        <div class="flex">
+                          <select>
+                            <option value="">학교구분</option>
+                          </select>
+                          <input type="text" placeholder="학교명" required>
+                        </div>
+                      </div>
+                      <div class="graduate">
+                        <div class="flex">
+                          <input type="text" placeholder="졸업연도" required>
+                          <select>
+                            <option value="">졸업상태</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="btn_plus flex">
+                        <img src="images/btns/btn_plus.png" alt="내용추가">
+                      </div>
+                      <div class="flex checkboxwrap">
+                        <div class="checkbox flex">
+                          <div class="flex">
+                            <input type="checkbox" id="chk1" class="normal">
+                            <label for="chk1"></label>
+                          </div>
+                          <span>대입검정고시</span>
+                        </div>
+                        <div class="checkbox flex">
+                          <div class="flex">
+                            <input type="checkbox" id="chk2" class="normal">
+                            <label for="chk2"></label>
+                          </div>
+                          <span>고등학교미만 졸업</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex-direction sub_all_form">
+                      <div class="flex scformbox">
+                        <div class="schoolbox">
+                          <div class="flex">
+                            <select>
+                              <option value="">학교구분</option>
+                            </select>
+                            <input type="text" placeholder="학교명" required>
+                          </div>
+                        </div>
+                        <div class="graduate">
+                          <div class="flex">
+                            <input type="text" placeholder="입학년월" required>
+                            <input type="text" placeholder="졸업년월" required>
+                            <select>
+                              <option value="">졸업상태</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="btn_minus flex">
+                          <img src="images/btns/btn_minus.png" alt="내용추가">
+                        </div>
+                        <div class="flex checkboxwrap">
+                          <div class="checkbox flex">
+                            <div class="flex">
+                              <input type="checkbox" id="chk3" class="normal">
+                              <label for="chk3"></label>
+                            </div>
+                            <span>편입</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex scformbox subformbox">
+                        <div class="schoolbox">
+                          <div class="flex">
+                            <input type="text" placeholder="전공명" required>
+                          </div>
+                        </div>
+                        <div class="graduate">
+                          <div class="flex">
+                            <input type="text" placeholder="학점" required>
+                            <select>
+                              <option value="">총점</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex-direction sub_all_form">
+                      <div class="flex scformbox">
+                        <div class="schoolbox">
+                          <div class="flex">
+                            <select>
+                              <option value="">학교구분</option>
+                            </select>
+                            <input type="text" placeholder="학교명" required>
+                          </div>
+                        </div>
+                        <div class="graduate">
+                          <div class="flex">
+                            <input type="text" placeholder="입학년월" required>
+                            <input type="text" placeholder="졸업년월" required>
+                            <select>
+                              <option value="">졸업상태</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="btn_minus flex">
+                          <img src="images/btns/btn_minus.png" alt="내용추가">
+                        </div>
+                        <div class="flex checkboxwrap">
+                          <div class="checkbox flex">
+                            <div class="flex">
+                              <input type="checkbox" id="chk4" class="normal">
+                              <label for="chk4"></label>
+                            </div>
+                            <span>편입</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex scformbox subformbox">
+                        <div class="schoolbox">
+                          <div class="flex">
+                            <input type="text" placeholder="전공명" required>
+                          </div>
+                        </div>
+                        <div class="graduate">
+                          <div class="flex">
+                            <input type="text" placeholder="학점" required>
+                            <select>
+                              <option value="">총점</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex baseline bordernone">
+                  <div class="form_title flex-direction">
+                    <h6>경력</h6>
+                  </div>
+                  <div class="form_con">
+                    <select class="career">
+                      <option value="">주 전공명을 선택해주세요.</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="flex baseline bordernone">
+                  <div class="form_title flex-direction">
+                    <h6>주요이력</h6>
+                  </div>
+                  <div class="form_con">
+                    <div class="flex-direction choicebox">
+                      <div class="choiceform flex-direction">
+                        <div class="flex">
+                          <div class="checkbox flex">
+                            <div class="flex">
+                              <input type="checkbox" id="chkbox1" class="normal">
+                              <label for="chkbox1"></label>
+                            </div>
+                            <span>전국규모 (콩쿨)대회 및 연주회 참여</span>
+                          </div>
+                          <div class="checkbox flex">
+                            <div class="flex">
+                              <input type="checkbox" id="chkbox2" class="normal">
+                              <label for="chkbox2"></label>
+                            </div>
+                            <span>시·도규모 (콩쿨) 대회 및 연주회 참여</span>
+                          </div>
+                          <div class="checkbox flex">
+                            <div class="flex">
+                              <input type="checkbox" id="chkbox3" class="normal">
+                              <label for="chkbox3"></label>
+                            </div>
+                            <span>공공·민간기관 주최 (콩쿨) 대회 및 연주회 참여</span>
+                          </div>
+                        </div>
+                        <div class="flex">
+                          <div class="checkbox flex">
+                            <div class="flex">
+                              <input type="checkbox" id="chkbox4" class="normal">
+                              <label for="chkbox4"></label>
+                            </div>
+                            <span>기관 및 기업소속 연주단 소속 경력</span>
+                          </div>
+                          <div class="checkbox flex">
+                            <div class="flex">
+                              <input type="checkbox" id="chkbox5" class="normal">
+                              <label for="chkbox5"></label>
+                            </div>
+                            <span>프리랜서 연주자 활동</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex baseline">
+                  <div class="form_title flex-direction">
+                    <h6>활동이력</h6>
+                  </div>
+                  <div class="form_con">
+                    <div class="flex-direction activity">
+                      <div class="flex-direction">
+                        <div class="flex">
+                          <input type="date" required>
+                          <input type="text" placeholder="소속/기관/단체명 대회 및 연주회명을 입력해주세요." required>
+                          <div class="btn_minus flex">
+                            <img src="images/btns/btn_minus.png" alt="내용빼기">
+                          </div>
+                        </div>
+                        <input type="text" placeholder="활동내용을 입력해주세요." required>
+                      </div>
+                      <div class="flex-direction">
+                        <div class="flex">
+                          <input type="date" required>
+                          <input type="text" placeholder="소속/기관/단체명 대회 및 연주회명을 입력해주세요." required>
+                          <div class="btn_minus flex">
+                            <img src="images/btns/btn_minus.png" alt="내용빼기">
+                          </div>
+                        </div>
+                        <input type="text" placeholder="활동내용을 입력해주세요." required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex baseline bordernone">
+                  <div class="form_title flex-direction">
+                    <h6>교육</h6>
+                  </div>
+                  <div class="form_con">
+                    <div class="flex-direction education">
+                      <div class="flex">
+                        <input type="text" placeholder="교육명" required>
+                        <input type="text" placeholder="교육기관" class="search" required>
+                        <div class="flex">
+                          <input type="text" placeholder="시작년월" required>
+                          <input type="text" placeholder="종료년월" required>
+                        </div>
+                        <div class="btn_plus flex"><img src="images/btns/btn_plus.png" alt="내용 더하기"></div>
+                      </div>
+                      <textarea placeholder="직무와 관련한 교육의 내용을 요약하여 작상해주세요. (50자이내)"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="btns_wrap flex">
+                <div class="flex btn_prevstep btn" onclick="prevBtn(1)"><span>이전단계</span></div>
+                <div class="flex btn_temporarystorage btn"><span>임시저장</span></div>
+                <div class="flex btn_nextstep btn" onclick="nextBtn(2)"><span>다음단계</span></div>
+              </div>
+            </div>
+            <div class="step_con step3">
+              <div class="basic_infomation_wrap">
+                <h2>자격증/수상/포토폴리오</h2>
+              </div>
+              <div class="basic_infomation">
+                <div class="flex">
+                  <div class="form_title flex-direction">
+                    <h6>자격증</h6>
+                  </div>
+                  <div class="form_con">
+                    <div class="flex certificate">
+                      <input type="text" placeholder="자격증 명" class="search" required>
+                      <input type="text" placeholder="발행처" required>
+                      <input type="date" required>
+                      <div class="btn_plus flex"><img src="images/btns/btn_plus.png" alt="내용더하기"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex baseline">
+                  <div class="form_title flex-direction">
+                    <h6>수상</h6>
+                  </div>
+                  <div class="form_con">
+                    <div class="flex-direction awards">
+                      <div class="flex">
+                        <input type="text" placeholder="대회/수상명" required>
+                        <input type="text" placeholder="수여기관" required>
+                        <div class="flex">
+                          <input type="text" placeholder="수상연도" required>
+                          <select>
+                            <option value="">수상구분</option>
+                          </select>
+                        </div>
+                        <div class="btn_plus flex"><img src="images/btns/btn_plus.png" alt="수량더하기"></div>
+                      </div>
+                      <input type="text" placeholder="수여내용을 입력해주세요." required>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex bordernone">
+                  <div class="form_title flex-direction">
+                    <h6>포토폴리오</h6>
+                  </div>
+                  <div class="form_con">
+                    <div class="flex portfolio">
+                      <div class="inputbox">
+                        <label for="file">포트폴리오</label>
+                        <input type="file" id="file">
+                      </div>
+                      <div class="fileswrap">홍길동_장애인 증명서.PDF</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex">
+                  <div class="form_title flex-direction">
+                    <h6>링크</h6>
+                  </div>
+                  <div class="form_con pt-0">
+                    <div class="link">
+                      <input type="text" placeholder="https://" required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="btns_wrap flex">
+                <div class="flex btn_prevstep btn" onclick="prevBtn(2)"><span>이전단계</span></div>
+                <div class="flex btn_temporarystorage btn"><span>임시저장</span></div>
+                <div class="flex btn_nextstep btn" onclick="nextBtn(3);"><span>다음단계</span></div>
+              </div>
+            </div>
+            <div class="step_con step4">
+              <div class="basic_infomation_wrap">
+                <div class="flex option_title">
+                  <h2>자기소개서</h2>
+                  <div class="optionbtns flex">
+                    <div class="flex btn_grammar"><span>맞춤법 검사</span></div>
+                    <div class="flex btn_change"><span>순서변경</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="basic_infomation">
+                <div class="flex baseline">
+                  <div class="form_title flex-direction">
+                    <h6>항목구분</h6>
+                  </div>
+                  <div class="form_con">
+                    <div class="flex-direction statement">
+                      <div class="flex">
+                        <select>
+                          <option value="">항목구분</option>
+                        </select>
+                        <div class="btn_plus flex">
+                          <img src="images/btns/btn_plus.png" alt="내용 추가">
+                        </div>
+                      </div>
+                      <div class="flex-direction">
+                        <textarea class="textcounbox" placeholder="내용 작성 (최소 50자 이상, 최대 300자 이내)"></textarea>
+                        <div class="textcount flex">
+                          <span class="txtcount">0</span>
+                          <span>/</span>
+                          <span class="txttotal">200</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="btns_wrap flex">
+                <div class="flex btn_prevstep btn" onclick="prevBtn(3)"><span>이전단계</span></div>
+                <div class="flex btn_temporarystorage btn"><span>임시저장</span></div>
+                <div class="flex btn_nextstep btn" onclick="nextBtn(4);"><span>다음단계</span></div>
+              </div>
+            </div>
+            <div class="step_con step5">
+              <div class="basic_infomation_wrap">
+                <div class="flex-direction">
+                  <h2>최종제출</h2>
+                  <div class="flex-direction">
+                    <div class="pledge flex-direction">
+                      <h6>지원자 동의 서약서</h6>
+                      <div class="flex-direction">
+                        <p>
+                          1. 본인은 “[한국산업기술시험원] 장애인 전형 단기계약근로자(사무보조) 추가채용”에 지원함에 있어 인사 청탁 등 불명예스러운 일을 하지 않을 것이며,<br>
+                          이를 어길 시 어떠한 불이익도 감수 할 것을 서약합니다.
+                        </p>
+                        <p>
+                          2. 지원서 상의 모든 기재 사항은 사실과 다름이 없음을 증명하며, 차후 지원서 상의 내용이 허위로 판명되어 합격 또는 입사가 취소 되더라도<br>
+                          이의를 제기하지 않을것을 서약합니다.
+                        </p>
+                      </div>
+                      <span>제출일 : 2022.08.12</span>
+                      <span>지원자 : 홍길동</span>
+                    </div>
+                    <div class="pledgechkbox flex">
+                      <div class="flex">
+                        <input type="checkbox" id="pledgechk" class="normal">
+                        <label for="pledgechk"></label>
+                      </div>
+                      <span>위 내용을 모두 확인하였으며, 이에 동의합니다.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="basic_infomation">
+                <div class="flex baseline">
+                  <div class="form_title flex-direction">
+                    <h6>첨부파일</h6>
+                  </div>
+                  <div class="form_con">
+                    <div class="flex-direction attachments">
+                      <div class="flex-direction">
+                        <span>[기타서류 첨부]</span>
+                        <p>공고문의 제출서류목록을 잘 확인하시어, 서류 일부 미제출로 탈락하시는 일이 없도록 주의하시기 바랍니다.</p>
+                      </div>
+                      <div class="flex-direction attachmentsfile">
+                        <span>정보제공동의서 <span>*</span></span>
+                        <div class="flex file_form_wrap">
+                          <div class="file_view"><span>정보제공동의서 파일을 첨부하세요.</span></div>
+                          <div class="flex file_form">
+                            <label for="file1">파일첨부</label>
+                            <input type="file" id="file1">
+                          </div>
+                        </div>
+                        <div class="filedownload">※정보제공동의서 파일 다운로드</div>
+                      </div>
+                      <div class="flex-direction attachmentsfile">
+                        <span>장애인증명서 <span>*</span></span>
+                        <div class="flex file_form_wrap">
+                          <div class="file_view"><span>장애인증명서 파일을 첨부하세요.</span></div>
+                          <div class="flex file_form">
+                            <label for="file1">파일첨부</label>
+                            <input type="file" id="file1">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex-direction attachmentsfile">
+                        <span>자격증사본 <span>*</span></span>
+                        <div class="flex file_form_wrap">
+                          <div class="file_view"><span>[자격] 자격증 사본 등(해당자에 한함) 파일을 첨부하세요.</span></div>
+                          <div class="flex file_form">
+                            <label for="file1">파일첨부</label>
+                            <input type="file" id="file1">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex-direction attachmentsfile">
+                        <span>경력증명서 <span>*</span></span>
+                        <div class="flex file_form_wrap">
+                          <div class="file_view"><span>[경력] 경력증명서(해당자에 한함) 파일을 첨부하세요.</span></div>
+                          <div class="flex file_form">
+                            <label for="file1">파일첨부</label>
+                            <input type="file" id="file1">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex-direction attachmentsfile">
+                        <span>국민연금가입자가입증명서 <span>*</span></span>
+                        <div class="flex file_form_wrap">
+                          <div class="file_view"><span>[경력, 택일] 1. 국민연금가입자가입증명서 파일을 첨부하세요.</span></div>
+                          <div class="flex file_form">
+                            <label for="file1">파일첨부</label>
+                            <input type="file" id="file1">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex-direction attachmentsfile">
+                        <span>건강보험자격득실확인서 <span>*</span></span>
+                        <div class="flex file_form_wrap">
+                          <div class="file_view"><span>[경력, 택일] 2. 건강보험자격득실확인서 파일을 첨부하세요.</span></div>
+                          <div class="flex file_form">
+                            <label for="file1">파일첨부</label>
+                            <input type="file" id="file1">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex-direction attachmentsfile">
+                        <span>고용보험피보험자격이력내역서 <span>*</span></span>
+                        <div class="flex file_form_wrap">
+                          <div class="file_view"><span>[경력, 택일] 3. 고용보험피보험자격이력내역서 파일을 첨부하세요.</span></div>
+                          <div class="flex file_form">
+                            <label for="file1">파일첨부</label>
+                            <input type="file" id="file1">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex-direction attachmentsfile">
+                        <span>병적증명서/초본(병역사항)/군경력증명서 <span>*</span></span>
+                        <div class="flex file_form_wrap">
+                          <div class="file_view"><span>병적증명서/초본(병역사항)/군경력증명서</span></div>
+                          <div class="flex file_form">
+                            <label for="file1">파일첨부</label>
+                            <input type="file" id="file1">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex-direction attachmentsfile">
+                        <span>취업지원대상자 증명서 <span>*</span></span>
+                        <div class="flex file_form_wrap">
+                          <div class="file_view"><span>[우대] 취업지원대상자 증명서(해당자에 한함) 파일을 첨부하세요.</span></div>
+                          <div class="flex file_form">
+                            <label for="file1">파일첨부</label>
+                            <input type="file" id="file1">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="btns_wrap flex">
+                <div class="flex btn_prevstep btn" onclick="prevBtn(4);"><span>이전단계</span></div>
+                <div class="flex btn_submissionpop btn"><span>최종제출</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <?php include 'php/common_footer.php' ?>
+  </div>
+  <div class="popup_submission_wrap popup_wrap">
+    <div class="popup_submission popup">
+      <div class="popup_title flex">
+        <div></div>
+        <h6>지원 정보 확인</h6>
+        <img src="images/btns/btn_cancel.png" alt="취소" class="btn_cancel">
+      </div>
+      <div class="check_title flex-direction">
+        <span>입력하신 정보를 한번 더 확인해주세요.</span>
+        <p>최종제출하시면 더 이상 수정이 불가합니다.</p>
+      </div>
+      <div class="flex-direction info">
+        <span>이름 : 홍길동</span>
+        <span>휴대전화 : 010-1234-1234</span>
+        <span>이메일 : ckdjw@naver.com</span>
+      </div>
+      <div class="flex-direction movepage">
+        <span>최종제출 하시겠습니까?</span>
+        <p>하단의 [최종 제출] 버튼 클릭 시 수정을 할 수 없습니다.</p>
+      </div>
+      <div class="pop_btns flex">
+        <div class="popbtn btn_submissioncancel flex"><span>취소</span></div>
+        <div class="popbtn btn_submission flex"><span>최종제출</span></div>
+      </div>
+    </div>
+  </div>
+<?php include 'php/common_script.php' ?>
+<script>
+  let btnSubmission = $('.btn_submissionpop');
+  btnSubmission.click(function(){
+    $('.popup_submission_wrap').fadeIn(300);
+  });
+  let btnCancel = $('.btn_cancel');
+  btnCancel.click(function(){
+    $('.popup_wrap').hide();
+  });
+</script>
+<script>
+  $('.textcounbox').keyup(function (e) {
+  let content = $(this).val();
+
+    // 글자수 세기
+    if (content.length == 0 || content == '') {
+      $('.txtcount').text('0');
+    } else {
+      $('.txtcount').text(content.length);
+    }
+
+    // 글자수 제한
+    if (content.length > 200) {
+      // 200자 부터는 타이핑 되지 않도록
+        $(this).val($(this).val().substring(0, 200));
+    };
+  });
+</script>
+<script>
+  $(".step_list li").click(function() {
+    var idx = $(this).index();
+    $('.step_list li').removeClass('on');
+    $(this).addClass('on');
+    $(".steps_wrap > .step_con").hide();
+    $(".steps_wrap > .step_con").eq(idx).show();
+  });
+</script>
+<script>
+  function nextBtn(num){
+    $('.step_list li').removeClass('on');
+    if(num === 1){
+      $('.steps_wrap > .step_con').hide();
+      $('.steps_wrap > .step2').show();
+      $('.step2_active').addClass('on');
+    }
+    if(num === 2){
+      $('.steps_wrap > .step_con').hide();
+      $('.steps_wrap > .step3').show();
+      $('.step3_active').addClass('on');
+    }
+    if(num === 3){
+      $('.steps_wrap > .step_con').hide();
+      $('.steps_wrap > .step4').show();
+      $('.step4_active').addClass('on');
+    }
+    if(num === 4){
+      $('.steps_wrap > .step_con').hide();
+      $('.steps_wrap > .step5').show();
+      $('.step5_active').addClass('on');
+    }
+  };
+  function prevBtn(num){
+    $('.step_list li').removeClass('on');
+    if(num === 1){
+      $('.steps_wrap > .step_con').hide();
+      $('.steps_wrap > .step1').show();
+      $('.step1_active').addClass('on');
+    }
+    if(num === 2){
+      $('.steps_wrap > .step_con').hide();
+      $('.steps_wrap > .step2').show();
+      $('.step2_active').addClass('on');
+    }
+    if(num === 3){
+      $('.steps_wrap > .step_con').hide();
+      $('.steps_wrap > .step3').show();
+      $('.step3_active').addClass('on');
+    }
+    if(num === 4){
+      $('.steps_wrap > .step_con').hide();
+      $('.steps_wrap > .step4').show();
+      $('.step4_active').addClass('on');
+    }
+  };
+</script>
+</body>
+</html>
