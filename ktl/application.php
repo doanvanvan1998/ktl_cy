@@ -94,7 +94,7 @@
 <script>
   let btnWrite = $('.btn_write');
   btnWrite.click(function(){
-    location.href = 'jobapplication.html';
+    location.href = 'jobapplication.php';
   });
 </script>
 </body>

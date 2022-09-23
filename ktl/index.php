@@ -5,18 +5,18 @@
   <div class="wrap">
     <div class="header_wrap">
       <div class="container flex">
-        <div class="logo flex"><a href="index.html"><img src="images/icons/ic_logo_on.png" alt="KTL 한국산업기술시험원"></a></div>
+        <div class="logo flex"><a href="index.php"><img src="images/icons/ic_logo_on.png" alt="KTL 한국산업기술시험원"></a></div>
         <div class="mobile_menu"></div>
       </div>
       <div class="mobile_toggle_menu">
         <div class="toggle_menu">
           <div class="flex-direction menu_list">
             <ul class="menu">
-              <li><a href="employment.html">채용정보</a></li>
+              <li><a href="employment.php">채용정보</a></li>
               <li>
                 <a href="#">지원관리</a>
                 <ul class="flex-direction">
-                  <li><a href="application.html">지원서 작성</a></li>
+                  <li><a href="application.php">지원서 작성</a></li>
                   <li><a href="applicationcorrection.html">지원서 수정</a></li>
                   <li><a href="result.html">전형결과 확인</a></li>
                   <li><a href="#">이의신청</a></li>
@@ -52,7 +52,7 @@
             </p>
           </div>
           <div class="flex btn_more">
-            <a href="employment.html" class="flex">
+            <a href="employment.php" class="flex">
               <span>오케스트라단원 부문</span>
               <img src="images/icons/ic_more.png" alt="이동">
             </a>
@@ -77,8 +77,8 @@
         </div>
         <div class="con_center flex">
           <div class="flex-direction contitle">
-            <a href="employment.html">오케스트라단원 부문  <span>바로가기</span></a>
-            <a href="employment.html"><img src="images/btns/btn_shortcut.png" alt="바로가기"></a>
+            <a href="employment.php">오케스트라단원 부문  <span>바로가기</span></a>
+            <a href="employment.php"><img src="images/btns/btn_shortcut.png" alt="바로가기"></a>
           </div>
         </div>
         <div class="con_right flex-direction">

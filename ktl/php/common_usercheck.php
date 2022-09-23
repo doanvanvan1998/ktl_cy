@@ -10,7 +10,7 @@
   }
   else
   {
-    echo "<script>alert('잘못된 경로로 접근중입니다.');location.href='index.html';</script>";
+    echo "<script>alert('잘못된 경로로 접근중입니다.');location.href='index.php';</script>";
   }
 
 

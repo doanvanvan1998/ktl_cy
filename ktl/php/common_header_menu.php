@@ -8,7 +8,7 @@
           <li>
             <a href="#">지원관리</a>
             <ul class="main_sub_menu flex-direction">
-              <li><a href="application.html">지원서 작성</a></li>
+              <li><a href="application.php">지원서 작성</a></li>
               <li><a href="applicationcorrection.html">지원서 수정</a></li>
               <li><a href="result.html">전형결과 확인</a></li>
               <li><a href="objection.html">이의신청</a></li>

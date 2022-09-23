@@ -47,6 +47,60 @@
               </div>
             </div>
           </div>
+
+
+
+            <div class="flex baseline">
+                <div class="form_title">
+                    <h6>장애 정도 </h6>
+                </div>
+                <div class="form_con">
+                    <div class="flex-direction inputbox">
+                        <input type="text" id='level' placeholder="장애 정도" required>
+                        <span class="noti"><span>*</span> 공백 없이 입력하세요.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex baseline">
+                <div class="form_title">
+                    <h6> 사회 활동 </h6>
+                </div>
+                <div class="form_con">
+                    <div class="flex-direction inputbox">
+                        <input type="text" id='action' placeholder="사회 활동" required>
+                        <span class="noti"><span>*</span> 공백 없이 입력하세요.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex baseline ">
+                <div class="form_title">
+                    <h6>대회 / 수상 이름 </h6>
+                </div>
+                <div class="form_con">
+                    <div class="flex-direction inputbox">
+                        <input type="text" id='' placeholder="대회 / 수상 이름" required>
+                        <span class="noti"><span>*</span> 공백 없이 입력하세요.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex baseline ">
+                <div class="form_title">
+                    <h6>부문 수상</h6>
+                </div>
+                <div class="form_con">
+                    <div class="flex-direction inputbox">
+                        <input type="text" id='' placeholder="부문 수상" required>
+                        <span class="noti"><span>*</span> 공백 없이 입력하세요.</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+
           <div class="flex baseline">
             <div class="form_title">
               <h6>휴대전화</h6>
