@@ -76,11 +76,14 @@ session_start();
                                     include "../../php/mysql.php";
                                     include "../../php/crypt.php";
                                     $nIndex = 1;
-                                    $query = "select id,userid,username,userphone,description,useremail from recruit_able_subadmin order by id desc";
+                                    $query = "select id,userid,username,userphone,pass,useremail,description from recruit_able_subadmin order by id desc";
                                     $result = mysqli_query($con, $query);
                                     while ($row = mysqli_fetch_array($result)) {
                                         $userphone = Decrypt($row['userphone'], $secret_key, $secret_iv);
                                         $useremail = Decrypt($row['useremail'], $secret_key, $secret_iv);
+                                        $row['userphone'] = Decrypt($row['userphone'], $secret_key, $secret_iv);
+                                        $row['useremail'] = Decrypt($row['useremail'], $secret_key, $secret_iv);
+                                        $row['pass'] = Decrypt($row['pass'], $secret_key, $secret_iv);
 
 
                                         echo "<tr id='tr_$row[0]'><td>$nIndex</td><td>" . $row['userid'] . "</td><td>" . $row['username'] . "</td><td>" . $userphone . "</td><td>" . $useremail . "</td><td>" . $row['description'] . "</td><td><button   class='btn btn-info' onclick='onSubAdminReset(";
@@ -113,10 +116,10 @@ session_start();
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header" style="background: #17a2b8;color: white">
                         <h5 class="modal-title" id="exampleModalLabel"> 수정 </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                            <span aria-hidden="true" style="color: white">&times;</span>
                         </button>
                     </div>
                     <form method="post" action="../../php/fnc/subadmin_update.php" id="onSubmit">
@@ -134,7 +137,7 @@ session_start();
                         </div>
                     </form>
                     <div class="modal-footer " style="margin: auto">
-                        <button type="button" class="btn btn-primary" onclick="update()">저장하다</button>
+                        <button type="button" class="btn btn-primary" onclick="update()" style="background: #17a2b8;border: #17a2b8;">저장하다</button>
                     </div>
                 </div>
             </div>
@@ -218,26 +221,35 @@ session_start();
         //             }
         //         });
         // }
+        console.log(data);
         $("#btn-update").click();
         let html = ` <div class="form-group">
             <div>
             아이디
             </div>
-                                        <input name="Id" id="id"  type="hidden" class="form-control"  placeholder="아이디" value="${data[0]}"> <br>
-                                        <input name="userid" id="아이디"  type="text" class="form-control"  placeholder="아이디" value="${data[1]}"> <br>
+                                        <input name="Id" id="id"  type="hidden" class="form-control"  placeholder="아이디" value="${data["id"]}"> <br>
+                                        <input name="userid" id="아이디"  type="text" class="form-control"  placeholder="아이디" value="${data["userid"]}"> <br>
             <div>
             면접관 이름
             </div>
-                                        <input name="username" id="면접관이름" type="text" class="form-control"  placeholder="면접관 이름" value="${data[2]}"> <br>
+                                        <input name="username" id="면접관이름" type="text" class="form-control"  placeholder="면접관 이름" value="${data["username"]}"> <br>
              <div>
              연락처
             </div>
-                                        <input name="phone" id="연락처" type="text" class="form-control"  placeholder="연락처" value="${data[3]}"> <br>
+                                        <input name="phone" id="연락처" type="text" class="form-control"  placeholder="연락처" value="${data["userphone"]}"> <br>
             <div>
             이메일주소
             </div>
-                            <input name="email" id="이메일주소" type="text" class="form-control"  placeholder="이메일주소" value="${data[4]}"> <br>
-                            <input name="pass" id="경력설명" type="text" class="form-control"  placeholder="경력 & 설명" value="${data[5]}">
+                            <input name="pass" id="경력설명" type="text" class="form-control"  placeholder="이메일주소" value="${data["pass"]}"> <br>
+<div>
+이메일주소
+</div>
+                            <input name="email" id="이메일주소" type="text" class="form-control"  placeholder="경력 & 설명" value="${data["useremail"]}"><br>
+<div>
+경력설명
+</div>
+
+                            <input name="description" id="경력설명" type="text" class="form-control"  placeholder="경력 & 설명" value="${data["description"]}">
 
                         </div>`
         $("#form-Update").empty();

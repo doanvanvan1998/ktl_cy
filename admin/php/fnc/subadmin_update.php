@@ -9,15 +9,13 @@ $username     = $_POST['username'];
 $id           = $_POST['Id'];
 $phone    = $_POST['phone'];
 $email    = $_POST['email'];
-
-
-
+$description    = $_POST['description'];
 
 
 $query = "SELECT useremail,userphone,pass FROM recruit_able_subadmin where id=$id";
 echo $query;
 $resultSet = mysqli_query($con, $query);
-$sql = "UPDATE recruit_able_subadmin SET userid='$userid',username='$username'";
+$sql = "UPDATE recruit_able_subadmin SET userid='$userid',username='$username',description='$description'";
 
 if (mysqli_num_rows($resultSet) > 0) {
     while ($row = mysqli_fetch_assoc($resultSet)) {
