@@ -55,18 +55,23 @@
           <div class="col-12">
             <div class="card">
               <!-- /.card-header -->
+
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>No.</th>
-                    <th>형태</th>
-                    <th>신청자</th>
-                    <th style='width:200px;'>제목</th>
-                    <th style='width:300px;'>내용</th>
-                    <th>등록날짜</th>
-                    <th style='width:300px;'>답변</th>
-                    <th style='width:75px;'>답변등록</th>
+                    <th>수험번호</th>
+                    <th>지원자명</th>
+                    <th >연락처</th>
+                    <th >이메일</th>
+                    <th>장애정도</th>
+                    <th>주전공</th>
+                    <th>부전공</th>
+                    <th>제출일</th>
+                    <th>지원서
+                        보기</th>
+                      <th>적격 검증</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -74,30 +79,38 @@
                     include "../../php/mysql.php";
                     include "../../php/crypt.php";
                     $nIndex = 1;
-                    $query="select id,title,objection_type,username,phone,email,subject,contents,answer_contents,answer_date,date from objection_info order by id desc";
+                    $query="select id,code_profile,username,phone,email,level_disabilities,subject,sub_subject,Verifi,date from objection_info where Verifi !='부적격' ";
                     $result = mysqli_query($con,$query);
                     while($row = mysqli_fetch_array($result))
                     {
                       $row['phone'] = Decrypt($row['phone'],$secret_key,$secret_iv);
-
-                      $row['contents'] = nl2br($row['contents']);
+                      $row['email'] = Decrypt($row['email'],$secret_key,$secret_iv);
                       echo "<tr id='tr_$row[0]'><td>$nIndex</td>
-                        <td>".$row['objection_type']."</td>
-                        <td>".$row['username']."<br>".$row['phone']."</td>
+                        <td>".$row['code_profile']."</td>
+                        <td>".$row['username']."</td>
+                        <td>".$row['phone']."</td>
+                        <td>".$row['email']."</td>
+                        <td>".$row['level_disabilities']."</td>
                         <td>".$row['subject']."</td>
-                        <td>".$row['contents']."</td>
+                        <td>".$row['sub_subject']."</td>
                         <td>".$row['date']."</td>
-                        <td><textarea style='width:100%;height:100px;resize:none;padding:10px;' id='answer_$row[0]'>".$row['answer_contents']."</textarea></td>";
-                      echo "<td><button class='btn btn-primary' onclick='onAnswerSave($row[0])'>등록</button></td></tr>";
-
-
+                        <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode($row, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
+                        <td>
+                            <select class='custom-select'  style='border: none'  name='verifi' onchange='updateVerifi(";echo $row['id'] ?><?php echo ")' id= ".$row['id'].">
+                            <option selected>".$row['Verifi']."</option>
+                            <option value='적격'>적격</option>
+                            <option value='부적격'>부적격</option>
+                          </select></td>
+                        ";
                       $nIndex++;
                     }
                     mysqli_close($con);
                   ?>
+                  <a href="../../php/fnc/inquire_excel.php" style=" position: relative;top: 30px;z-index: 1; border: 1px #1e4a28 solid;background: #28a745;color: white;padding: 10px;border-radius: 22px;">엑셀 파일 출력</a>
                   </tbody>
                 </table>
               </div>
+
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
@@ -124,16 +137,16 @@
   <!-- /.control-sidebar -->
 </div>
 <script>
-  function onAnswerSave(Id)
+  function updateVerifi(id)
   {
     $.post("../../php/fnc/inquire_save.php",
     {
-      Id : Id,
-      contents : $("#answer_"+Id).val()
+        id : id,
+        verifi:$("#"+id).val()
     },
      function(data,status){
      if(status != "fail"){
-      alert("답변 등록이 완료되었습니다.");
+      window.location.reload();
      }
      else
      {
@@ -180,6 +193,7 @@ $(function () {
 });
 $("#nav_6").attr("class","nav-item menu-is-opening menu-open");
 $("#nav_6_1").attr("class","nav-link active");
+
 </script>
 </body>
 </html>

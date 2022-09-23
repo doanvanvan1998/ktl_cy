@@ -92,6 +92,7 @@ session_start();
                                     }
                                     mysqli_close($con);
                                     ?>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -124,16 +125,6 @@ session_start();
                     </div>
                     <form method="post" action="../../php/fnc/subadmin_update.php" id="onSubmit">
                         <div class="modal-body" id="form-Update">
-                            <!--                        <div class="form-group">-->
-                            <!--                            <input type="text" class="form-control"  placeholder="아이디"> <br>-->
-                            <!--                            <input type="text" class="form-control"  placeholder="면접관 이름"> <br>-->
-                            <!---->
-                            <!--                            <input type="text" class="form-control"  placeholder="연락처"> <br>-->
-                            <!---->
-                            <!--                            <input type="text" class="form-control"  placeholder="이메일주소"> <br>-->
-                            <!--                            <input type="text" class="form-control"  placeholder="경력 & 설명">-->
-                            <!---->
-                            <!--                        </div>-->
                         </div>
                     </form>
                     <div class="modal-footer " style="margin: auto">
@@ -208,21 +199,9 @@ session_start();
         $("#onSubmit").submit();
     }
     function onSubAdminReset(data) {
-        // if (confirm("해당 면접관 비밀번호를 1로 변경하시겠습니까?")) {
-        //     $.post("../../php/fnc/subadmin_pw.php",
-        //         {
-        //             Id: Id,
-        //         },
-        //         function (data, status) {
-        //             if (status != "fail") {
-        //                 alert("해당 면접관 비밀번호를 1로 변경했습니다.");
-        //             } else {
-        //                 alert("네트워크 오류");
-        //             }
-        //         });
-        // }
         console.log(data);
         $("#btn-update").click();
+        data['pass'] ="";
         let html = ` <div class="form-group">
             <div>
             아이디

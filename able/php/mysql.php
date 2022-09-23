@@ -1,5 +1,4 @@
 <?php
-
 	$con = mysqli_connect('localhost','root','','ktl',3308);
 	// $result = mysqli_query($con,"SELECT * FROM apply_step_1");
 	// $count = mysqli_num_rows($result);

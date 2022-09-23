@@ -47,7 +47,7 @@
            </p>
          </a>
        </li>
-       <li class="nav-header">지원자현황</li>
+       <li class="nav-header">지원자관리</li>
 
        <li class="nav-item" id='nav_4'>
          <a href="#" class="nav-link" id='nav_4_1'>
@@ -62,19 +62,13 @@
            <li class="nav-item">
              <a href="apply_list.php?Id=1" class="nav-link" id='nav_5_1'>
                <i class="far fa-circle nav-icon"></i>
-               <p>서류전형</p>
+               <p>지원자현황</p>
              </a>
            </li>
            <li class="nav-item">
              <a href="apply_list.php?Id=2" class="nav-link" id='nav_5_2'>
                <i class="far fa-circle nav-icon"></i>
-               <p>면접현황</p>
-             </a>
-           </li>
-           <li class="nav-item">
-             <a href="apply_list.php?Id=3" class="nav-link" id='nav_5_3'>
-               <i class="far fa-circle nav-icon"></i>
-               <p>최종합격자</p>
+               <p>지원자통계</p>
              </a>
            </li>
          </ul>

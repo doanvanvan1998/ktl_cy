@@ -26,12 +26,7 @@
   <?php
     include "../../php/sub_nav.php";
     include "../../php/sub_left_menu.php";
-    $Id = $_GET["Id"];
-    echo "<input type='hidden' id='SelId' value='$Id'/>";
-    $strtitle = "";
-    if($Id == 1) { $strtitle = "서류전형"; }
-    else if($Id == 2) { $strtitle = "면접현황"; }
-    else if($Id == 3) { $strtitle = "최종합격자"; }
+
 
   ?>
 
@@ -43,13 +38,20 @@
         <div class="row mb-2">
 
           <div class="col-sm-6">
-            <h1><?=$strtitle?></h1>
+            <h1>지원자관리</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">지원자현황</li>
-              <li class="breadcrumb-item active"><?=$strtitle?></li>
+              <?php
+              $Id = $_GET["Id"];
+              if($Id == 1){
+                  echo "<li class='breadcrumb-item active'>지원자현황</li>";
+              }else{
+                  echo "<li class='breadcrumb-item active'>지원자통계</li>";
+              }
+
+              ?>
             </ol>
           </div>
         </div>
@@ -64,130 +66,68 @@
             <div class="card">
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" style='text-align:center;'  class="table table-bordered table-striped">
+                  <?php echo "
+                <table id='example1' style='text-align:center;'  class='table table-bordered table-striped'>
                   <thead>
                   <tr>
-                    <th style='width:30px;'>No.</th>
-                    <th>지원번호</th>
-                    <th>지원자명</th>
-                    <th>휴대전화</th>
-                    <th>이메일</th>
-                    <th>평가점수</th>
-                    <th style='width:125px;'>포트폴리오</th>
-                    <th style='width:125px;'>지원서보기</th>
-                    <th style='width:85px;'>합격여부</th>
+                      <th>No.</th>
+                      <th>수험번호</th>
+                      <th>지원자명</th>
+                      <th >연락처</th>
+                      <th >이메일</th>
+                      <th>장애정도</th>
+                      <th>주전공</th>
+                      <th>부전공</th>
+                      <th>제출일</th>
+                      <th>지원서
+                          보기</th>
+                      <th>적격 검증</th>
                   </tr>
                   </thead>
-                  <tbody>
-                    <?php
+                  <tbody>";
+
                       include "../../php/mysql.php";
                       include "../../php/crypt.php";
 
-                      $nIndex = 1;
-                      if($Id == 1)
-                        $query="select id,username,phone,email,apply_num,result_check_num,result_check from recruit_able_user where apply_step=5 and result_check_num = 1";
-                      else if($Id == 2)
-                        $query="select id,username,phone,email,apply_num,result_check_num,result_check from recruit_able_user where apply_step=5 and result_check_num = 2 ";
-                      else if($Id == 3)
-                        $query="select id,username,phone,email,apply_num,result_check_num,result_check from recruit_able_user where apply_step=5 and result_check_num = 3 ";
-
-                      $Uresult = mysqli_query($con,$query);
-                      while($Urow = mysqli_fetch_array($Uresult))
-                      {
-                        $query="select sum(score) from recruit_able_score where step='$Id' and userid='$Urow[0]'";
-                        $ScoreResult = mysqli_query($con,$query);
-                        $ScoreRow = mysqli_fetch_array($ScoreResult);
-
-                        if($ScoreRow[0] == "") $ScoreRow[0] = 0;
-
-                        $query="select user_address,user_detailAddress,sel_tab_num,step0_view_sel,step0_view_sel2,sel2_tab_num,sel3_tab_num,sel4_tab_num,data1,data2,data3,data4,data5,data6,data7,data8,check_phone,data12,data13 from apply_step_1 where userid='$Urow[0]'";
-                        $ApplyResult1 = mysqli_query($con,$query);
-                        $ApplyRow1 = mysqli_fetch_array($ApplyResult1);
-
-                        $Urow[2] = Decrypt($Urow[2],$secret_key,$secret_iv);
-                        $Urow[3] = Decrypt($Urow[3],$secret_key,$secret_iv);
-
-                        echo "<tr><td>$nIndex</td><td>$Urow[4]</td><td>$Urow[1]</td><td>$Urow[2]</td><td>$Urow[3]</td><td>$ScoreRow[0]</td><td>";
-                        $strPdf = "../../../ktl/portfolio/".$Urow[0].".pdf";
-                        if(file_exists("../../../ktl/portfolio/".$Urow[0].".pdf")) {
-                            echo "<a href='$strPdf' target='_blank' class='btn btn-warning' style='font-weight:600'>포트폴리오</a>";
-                        }else{
-                            echo "없음";
+                    $strtitle = "";
+                    if($Id == 1) {
+                        $nIndex = 1;
+                        $query="select id,code_profile,username,phone,email,level_disabilities,subject,sub_subject,Verifi,date from objection_info where Verifi !='부적격' ";
+                        $result = mysqli_query($con,$query);
+                        while($row = mysqli_fetch_array($result))
+                        {
+                            $row['phone'] = Decrypt($row['phone'],$secret_key,$secret_iv);
+                            $row['email'] = Decrypt($row['email'],$secret_key,$secret_iv);
+                            echo "<tr id='tr_$row[0]'><td>$nIndex</td>
+                        <td>".$row['code_profile']."</td>
+                        <td>".$row['username']."</td>
+                        <td>".$row['phone']."</td>
+                        <td>".$row['email']."</td>
+                        <td>".$row['level_disabilities']."</td>
+                        <td>".$row['subject']."</td>
+                        <td>".$row['sub_subject']."</td>
+                        <td>".$row['date']."</td>
+                        <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode($row, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
+                        <td>
+                            <select class='custom-select'  style='border: none'  name='verifi' onchange='updateVerifi(";echo $row['id'] ?><?php echo ")' id= ".$row['id'].">
+                            <option selected>".$row['Verifi']."</option>
+                            <option value='적격'>적격</option>
+                            <option value='부적격'>부적격</option>
+                          </select></td>
+                        ";
+                            $nIndex++;
                         }
-                        echo "</td><td><button class='btn btn-primary' onclick='onApplyView($Urow[0],$Id)'>지원페이지로 이동</button></td>";
-
-                        if($Id == 1) {
-                          if($Urow['result_check_num'] == 1)
-                          {
-                            //지원상태
-                            echo "<td><button class='btn btn-info' onclick='onApplySuc($Urow[0],2)'>서류통과</button></td>";
-                          }
-                          else
-                          {
-                            if($Urow['result_check'] == 1)
-                            {
-                              echo "<td>서류통과</td>";
-                            }
-                            else if($Urow['result_check'] == 0)
-                            {
-                              echo "<td>서류 불합격</td>";
-                            }
-                          }
-                        }
-                        else if($Id == 2) {
-                          if($Urow['result_check_num'] == 2)
-                          {
-                            //서류통과한 상태
-                            echo "<td><button class='btn btn-info' onclick='onApplySuc($Urow[0],3)'>최종합격</button></td>";
-                          }
-                          else
-                          {
-                            if($Urow['result_check'] == 1)
-                            {
-                              echo "<td>면접통과</td>";
-                            }
-                            else if($Urow['result_check'] == 0)
-                            {
-                              echo "<td>면접 불합격</td>";
-                            }
-                          }
-                        }
-                        else if($Id == 3) {
-                          if($Urow['result_check_num'] == 3)
-                          {
-                            //서류통과한 상태
-                            echo "<td>최종합격</td>";
-                          }
-                          else
-                          {
-                            if($Urow['result_check'] == 1)
-                            {
-                              echo "<td>최종합격 통과</td>";
-                            }
-                            else if($Urow['result_check'] == 0)
-                            {
-                              echo "<td>최종합격 불합격</td>";
-                            }
-                          }
-                        }
-
-                        else if($Id == 2) { echo "<td><button class='btn btn-info' onclick='onApplySuc($Urow[0])'>최종합격</button></td>"; }
-                        else if($Id == 3) { echo "<td>최종합격자</td>"; }
-
-                        echo "</tr>";
-
-                        $nIndex++;
-                      }
-                      mysqli_close($con);
-                    ?>
+                        echo "<a href='../../php/fnc/inquire_excel.php' style=' position: relative;top: 30px;z-index: 1; border: 1px #1e4a28 solid;background: #28a745;color: white;padding: 10px;border-radius: 22px;'>엑셀 파일 출력</a>
                   </tbody>
                 </table>
-              </div>
+              </div>";
+                    }
+                      mysqli_close($con);
+                    ?>
+
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
-
-
           </div>
           <!-- /.col -->
         </div>
