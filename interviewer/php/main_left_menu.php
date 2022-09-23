@@ -8,7 +8,7 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="info">
-        <span class="d-block" style='color:#fff'><?=$Arow[0]?> 관리자 <a href='#' onclick='onLogout()'>[ 로그아웃 ]</a></span>
+        <span class="d-block" style='color:#fff'><?=$Arow[0]?> 평가위원 <a href='#' onclick='onLogout()'>[ 로그아웃 ]</a></span>
       </div>
     </div>
 
