@@ -83,7 +83,7 @@
             </div>
             <div class="form-group">
               <label for="inputProjectLeader">수정하실 패스워드</label>
-              <input type="password" id="pass" class="form-control" placeholder="패스워드를 입력하세요.">
+              <input type="password" id="pass" class="form-control" placeholder="패스워드를 입력하세요." disabled="true">
             </div>
             </div>
             <!-- /.card-body -->
@@ -98,15 +98,15 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="inputName">이름</label>
-                <input type="text" id="username" value='<?=$Arow[0]?>' class="form-control" placeholder="이름을 입력하세요.">
+                <input type="text"  id="username" value='<?=$Arow[0]?>' class="form-control" placeholder="이름을 입력하세요." disabled="true">
               </div>
               <div class="form-group">
                 <label for="inputEstimatedBudget">휴대폰번호</label>
-                <input type="number" id="userphone" value='<?=$Arow[1]?>' class="form-control" placeholder="휴대폰번호를 입력하세요.">
+                <input type="number" id="userphone" value='<?=$Arow[1]?>' class="form-control" placeholder="휴대폰번호를 입력하세요." disabled="true">
               </div>
               <div class="form-group">
                 <label for="inputSpentBudget">E-mail</label>
-                <input type="email" id="useremail" value='<?=$Arow[2]?>' class="form-control" placeholder="이메일주소를 입력하세요.">
+                <input type="email" id="useremail" value='<?=$Arow[2]?>' class="form-control" placeholder="이메일주소를 입력하세요." disabled="true">
               </div>
             </div>
             <!-- /.card-body -->
