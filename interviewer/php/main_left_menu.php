@@ -1,9 +1,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a href="index.html" class="brand-link">
+  <a href="index.php" class="brand-link">
     <span class="brand-text font-weight-bold"><img src='http://ktl-recruit.ableup.kr/images/icons/ic_logo_off.png' style='width:100%;padding:20px;' /></span>
   </a>
-
   <!-- Sidebar -->
   <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
@@ -20,7 +19,7 @@
              with font-awesome or any other icon font library -->
        <li class="nav-header">내정보</li>
        <li class="nav-item">
-         <a href="pages/forms/myinfo.html" class="nav-link">
+         <a href="pages/forms/myinfo.php" class="nav-link">
            <i class="nav-icon fas fa-pen"></i>
            <p>
              정보수정
@@ -38,19 +37,19 @@
          </a>
          <ul class="nav nav-treeview">
            <li class="nav-item">
-             <a href="pages/forms/apply_list.html?Id=1" class="nav-link">
+             <a href="pages/forms/apply_list.php?Id=1" class="nav-link">
                <i class="far fa-circle nav-icon"></i>
                <p>서류전형</p>
              </a>
            </li>
            <li class="nav-item">
-             <a href="pages/forms/apply_list.html?Id=2" class="nav-link">
+             <a href="pages/forms/apply_list.php?Id=2" class="nav-link">
                <i class="far fa-circle nav-icon"></i>
                <p>면접현황</p>
              </a>
            </li>
            <li class="nav-item">
-             <a href="pages/forms/apply_list.html?Id=3" class="nav-link">
+             <a href="pages/forms/apply_list.php?Id=3" class="nav-link">
                <i class="far fa-circle nav-icon"></i>
                <p>최종합격자</p>
              </a>

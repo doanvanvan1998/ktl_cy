@@ -29,8 +29,9 @@
   <?php
     include "../../php/sub_nav.php";
     include "../../php/sub_left_menu.php";
-    $Id = $_GET["Id"];
-    echo "<input type='hidden' id='Id' value='$Id'/>";
+    //quang
+//    $Id = $_GET["Id"];
+//    echo "<input type='hidden' id='Id' value='$Id'/>";
   ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -70,6 +71,7 @@
               $Aresult = mysqli_query($con,$query);
               $Arow = mysqli_fetch_array($Aresult);
 
+
               $Arow[1] = Decrypt($Arow[1],$secret_key,$secret_iv);
               $Arow[2] = Decrypt($Arow[2],$secret_key,$secret_iv);
 
@@ -78,11 +80,11 @@
             <div class="card-body">
             <div class="form-group">
               <label for="inputClientCompany">아이디</label>
-              <input type="text" id="userid" value='<?=$userid?>' class="form-control" placeholder="아이디를 입력하세요.">
+              <input type="text" id="userid" value='<?=$userid?>' class="form-control "  placeholder="아이디를 입력하세요.">
             </div>
             <div class="form-group">
               <label for="inputProjectLeader">수정하실 패스워드</label>
-              <input type="password" id="pass" class="form-control" placeholder="패스워드를 입력하세요.">
+              <input type="password" id="pass" class="form-control " placeholder="패스워드를 입력하세요.">
             </div>
             </div>
             <!-- /.card-body -->
@@ -97,15 +99,15 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="inputName">이름</label>
-                <input type="text" id="username" value='<?=$Arow[0]?>' class="form-control" placeholder="이름을 입력하세요.">
+                <input type="text" id="username" value='<?=$Arow[0]?>' class="form-control"  placeholder="이름을 입력하세요.">
               </div>
-              <div class="form-group">
+              <div class="form-group " style="display: none;" >
                 <label for="inputEstimatedBudget">휴대폰번호</label>
                 <input type="number" id="userphone" value='<?=$Arow[1]?>' class="form-control" placeholder="휴대폰번호를 입력하세요.">
               </div>
-              <div class="form-group">
+              <div class="form-group " style="display: none;">
                 <label for="inputSpentBudget">E-mail</label>
-                <input type="email" id="useremail" value='<?=$Arow[2]?>' class="form-control" placeholder="이메일주소를 입력하세요.">
+                <input type="email" id="useremail" value='<?=$Arow[2]?>' class="form-control"  placeholder="이메일주소를 입력하세요.">
               </div>
             </div>
             <!-- /.card-body -->
@@ -115,8 +117,9 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <a href="subadmin_list.php" class="btn btn-secondary">리스트 보기</a>
-          <input type="submit" onclick='onSubAdminAdd()' value="등록하기" class="btn btn-success float-right">
+<!--            quang-->
+<!--          <a href="subadmin_list.php" class="btn btn-secondary">리스트 보기</a>-->
+          <input type="submit" onclick='onSubAdminAdd()' value="등록하기" class="btn btn-success float-right" >
         </div>
       </div>
     </section>

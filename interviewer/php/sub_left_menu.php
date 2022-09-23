@@ -3,8 +3,8 @@
 </style>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a href="../../index.html" class="brand-link">
-    <span class="brand-text font-weight-bold"><img src='http://ktl-recruit.ableup.kr/images/icons/ic_logo_off.png' style='width:100%;padding:20px;' /></span>
+  <a href="../../index.php" class="brand-link">
+    <span class="brand-text font-weight-bold"><img src="http://ktl-recruit.ableup.kr/images/icons/ic_logo_off.png" style='width:100%;padding:20px;' /></span>
   </a>
 
   <!-- Sidebar -->
@@ -43,19 +43,19 @@
          </a>
          <ul class="nav nav-treeview">
            <li class="nav-item">
-             <a href="apply_list.html?Id=1" class="nav-link" id='nav_5_1'>
+             <a href="apply_list.php?Id=1" class="nav-link" id='nav_5_1'>
                <i class="far fa-circle nav-icon"></i>
                <p>서류전형</p>
              </a>
            </li>
            <li class="nav-item">
-             <a href="apply_list.html?Id=2" class="nav-link" id='nav_5_2'>
+             <a href="apply_list.php?Id=2" class="nav-link" id='nav_5_2'>
                <i class="far fa-circle nav-icon"></i>
                <p>면접현황</p>
              </a>
            </li>
            <li class="nav-item">
-             <a href="apply_list.html?Id=3" class="nav-link" id='nav_5_3'>
+             <a href="apply_list.php?Id=3" class="nav-link" id='nav_5_3'>
                <i class="far fa-circle nav-icon"></i>
                <p>최종합격자</p>
              </a>

@@ -23,7 +23,7 @@
              with font-awesome or any other icon font library -->
        <li class="nav-header">내정보</li>
        <li class="nav-item" id='nav_1'>
-         <a href="myinfo.html" class="nav-link" id='nav_1_1'>
+         <a href="myinfo.php" class="nav-link" id='nav_1_1'>
            <i class="nav-icon fas fa-pen"></i>
            <p>
              정보수정
@@ -32,7 +32,7 @@
        </li>
        <li class="nav-header">면접관관리</li>
        <li class="nav-item" id='nav_2'>
-         <a href="subadmin_add.html" class="nav-link" id='nav_2_1'>
+         <a href="subadmin_add.php" class="nav-link" id='nav_2_1'>
            <i class="nav-icon fas fa-pen"></i>
            <p>
              면접관등록
@@ -40,7 +40,7 @@
          </a>
        </li>
        <li class="nav-item" id='nav_3'>
-         <a href="subadmin_list.html" class="nav-link" id='nav_3_1'>
+         <a href="subadmin_list.php" class="nav-link" id='nav_3_1'>
            <i class="nav-icon fas fa-user"></i>
            <p>
              면접관리스트
@@ -60,19 +60,19 @@
          </a>
          <ul class="nav nav-treeview">
            <li class="nav-item">
-             <a href="apply_list.html?Id=1" class="nav-link" id='nav_5_1'>
+             <a href="apply_list.php?Id=1" class="nav-link" id='nav_5_1'>
                <i class="far fa-circle nav-icon"></i>
                <p>서류전형</p>
              </a>
            </li>
            <li class="nav-item">
-             <a href="apply_list.html?Id=2" class="nav-link" id='nav_5_2'>
+             <a href="apply_list.php?Id=2" class="nav-link" id='nav_5_2'>
                <i class="far fa-circle nav-icon"></i>
                <p>면접현황</p>
              </a>
            </li>
            <li class="nav-item">
-             <a href="apply_list.html?Id=3" class="nav-link" id='nav_5_3'>
+             <a href="apply_list.php?Id=3" class="nav-link" id='nav_5_3'>
                <i class="far fa-circle nav-icon"></i>
                <p>최종합격자</p>
              </a>

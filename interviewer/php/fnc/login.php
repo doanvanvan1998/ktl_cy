@@ -12,6 +12,7 @@
   $result = mysqli_query($con,$query);
   $row = mysqli_fetch_array($result);
 
+
   if($row[0] == 0)
   {
     echo "fail";

@@ -80,7 +80,7 @@
                     {
                       $row['phone'] = Decrypt($row['phone'],$secret_key,$secret_iv);
 
-                      $$row['contents'] = nl2br($row['contents']);
+                      $row['contents'] = nl2br($row['contents']);
                       echo "<tr id='tr_$row[0]'><td>$nIndex</td>
                         <td>".$row['objection_type']."</td>
                         <td>".$row['username']."<br>".$row['phone']."</td>
