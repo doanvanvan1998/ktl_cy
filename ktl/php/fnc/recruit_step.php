@@ -8,10 +8,6 @@ include "../crypt.php";
 $imp_uid = "1";
 $username = $_POST['username'];
 $userphone = $_POST['userphone'];
-$level = $_POST['level'];
-$action = $_POST['action'];
-$namePrize = $_POST['namePrize'];
-$prize = $_POST['prize'];
 $useremail = $_POST['useremail'];
 $userpass = $_POST['userpass'];
 
@@ -52,7 +48,7 @@ if ($row[0] != 0) {
     return;
 }
 
-$query = "INSERT INTO `recruit_able_user`( `imp_uid`, `username`, `phone`, `email`, `pass`, `level`, `action`, `namePrize`, `prize`, `identi_check`, `apply_num`, `apply_link`, `portfolio`, `apply_state`, `apply_step`, `result_check`, `result_check_num`, `update_date`) VALUES ('','$username','$userphone','$useremail','$userpass','$level','$action','$namePrize','$prize','','','','','','','','','')";
+$query = "INSERT INTO `recruit_able_user`( `imp_uid`, `username`, `phone`, `email`, `pass`,  `identi_check`, `apply_num`, `apply_link`, `portfolio`, `apply_state`, `apply_step`, `result_check`, `result_check_num`, `update_date`) VALUES ('','$username','$userphone','$useremail','$userpass','','','','','','','','','')";
 $result = mysqli_query($con, $query);
 if ($result) {
     echo "success";
