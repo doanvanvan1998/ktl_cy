@@ -4,6 +4,8 @@
 <body>
 <div class="wrap">
     <?php include 'php/common_header_menu.php' ?>
+
+
     <div class="contents_wrap">
         <div class="container">
             <div class="jobapplication_title flex">
@@ -16,7 +18,7 @@
                     <span class="bor">채용공고 내용보기</span>
                 </div>
             </div>
-            <div class="forms">
+            <form id="onSubmit" action="../ktl/php/fnc/recruit_step.php" method="post">
                 <div class="flex">
                     <div class="form_title">
                         <h6>공고명</h6>
@@ -43,7 +45,7 @@
                     </div>
                     <div class="form_con">
                         <div class="flex-direction inputbox">
-                            <input type="text" id='username' placeholder="이름을 입력해주세요." required>
+                            <input name="username" type="text" id='username' placeholder="이름을 입력해주세요." required>
                             <span class="noti errorName" style="color: red; font-size: small"> (*) </span>
                         </div>
                     </div>
@@ -54,7 +56,7 @@
                     </div>
                     <div class="form_con">
                         <div class="flex-direction inputbox">
-                            <input placeholder="전화 번호" type="text" id='userphone' required numberOnly>
+                            <input name="userphone" placeholder="전화 번호" type="text" id='userphone' required numberOnly>
                             <span class="noti errorPhone" style="color: red; font-size: small">(*) </span>
                         </div>
                     </div>
@@ -65,7 +67,7 @@
                     </div>
                     <div class="form_con">
                         <div class="flex-direction inputbox">
-                            <input type="email" id='useremail' placeholder="이메일을 입력해주세요." required>
+                            <input name="useremail" type="email" id='useremail' placeholder="이메일을 입력해주세요." required>
                             <input type="email" id='useremail_check' placeholder="이메일 확인을 위해 다시 한번 입력해주세요." required>
                             <span class="noti errorEmail" style="color: red; font-size: small">(*)</span>
                         </div>
@@ -77,7 +79,7 @@
                     </div>
                     <div class="form_con">
                         <div class="flex-direction inputbox">
-                            <input type="password" id='userpass' placeholder="비밀번호를 입력해주세요." required
+                            <input  name="userpass" type="password" id='userpass' placeholder="비밀번호를 입력해주세요." required
                             ">
                             <input type="password" id='userpass_check' placeholder="비밀번호 확인을 위해 다시 한번 입력해주세요." required>
                             <span class="noti errorPassword" style="color: red; font-size: small">(*) <span
@@ -102,7 +104,7 @@
                                     class="textlength"></span>
                     </div>
                 </div>
-            </div>
+            </form>
             <div class="btn_write flex" onclick="onSubmit()"><span>입사지원서 작성</span></div>
         </div>
     </div>
@@ -295,7 +297,7 @@
 
     // validate
     function validate() {
-        if (!sessionStorage.getItem('checked') ) {
+        if (!sessionStorage.getItem('checked')) {
             document.querySelector('.errorCheck').style.color = 'red';
             document.querySelector('.errorCheck').innerHTML = '필수 항목에 동의해주세요.'
             document.querySelector('.btnFocus').focus();
@@ -372,11 +374,10 @@
         return true;
     }
 
-
     // handle form submit
     function onSubmit() {
         if (validate()) {
-            alert('submit')
+            $('#onSubmit').submit();
         }
     }
 
