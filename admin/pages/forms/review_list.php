@@ -69,77 +69,134 @@ session_start();
                             <div class="card-body">
                                 <?php
                                 $Id = $_GET["Id"];
-                                if($Id == 1){
-                                    include "../../php/mysql.php";
-                                    include "../../php/crypt.php";
-                                    $query="select id,code_profile,username,phone,email,level_disabilities,subject,sub_subject,Verifi,date from objection_info where Verifi !='부적격'";
-                                    $result = mysqli_query($con,$query);
+                                include "../../php/mysql.php";
+                                include "../../php/crypt.php";
+
+                                if($Id != 3){
+
                                     echo "
-                            <table  style='text-align:center;padding: 5px ' style='text-align:center;' >
+                                            <table id='#example1'  style='text-align:center;padding: 5px ' style='text-align:center;' >
+                                              <thead>
+                                                 <tr rowspan ='2'>
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>no</th>
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>수험번호</th>
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>지원자명</th>   
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 1</th>   
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 2</th>    
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 3</th>  
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가점수</th> 
+                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>장애정도</th> 
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;'></th> 
+                                                    <th colspan ='4' style='border: 1px solid #dee2e6;padding: 0 22px'>우대사항</th>
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;'></th> 
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>취업지원</th>  
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>저소득층</th> 
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>북한이탈주민</th>  
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>다문화</th> 
+                                                  </tr>
+                                                  <tr>
+                                                    <th style='border: 1px solid #dee2e6;padding: 0 22px'>우대점수</th>
+                                                    <th style='border: 1px solid #dee2e6;padding: 0 22px'>최종합계</th>
+                                                    <th style='border: 1px solid #dee2e6;padding: 0 22px'>최종순위</th>
+                                                    <th style='border: 1px solid #dee2e6;padding: 0 22px'>합격여부</th>
+                                               <tr>
+                                              </thead>
+                                              <tbody>";
+
+                                                    $query="select id,code_profile,username,phone,email,level_disabilities,subject,sub_subject,Verifi,date from objection_info";
+                                                    if($Id == 2 ){
+                                                        $query =  $query . " where Verifi !='부적격'";
+                                                    }else{
+                                                        $query =  $query . " where Verifi !='부적격'";
+                                                    }
+
+                                                    $result = mysqli_query($con,$query);
+                                                    $nIndex=0;
+                                                    while($row = mysqli_fetch_array($result)){
+                                                        echo "
+                                                                <tr id='tr_$row[0]'><td>$nIndex</td>
+                                                                         <th  style='border: 1px solid #dee2e6;padding: 0 22px'>no</th>
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>수험번호</th>
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>지원자명</th>   
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 1</th>   
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 2</th>    
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 3</th>  
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>평가점수</th> 
+                                                                         <th  style='border: 1px solid #dee2e6;padding: 0 22px'>장애정도</th> 
+                                                                        <th  style='border: 1px solid #dee2e6;'></th> 
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>우대사항</th>
+                                                                        <th  style='border: 1px solid #dee2e6;'></th> 
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>취업지원</th>  
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>저소득층</th> 
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>북한이탈주민</th>  
+                                                                        
+                                                                <td>
+                                                                    <select class='custom-select'  style='border: none'  name='verifi' onchange='updateVerifi(";echo $row['id'] ?><?php echo ")' id= ".$row['id'].">
+                                                                    <option selected>".$row['Verifi']."</option>
+                                                                    <option value='적격'>적격</option>
+                                                                    <option value='부적격'>부적격</option>
+                                                                  </select></td>
+                                            ";
+                                                    echo "
+                                              </tbody>
+                                            </table>
+                                        </div>";
+                                }
+                                }else{
+
+
+                                echo "
+                                     <table id='example1' style='text-align:center;'  class='table table-bordered table-striped'>
                               <thead>
-                                 <tr rowspan ='2'>
-                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>no</th>
-                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>수험번호</th>
-                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>지원자명</th>   
-                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 1</th>   
-                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 2</th>    
-                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 3</th>  
-                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가점수</th> 
-                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>장애정도</th> 
-                                    
-                                    <th rowspan ='2' style='border: 1px solid #dee2e6;'></th> 
-                                    <th colspan ='4' style='border: 1px solid #dee2e6;padding: 0 22px'>우대사항</th>
-                                    <th rowspan ='2' style='border: 1px solid #dee2e6;'></th> 
-                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>취업지원</th>  
-                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>저소득층</th> 
-                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>북한이탈주민</th>  
-                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>다문화</th> 
-                                  </tr>
-                                  <tr>
-                                    <th style='border: 1px solid #dee2e6;padding: 0 22px'>우대점수</th>
-                                    <th style='border: 1px solid #dee2e6;padding: 0 22px'>최종합계</th>
-                                    <th style='border: 1px solid #dee2e6;padding: 0 22px'>최종순위</th>
-                                    <th style='border: 1px solid #dee2e6;padding: 0 22px'>합격여부</th>
-                               <tr>
+                              <tr>
+                                  <th>No.</th>
+                                  <th>수험번호</th>
+                                  <th>지원자명</th>
+                                  <th >주전공</th>
+                                  <th >서류평가점수</th>
+                                  <th>면접평가점수</th>
+                                  <th>지원서 보기</th>
+                                  <th>메모</th>
+                                  <th>합격여부</th>
+                               
+                              </tr>
                               </thead>
                               <tbody>";
-                                    echo "
-                              </tbody>
-                            </table>
-                          </div>";
 
-                                    mysqli_close($con);
+                                $query="select id,code_profile,username,phone,email,level_disabilities,subject,sub_subject,Verifi,date from objection_info";
+                                if($Id == 2 ){
+                                    $query =  $query . " where Verifi !='부적격'";
                                 }else{
-                                    echo "<div class='container'>
-                                    <div class='row'>
-                                        <div class='col-6'>
-                                        <canvas id='myChart' ></canvas>
-                                        </div>
-                                        <div class='col-6'>
-                                        ";
-                                    echo "
-                            <table class='table ' style='margin-top: 15px'>
-  <thead  style='color:#523737'>
-    <tr style='border-top:2px solid'>
-      <th scope='col' class='border-0'  style='color:#e18181' >#</th>
-      <th scope='col'  class='border-0'>#</th>
-      <th scope='col'  class='border-0'></th>
-      <th scope='col'   class='border-0'></th>
-      <th scope='col'  class='border-0' style='color:#b9adad'>#</th>
-      <th scope='col'  class='border-0'>#</th>
-    </tr>
-  </thead>
-  </tbody>
-</table>
-                          ";
-
-
-                                    echo "
-                                        </div>
-                                    </div>
-                                </div>";
+                                    $query =  $query . " where Verifi !='부적격'";
                                 }
 
+                                echo $query;
+                                $result = mysqli_query($con,$query);
+                                $nIndex=0;
+                                while($row = mysqli_fetch_array($result)){
+                                    echo "<tr id='tr_$row[0]'><td>$nIndex</td>
+                                               <th></th>
+                                              <th></th>
+                                              <th ></th>
+                                              <th ></th>
+                                              <th></th>
+                                              <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode($row, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
+                                         
+                                              <th></th>
+                                            <td>
+                                                <select class='custom-select'  style='border: none'  name='verifi' onchange='updateVerifi(";echo $row['id'] ?><?php echo ")' id= ".$row['id'].">
+                                                <option selected>".$row['Verifi']."</option>
+                                                <option value='적격'>적격</option>
+                                                <option value='부적격'>부적격</option>
+                                              </select></td>
+                                            ";
+
+                                    echo "
+                                              </tbody>
+                                            </table>
+                                        </div>";
+                                }
+                                }
                                 ?>
 
                                 <!-- /.card-body -->
@@ -260,8 +317,11 @@ session_start();
         });
     });
 
-    $("#nav_4").attr("class","nav-item menu-is-opening menu-open");
+    $("#" + "nav_4").attr("class","nav-item menu-is-opening menu-open");
     $("#nav_5_"+$("#SelId").val()).attr("class","nav-link active");
+
+    $("#" + "nav_10").attr("class","nav-item menu-is-opening menu-open");
+    $("#nav_11_"+$("#SelId").val()).attr("class","nav-link active");
 </script>
 </body>
 </html>

@@ -73,8 +73,8 @@
            </li>
          </ul>
        </li>
-          <li class="nav-item" id='nav_4'>
-              <a href="#" class="nav-link" id='nav_4_1'>
+          <li class="nav-item" id='nav_10'>
+              <a href="#" class="nav-link" id='nav_10_1'>
                   <i class="nav-icon fas fa-copy"></i>
                   <p>
                       평가전형
@@ -84,19 +84,19 @@
               </a>
               <ul class="nav nav-treeview">
                   <li class="nav-item">
-                      <a href="review_list.php?Id=1" class="nav-link" id='nav_5_1'>
+                      <a href="review_list.php?Id=1" class="nav-link" id='nav_11_1'>
                           <i class="far fa-circle nav-icon"></i>
                           <p>서류평가</p>
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="review_list.php?Id=2" class="nav-link" id='nav_5_2'>
+                      <a href="review_list.php?Id=2" class="nav-link" id='nav_11_2'>
                           <i class="far fa-circle nav-icon"></i>
                           <p>면접평가</p>
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="review_list.php?Id=3" class="nav-link" id='nav_5_2'>
+                      <a href="review_list.php?Id=3" class="nav-link" id='nav_11_2'>
                           <i class="far fa-circle nav-icon"></i>
                           <p>최종평가</p>
                       </a>
