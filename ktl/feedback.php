@@ -4,12 +4,10 @@
 <body>
 <div class="wrap">
     <?php include 'php/common_header_menu.php' ?>
-
-
-    <div class="contents_wrap">
-        <div class="container">
-            <div class="jobapplication_title flex">
-                <h6>입사지원서 작성</h6>
+    <div class="contents_wrap" >
+        <div class="container" >
+            <div class="jobapplication_title flex" >
+                <h6> 따오 판 호이 </h6>
                 <div class="flex">
                     <span>Home</span>
                     <img src="images/icons/ic_next.png" alt="다음">
@@ -18,92 +16,110 @@
                     <span class="bor">채용공고 내용보기</span>
                 </div>
             </div>
-            <form id="onSubmit" action="../ktl/php/fnc/recruit_step.php" method="post">
-                <div class="flex">
+            <form id="onSubmit" action="../ktl/php/fnc/recruit_step.php" method="post" style="background: #ededed">
+
+                <div class="flex baseline">
                     <div class="form_title">
-                        <h6>공고명</h6>
+                        <h6> chọn tin</h6>
                     </div>
                     <div class="form_con">
-                        <span>2022년 문화/예술 장애인 채용공고</span>
+                        <div class="flex-direction inputbox">
+                            <select class="custom-select" id="news">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <span class="noti error_news" style="color: red; font-size: small"> (*) </span>
+                        </div>
                     </div>
                 </div>
-                <div class="flex">
+
+
+                <div class="flex baseline">
                     <div class="form_title">
-                        <h6>개인정보 수집·이용 동의</h6>
+                        <h6>Loại tin</h6>
                     </div>
                     <div class="form_con">
-                        <div class="flex agree">
-                            <button class=" btn_agree flex btnFocus" style="color: white">내용확인</button>
-                            <span class="noti errorCheck"
-                                  style="color: red; font-size: small">(*) 필수항목에 동의해주세요.</span>
+                        <div class="flex-direction inputbox">
+                            <select class="custom-select col" id="type_news">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <span class="noti error_type_news" style="color: red; font-size: small"> (*) </span>
                         </div>
                     </div>
                 </div>
                 <div class="flex baseline">
                     <div class="form_title">
-                        <h6>성명</h6>
+                        <h6>tên ngupowfi taojSDFm,b cad</h6>
                     </div>
-                    <div class="form_con">
+                    <div class="form_con col">
                         <div class="flex-direction inputbox">
-                            <input name="username" type="text" id='username' placeholder="이름을 입력해주세요." required>
-                            <span class="noti errorName" style="color: red; font-size: small"> (*) </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex baseline">
-                    <div class="form_title">
-                        <h6>휴대전화</h6>
-                    </div>
-                    <div class="form_con">
-                        <div class="flex-direction inputbox">
-                            <input name="userphone" placeholder="전화 번호" type="text" id='userphone' required numberOnly>
+                            <input name="username" placeholder="전화 번호" type="text" id='username' required numberOnly>
                             <span class="noti errorPhone" style="color: red; font-size: small">(*) </span>
                         </div>
                     </div>
                 </div>
                 <div class="flex baseline">
                     <div class="form_title">
-                        <h6>이메일</h6>
+                        <h6>Số điện thoại</h6>
                     </div>
                     <div class="form_con">
                         <div class="flex-direction inputbox">
-                            <input name="useremail" type="email" id='useremail' placeholder="이메일을 입력해주세요." required>
-                            <input type="email" id='useremail_check' placeholder="이메일 확인을 위해 다시 한번 입력해주세요." required>
-                            <span class="noti errorEmail" style="color: red; font-size: small">(*)</span>
+                            <input name="userphone" type="number" id='userphone' placeholder="nhập phone" required>
+                            <span class="noti errorPhone" style="color: red; font-size: small">(*)</span>
                         </div>
                     </div>
                 </div>
                 <div class="flex baseline">
                     <div class="form_title">
-                        <h6>비밀번호</h6>
+                        <h6>email</h6>
                     </div>
                     <div class="form_con">
                         <div class="flex-direction inputbox">
-                            <input name="userpass" type="password" id='userpass' placeholder="비밀번호를 입력해주세요." required
+                            <input name="useremail" type="email" id='useremail' placeholder="nhập email" required
                             ">
-                            <input type="password" id='userpass_check' placeholder="비밀번호 확인을 위해 다시 한번 입력해주세요." required>
-                            <span class="noti errorPassword" style="color: red; font-size: small">(*) <span
+                            <span class="noti errorEmail" style="color: red; font-size: small">(*) <span
                                         class="textlength"></span>
                         </div>
                     </div>
                 </div>
+
                 <div class="flex">
                     <div class="form_title">
-                        <h6>본인확인</h6>
+                        <h6>Tiêu đề</h6>
                     </div>
-                    <div class="form_con">
+                    <div class="form_con col">
                         <div class=" flex">
-                            <input type="text" id="accuracy" placeholder="전화번호 또는 이메일 확인">
-                            <button style=" margin-left: 0.5rem; background: #333; width: auto; cursor: pointer; border-radius: 0.2rem; padding: 0.7rem; color: white"
-                                    class=" accuracy " onclick='onAccuracy()'>전화번호 또는 이메일 확인
-                            </button>
-
+                            <input name="title" type="text" id="title" placeholder="tiêu đề" style="width: 100%" >
                         </div>
 
-                        <span class="noti errorAccuracy" style="color: red; font-size: small">(*) <span
+                        <span class="noti errorTitle" style="color: red; font-size: small">(*) <span
                                     class="textlength"></span>
                     </div>
                 </div>
+
+
+                <div class="flex">
+                    <div class="form_title">
+                        <h6>Nội dung</h6>
+                    </div>
+                    <div class="form_con">
+                        <div class=" flex">
+                            <div class="form-group col">
+                                <label for="exampleFormControlTextarea1">Example textarea</label>
+                                <textarea style="width: 55rem" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <span class="noti errorTitle" style="color: red; font-size: small">(*) <span
+                                    class="textlength"></span>
+                    </div>
+                </div>
+
+
             </form>
             <div class="btn_write flex" onclick="hanldSubmit()"><span>입사지원서 작성</span></div>
         </div>
@@ -296,80 +312,81 @@
         $('.popup_wrap').hide();
     });
 
+
     // validate
     function validate() {
         if (!sessionStorage.getItem('checked')) {
-            document.querySelector('.errorCheck').style.color = 'red';
-            document.querySelector('.errorCheck').innerHTML = '필수 항목에 동의해주세요.'
-            document.querySelector('.btnFocus').focus();
-            return;
-        } else {
-            document.querySelector('.errorCheck').innerHTML = '확인 완료';
-            document.querySelector('.errorCheck').style.color = 'blue';
-        }
-        if (!document.querySelector('#username').value) {
-            document.querySelector('.errorName').innerHTML = '당신의 이름을 입력하세요'
-            document.querySelector('#username').focus();
-            return;
-        } else {
-            document.querySelector('.errorName').innerHTML = ''
-        }
-        // validate phone using regex number phone in korean
-        if (!document.querySelector('#userphone').value.match(/^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?([0-9]{3,4})-?([0-9]{4})$/)) {
-            document.querySelector('.errorPhone').innerHTML = '휴대전화 번호를 입력하세요'
-            document.querySelector('#userphone').focus();
-            return;
-        } else {
-            document.querySelector('.errorPhone').innerHTML = ''
-        }
-        if (!document.querySelector('#useremail').value) {
-            document.querySelector('.errorEmail').innerHTML = '이메일을 입력하세요'
-            document.querySelector('#useremail').focus();
-            return;
-        } else {
-            document.querySelector('.errorEmail').innerHTML = ''
-        }
-        if (!document.querySelector('#useremail_check').value) {
-            document.querySelector('.errorEmail').innerHTML = '이메일을 확인해주세요'
-            document.querySelector('#useremail_check').focus();
-            return;
-        } else {
-            document.querySelector('.errorEmail').innerHTML = ''
-        }
-        if (document.querySelector('#useremail_check').value !== document.querySelector('#useremail').value) {
-            document.querySelector('.errorEmail').innerHTML = '확인 이메일을 입력하세요'
-            document.querySelector('#useremail_check').focus();
-            return;
-        } else {
-            document.querySelector('.errorEmail').innerHTML = ''
-        }
-        if (!document.querySelector('#userpass').value.match(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{10,}$/)) {
-            document.querySelector('.errorPassword').innerHTML = '영문/숫자/특수문자 포함 10자 이상 입력해주세요.'
-            document.querySelector('#userpass').focus();
-            return;
-        } else {
-            document.querySelector('.errorPassword').innerHTML = ''
-        }
-        if (!document.querySelector('#userpass_check').value.match(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{10,}$/)) {
-            document.querySelector('.errorPassword').innerHTML = '비밀번호를 다시 확인'
-            document.querySelector('#userpass_check').focus();
-            return;
-        } else {
-            document.querySelector('.errorPassword').innerHTML = ''
-        }
-        if (document.querySelector('#userpass_check').value !== document.querySelector('#userpass').value) {
-            document.querySelector('.errorPassword').innerHTML = '두 개의 비밀번호가 일치하지 않습니다'
-            document.querySelector('#userpass_check').focus();
-            return;
-        } else {
-            document.querySelector('.errorPassword').innerHTML = ''
-        }
-        if (!document.querySelector('#accuracy').value) {
-            document.querySelector('.errorAccuracy').innerHTML = '이메일 또는 비밀번호를 입력하세요'
-            document.querySelector('#accuracy').focus();
-            return;
-        } else {
-            document.querySelector('.errorAccuracy').innerHTML = ''
+            //     document.querySelector('.errorCheck').style.color = 'red';
+            //     document.querySelector('.errorCheck').innerHTML = '필수 항목에 동의해주세요.'
+            //     document.querySelector('.btnFocus').focus();
+            //     return;
+            // } else {
+            //     document.querySelector('.errorCheck').innerHTML = '확인 완료';
+            //     document.querySelector('.errorCheck').style.color = 'blue';
+            // }
+            // if (!document.querySelector('#username').value) {
+            //     document.querySelector('.errorName').innerHTML = '당신의 이름을 입력하세요'
+            //     document.querySelector('#username').focus();
+            //     return;
+            // } else {
+            //     document.querySelector('.errorName').innerHTML = ''
+            // }
+            // // validate phone using regex number phone in korean
+            // if (!document.querySelector('#userphone').value.match(/^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?([0-9]{3,4})-?([0-9]{4})$/)) {
+            //     document.querySelector('.errorPhone').innerHTML = '휴대전화 번호를 입력하세요'
+            //     document.querySelector('#userphone').focus();
+            //     return;
+            // } else {
+            //     document.querySelector('.errorPhone').innerHTML = ''
+            // }
+            // if (!document.querySelector('#useremail').value) {
+            //     document.querySelector('.errorEmail').innerHTML = '이메일을 입력하세요'
+            //     document.querySelector('#useremail').focus();
+            //     return;
+            // } else {
+            //     document.querySelector('.errorEmail').innerHTML = ''
+            // }
+            // if (!document.querySelector('#useremail_check').value) {
+            //     document.querySelector('.errorEmail').innerHTML = '이메일을 확인해주세요'
+            //     document.querySelector('#useremail_check').focus();
+            //     return;
+            // } else {
+            //     document.querySelector('.errorEmail').innerHTML = ''
+            // }
+            // if (document.querySelector('#useremail_check').value !== document.querySelector('#useremail').value) {
+            //     document.querySelector('.errorEmail').innerHTML = '확인 이메일을 입력하세요'
+            //     document.querySelector('#useremail_check').focus();
+            //     return;
+            // } else {
+            //     document.querySelector('.errorEmail').innerHTML = ''
+            // }
+            // if (!document.querySelector('#userpass').value.match(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{10,}$/)) {
+            //     document.querySelector('.errorPassword').innerHTML = '영문/숫자/특수문자 포함 10자 이상 입력해주세요.'
+            //     document.querySelector('#userpass').focus();
+            //     return;
+            // } else {
+            //     document.querySelector('.errorPassword').innerHTML = ''
+            // }
+            // if (!document.querySelector('#userpass_check').value.match(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{10,}$/)) {
+            //     document.querySelector('.errorPassword').innerHTML = '비밀번호를 다시 확인'
+            //     document.querySelector('#userpass_check').focus();
+            //     return;
+            // } else {
+            //     document.querySelector('.errorPassword').innerHTML = ''
+            // }
+            // if (document.querySelector('#userpass_check').value !== document.querySelector('#userpass').value) {
+            //     document.querySelector('.errorPassword').innerHTML = '두 개의 비밀번호가 일치하지 않습니다'
+            //     document.querySelector('#userpass_check').focus();
+            //     return;
+            // } else {
+            //     document.querySelector('.errorPassword').innerHTML = ''
+            // }
+            // if (!document.querySelector('#accuracy').value) {
+            //     document.querySelector('.errorAccuracy').innerHTML = '이메일 또는 비밀번호를 입력하세요'
+            //     document.querySelector('#accuracy').focus();
+            //     return;
+            // } else {
+            //     document.querySelector('.errorAccuracy').innerHTML = ''
         }
 
         return true;

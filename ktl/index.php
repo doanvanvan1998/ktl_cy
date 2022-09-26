@@ -17,20 +17,20 @@
                 <a href="#">지원관리</a>
                 <ul class="flex-direction">
                   <li><a href="application.php">지원서 작성</a></li>
-                  <li><a href="applicationcorrection.html">지원서 수정</a></li>
-                  <li><a href="result.html">전형결과 확인</a></li>
+                  <li><a href="applicationcorrection.php">지원서 수정</a></li>
+                  <li><a href="result.php">전형결과 확인</a></li>
                   <li><a href="#">이의신청</a></li>
                 </ul>
               </li>
               <li>
                 <a href="#">공지사항</a>
                 <ul class="flex-direction">
-                  <li><a href="notice.html">공지사항</a></li>
-                  <li><a href="faq.html">자주하는질문 FAQ</a></li>
+                  <li><a href="notice.php">공지사항</a></li>
+                  <li><a href="faq.php">자주하는질문 FAQ</a></li>
                   <li><a href="#">직무소개</a></li>
                 </ul>
               </li>
-              <li><a href="inquiry.html">채용문의</a></li>
+              <li><a href="inquiry.php">채용문의</a></li>
             </ul>
           </div>
         </div>

@@ -15,7 +15,7 @@
   }
   else
   {
-    echo "<script>alert('로그인 후 이용이 가능합니다.');location.href='pages/forms/login.html';</script>";
+    echo "<script>alert('로그인 후 이용이 가능합니다.');location.href='pages/forms/login.php';</script>";
   }
 ?>
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
