@@ -1,5 +1,5 @@
 <?php
-	$con = mysqli_connect("localhost","root","","ktl",3308);
+	$con = mysqli_connect("localhost","root","","ktl");
 	if(!$con)
 	{
 		echo "error";

@@ -312,6 +312,7 @@
         $('.popup_wrap').hide();
     });
 
+
     // validate
     function validate() {
         if (!sessionStorage.getItem('checked')) {

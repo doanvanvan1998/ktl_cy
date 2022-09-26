@@ -93,11 +93,13 @@
             <div class="btn_search flex" onclick="onSearchView()"><span>검색</span></div>
           </div>
           <script>
-            function onSearchView()
-            {
-              //if($("#search_txt").val() == "") { alert("검색어를 입력하세요."); $("#search_txt").focus(); return; }
-              location.href='inquiry.html?type='+$("#search_type").val()+"&type2="+$("#search_type2").val()+"&q="+$("#search_txt").val()
-            }
+
+              // miendz comment
+            // function onSearchView()
+            // {
+            //   //if($("#search_txt").val() == "") { alert("검색어를 입력하세요."); $("#search_txt").focus(); return; }
+            //   location.href='inquiry.html?type='+$("#search_type").val()+"&type2="+$("#search_type2").val()+"&q="+$("#search_txt").val()
+            // }
           </script>
           <div class="table">
             <table>
@@ -112,89 +114,91 @@
                 </tr>
               </thead>
               <tbody>
-                <?php
-                  include "php/mysql.php";
-                  $nIndex = 1;
-                  if($_GET["type"])
-                  {
-                    $type = $_GET["type"];
-                    $type2 = $_GET["type2"];
-                    $q = $_GET["q"];
-                    if($type == "전체")
-                    {
-                      if($type2 == "전체")
-                      {
-                        $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where subject like '%$q%' or contents like '%$q%' order by id desc";
-                      }
-                      else
-                      {
-                        if($type2 == "제목")
-                        {
-                            $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where subject like '%$q%' order by id desc";
-                        }
-                        else if($type2 == "내용")
-                        {
-                            $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where contents like '%$q%' order by id desc";
-                        }
+<!--              miendz comment-->
+<!--                --><?php
+//                  include "php/mysql.php";
+//                  $nIndex = 1;
+//                  if($_GET["type"])
+//                  {
+//                    $type = $_GET["type"];
+//                    $type2 = $_GET["type2"];
+//                    $q = $_GET["q"];
+//                    if($type == "전체")
+//                    {
+//                      if($type2 == "전체")
+//                      {
+//                        $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where subject like '%$q%' or contents like '%$q%' order by id desc";
+//                      }
+//                      else
+//                      {
+//                        if($type2 == "제목")
+//                        {
+//                            $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where subject like '%$q%' order by id desc";
+//                        }
+//                        else if($type2 == "내용")
+//                        {
+//                            $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where contents like '%$q%' order by id desc";
+//                        }
+//
+//                      }
+//                    }
+//                    else
+//                    {
+//                      if($type2 == "전체")
+//                      {
+//                        if($q == "")
+//                        {
+//                          $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where inquiry_type='$type' order by id desc";
+//                        }
+//                        else
+//                        {
+//                          $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where inquiry_type='$type' and (subject like '%$q%' or contents like '%$q%') order by id desc";
+//                        }
+//
+//                      }
+//                      else
+//                      {
+//                        if($type2 == "제목")
+//                        {
+//                            $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where inquiry_type='$type' and subject like '%$q%' order by id desc";
+//                        }
+//                        else if($type2 == "내용")
+//                        {
+//                            $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where inquiry_type='$type' and contents like '%$q%' order by id desc";
+//                        }
+//
+//                      }
+//                    }
+//
+//                  }
+//                  else
+//                    $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list order by id desc";
+//
+//                  $result = mysqli_query($con,$query);
+//                  while($row = mysqli_fetch_array($result))
+//                  {
+//                    $row[3] = mb_substr($row[3],0,1, "utf8");
+//
+//                    echo "<tr id='tr_$row[8]' onclick=onDetailView($row[8],'$row[6]') style='cursor:pointer;'>
+//                      <td>$nIndex</td>
+//                      <td>$row[0]</td>
+//                      <td class='notitle flex'>$row[1]";
+//                      if($row[6] == "비공개")
+//                        echo "<img src='images/icons/ic_lock.png' alt='잠금'></td>";
+//                      echo "<td>".$row[3]."**</td>
+//                      <td>$row[2]</td>
+//                      <td>$row[5]</td>
+//                    </tr>";
+//                    $nIndex++;
+//                  }
+//                  if($nIndex == 1)
+//                  {
+//                    echo "<tr><td colspan=7>채용문의가 존재하지 않습니다.</td></tr>";
+//                  }
+//
+//                  mysqli_close($con);
+//                ?>
 
-                      }
-                    }
-                    else
-                    {
-                      if($type2 == "전체")
-                      {
-                        if($q == "")
-                        {
-                          $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where inquiry_type='$type' order by id desc";
-                        }
-                        else
-                        {
-                          $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where inquiry_type='$type' and (subject like '%$q%' or contents like '%$q%') order by id desc";
-                        }
-
-                      }
-                      else
-                      {
-                        if($type2 == "제목")
-                        {
-                            $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where inquiry_type='$type' and subject like '%$q%' order by id desc";
-                        }
-                        else if($type2 == "내용")
-                        {
-                            $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where inquiry_type='$type' and contents like '%$q%' order by id desc";
-                        }
-
-                      }
-                    }
-
-                  }
-                  else
-                    $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list order by id desc";
-
-                  $result = mysqli_query($con,$query);
-                  while($row = mysqli_fetch_array($result))
-                  {
-                    $row[3] = mb_substr($row[3],0,1, "utf8");
-
-                    echo "<tr id='tr_$row[8]' onclick=onDetailView($row[8],'$row[6]') style='cursor:pointer;'>
-                      <td>$nIndex</td>
-                      <td>$row[0]</td>
-                      <td class='notitle flex'>$row[1]";
-                      if($row[6] == "비공개")
-                        echo "<img src='images/icons/ic_lock.png' alt='잠금'></td>";
-                      echo "<td>".$row[3]."**</td>
-                      <td>$row[2]</td>
-                      <td>$row[5]</td>
-                    </tr>";
-                    $nIndex++;
-                  }
-                  if($nIndex == 1)
-                  {
-                    echo "<tr><td colspan=7>채용문의가 존재하지 않습니다.</td></tr>";
-                  }
-
-                  mysqli_close($con);
-                ?>
               </tbody>
             </table>
             <div class="btn_write flex"><span>글쓰기</span></div>
