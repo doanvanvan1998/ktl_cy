@@ -79,7 +79,7 @@
                     </div>
                     <div class="form_con">
                         <div class="flex-direction inputbox">
-                            <input  name="userpass" type="password" id='userpass' placeholder="비밀번호를 입력해주세요." required
+                            <input name="userpass" type="password" id='userpass' placeholder="비밀번호를 입력해주세요." required
                             ">
                             <input type="password" id='userpass_check' placeholder="비밀번호 확인을 위해 다시 한번 입력해주세요." required>
                             <span class="noti errorPassword" style="color: red; font-size: small">(*) <span
@@ -105,13 +105,14 @@
                     </div>
                 </div>
             </form>
-            <div class="btn_write flex" onclick="onSubmit()"><span>입사지원서 작성</span></div>
+            <div class="btn_write flex" onclick="hanldSubmit()"><span>입사지원서 작성</span></div>
         </div>
     </div>
     <?php include 'php/common_footer.php' ?>
 </div>
 <div class="popup_agree_wrap popup_wrap">
     <div class="popup_agree popup">
+
         <div class="popup_title flex">
             <div></div>
             <h6>개인정보 수집·이용 동의</h6>
@@ -298,84 +299,84 @@
     // validate
     function validate() {
         if (!sessionStorage.getItem('checked')) {
-            document.querySelector('.errorCheck').style.color = 'red';
-            document.querySelector('.errorCheck').innerHTML = '필수 항목에 동의해주세요.'
-            document.querySelector('.btnFocus').focus();
-            return;
-        } else {
-            document.querySelector('.errorCheck').innerHTML = '확인 완료';
-            document.querySelector('.errorCheck').style.color = 'blue';
-        }
-        if (!document.querySelector('#username').value) {
-            document.querySelector('.errorName').innerHTML = '당신의 이름을 입력하세요'
-            document.querySelector('#username').focus();
-            return;
-        } else {
-            document.querySelector('.errorName').innerHTML = ''
-        }
-        // validate phone using regex number phone in korean
-        if (!document.querySelector('#userphone').value.match(/^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?([0-9]{3,4})-?([0-9]{4})$/)) {
-            document.querySelector('.errorPhone').innerHTML = '휴대전화 번호를 입력하세요'
-            document.querySelector('#userphone').focus();
-            return;
-        } else {
-            document.querySelector('.errorPhone').innerHTML = ''
-        }
-        if (!document.querySelector('#useremail').value) {
-            document.querySelector('.errorEmail').innerHTML = '이메일을 입력하세요'
-            document.querySelector('#useremail').focus();
-            return;
-        } else {
-            document.querySelector('.errorEmail').innerHTML = ''
-        }
-        if (!document.querySelector('#useremail_check').value) {
-            document.querySelector('.errorEmail').innerHTML = '이메일을 확인해주세요'
-            document.querySelector('#useremail_check').focus();
-            return;
-        } else {
-            document.querySelector('.errorEmail').innerHTML = ''
-        }
-        if (document.querySelector('#useremail_check').value !== document.querySelector('#useremail').value) {
-            document.querySelector('.errorEmail').innerHTML = '확인 이메일을 입력하세요'
-            document.querySelector('#useremail_check').focus();
-            return;
-        } else {
-            document.querySelector('.errorEmail').innerHTML = ''
-        }
-        if (!document.querySelector('#userpass').value.match(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{10,}$/)) {
-            document.querySelector('.errorPassword').innerHTML = '영문/숫자/특수문자 포함 10자 이상 입력해주세요.'
-            document.querySelector('#userpass').focus();
-            return;
-        } else {
-            document.querySelector('.errorPassword').innerHTML = ''
-        }
-        if (!document.querySelector('#userpass_check').value.match(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{10,}$/)) {
-            document.querySelector('.errorPassword').innerHTML = '비밀번호를 다시 확인'
-            document.querySelector('#userpass_check').focus();
-            return;
-        } else {
-            document.querySelector('.errorPassword').innerHTML = ''
-        }
-        if (document.querySelector('#userpass_check').value !== document.querySelector('#userpass').value) {
-            document.querySelector('.errorPassword').innerHTML = '두 개의 비밀번호가 일치하지 않습니다'
-            document.querySelector('#userpass_check').focus();
-            return;
-        } else {
-            document.querySelector('.errorPassword').innerHTML = ''
-        }
-        if (!document.querySelector('#accuracy').value) {
-            document.querySelector('.errorAccuracy').innerHTML = '이메일 또는 비밀번호를 입력하세요'
-            document.querySelector('#accuracy').focus();
-            return;
-        } else {
-            document.querySelector('.errorAccuracy').innerHTML = ''
+            //     document.querySelector('.errorCheck').style.color = 'red';
+            //     document.querySelector('.errorCheck').innerHTML = '필수 항목에 동의해주세요.'
+            //     document.querySelector('.btnFocus').focus();
+            //     return;
+            // } else {
+            //     document.querySelector('.errorCheck').innerHTML = '확인 완료';
+            //     document.querySelector('.errorCheck').style.color = 'blue';
+            // }
+            // if (!document.querySelector('#username').value) {
+            //     document.querySelector('.errorName').innerHTML = '당신의 이름을 입력하세요'
+            //     document.querySelector('#username').focus();
+            //     return;
+            // } else {
+            //     document.querySelector('.errorName').innerHTML = ''
+            // }
+            // // validate phone using regex number phone in korean
+            // if (!document.querySelector('#userphone').value.match(/^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?([0-9]{3,4})-?([0-9]{4})$/)) {
+            //     document.querySelector('.errorPhone').innerHTML = '휴대전화 번호를 입력하세요'
+            //     document.querySelector('#userphone').focus();
+            //     return;
+            // } else {
+            //     document.querySelector('.errorPhone').innerHTML = ''
+            // }
+            // if (!document.querySelector('#useremail').value) {
+            //     document.querySelector('.errorEmail').innerHTML = '이메일을 입력하세요'
+            //     document.querySelector('#useremail').focus();
+            //     return;
+            // } else {
+            //     document.querySelector('.errorEmail').innerHTML = ''
+            // }
+            // if (!document.querySelector('#useremail_check').value) {
+            //     document.querySelector('.errorEmail').innerHTML = '이메일을 확인해주세요'
+            //     document.querySelector('#useremail_check').focus();
+            //     return;
+            // } else {
+            //     document.querySelector('.errorEmail').innerHTML = ''
+            // }
+            // if (document.querySelector('#useremail_check').value !== document.querySelector('#useremail').value) {
+            //     document.querySelector('.errorEmail').innerHTML = '확인 이메일을 입력하세요'
+            //     document.querySelector('#useremail_check').focus();
+            //     return;
+            // } else {
+            //     document.querySelector('.errorEmail').innerHTML = ''
+            // }
+            // if (!document.querySelector('#userpass').value.match(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{10,}$/)) {
+            //     document.querySelector('.errorPassword').innerHTML = '영문/숫자/특수문자 포함 10자 이상 입력해주세요.'
+            //     document.querySelector('#userpass').focus();
+            //     return;
+            // } else {
+            //     document.querySelector('.errorPassword').innerHTML = ''
+            // }
+            // if (!document.querySelector('#userpass_check').value.match(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{10,}$/)) {
+            //     document.querySelector('.errorPassword').innerHTML = '비밀번호를 다시 확인'
+            //     document.querySelector('#userpass_check').focus();
+            //     return;
+            // } else {
+            //     document.querySelector('.errorPassword').innerHTML = ''
+            // }
+            // if (document.querySelector('#userpass_check').value !== document.querySelector('#userpass').value) {
+            //     document.querySelector('.errorPassword').innerHTML = '두 개의 비밀번호가 일치하지 않습니다'
+            //     document.querySelector('#userpass_check').focus();
+            //     return;
+            // } else {
+            //     document.querySelector('.errorPassword').innerHTML = ''
+            // }
+            // if (!document.querySelector('#accuracy').value) {
+            //     document.querySelector('.errorAccuracy').innerHTML = '이메일 또는 비밀번호를 입력하세요'
+            //     document.querySelector('#accuracy').focus();
+            //     return;
+            // } else {
+            //     document.querySelector('.errorAccuracy').innerHTML = ''
         }
 
         return true;
     }
 
     // handle form submit
-    function onSubmit() {
+    function hanldSubmit() {
         if (validate()) {
             $('#onSubmit').submit();
         }
