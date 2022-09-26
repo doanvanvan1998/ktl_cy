@@ -18,7 +18,6 @@ session_start();
     <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -47,9 +46,11 @@ session_start();
                             <?php
                             $Id = $_GET["Id"];
                             if($Id == 1){
-                                echo "<li class='breadcrumb-item active'>지원자현황</li>";
-                            }else{
-                                echo "<li class='breadcrumb-item active'>지원자통계</li>";
+                                echo "<li class='breadcrumb-item active'>서류평가</li>";
+                            }else if ($id = 2 ){
+                                echo "<li class='breadcrumb-item active'>면접평가</li>";
+                            }else {
+                                echo "<li class='breadcrumb-item active'>최종평가</li>";
                             }
                             ?>
                         </ol>
@@ -74,48 +75,35 @@ session_start();
                                     $query="select id,code_profile,username,phone,email,level_disabilities,subject,sub_subject,Verifi,date from objection_info where Verifi !='부적격'";
                                     $result = mysqli_query($con,$query);
                                     echo "
-                            <table id='example1' style='text-align:center;'  class='table table-bordered table-striped'>
+                            <table  style='text-align:center;padding: 5px ' style='text-align:center;' >
                               <thead>
-                              <tr>
-                                  <th>No.</th>
-                                  <th>수험번호</th>
-                                  <th>지원자명</th>
-                                  <th >연락처</th>
-                                  <th >이메일</th>
-                                  <th>장애정도</th>
-                                  <th>주전공</th>
-                                  <th>부전공</th>
-                                  <th>제출일</th>
-                                  <th>지원서
-                                      보기</th>
-                                  <th>적격 검증</th>
-                              </tr>
+                                 <tr rowspan ='2'>
+                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>no</th>
+                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>수험번호</th>
+                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>지원자명</th>   
+                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 1</th>   
+                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 2</th>    
+                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 3</th>  
+                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가점수</th> 
+                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>장애정도</th> 
+                                    
+                                    <th rowspan ='2' style='border: 1px solid #dee2e6;'></th> 
+                                    <th colspan ='4' style='border: 1px solid #dee2e6;padding: 0 22px'>우대사항</th>
+                                    <th rowspan ='2' style='border: 1px solid #dee2e6;'></th> 
+                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>취업지원</th>  
+                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>저소득층</th> 
+                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>북한이탈주민</th>  
+                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>다문화</th> 
+                                  </tr>
+                                  <tr>
+                                    <th style='border: 1px solid #dee2e6;padding: 0 22px'>우대점수</th>
+                                    <th style='border: 1px solid #dee2e6;padding: 0 22px'>최종합계</th>
+                                    <th style='border: 1px solid #dee2e6;padding: 0 22px'>최종순위</th>
+                                    <th style='border: 1px solid #dee2e6;padding: 0 22px'>합격여부</th>
+                               <tr>
                               </thead>
                               <tbody>";
-                                    $nIndex = 1;
-                                    while($row = mysqli_fetch_array($result)){
-                                        $row['phone'] = Decrypt($row['phone'],$secret_key,$secret_iv);
-                                        $row['email'] = Decrypt($row['email'],$secret_key,$secret_iv);
-                                        echo "<tr id='tr_$row[0]'><td>$nIndex</td>
-                            <td>".$row['code_profile']."</td>
-                            <td>".$row['username']."</td>
-                            <td>".$row['phone']."</td>
-                            <td>".$row['email']."</td>
-                            <td>".$row['level_disabilities']."</td>
-                            <td>".$row['subject']."</td>
-                            <td>".$row['sub_subject']."</td>
-                            <td>".$row['date']."</td>
-                            <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode($row, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
-                            <td>
-                                <select class='custom-select'  style='border: none'  name='verifi' onchange='updateVerifi(";echo $row['id'] ?><?php echo ")' id= ".$row['id'].">
-                                <option selected>".$row['Verifi']."</option>
-                                <option value='적격'>적격</option>
-                                <option value='부적격'>부적격</option>
-                              </select></td>
-                            ";
-                                        $nIndex++;
-                                    }
-                                    echo "<a href='../../php/fnc/inquire_excel.php' style=' position: relative;top: 30px;z-index: 1; border: 1px #1e4a28 solid;background: #28a745;color: white;padding: 10px;border-radius: 22px;'>엑셀 파일 출력</a>
+                                    echo "
                               </tbody>
                             </table>
                           </div>";
@@ -182,9 +170,8 @@ session_start();
 <script src="../../plugins/chart.js/Chart.min.js"></script>
 
 <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
-
 <script>
-    let dataChart =[];
+
     function onApplySuc(Id,step)
     {
         if(confirm("해당 지원서를 통과하시겠습니까?"))
@@ -230,68 +217,6 @@ session_start();
                 });
         }
     }
-</script>
-<script>
-
-    window.addEventListener('DOMContentLoaded', (event) => {
-        setInterval(function () {
-            refreshData();
-        }, 1000);
-        function refreshData() {
-            fetch("/ktl_cy/admin/php/fnc/chart.php")
-            .then(res=>res.json())
-                .then(data => {
-                    if (dataChart.length < 1){
-                    dataChart =  data;
-                    chart(dataChart);
-                }else if (!equal(data,dataChart)){
-                    dataChart = data;
-                    chart(data);
-                }})
-                .catch(error => {console.log(error)})
-        }
-        refreshData();
-    });
-    function equal(data , dataChart){
-        for (let i = 0 ; i < data.length ; i++){
-            if (data[i] !=  dataChart[i]){
-                return false;
-            }
-        }
-        return true;
-    }
-
-    function chart(data){
-        const ctx = document.getElementById('myChart');
-        const myChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: [
-                    'Red',
-                    'Blue',
-                    'Yellow'
-                ],
-                datasets: [{
-                    label: 'My First Dataset',
-                    data: data,
-                    backgroundColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(54, 162, 235)',
-                        'rgb(255, 205, 86)'
-                    ],
-                    hoverOffset: 4
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    }
-
 </script>
 <!-- ./wrapper -->
 
@@ -340,3 +265,4 @@ session_start();
 </script>
 </body>
 </html>
+
