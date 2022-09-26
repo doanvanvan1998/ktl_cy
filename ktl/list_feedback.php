@@ -7,7 +7,7 @@
     <div class="contents_wrap">
         <div class="container">
             <div class="jobapplication_title flex">
-                <h6>기본 정보</h6>
+                <h6>단작 피드백</h6>
                 <div class="flex">
                     <span>Home</span>
                     <img src="images/icons/ic_next.png" alt="다음">
@@ -15,124 +15,48 @@
                     <img src="images/icons/ic_next.png" alt="다음">
                     <span class="bor">채용공고 내용보기</span>
                 </div>
+
+
             </div>
-            <form id="onSubmit" action="../ktl/php/fnc/recruit_step.php" method="post">
+        </div>
 
+    </div>
 
+   <div class="container">
+       <button type="button" class="btn btn-primary" style="margin-bottom: 5px">피드백</button>
+   </div>
 
-                <div class="flex">
-                    <div class="form_title">
-                        <h6> 이름</h6>
-                    </div>
-                    <div class="form_con">
-                        <span> name here </span>
-                    </div>
-                </div>
-
-
-
-                <div class="flex">
-                    <div class="form_title">
-                        <h6> 전화 번호</h6>
-                    </div>
-                    <div class="form_con">
-                        <span>SDT </span>
-                    </div>
-                </div>
-
-                <div class="flex">
-                    <div class="form_title">
-                        <h6> 이메일</h6>
-                    </div>
-                    <div class="form_con">
-                        <span>email </span>
-                    </div>
-                </div>
-
-
-                <div class="flex baseline">
-                    <div class="form_title">
-                        <h6>주소</h6>
-                    </div>
-                    <div class="form_con">
-                        <div class="flex-direction inputbox">
-                            <input name="address" type="text" id='address' placeholder="주소" required>
-                            <span class="noti errorName" style="color: red; font-size: small"> (*) </span>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="flex baseline">
-                    <div class="form_title">
-                        <h6>성명</h6>
-                    </div>
-                    <div class="form_con">
-                        <div class="flex-direction inputbox">
-                            <input name="username" type="text" id='username' placeholder="이름을 입력해주세요." required>
-                            <span class="noti errorName" style="color: red; font-size: small"> (*) </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex baseline">
-                    <div class="form_title">
-                        <h6>휴대전화</h6>
-                    </div>
-                    <div class="form_con">
-                        <div class="flex-direction inputbox">
-                            <input name="userphone" placeholder="전화 번호" type="text" id='userphone' required numberOnly>
-                            <span class="noti errorPhone" style="color: red; font-size: small">(*) </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex baseline">
-                    <div class="form_title">
-                        <h6>이메일</h6>
-                    </div>
-                    <div class="form_con">
-                        <div class="flex-direction inputbox">
-                            <input name="useremail" type="email" id='useremail' placeholder="이메일을 입력해주세요." required>
-                            <input type="email" id='useremail_check' placeholder="이메일 확인을 위해 다시 한번 입력해주세요." required>
-                            <span class="noti errorEmail" style="color: red; font-size: small">(*)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex baseline">
-                    <div class="form_title">
-                        <h6>비밀번호</h6>
-                    </div>
-                    <div class="form_con">
-                        <div class="flex-direction inputbox">
-                            <input name="userpass" type="password" id='userpass' placeholder="비밀번호를 입력해주세요." required
-                            ">
-                            <input type="password" id='userpass_check' placeholder="비밀번호 확인을 위해 다시 한번 입력해주세요." required>
-                            <span class="noti errorPassword" style="color: red; font-size: small">(*) <span
-                                    class="textlength"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex">
-                    <div class="form_title">
-                        <h6>본인확인</h6>
-                    </div>
-                    <div class="form_con">
-                        <div class=" flex">
-                            <input type="text" id="accuracy" placeholder="전화번호 또는 이메일 확인">
-                            <button style=" margin-left: 0.5rem; background: #333; width: auto; cursor: pointer; border-radius: 0.2rem; padding: 0.7rem; color: white"
-                                    class=" accuracy " onclick='onAccuracy()'>전화번호 또는 이메일 확인
-                            </button>
-
-                        </div>
-
-                        <span class="noti errorAccuracy" style="color: red; font-size: small">(*) <span
-                                class="textlength"></span>
-                    </div>
-                </div>
-            </form>
-            <div class="btn_write flex" onclick="hanldSubmit()"><span>입사지원서 작성</span></div>
+    <div class="container">
+        <div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Loại câu hỏi</th>
+                    <th scope="col">Tiêu đề </th>
+                    <th scope="col">Ngày tạo</th>
+                    <th scope="col">Trạng thái</th>
+                    <th scope="col">Xóa</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                    <td>
+                        <i class="fa-solid fa-trash-can" style="color: red; cursor:pointer; "></i>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <?php include 'php/common_footer.php' ?>
+
+
+    <!--    --><?php //include 'php/common_footer.php' ?>
 </div>
 <div class="popup_agree_wrap popup_wrap">
     <div class="popup_agree popup">

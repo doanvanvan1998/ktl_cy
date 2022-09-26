@@ -4,9 +4,9 @@
 <body>
 <div class="wrap">
     <?php include 'php/common_header_menu.php' ?>
-    <div class="contents_wrap">
-        <div class="container">
-            <div class="jobapplication_title flex">
+    <div class="contents_wrap" >
+        <div class="container" >
+            <div class="jobapplication_title flex" >
                 <h6> 따오 판 호이 </h6>
                 <div class="flex">
                     <span>Home</span>
@@ -16,48 +16,21 @@
                     <span class="bor">채용공고 내용보기</span>
                 </div>
             </div>
-            <form id="onSubmit" action="../ktl/php/fnc/recruit_step.php" method="post">
-
-
-
-                <div class="flex">
-                    <div class="form_title">
-                        <h6> 이름</h6>
-                    </div>
-                    <div class="form_con">
-                        <span> name here </span>
-                    </div>
-                </div>
-
-
-
-                <div class="flex">
-                    <div class="form_title">
-                        <h6> 전화 번호</h6>
-                    </div>
-                    <div class="form_con">
-                        <span>SDT </span>
-                    </div>
-                </div>
-
-                <div class="flex">
-                    <div class="form_title">
-                        <h6> 이메일</h6>
-                    </div>
-                    <div class="form_con">
-                        <span>email </span>
-                    </div>
-                </div>
-
+            <form id="onSubmit" action="../ktl/php/fnc/recruit_step.php" method="post" style="background: #ededed">
 
                 <div class="flex baseline">
                     <div class="form_title">
-                        <h6>주소</h6>
+                        <h6> chọn tin</h6>
                     </div>
                     <div class="form_con">
                         <div class="flex-direction inputbox">
-                            <input name="address" type="text" id='address' placeholder="주소" required>
-                            <span class="noti errorName" style="color: red; font-size: small"> (*) </span>
+                            <select class="custom-select" id="news">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <span class="noti error_news" style="color: red; font-size: small"> (*) </span>
                         </div>
                     </div>
                 </div>
@@ -65,69 +38,88 @@
 
                 <div class="flex baseline">
                     <div class="form_title">
-                        <h6>성명</h6>
+                        <h6>Loại tin</h6>
                     </div>
                     <div class="form_con">
                         <div class="flex-direction inputbox">
-                            <input name="username" type="text" id='username' placeholder="이름을 입력해주세요." required>
-                            <span class="noti errorName" style="color: red; font-size: small"> (*) </span>
+                            <select class="custom-select col" id="type_news">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <span class="noti error_type_news" style="color: red; font-size: small"> (*) </span>
                         </div>
                     </div>
                 </div>
                 <div class="flex baseline">
                     <div class="form_title">
-                        <h6>휴대전화</h6>
+                        <h6>tên ngupowfi taojSDFm,b cad</h6>
                     </div>
-                    <div class="form_con">
+                    <div class="form_con col">
                         <div class="flex-direction inputbox">
-                            <input name="userphone" placeholder="전화 번호" type="text" id='userphone' required numberOnly>
+                            <input name="username" placeholder="전화 번호" type="text" id='username' required numberOnly>
                             <span class="noti errorPhone" style="color: red; font-size: small">(*) </span>
                         </div>
                     </div>
                 </div>
                 <div class="flex baseline">
                     <div class="form_title">
-                        <h6>이메일</h6>
+                        <h6>Số điện thoại</h6>
                     </div>
                     <div class="form_con">
                         <div class="flex-direction inputbox">
-                            <input name="useremail" type="email" id='useremail' placeholder="이메일을 입력해주세요." required>
-                            <input type="email" id='useremail_check' placeholder="이메일 확인을 위해 다시 한번 입력해주세요." required>
-                            <span class="noti errorEmail" style="color: red; font-size: small">(*)</span>
+                            <input name="userphone" type="number" id='userphone' placeholder="nhập phone" required>
+                            <span class="noti errorPhone" style="color: red; font-size: small">(*)</span>
                         </div>
                     </div>
                 </div>
                 <div class="flex baseline">
                     <div class="form_title">
-                        <h6>비밀번호</h6>
+                        <h6>email</h6>
                     </div>
                     <div class="form_con">
                         <div class="flex-direction inputbox">
-                            <input name="userpass" type="password" id='userpass' placeholder="비밀번호를 입력해주세요." required
+                            <input name="useremail" type="email" id='useremail' placeholder="nhập email" required
                             ">
-                            <input type="password" id='userpass_check' placeholder="비밀번호 확인을 위해 다시 한번 입력해주세요." required>
-                            <span class="noti errorPassword" style="color: red; font-size: small">(*) <span
-                                    class="textlength"></span>
+                            <span class="noti errorEmail" style="color: red; font-size: small">(*) <span
+                                        class="textlength"></span>
                         </div>
                     </div>
                 </div>
+
                 <div class="flex">
                     <div class="form_title">
-                        <h6>본인확인</h6>
+                        <h6>Tiêu đề</h6>
+                    </div>
+                    <div class="form_con col">
+                        <div class=" flex">
+                            <input name="title" type="text" id="title" placeholder="tiêu đề" style="width: 100%" >
+                        </div>
+
+                        <span class="noti errorTitle" style="color: red; font-size: small">(*) <span
+                                    class="textlength"></span>
+                    </div>
+                </div>
+
+
+                <div class="flex">
+                    <div class="form_title">
+                        <h6>Nội dung</h6>
                     </div>
                     <div class="form_con">
                         <div class=" flex">
-                            <input type="text" id="accuracy" placeholder="전화번호 또는 이메일 확인">
-                            <button style=" margin-left: 0.5rem; background: #333; width: auto; cursor: pointer; border-radius: 0.2rem; padding: 0.7rem; color: white"
-                                    class=" accuracy " onclick='onAccuracy()'>전화번호 또는 이메일 확인
-                            </button>
-
+                            <div class="form-group col">
+                                <label for="exampleFormControlTextarea1">Example textarea</label>
+                                <textarea style="width: 55rem" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
                         </div>
-
-                        <span class="noti errorAccuracy" style="color: red; font-size: small">(*) <span
-                                class="textlength"></span>
+                        <span class="noti errorTitle" style="color: red; font-size: small">(*) <span
+                                    class="textlength"></span>
                     </div>
                 </div>
+
+
             </form>
             <div class="btn_write flex" onclick="hanldSubmit()"><span>입사지원서 작성</span></div>
         </div>
