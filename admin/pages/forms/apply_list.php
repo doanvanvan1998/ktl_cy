@@ -122,7 +122,7 @@ session_start();
 
 //                                    mysqli_close($con);
                                 }else{
-                                    echo "<div class='container'>
+                                    echo "<div >
                                     <div class='row'>
                                         <div class='col-6'>
                                         <canvas id='myChart' ></canvas>
@@ -133,13 +133,37 @@ session_start();
                                      <table class='table ' style='margin-top: 15px'>
                                       <thead  style='color:#523737'>
                                         <tr style='border-top:2px solid'>
-                                          <th scope='col' class='border-0'  style='color:#e18181' >#</th>
-                                          <th scope='col'  class='border-0'>#</th>
+                                          <th scope='col' class='border-0'  style='color:#e18181' >1</th>
+                                          <th scope='col'  class='border-0'>경기</th>
                                           <th scope='col'  class='border-0'></th>
                                           <th scope='col'   class='border-0'></th>
-                                          <th scope='col'  class='border-0' style='color:#b9adad'>#</th>
-                                          <th scope='col'  class='border-0'>#</th>
+                                          <th scope='col'  class='border-0' style='color:#b9adad'>10명</th>
+                                          <th scope='col'  class='border-0'>10%</th>
                                         </tr>
+                                        <tr >
+                                          <th scope='col' class='border-0'  style='color:#e18181' >2</th>
+                                          <th scope='col'  class='border-0'>경기</th>
+                                          <th scope='col'  class='border-0'></th>
+                                          <th scope='col'   class='border-0'></th>
+                                          <th scope='col'  class='border-0' style='color:#b9adad'>20명</th>
+                                          <th scope='col'  class='border-0'>20%</th>
+                                        </tr><tr >
+                                          <th scope='col' class='border-0'  style='color:#e18181' >3</th>
+                                          <th scope='col'  class='border-0'>경기</th>
+                                          <th scope='col'  class='border-0'></th>
+                                          <th scope='col'   class='border-0'></th>
+                                          <th scope='col'  class='border-0' style='color:#b9adad'>30명</th>
+                                          <th scope='col'  class='border-0'>30%</th>
+                                        </tr>
+                                        <tr >
+                                          <th scope='col' class='border-0'  style='color:#e18181' >4</th>
+                                          <th scope='col'  class='border-0'>경기</th>
+                                          <th scope='col'  class='border-0'></th>
+                                          <th scope='col'   class='border-0'></th>
+                                          <th scope='col'  class='border-0' style='color:#b9adad'>40명</th>
+                                          <th scope='col'  class='border-0'>40%</th>
+                                        </tr>
+                                        
                                       </thead>
                                       </tbody>
                                     </table>
@@ -262,34 +286,79 @@ session_start();
     }
 
     function chart(data){
+
         const ctx = document.getElementById('myChart');
         const myChart = new Chart(ctx, {
             type: 'doughnut',
             data: {
                 labels: [
-                    'Red',
-                    'Blue',
-                    'Yellow'
+
+                    '고졸',
+                    '전문대',
+                    '학사 (편입포함)',
+                    '석사',
+                    '박사',
+                    '기타',
                 ],
                 datasets: [{
                     label: 'My First Dataset',
                     data: data,
                     backgroundColor: [
-                        'rgb(255, 99, 132)',
                         'rgb(54, 162, 235)',
-                        'rgb(255, 205, 86)'
+                        'rgb(255, 95, 86)',
+                        'rgb(255, 50, 86)',
+                        'rgb(255, 120, 76)',
+                        'rgb(255, 10, 66)',
+                        'rgb(255, 140, 56)',
                     ],
                     hoverOffset: 4
                 }]
             },
             options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+                legend: {
+                    display: true,
+                    position: 'right',
+                    align: "start",
+                    boxWidth : 80,
+                    boxHeight :60
                 }
             }
         });
+
+
+        //
+        // var ctx = document.getElementById("myChart").getContext("2d");
+        // var myChart = new Chart(ctx, {
+        //     type: 'pie',
+        //     data: {
+        //         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        //         datasets: [{
+        //             label: 'Link One',
+        //             data: [1, 2, 3, 2, 1, 1.5, 1],
+        //             backgroundColor: [
+        //                 '#D3E4F3'
+        //             ],
+        //             borderColor: [
+        //                 '#D3E4F3',
+        //                 'rgba(54, 162, 235, 1)',
+        //                 'rgba(255, 206, 86, 1)',
+        //                 'rgba(75, 192, 192, 1)',
+        //                 'rgba(153, 102, 255, 1)',
+        //                 'rgba(255, 159, 64, 1)'
+        //             ],
+        //             borderWidth: 1
+        //         }]
+        //     },
+        //     options: {
+        //         legend: {
+        //             display: true,
+        //             position: 'right',
+        //             labels: {
+        //                 fontColor: '#333'
+        //             }
+        //         }
+        //     }
+        // });
     }
 
 </script>
@@ -343,6 +412,8 @@ session_start();
     $("#nav_11_"+$("#SelId").val()).attr("class","nav-link active");
     $("#" + "nav_14").attr("class","nav-item menu-is-opening menu-open");
     $("#nav_15_"+$("#SelId").val()).attr("class","nav-link active");
+    $("#" + "nav_16").attr("class","nav-item menu-is-opening menu-open");
+    $("#nav_17_"+$("#SelId").val()).attr("class","nav-link active");
 </script>
 </body>
 </html>

@@ -114,26 +114,26 @@ session_start();
 //                                    while($row = mysqli_fetch_array($result)){
                                         echo "
                                                                 <tr style='border: 1px solid #dee2e6;padding: 0 22px' id=20><td>$nIndex</td>
-                                                                         <th  style='border: 1px solid #dee2e6;padding: 0 22px'>no</th>
-                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>수험번호</th>
-                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>지원자명</th>   
-                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 1</th>   
-                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 2</th>    
-                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 3</th>  
-                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>평가점수</th> 
+                                                                         <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th>
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th>
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th>   
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc 1</th>   
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc 2</th>    
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc 3</th>  
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th> 
                                                                       
                                                                         <th  style='border: 1px solid #dee2e6;'></th> 
-                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>취업지원</th>
-                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>저소득층</th>  
-                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>북한이탈주민</th> 
-                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>다문화</th>  
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th>
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th>  
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th> 
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th>  
                                                                           <th  style='border: 1px solid #dee2e6;'></th>  
-                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>우대점수</th> 
-                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>최종합계</th> 
-                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>최종순위</th>  
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th> 
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th> 
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th>  
                                                                  
                                                                 <th style='border: 1px solid #dee2e6;padding: 0 22px'>
-                                                                    <select class='custom-select'  style='border: none'  name='verifi' onchange='updateVerifi(";echo 1; echo ")' id= ".$row['id'].">
+                                                                    <select class='custom-select'  style='border: none'  name='verifi' onchange='updateVerifi(";echo 1; echo ")' id= 12312>
                                                                     <option selected>적격</option>
                                                                     <option value='적격'>적격</option>
                                                                     <option value='부적격'>부적격</option>
@@ -261,7 +261,6 @@ session_start();
 //                                    }
                                 }
                                 ?>
-
                                 <!-- /.card-body -->
                             </div>
                             <!-- /.card -->

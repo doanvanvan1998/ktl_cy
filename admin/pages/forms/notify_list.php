@@ -101,20 +101,20 @@ session_start();
 //                                    while($row = mysqli_fetch_array($result)){
                                         echo "
                                                <tr>
-                                                    <th    style='border: 1px solid #dee2e6;'>선택</th>
+                                                    <th    style='border: 1px solid #dee2e6;'>abc</th>
                                               
-                                                    <th style='border: 1px solid #dee2e6;' >no</th>   
-                                                    <th  style='border: 1px solid #dee2e6;'>수험번호 </th>   
-                                                    <th   style='border: 1px solid #dee2e6;'>지원자명</th>    
-                                                    <th  style='border: 1px solid #dee2e6;'>연락처</th>  
-                                                    <th   style='border: 1px solid #dee2e6;'>이메일</th> 
-                                                     <th style='border: 1px solid #dee2e6;'>장애정도</th> 
+                                                    <th style='border: 1px solid #dee2e6;' >abc</th>   
+                                                    <th  style='border: 1px solid #dee2e6;'>abc </th>   
+                                                    <th   style='border: 1px solid #dee2e6;'>abc</th>    
+                                                    <th  style='border: 1px solid #dee2e6;'>abc</th>  
+                                                    <th   style='border: 1px solid #dee2e6;'>abc</th> 
+                                                     <th style='border: 1px solid #dee2e6;'>abc</th> 
                                            
-                                                    <th   style='border: 1px solid #dee2e6;'>주전공</th>
-                                                    <th   style='border: 1px solid #dee2e6;'>부전공</th>  
-                                                    <th  style='border: 1px solid #dee2e6;'>서류전형</th> 
-                                                    <th  style='border: 1px solid #dee2e6;'>면접전형</th>  
-                                                    <th  style='border: 1px solid #dee2e6;'>최종합격</th> 
+                                                    <th   style='border: 1px solid #dee2e6;'>abc</th>
+                                                    <th   style='border: 1px solid #dee2e6;'>abc</th>  
+                                                    <th  style='border: 1px solid #dee2e6;'>abc</th> 
+                                                    <th  style='border: 1px solid #dee2e6;'>abc</th>  
+                                                    <th  style='border: 1px solid #dee2e6;'>abc</th> 
                                                   </tr>
                                             ";
 //                                       break;
@@ -154,19 +154,19 @@ session_start();
 //                                    while($row = mysqli_fetch_array($result)){
                                         echo "
                                                <tr>
-                                                   <th    >선택</th>
+                                                   <th    >abc</th>
                                               
-                                                    <th >no</th>   
-                                                    <th  >구분 </th>   
-                                                    <th   >전송일시</th>    
-                                                    <th>종류</th>  
-                                                    <th  >발신번호</th> 
-                                                     <th >발신 이메일</th> 
+                                                    <th >abc</th>   
+                                                    <th  >abc </th>   
+                                                    <th   >abc</th>    
+                                                    <th>abc</th>  
+                                                    <th  >abc</th> 
+                                                     <th >abc</th> 
                                            
                                                      <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode(1, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
                                                      <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode(1, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
                                                     <th>
-                                                    <div>tesstt</div>
+                                                    <div>abc</div>
                                                     <button type='button' class='btn btn-danger'>예약발송</button>
                                                     </th> 
                                                   </tr>
