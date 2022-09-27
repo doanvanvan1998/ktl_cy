@@ -18,6 +18,7 @@ session_start();
     <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -181,68 +182,9 @@ session_start();
 <script src="../../plugins/chart.js/Chart.min.js"></script>
 
 <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
+
 <script>
-    Pusher.logToConsole = true;
-
-    const pusher = new Pusher('a9deada75fce320953d2', {
-        cluster: 'ap1',
-        forceTLS: true,
-    });
-
-
-    const channel = pusher.subscribe('cy_php-development');
     let dataChart =[];
-    function equal(data , dataChart){
-        for (let i = 0 ; i < data.length ; i++){
-            if (data[i] !=  dataChart[i]){
-               return false;
-            }
-        }
-        return true;
-    }
-    channel.bind('chart', function(data) {
-        if (dataChart.length < 1){
-            dataChart =  data;
-            chart(dataChart);
-        }else if (!equal(data,dataChart)){
-            dataChart = data;
-            chart(data);
-        }
-
-    });
-
-    function chart(data){
-        const ctx = document.getElementById('myChart');
-        const myChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: [
-                    'Red',
-                    'Blue',
-                    'Yellow'
-                ],
-                datasets: [{
-                    label: 'My First Dataset',
-                    data: data,
-                    backgroundColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(54, 162, 235)',
-                        'rgb(255, 205, 86)'
-                    ],
-                    hoverOffset: 4
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    }
-
-
     function onApplySuc(Id,step)
     {
         if(confirm("해당 지원서를 통과하시겠습니까?"))
@@ -288,6 +230,68 @@ session_start();
                 });
         }
     }
+</script>
+<script>
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+        setInterval(function () {
+            refreshData();
+        }, 1000);
+        function refreshData() {
+            fetch("/ktl_cy/admin/php/fnc/chart.php")
+            .then(res=>res.json())
+                .then(data => {
+                    if (dataChart.length < 1){
+                    dataChart =  data;
+                    chart(dataChart);
+                }else if (!equal(data,dataChart)){
+                    dataChart = data;
+                    chart(data);
+                }})
+                .catch(error => {console.log(error)})
+        }
+        refreshData();
+    });
+    function equal(data , dataChart){
+        for (let i = 0 ; i < data.length ; i++){
+            if (data[i] !=  dataChart[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function chart(data){
+        const ctx = document.getElementById('myChart');
+        const myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    'Red',
+                    'Blue',
+                    'Yellow'
+                ],
+                datasets: [{
+                    label: 'My First Dataset',
+                    data: data,
+                    backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)',
+                        'rgb(255, 205, 86)'
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+
 </script>
 <!-- ./wrapper -->
 

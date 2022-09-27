@@ -5,10 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/slide.min.css">
-    <link rel="stylesheet" href="css/common.css?v=2022-09-27 02:49:53">
+    <!--    <link rel="stylesheet" href="css/slide.min.css">-->
+    <!--    <link rel="stylesheet" href="css/common.css?v=2022-09-27 02:49:53">-->
     <script src="js/jquery.js" charset="utf-8"></script>
     <script src="js/swiper.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
     <title>한국산업기술시험원</title>
 </head>
 <link rel="stylesheet" href="css/signup.css">
@@ -17,10 +26,10 @@
     <div class="contents_wrap">
         <div class="container">
             <div class="signup_form">
-                <h2>로그인</h2>
+                <h2 class="title">로그인</h2>
                 <hr>
                 <div class="tab-wrapper">
-                    <div class="tab-heading flex cursor">
+                    <div class="tab-heading d-flex cursor">
                         <div class="tab-item" tabindex="1">
                             Thông tin cơ bản
                         </div>
@@ -38,35 +47,65 @@
                         <h3>Thông tin cơ bản</h3>
                         <hr>
                         <div>
-                            <div class="form-group">
-                                <label for="field-name">Tên</label>
-                                <input type="text" class="form-control" id="field-name"
-                                       placeholder="Enter email">
+                            <div class="row form-item">
+                                <div class="col-md-2">
+                                    <label for="">
+                                        Tên
+                                    </label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" class="" id="field-name"
+                                           placeholder="Enter email">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="field-phone">SDT</label>
-                                <input type="phone" class="form-control" id="field-phone"
-                                       placeholder="Enter email">
+
+                            <div class="row form-item">
+                                <div class="col-md-2">
+                                    <label for="">
+                                        SDT
+                                    </label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="phone" class="" id="field-phone"
+                                           placeholder="Enter email">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="field-email">Email</label>
-                                <input type="email" class="form-control" id="field-email"
-                                       placeholder="Enter Email">
+
+                            <div class="row form-item">
+                                <div class="col-md-2">
+                                    <label for="">
+                                        Email
+                                    </label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="email" class="" id="field-email"
+                                           placeholder="Enter Email">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="field-address">Địa chỉ</label>
-                                <input type="text" class="form-control" id="field-address"
-                                       placeholder="Enter Email">
+
+
+                            <div class="row form-item">
+                                <div class="col-md-2">
+                                    <label for="">
+                                        Địa chỉ
+                                    </label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="email" class="" id="field-email"
+                                           placeholder="Enter Email">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="field-address">Khuyết tật</label>
-                                <input type="radio" value="1" class="form-control" id="field-address"
-                                       placeholder="Enter Email">
-                                <input type="radio" value="0" class="form-control" id="field-address"
-                                       placeholder="Enter Email">
-                                <input type="text" placeholder="Mức độ khuyết tật">
-                                <input type="text" placeholder="Nội dung"/>
+
+                            <div class="row form-item">
+                                <div class="col-md-2">
+                                    <label for="">Khuyết tật</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="email" class="" id="field-email"
+                                           placeholder="Enter Email">
+                                </div>
                             </div>
+
 
                             <div class="form-group">
                                 <label for="">Nghĩa vụ Quân sự</label>
@@ -304,7 +343,7 @@
         $('.tab-heading .tab-item').click(function () {
             $(this).closest('.tab-wrapper').find('.tab-item').removeClass('active');
             $(this).addClass('active');
-            const tabIndex = $(this).attr('tabindex');
+            const tabIndex = parseInt($(this).attr('tabindex')) - 1;
             $('.tab-wrapper .tab-content').addClass('hidden');
             $(this).closest('.tab-wrapper').find('.tab-content').eq(tabIndex).removeClass('hidden');
         })
@@ -316,9 +355,53 @@
         display: none
     }
 
+    .tab-wrapper .tab-item {
+        cursor: pointer;
+        width: 100%;
+        padding: 8px 2px 8px 2px;
+        text-align: center;
+        box-sizing: border-box;
+        margin: 0.4rem 0 1rem;
+        background: #f0f0f0;
+    }
+
+    .title {
+        border-bottom: 1px solid #e8e8ea;
+        margin-top: 4rem;
+    }
+
     .tab-wrapper .tab-item.active {
-        background: red;
-        color: white
+        color: white;
+        background: linear-gradient(to right, #3b73e4 0%, #0559b5 100%);
+    }
+
+
+    .form-item div:first-child {
+        background: #e8e8ea;
+        display: flex;
+        align-items: center;
+    }
+
+    .form-item div:last-child {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    input {
+        width: 100%;
+        height: 2.4rem;
+        border-radius: 0.2rem;
+        box-sizing: border-box;
+        padding: 0 0.9rem;
+        border: 1px solid #e4e4e4;
+        font-size: 0.75rem;
+        letter-spacing: -0.35px;
+        color: #222;
+        font-weight: var(--medium);
+    }
+
+    input:focus {
+        border-color: #4880ef;
     }
 </style>
 </html>
