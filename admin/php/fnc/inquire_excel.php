@@ -62,9 +62,10 @@ while($row = mysqli_fetch_array($result))
     $numRow++;
     $index++;
 }
+$nameExcel = "지원자관리-".date("Y-m-d").".xls" ;
 
 header('Content-type: application/vnd.ms-excel');
-header('Content-Disposition: attachment; filename="data.xls"');
+header('Content-Disposition: attachment; filename='.$nameExcel);
 PHPExcel_IOFactory::createWriter($excel, 'Excel2007')->save('php://output');
 
 //header("Location: /ktl_cy/admin/pages/forms/subadmin_list.php");
