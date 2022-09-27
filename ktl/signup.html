@@ -1,29 +1,38 @@
 <!DOCTYPE html>
-<?php include 'php/common_header.php' ?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/slide.min.css">
+    <link rel="stylesheet" href="css/common.css?v=2022-09-27 02:49:53">
+    <script src="js/jquery.js" charset="utf-8"></script>
+    <script src="js/swiper.min.js" charset="utf-8"></script>
+    <title>한국산업기술시험원</title>
+</head>
 <link rel="stylesheet" href="css/signup.css">
 <body>
 <div class="wrap">
-    <?php include 'php/common_header_menu.php' ?>
     <div class="contents_wrap">
         <div class="container">
             <div class="signup_form">
                 <h2>로그인</h2>
                 <hr>
                 <div class="tab-wrapper">
-                    <div class="tab-heading">
-                        <div class="tab-item">
+                    <div class="tab-heading flex cursor">
+                        <div class="tab-item" tabindex="1">
                             Thông tin cơ bản
                         </div>
-                        <div class="tab-item">
+                        <div class="tab-item" tabindex="2">
                             Học lực/ kinh nghiệm
                         </div>
-                        <div class="tab-item">Chứng chỉ/giải thưởng</div>
-                        <div class="tab-item">Bản giới thiệu bản thân</div>
-                        <div class="tab-item">
+                        <div class="tab-item" tabindex="3">Chứng chỉ/giải thưởng</div>
+                        <div class="tab-item" tabindex="4">Bản giới thiệu bản thân</div>
+                        <div class="tab-item" tabindex="5">
                             Nộp
                         </div>
                     </div>
-
 
                     <div class="tab-content">
                         <h3>Thông tin cơ bản</h3>
@@ -129,8 +138,8 @@
                         </div>
                     </div>
 
-                    <div class="tab-content">
-                        <h3>Thông tin cơ bản</h3>
+                    <div class="tab-content hidden">
+                        <h3>Học vấn/ Kinh nghiệm/ Chương trình giáo dục</h3>
                         <div class="form-group">
                             <label for="">THPT</label>
                             <input type="text" placeholder="Tên trường"/>
@@ -229,13 +238,87 @@
 
 
                     </div>
-                </div>
 
+                    <div class="tab-content hidden">
+                        <h2>Bằng cấp, giải thưởng</h2>
+                        <hr>
+                        <div class="form-group">
+                            <label for="">Bằng cấp</label>
+                            <input type="text" placeholder="Tên bằng cấp" class="form-control">
+                            <input type="text" placeholder="Nơi cấp" class="form-control">
+                            <input type="text" placeholder="Ngày tháng năm" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Giải thưởng</label>
+                            <input type="text" placeholder="Tên cuộc thi/ giải thưởng">
+                            <input type="text" placeholder="Cơ quan cấp">
+                            <input type="text" placeholder="Ngày tháng năm">
+                            <input type="text" placeholder="Phân loại giải thưởng">
+                        </div>
+                        <div class="form-group">
+                            <input type="file" placeholder="Chỉ có thể nộp bản PDF">
+                            <input type="text" placeholder="Link">
+                        </div>
+                    </div>
+
+                    <div class="tab-content hidden">
+                        <h2>Bản giới thiệu bản thân</h2>
+                    </div>
+
+                    <div class="tab-content hidden">
+                        <h2>Bản thân</h2>
+                        <p>
+                            is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                            of type and scrambled it to make a type specimen book
+                        </p>
+                        <p>
+                            <span>Ngày gửi</span>
+                            <span>2022-12-01</span>
+                        </p>
+                        <p>
+                            <span>Người gửi</span>
+                            <span>Nguyễn Thành Luân</span>
+                        </p>
+
+                        <div>
+                            <span>
+                                <input type="checkbox">
+                                <label>Click để đồng ý tất cả nội dung trên</label>
+                            </span>
+                        </div>
+
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <?php include 'php/common_footer.php' ?>
 </div>
-<?php include 'php/common_script.php' ?>
 </body>
+
+<script>
+    $(document).ready(function () {
+        $('.tab-heading .tab-item').click(function () {
+            $(this).closest('.tab-wrapper').find('.tab-item').removeClass('active');
+            $(this).addClass('active');
+            const tabIndex = $(this).attr('tabindex');
+            $('.tab-wrapper .tab-content').addClass('hidden');
+            $(this).closest('.tab-wrapper').find('.tab-content').eq(tabIndex).removeClass('hidden');
+        })
+    });
+</script>
+
+<style>
+    .hidden {
+        display: none
+    }
+
+    .tab-wrapper .tab-item.active {
+        background: red;
+        color: white
+    }
+</style>
 </html>
