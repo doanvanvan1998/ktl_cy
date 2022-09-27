@@ -337,6 +337,10 @@ session_start();
 
     $("#nav_4").attr("class","nav-item menu-is-opening menu-open");
     $("#nav_5_"+$("#SelId").val()).attr("class","nav-link active");
+    $("#" + "nav_12").attr("class","nav-item menu-is-opening menu-open");
+    $("#nav_13_"+$("#SelId").val()).attr("class","nav-link active");
+    $("#" + "nav_10").attr("class","nav-item menu-is-opening menu-open");
+    $("#nav_11_"+$("#SelId").val()).attr("class","nav-link active");
 </script>
 </body>
 </html>

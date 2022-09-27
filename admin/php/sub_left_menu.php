@@ -103,6 +103,31 @@
                   </li>
               </ul>
           </li>
+          <li class="nav-item" id='nav_12'>
+              <a href="#" class="nav-link" id='nav_13_1'>
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>
+                      전형안내 및
+                      발표
+                      <i class="fas fa-angle-left right"></i>
+                      <!-- <span class="badge badge-info right">6</span> -->
+                  </p>
+              </a>
+              <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                      <a href="notify_list.php?Id=1" class="nav-link" id='nav_13_1'>
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>안내등록</p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="notify_list.php?Id=2" class="nav-link" id='nav_13_2'>
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>안내현황</p>
+                      </a>
+                  </li>
+              </ul>
+          </li>
         <li class="nav-header">이의신청</li>
         <li class="nav-item" id='nav_6'>
           <a href="inquire_list.php" class="nav-link" id='nav_6_1'>

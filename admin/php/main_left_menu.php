@@ -1,7 +1,6 @@
 <style>
     .none { display:none; }
 </style>
-
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="../../index.html" class="brand-link">
@@ -24,7 +23,7 @@
                      with font-awesome or any other icon font library -->
                 <li class="nav-header">내정보</li>
                 <li class="nav-item" id='nav_1'>
-                    <a href="myinfo.php" class="nav-link" id='nav_1_1'>
+                    <a href="pages/forms/myinfo.php" class="nav-link" id='nav_1_1'>
                         <i class="nav-icon fas fa-pen"></i>
                         <p>
                             정보수정
@@ -33,7 +32,7 @@
                 </li>
                 <li class="nav-header">면접관관리</li>
                 <li class="nav-item" id='nav_2'>
-                    <a href="subadmin_add.php" class="nav-link" id='nav_2_1'>
+                    <a href="pages/forms/subadmin_add.php" class="nav-link" id='nav_2_1'>
                         <i class="nav-icon fas fa-pen"></i>
                         <p>
                             면접관등록
@@ -41,7 +40,7 @@
                     </a>
                 </li>
                 <li class="nav-item" id='nav_3'>
-                    <a href="subadmin_list.php" class="nav-link" id='nav_3_1'>
+                    <a href="pages/forms/subadmin_list.php" class="nav-link" id='nav_3_1'>
                         <i class="nav-icon fas fa-user"></i>
                         <p>
                             면접관리스트
@@ -61,7 +60,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/forms/apply_list.php?Id=2" class="nav-link" id='nav_5_1'>
+                            <a href="pages/forms/apply_list.php?Id=1" class="nav-link" id='nav_5_1'>
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>지원자현황</p>
                             </a>
@@ -74,7 +73,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item-sub" id='nav_10'>
+                <li class="nav-item" id='nav_10'>
                     <a href="#" class="nav-link" id='nav_10_1'>
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
@@ -83,31 +82,55 @@
                             <!-- <span class="badge badge-info right">6</span> -->
                         </p>
                     </a>
-                    <ul class="nav nav-treeview-sub">
+                    <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="review_list.php?Id=1" class="nav-link" id='nav_11_1'>
+                            <a href="pages/forms/review_list.php?Id=1" class="nav-link" id='nav_11_1'>
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>서류평가</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="review_list.php?Id=2" class="nav-link" id='nav_11_2'>
+                            <a href="pages/forms/review_list.php?Id=2" class="nav-link" id='nav_11_2'>
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>면접평가</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="review_list.php?Id=3" class="nav-link" id='nav_11_2'>
+                            <a href="pages/forms/review_list.php?Id=3" class="nav-link" id='nav_11_2'>
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>최종평가</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-
+                <li class="nav-item" id='nav_12'>
+                    <a href="#" class="nav-link" id='nav_13_1'>
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>
+                            전형안내 및
+                            발표
+                            <i class="fas fa-angle-left right"></i>
+                            <!-- <span class="badge badge-info right">6</span> -->
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="pages/forms/notify_list.php?Id=1" class="nav-link" id='nav_13_1'>
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>안내등록</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/forms/notify_list.php?Id=2" class="nav-link" id='nav_13_2'>
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>안내현황</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-header">이의신청</li>
                 <li class="nav-item" id='nav_6'>
-                    <a href="inquire_list.php" class="nav-link" id='nav_6_1'>
+                    <a href="pages/forms/inquire_list.php" class="nav-link" id='nav_6_1'>
                         <i class="nav-icon fas fa-book"></i>
                         <p>
                             신청리스트
@@ -116,7 +139,7 @@
                 </li>
                 <li class="nav-header">채용문의</li>
                 <li class="nav-item" id='nav_7'>
-                    <a href="employment_list.php" class="nav-link" id='nav_7_1'>
+                    <a href="pages/forms/employment_list.php" class="nav-link" id='nav_7_1'>
                         <i class="nav-icon fas fa-book"></i>
                         <p>
                             문의리스트
@@ -125,7 +148,7 @@
                 </li>
                 <li class="nav-header">공지사항</li>
                 <li class="nav-item" id='nav_8'>
-                    <a href="notice_add.php" class="nav-link" id='nav_8_1'>
+                    <a href="pages/forms/notice_add.php" class="nav-link" id='nav_8_1'>
                         <i class="nav-icon fas fa-pen"></i>
                         <p>
                             공지등록
@@ -133,7 +156,7 @@
                     </a>
                 </li>
                 <li class="nav-item" id='nav_9'>
-                    <a href="notice_list.php" class="nav-link" id='nav_9_1'>
+                    <a href="pages/forms/notice_list.php" class="nav-link" id='nav_9_1'>
                         <i class="nav-icon fas fa-book"></i>
                         <p>
                             공지리스트
