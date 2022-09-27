@@ -1,0 +1,15 @@
+<?php
+$code = $_POST['code'];
+$email = $_POST['email'];
+include "../mysql.php";
+$query = "select COUNT(*) from recruit_able_user where email='$email' and rand_code='$code'";
+$result = mysqli_query($con, $query);
+$row = mysqli_fetch_array($result);
+if ($row[0] != 0) {
+    echo "success";
+    header("Location: ../../index.php");
+} else {
+//    header("Location: ../../verify_email.php?email=$email");
+    echo 'fail';
+}
+?>
