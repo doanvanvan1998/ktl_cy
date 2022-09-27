@@ -94,11 +94,11 @@ session_start();
                                               </thead>
                                               <tbody>";
 
-                                    $query="select id,code_profile,username,phone,email,level_disabilities,subject,sub_subject,Verifi,date from objection_info where Verifi !='부적격'";
-
-                                    $result = mysqli_query($con,$query);
+//                                    $query="select id,code_profile,username,phone,email,level_disabilities,subject,sub_subject,Verifi,date from objection_info where Verifi !='부적격'";
+//
+//                                    $result = mysqli_query($con,$query);
                                     $nIndex=0;
-                                    while($row = mysqli_fetch_array($result)){
+//                                    while($row = mysqli_fetch_array($result)){
                                         echo "
                                                <tr>
                                                     <th    style='border: 1px solid #dee2e6;'>선택</th>
@@ -117,8 +117,8 @@ session_start();
                                                     <th  style='border: 1px solid #dee2e6;'>최종합격</th> 
                                                   </tr>
                                             ";
-                                       break;
-                                    }
+//                                       break;
+//                                    }
                                     echo "
                                               </tbody>
                                             </table>
@@ -147,11 +147,11 @@ session_start();
                                               </thead>
                                               <tbody>";
 
-                                    $query="select id,code_profile,username,phone,email,level_disabilities,subject,sub_subject,Verifi,date from objection_info where Verifi !='부적격'";
-
-                                    $result = mysqli_query($con,$query);
+//                                    $query="select id,code_profile,username,phone,email,level_disabilities,subject,sub_subject,Verifi,date from objection_info where Verifi !='부적격'";
+//
+//                                    $result = mysqli_query($con,$query);
                                     $nIndex=0;
-                                    while($row = mysqli_fetch_array($result)){
+//                                    while($row = mysqli_fetch_array($result)){
                                         echo "
                                                <tr>
                                                    <th    >선택</th>
@@ -163,16 +163,16 @@ session_start();
                                                     <th  >발신번호</th> 
                                                      <th >발신 이메일</th> 
                                            
-                                                     <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode($row, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
-                                                     <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode($row, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
+                                                     <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode(1, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
+                                                     <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode(1, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
                                                     <th>
                                                     <div>tesstt</div>
                                                     <button type='button' class='btn btn-danger'>예약발송</button>
                                                     </th> 
                                                   </tr>
                                             ";
-                                       break;
-                                    }
+//                                       break;
+//                                    }
                                     echo "
                                               </tbody>
                                             </table>

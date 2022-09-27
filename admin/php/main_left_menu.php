@@ -128,6 +128,30 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item" id='nav_14'>
+                    <a href="#" class="nav-link" id='nav_14_1'>
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>
+                            전형결과
+                            <i class="fas fa-angle-left right"></i>
+                            <!-- <span class="badge badge-info right">6</span> -->
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="pages/forms/result_list.php?Id=1" class="nav-link" id='nav_15_1'>
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>서류평가</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/forms/result_list.php?Id=2" class="nav-link" id='nav_15_2'>
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>면접평가</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-header">이의신청</li>
                 <li class="nav-item" id='nav_6'>
                     <a href="pages/forms/inquire_list.php" class="nav-link" id='nav_6_1'>

@@ -301,6 +301,8 @@
   $("#nav_5_"+$("#SelId").val()).attr("class","nav-link active");
   $("#" + "nav_10").attr("class","nav-item menu-is-opening menu-open");
   $("#nav_11_"+$("#SelId").val()).attr("class","nav-link active");
+  $("#" + "nav_14").attr("class","nav-item menu-is-opening menu-open");
+  $("#nav_15_"+$("#SelId").val()).attr("class","nav-link active");
 </script>
 </body>
 </html>

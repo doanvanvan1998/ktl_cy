@@ -69,10 +69,10 @@ session_start();
                                 <?php
                                 $Id = $_GET["Id"];
                                 if($Id == 1){
-                                    include "../../php/mysql.php";
-                                    include "../../php/crypt.php";
-                                    $query="select id,code_profile,username,phone,email,level_disabilities,subject,sub_subject,Verifi,date from objection_info where Verifi !='부적격'";
-                                    $result = mysqli_query($con,$query);
+//                                    include "../../php/mysql.php";
+//                                    include "../../php/crypt.php";
+//                                    $query="select id,code_profile,username,phone,email,level_disabilities,subject,sub_subject,Verifi,date from objection_info where Verifi !='부적격'";
+//                                    $result = mysqli_query($con,$query);
                                     echo "
                             <table id='example1' style='text-align:center;'  class='table table-bordered table-striped'>
                               <thead>
@@ -93,34 +93,34 @@ session_start();
                               </thead>
                               <tbody>";
                                     $nIndex = 1;
-                                    while($row = mysqli_fetch_array($result)){
-                                        $row['phone'] = Decrypt($row['phone'],$secret_key,$secret_iv);
-                                        $row['email'] = Decrypt($row['email'],$secret_key,$secret_iv);
-                                        echo "<tr id='tr_$row[0]'><td>$nIndex</td>
-                            <td>".$row['code_profile']."</td>
-                            <td>".$row['username']."</td>
-                            <td>".$row['phone']."</td>
-                            <td>".$row['email']."</td>
-                            <td>".$row['level_disabilities']."</td>
-                            <td>".$row['subject']."</td>
-                            <td>".$row['sub_subject']."</td>
-                            <td>".$row['date']."</td>
-                            <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode($row, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
-                            <td>
-                                <select class='custom-select'  style='border: none'  name='verifi' onchange='updateVerifi(";echo $row['id'] ?><?php echo ")' id= ".$row['id'].">
-                                <option selected>".$row['Verifi']."</option>
-                                <option value='적격'>적격</option>
-                                <option value='부적격'>부적격</option>
-                              </select></td>
+//                                    while($row = mysqli_fetch_array($result)){
+//                                        $row['phone'] = Decrypt($row['phone'],$secret_key,$secret_iv);
+//                                        $row['email'] = Decrypt($row['email'],$secret_key,$secret_iv);
+                                        echo "<tr id='10'><td>$nIndex</td>
+                                        <td>abc</td>
+                                        <td>abc</td>
+                                        <td>abc</td>
+                                        <td>abc</td>
+                                        <td>abc</td>
+                                        <td>abc</td>
+                                        <td>abc</td>
+                                        <td>abc</td>
+                                        <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode(1, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
+                                        <td>
+                                            <select class='custom-select'  style='border: none'  name='verifi' onchange='updateVerifi(";echo 1 ?><?php echo ")' id= 1>
+                                            <option selected>적격</option>
+                                            <option value='적격'>적격</option>
+                                            <option value='부적격'>부적격</option>
+                                          </select></td>
                             ";
                                         $nIndex++;
-                                    }
+//                                    }
                                     echo "<a href='../../php/fnc/inquire_excel.php' style=' position: relative;top: 30px;z-index: 1; border: 1px #1e4a28 solid;background: #28a745;color: white;padding: 10px;border-radius: 22px;'>엑셀 파일 출력</a>
                               </tbody>
                             </table>
                           </div>";
 
-                                    mysqli_close($con);
+//                                    mysqli_close($con);
                                 }else{
                                     echo "<div class='container'>
                                     <div class='row'>
@@ -130,19 +130,19 @@ session_start();
                                         <div class='col-6'>
                                         ";
                                     echo "
-                            <table class='table ' style='margin-top: 15px'>
-  <thead  style='color:#523737'>
-    <tr style='border-top:2px solid'>
-      <th scope='col' class='border-0'  style='color:#e18181' >#</th>
-      <th scope='col'  class='border-0'>#</th>
-      <th scope='col'  class='border-0'></th>
-      <th scope='col'   class='border-0'></th>
-      <th scope='col'  class='border-0' style='color:#b9adad'>#</th>
-      <th scope='col'  class='border-0'>#</th>
-    </tr>
-  </thead>
-  </tbody>
-</table>
+                                     <table class='table ' style='margin-top: 15px'>
+                                      <thead  style='color:#523737'>
+                                        <tr style='border-top:2px solid'>
+                                          <th scope='col' class='border-0'  style='color:#e18181' >#</th>
+                                          <th scope='col'  class='border-0'>#</th>
+                                          <th scope='col'  class='border-0'></th>
+                                          <th scope='col'   class='border-0'></th>
+                                          <th scope='col'  class='border-0' style='color:#b9adad'>#</th>
+                                          <th scope='col'  class='border-0'>#</th>
+                                        </tr>
+                                      </thead>
+                                      </tbody>
+                                    </table>
                           ";
 
 
@@ -341,6 +341,8 @@ session_start();
     $("#nav_13_"+$("#SelId").val()).attr("class","nav-link active");
     $("#" + "nav_10").attr("class","nav-item menu-is-opening menu-open");
     $("#nav_11_"+$("#SelId").val()).attr("class","nav-link active");
+    $("#" + "nav_14").attr("class","nav-item menu-is-opening menu-open");
+    $("#nav_15_"+$("#SelId").val()).attr("class","nav-link active");
 </script>
 </body>
 </html>
