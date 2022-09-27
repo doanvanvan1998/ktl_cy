@@ -87,23 +87,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex">
-                    <div class="form_title">
-                        <h6>본인확인</h6>
-                    </div>
-                    <div class="form_con">
-                        <div class=" flex">
-                            <input type="text" id="accuracy" placeholder="전화번호 또는 이메일 확인">
-                            <button style=" margin-left: 0.5rem; background: #333; width: auto; cursor: pointer; border-radius: 0.2rem; padding: 0.7rem; color: white"
-                                    class=" accuracy " onclick='onAccuracy()'>전화번호 또는 이메일 확인
-                            </button>
-
-                        </div>
-
-                        <span class="noti errorAccuracy" style="color: red; font-size: small">(*) <span
-                                    class="textlength"></span>
-                    </div>
-                </div>
             </form>
             <div class="btn_write flex" onclick="hanldSubmit()"><span>입사지원서 작성</span></div>
         </div>
@@ -364,20 +347,13 @@
         } else {
             document.querySelector('.errorPassword').innerHTML = ''
         }
-        if (!document.querySelector('#accuracy').value) {
-            document.querySelector('.errorAccuracy').innerHTML = '이메일 또는 비밀번호를 입력하세요'
-            document.querySelector('#accuracy').focus();
-            return;
-        } else {
-            document.querySelector('.errorAccuracy').innerHTML = ''
-        }
 
         return true;
     }
 
     // handle form submit
     function hanldSubmit() {
-        if (validate()) {
+        if (!validate()) {
             $('#onSubmit').submit();
         }
     }
