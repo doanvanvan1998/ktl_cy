@@ -5,125 +5,90 @@
 <div class="wrap">
     <?php include 'php/common_header_menu.php' ?>
 
-    <div class="container" style="margin-top: 1rem;">
-        <div style="font-size: 1.3rem; color: #212121; font-weight: bold; line-height: 1">
-            단일 적용
-        </div>
-        <div style="margin-top: 1rem; display: flex; justify-items: start">
-            <div style="background: #f1f1f1; ">
-                <div style="padding: 0.5rem">
-                    모집 공고
-                </div>
-            </div>
-            <div style="margin-left: 2rem; background: #f1f1f1;  ">
-                <div style="padding: 0.5rem; ">
-                    2022년 한국산업기술시험원 기간제 장애 문화 〮 예술인 채용(오케스트라단원
-                </div>
-            </div>
-        </div>
-        <div style="margin-top: 1rem;  display: flex; justify-content: space-between; ">
-            <div class="flex">
-                <div style="background: #f1f1f1">
-                    <div style="padding: 0.5rem">
-                        모집 마감
-                    </div>
-                </div>
-                <div style="background: #f1f1f1;margin-left: 2rem;">
-                    <div style=" padding: 0.5rem">
-                        2022.10.05. ~ 10.20
-                    </div>
-                </div>
-            </div>
-            <div style="display: flex; ">
-                <div style="background: #F1F1F1">
-                    <div style="padding: 0.5rem">
+    <div class="container" style="margin-top: 2rem">
+        <div>
+
+            <table class="table table-bordered">
+                <tbody>
+                <tr>
+                    <th scope="row"> 지원공고</th>
+                    <td colspan="2">
+                        2022년 한국산업기술시험원 기간제 장애 문화 〮 예술인 채용(오케스트라단원 부문)
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        공기기간
+                    </th>
+                    <td colspan="2">
+                        2022.10.05. ~ 10.20.
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
                         지원서 최종업데이트​
-                    </div>
-                </div>
-                <div style="background: #F1F1F1; margin-left: 1rem">
-                    <div style="padding: 0.5rem">
-                        지원서 최종업데이트​
-                    </div>
-                </div>
-            </div>
-
-
-            <div style="display: flex; ">
-                <div style="background: #F1F1F1">
-                    <div style="padding: 0.5rem">
-                        접수현황
-                    </div>
-                </div>
-                <div style="background: #F1F1F1; margin-left: 1rem">
-                    <div style="padding: 0.5rem">
-                        작성중/제출완료
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div style="margin-top: 1rem;  display: flex; justify-content: space-between; ">
-            <div class="flex">
-                <div style="background: #f1f1f1">
-                    <div style="padding: 0.5rem">
-                        수험번호
-                    </div>
-                </div>
-                <div style="background: #f1f1f1;margin-left: 2rem;">
-                    <div style=" padding: 0.5rem">
-                        2002-0000
-                    </div>
-                </div>
-            </div>
-            <div style="display: flex; ">
-                <div style="background: #F1F1F1">
-                    <div style="padding: 0.5rem">
-                        지원자 성명
-                    </div>
-                </div>
-                <div style="background: #F1F1F1; margin-left: 1rem">
-                    <div style="padding: 0.5rem">
+                    </th>
+                    <td colspan="2">
                         2022.10.08 17:53:02
-                    </div>
-                </div>
-            </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        접수현황
+                    </th>
+                    <td colspan="2">
+                        작성중/제출완료​
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        수험번호
+                    </th>
+                    <td colspan="2">
+                        2002-0000
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row">
+                        지원자 성명
+                    </th>
+                    <td colspan="2">
+                        홍길동
+                    </td>
+                </tr>
 
 
-            <div style="display: flex; ">
-                <div style="background: #F1F1F1">
-                    <div style="padding: 0.5rem">
-                        주전공
-                    </div>
-                </div>
-                <div style="background: #F1F1F1; margin-left: 1rem">
-                    <div style="padding: 0.5rem">
+                <tr>
+                    <th scope="row">
+                        주전공​
+                    </th>
+                    <td colspan="2">
                         피아노
+                    </td>
+                </tr>
+
+
+                </tbody>
+            </table>
+            <div style="display: flex; justify-content: space-evenly; margin-top: 2rem">
+                <button style="background: #8496af">
+                    <div style="padding: 0.5rem; color: white">
+                        지원서 삭제
                     </div>
-                </div>
+                </button>
+                <button style="background: #00afef">
+                    <div style="padding: 0.5rem; color: white">
+                        지원서 삭제
+                    </div>
+                </button>
+                <button style="background: #a9d18e">
+                    <div style="padding: 0.5rem; color: white">
+                        지원서 삭제
+                    </div>
+                </button>
             </div>
-
         </div>
-
-
-        <div style="display: flex; justify-content: space-around; margin-top: 2rem">
-            <button style="background: #8496af">
-                <div style="padding: 0.5rem; color: white">
-                    지원서 삭제
-                </div>
-            </button>
-            <button style="background: #00afef">
-                <div style="padding: 0.5rem; color: white">
-                    지원서 삭제
-                </div>
-            </button>
-            <button style="background: #a9d18e">
-                <div style="padding: 0.5rem; color: white">
-                    지원서 삭제
-                </div>
-            </button>
-        </div>
-
     </div>
 
 

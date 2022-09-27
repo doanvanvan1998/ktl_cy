@@ -122,7 +122,7 @@ session_start();
 
 //                                    mysqli_close($con);
                                 }else{
-                                    echo "<div class='container'>
+                                    echo "<div >
                                     <div class='row'>
                                         <div class='col-6'>
                                         <canvas id='myChart' ></canvas>
@@ -286,12 +286,13 @@ session_start();
     }
 
     function chart(data){
+
         const ctx = document.getElementById('myChart');
         const myChart = new Chart(ctx, {
             type: 'doughnut',
             data: {
                 labels: [
-                    '학력',
+
                     '고졸',
                     '전문대',
                     '학사 (편입포함)',
@@ -303,7 +304,6 @@ session_start();
                     label: 'My First Dataset',
                     data: data,
                     backgroundColor: [
-                        'rgb(255, 99, 132)',
                         'rgb(54, 162, 235)',
                         'rgb(255, 95, 86)',
                         'rgb(255, 50, 86)',
@@ -315,13 +315,50 @@ session_start();
                 }]
             },
             options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+                legend: {
+                    display: true,
+                    position: 'right',
+                    align: "start",
+                    boxWidth : 80,
+                    boxHeight :60
                 }
             }
         });
+
+
+        //
+        // var ctx = document.getElementById("myChart").getContext("2d");
+        // var myChart = new Chart(ctx, {
+        //     type: 'pie',
+        //     data: {
+        //         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        //         datasets: [{
+        //             label: 'Link One',
+        //             data: [1, 2, 3, 2, 1, 1.5, 1],
+        //             backgroundColor: [
+        //                 '#D3E4F3'
+        //             ],
+        //             borderColor: [
+        //                 '#D3E4F3',
+        //                 'rgba(54, 162, 235, 1)',
+        //                 'rgba(255, 206, 86, 1)',
+        //                 'rgba(75, 192, 192, 1)',
+        //                 'rgba(153, 102, 255, 1)',
+        //                 'rgba(255, 159, 64, 1)'
+        //             ],
+        //             borderWidth: 1
+        //         }]
+        //     },
+        //     options: {
+        //         legend: {
+        //             display: true,
+        //             position: 'right',
+        //             labels: {
+        //                 fontColor: '#333'
+        //             }
+        //         }
+        //     }
+        // });
     }
 
 </script>
