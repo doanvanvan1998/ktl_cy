@@ -133,13 +133,37 @@ session_start();
                                      <table class='table ' style='margin-top: 15px'>
                                       <thead  style='color:#523737'>
                                         <tr style='border-top:2px solid'>
-                                          <th scope='col' class='border-0'  style='color:#e18181' >#</th>
-                                          <th scope='col'  class='border-0'>#</th>
+                                          <th scope='col' class='border-0'  style='color:#e18181' >1</th>
+                                          <th scope='col'  class='border-0'>경기</th>
                                           <th scope='col'  class='border-0'></th>
                                           <th scope='col'   class='border-0'></th>
-                                          <th scope='col'  class='border-0' style='color:#b9adad'>#</th>
-                                          <th scope='col'  class='border-0'>#</th>
+                                          <th scope='col'  class='border-0' style='color:#b9adad'>10명</th>
+                                          <th scope='col'  class='border-0'>10%</th>
                                         </tr>
+                                        <tr >
+                                          <th scope='col' class='border-0'  style='color:#e18181' >2</th>
+                                          <th scope='col'  class='border-0'>경기</th>
+                                          <th scope='col'  class='border-0'></th>
+                                          <th scope='col'   class='border-0'></th>
+                                          <th scope='col'  class='border-0' style='color:#b9adad'>20명</th>
+                                          <th scope='col'  class='border-0'>20%</th>
+                                        </tr><tr >
+                                          <th scope='col' class='border-0'  style='color:#e18181' >3</th>
+                                          <th scope='col'  class='border-0'>경기</th>
+                                          <th scope='col'  class='border-0'></th>
+                                          <th scope='col'   class='border-0'></th>
+                                          <th scope='col'  class='border-0' style='color:#b9adad'>30명</th>
+                                          <th scope='col'  class='border-0'>30%</th>
+                                        </tr>
+                                        <tr >
+                                          <th scope='col' class='border-0'  style='color:#e18181' >4</th>
+                                          <th scope='col'  class='border-0'>경기</th>
+                                          <th scope='col'  class='border-0'></th>
+                                          <th scope='col'   class='border-0'></th>
+                                          <th scope='col'  class='border-0' style='color:#b9adad'>40명</th>
+                                          <th scope='col'  class='border-0'>40%</th>
+                                        </tr>
+                                        
                                       </thead>
                                       </tbody>
                                     </table>
@@ -267,9 +291,13 @@ session_start();
             type: 'doughnut',
             data: {
                 labels: [
-                    'Red',
-                    'Blue',
-                    'Yellow'
+                    '학력',
+                    '고졸',
+                    '전문대',
+                    '학사 (편입포함)',
+                    '석사',
+                    '박사',
+                    '기타',
                 ],
                 datasets: [{
                     label: 'My First Dataset',
@@ -277,7 +305,11 @@ session_start();
                     backgroundColor: [
                         'rgb(255, 99, 132)',
                         'rgb(54, 162, 235)',
-                        'rgb(255, 205, 86)'
+                        'rgb(255, 95, 86)',
+                        'rgb(255, 50, 86)',
+                        'rgb(255, 120, 76)',
+                        'rgb(255, 10, 66)',
+                        'rgb(255, 140, 56)',
                     ],
                     hoverOffset: 4
                 }]
@@ -343,6 +375,8 @@ session_start();
     $("#nav_11_"+$("#SelId").val()).attr("class","nav-link active");
     $("#" + "nav_14").attr("class","nav-item menu-is-opening menu-open");
     $("#nav_15_"+$("#SelId").val()).attr("class","nav-link active");
+    $("#" + "nav_16").attr("class","nav-item menu-is-opening menu-open");
+    $("#nav_17_"+$("#SelId").val()).attr("class","nav-link active");
 </script>
 </body>
 </html>
