@@ -1,6 +1,4 @@
-<style>
-.none { display:none; }
-</style>
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="../../index.html" class="brand-link">
@@ -96,7 +94,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="review_list.php?Id=3" class="nav-link" id='nav_11_2'>
+                      <a href="review_list.php?Id=3" class="nav-link" id='nav_11_3'>
                           <i class="far fa-circle nav-icon"></i>
                           <p>최종평가</p>
                       </a>
@@ -104,7 +102,7 @@
               </ul>
           </li>
           <li class="nav-item" id='nav_12'>
-              <a href="#" class="nav-link" id='nav_13_1'>
+              <a href="#" class="nav-link" id='nav_5'>
                   <i class="nav-icon fas fa-copy"></i>
                   <p>
                       전형안내 및
@@ -129,7 +127,7 @@
               </ul>
           </li>
           <li class="nav-item" id='nav_14'>
-              <a href="#" class="nav-link" id='nav_15_1'>
+              <a href="#" class="nav-link" id='nav_6'>
                   <i class="nav-icon fas fa-copy"></i>
                   <p>
                       전형결과
@@ -139,13 +137,13 @@
               </a>
               <ul class="nav nav-treeview">
                   <li class="nav-item">
-                      <a href="result_list.php?Id=1" class="nav-link" id='nav_15_1'>
+                      <a href="result_list.php?Id=1" class="nav-link" id='nav_15_2'>
                           <i class="far fa-circle nav-icon"></i>
                           <p>서류평가</p>
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="result_list.php?Id=2" class="nav-link" id='nav_15_2'>
+                      <a href="result_list.php?Id=2" class="nav-link" id='nav_15_3'>
                           <i class="far fa-circle nav-icon"></i>
                           <p>면접평가</p>
                       </a>

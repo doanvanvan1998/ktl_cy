@@ -287,6 +287,27 @@ session_start();
 <script src="../../dist/js/demo.js"></script>
 <!-- Page specific script -->
 <script>
+    
+    var pathname =window.location.href;
+    var splitUrl = pathname.split('?');
+    var value_result =splitUrl[1].split('=');
+    var id = value_result[1];
+    if(id ==1){
+        $("#nav_15_2").attr("class","nav-link active");
+    }else{
+        $("#nav_15_3").attr("class","nav-link active");
+    }
+
+    $('.nav-item ul li a').each(function() {
+        console.log($("#nav_15_2").hasClass('active'));
+    if ($("#nav_15_2").hasClass('active')) {
+        
+        $("#nav_14").attr("class","nav-item menu-is-opening menu-open");
+    }if($("#nav_15_3").hasClass('active')){
+        $("#nav_14").attr("class","nav-item menu-is-opening menu-open");
+    }
+    })
+
     function onApplyView(Id,step)
     {
         location.href='http://ktl-recruit.ableup.kr/apply_view.html?Id='+Id+"&userid="+$("#sel_userid").val();
