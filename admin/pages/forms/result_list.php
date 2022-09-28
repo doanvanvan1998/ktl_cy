@@ -7,7 +7,6 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>채용플랫폼 관리자</title>
-
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -16,6 +15,7 @@ session_start();
     <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
     <!-- Theme style -->
     <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 </head>
@@ -26,7 +26,6 @@ session_start();
     <?php
     include "../../php/sub_nav.php";
     include "../../php/sub_left_menu.php";
-
 
     ?>
 
@@ -64,15 +63,17 @@ session_start();
                     <div class="col-12">
                         <div class="card">
                             <!-- /.card-header -->
-                            <div class="card-body">
+                            <div class="card-body" >
                                 <?php
                                 $Id = $_GET["Id"];
                                 include "../../php/mysql.php";
                                 include "../../php/crypt.php";
 
-                                if($Id != 3){
+                                if($Id == 1){
                                     echo "
-                                            <table id='#example1'  style='text-align:center;padding: 5px ' style='text-align:center;' >
+                                            <button onclick='exportPdf()' class='btn btn-info mb-2' > PDF다운</button>
+                                            <div id='dataPdf'>
+                                            <table   style='text-align:center;padding: 5px; '  style='text-align:center;' >
                                               <thead>
                                                  <tr rowspan ='2'>
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>no</th>
@@ -128,63 +129,89 @@ session_start();
                                                                 <th style='border: 1px solid #dee2e6;padding: 0 20px'>
                                                                  abc
                                                                  </th>
-                                                                </tr>
+                                                  </tr>
                                             ";
 //                                       break;
 //                                    }
                                     echo "
                                               </tbody>
                                             </table>
+                                            </div>
                                         </div>";
                                 }else{
 
 
                                     echo "
-                                     
-                                        <table id='example1' style='text-align:center;'  class='table table-bordered table-striped'>
-                                          <thead>
-                                          <tr>
-                                              <th>No.</th>
-                                              <th>수험번호</th>
-                                              <th>지원자명</th>
-                                              <th >주전공</th>
-                                              <th >서류평가점수</th>
-                                              <th>면접평가점수</th>
-                                              <th>지원서 보기</th>
-                                              <th>메모</th>
-                                              <th>합격여부</th>
-                                           
-                                          </tr>
-                                          </thead>
-                                          <tbody>";
-
-//                                    $query="select id,code_profile,username,phone,email,level_disabilities,subject,sub_subject,Verifi,date from objection_info where Verifi !='부적격'";
+                                            <button onclick='exportPdf()' class='btn btn-info mb-2'> PDF다운</button>
+                                            <div id='dataPdf' >
+                                            <table   style='text-align:center;padding: 5px ' style='text-align:center;' >
+                                              <thead>
+                                                 <tr rowspan ='2'>
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>no</th>
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>수험번호</th>
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>지원자명</th>   
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>평가위원 1</th>   
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>평가위원 2</th>    
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>평가위원 2</th>    
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px ;width: 200px;'>abc</th>  
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px;width: 200px;'>평가점수</th> 
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;'></th> 
+                                                    <th colspan ='4' style='border: 1px solid #dee2e6;padding: 0 20px'>우대사항</th>
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;'></th> 
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>취업지원</th>  
+                                                  </tr>
+                                                  <tr>
+                                                    <th style='border: 1px solid #dee2e6;padding: 0 20px;'>abc</th>
+                                                    <th style='border: 1px solid #dee2e6;padding: 0 20px'>abc</th>
+                                                    <th style='border: 1px solid #dee2e6;padding: 0 20px;'>abc</th>
+                                                    <th style='border: 1px solid #dee2e6;padding: 0 20px;'>abc</th>
+                                                    </tr>
+                                              </thead>
+                                              <tbody>";
+//                                    $query="select id,code_profile,username,phone,email,level_disabilities,subject,sub_subject,Verifi,date from objection_info";
+//                                    if($Id == 2 ){
+//                                        $query =  $query . " where Verifi !='부적격'";
+//                                    }else{
+//                                        $query =  $query . " where Verifi !='부적격'";
+//                                    }
+//
 //                                    $result = mysqli_query($con,$query);
-                                    $nIndex=0;
+//                                    $nIndex=0;
 //                                    while($row = mysqli_fetch_array($result)){
-                                        echo "<tr id='123'><td>$nIndex</td>
-                                               <th>abc</th>
-                                              <th>abc</th>
-                                              <th >abc</th>
-                                              <th >abc</th>
-                                              <th>abc</th>
-                                              <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode(3213, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
-                                              <th width='300px'></th>
-                                            <td>
-                                                <select class='custom-select'  style='border: none'  name='verifi' onchange='updateVerifi(";echo 123 ?><?php echo ")' id= 3123>
-                                                <option selected>적격</option>
-                                                <option value='적격'>적격</option>
-                                                <option value='부적격'>부적격</option>
-                                              </select></td>
+                                    echo "
+                                                   <tr rowspan ='2'>
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>abc</th>
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>abc</th>
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>abc</th>   
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>abc 1</th>   
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>abc 2</th>    
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>abc 3</th>    
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px ;width: 200px;'>abc</th>  
+                                                    <th rowspan ='1' style='border: 1px solid #dee2e6;padding: 0 20px;width: 200px;'>abc</th> 
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;'></th> 
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>abc</th>
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>abc</th>
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>abc</th>
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>abc</th>
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;'></th> 
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>abc</th>  
+                                                  </tr>
+                                                 
+                                                                <th style='border: 1px solid #dee2e6;padding: 0 20px'>
+                                                                 abc
+                                                                 </th>
+                                                  </tr>
                                             ";
-                                        echo "
+//                                       break;
+//                                    }
+                                    echo "
                                               </tbody>
                                             </table>
+                                            </div>
                                         </div>";
-//                                        break;
-//                                    }
                                 }
                                 ?>
+
 
                                 <!-- /.card-body -->
                             </div>
@@ -331,6 +358,25 @@ session_start();
     $("#nav_13_"+$("#SelId").val()).attr("class","nav-link active");
     $("#" + "nav_10").attr("class","nav-item menu-is-opening menu-open");
     $("#nav_11_"+$("#SelId").val()).attr("class","nav-link active");
+</script>
+<script >
+    function exportPdf()
+    {
+
+        var mywindow = window.open('', 'my div', 'height=1000,width=1600');
+        mywindow.document.write('<html><head><title>전형결과</title>');
+        mywindow.document.write('</head><body>');
+        mywindow.document.write($("#dataPdf").html());
+
+        mywindow.document.write('</body></html>');
+
+        mywindow.print();
+        mywindow.close();
+
+        return true;
+    }
+
+
 </script>
 </body>
 </html>

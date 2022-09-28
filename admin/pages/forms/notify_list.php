@@ -125,7 +125,7 @@ session_start();
                                         </div>";
                                 }else{
                                     echo "
-                                       <button class='btn' style='background: #007bff ; color: white ; position: relative; top: 35px; left: 0px' >선택삭제</button>
+                                       <button class='btn btn-info' style=' position: relative; top: 35px; left: 0px' >선택삭제</button>
                                             <table style='text-align: center' id='example1'  class='table table-bordered table-striped'>
                                               <thead>
                                                  <tr>
