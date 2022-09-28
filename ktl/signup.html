@@ -101,7 +101,7 @@
                                     <label for="">Khuyết tật</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <div class="d-flex">
+                                    <div class="d-flex" style="gap:0.5rem">
                                         <label>
                                             <input type="radio" name="disabilities">
                                             <span>
@@ -116,11 +116,11 @@
                                             </span>
                                         </label>
 
-                                        <select class="form-control" style="width: 30%;margin-left:15px">
+                                        <select class="form-control" style="width: 30%;margin-left:0.1rem">
                                             <option>Mức độ khuyết tật</option>
                                         </select>
 
-                                        <select class="form-control" style="width: 30%;margin-left:15px">
+                                        <select class="form-control" style="width: 30%;margin-left:0.1rem">
                                             <option>Nội dung khuyết tật</option>
                                         </select>
                                     </div>
@@ -144,7 +144,7 @@
                                 </div>
 
                                 <div class="col-md-9">
-                                    <div class="d-flex">
+                                    <div class="d-flex flex-wrap" style="gap:0.5rem">
                                         <label>
                                             <input type="radio" name="disabilities">
                                             <span>Không thuộc đối tượng</span>
@@ -174,7 +174,7 @@
                                     Người điền đơn
                                 </div>
                                 <div class="col-md-9">
-                                    <div class="d-flex">
+                                    <div class="d-flex" style="gap:0.5rem">
                                         <label>
                                             <input type="radio" name="applicator">
                                             <span>Tôi</span>
@@ -198,7 +198,7 @@
                                     Người có công
                                 </div>
                                 <div class="col-md-9">
-                                    <div class="d-flex">
+                                    <div class="d-flex" style="gap:0.5rem">
                                         <label>
                                             <input type="radio" name="meritorious_person">
                                             <span>Không</span>
@@ -217,8 +217,8 @@
                                     Chế độ ưu tiên
                                 </div>
                                 <div class="col-md-9">
-                                    <div>Tẩng lớp thu nhập thấp</div>
-                                    <div class="d-flex">
+                                    <div>Tầng lớp thu nhập thấp</div>
+                                    <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
                                             <input type="radio" name="low_benefit">
                                             <span>Không</span>
@@ -231,7 +231,7 @@
                                     </div>
 
                                     <div>Người Triều Tiên di cư</div>
-                                    <div class="d-flex">
+                                    <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
                                             <input type="radio" name="korea_migrate">
                                             <span>Không</span>
@@ -244,7 +244,7 @@
                                     </div>
 
                                     <div>Con của gia đình di cư</div>
-                                    <div class="d-flex">
+                                    <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
                                             <input type="radio" name="son-of-korea-migrate">
                                             <span>Không</span>
@@ -258,8 +258,10 @@
                                 </div>
                             </div>
 
-
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <div class="row form-item d-flex justify-content-center" style="gap:0.5rem;margin-top:1rem">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Tiếp theo</button>
+                            </div>
                         </div>
                     </div>
 
@@ -441,14 +443,28 @@
         display: none
     }
 
+    .tab-wrapper .tab-content {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
     .tab-wrapper .tab-item {
         cursor: pointer;
         width: 100%;
+        font-size: 1rem;
         padding: 8px 2px 8px 2px;
         text-align: center;
         box-sizing: border-box;
         margin: 0.4rem 0 1rem;
         background: #f0f0f0;
+    }
+
+    .tab-wrapper .tab-item {
+        border-right: 0.5px solid #cdcdcd
+    }
+
+    .tab-wrapper .tab-item:last-child {
+        border: none
     }
 
     .title {
@@ -461,16 +477,19 @@
         background: linear-gradient(to right, #3b73e4 0%, #0559b5 100%);
     }
 
+    .form-item {
+        border-bottom: 1px solid #e8e8ea;
+    }
 
     .form-item > div:first-child {
-        background: #e8e8ea;
+        background: rgba(232, 232, 234, 0.45);
         display: flex;
         align-items: center;
     }
 
     .form-item > div:last-child {
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 16px;
+        padding-bottom: 16px;
     }
 
     input:not([type='radio']) {
@@ -480,7 +499,7 @@
         box-sizing: border-box;
         padding: 0 0.9rem;
         border: 1px solid #e4e4e4;
-        font-size: 0.75rem;
+        font-size: 1rem;
         letter-spacing: -0.35px;
         color: #222;
         font-weight: var(--medium);
@@ -491,7 +510,7 @@
     }
 
     label input[type="radio"] + span {
-        border: 1px solid #e4e4e4;
+        border: 2px solid #e4e4e4;
         cursor: pointer;
         display: inline-block;
         min-width: 4rem;
@@ -504,12 +523,16 @@
     }
 
     label input[type="radio"] {
-        visibility: hidden;
+        display: none;
     }
 
     label input[type="radio"]:checked + span {
         color: #4880ef;
-        border: 1px solid #4880ef;
+        border: 2px solid #4880ef;
+    }
+
+    .container {
+        min-width: unset;
     }
 </style>
 </html>
