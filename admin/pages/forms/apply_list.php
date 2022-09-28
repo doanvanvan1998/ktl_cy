@@ -387,8 +387,22 @@ session_start();
 <script src="../../dist/js/demo.js"></script>
 <!-- Page specific script -->
 <script>
+    var pathname =window.location.href;
+    var splitUrl = pathname.split('?');
+    var value_result =splitUrl[1].split('=');
+    var id = value_result[1];
+    if(id ==1){
+        $("#nav_5_1").attr("class","nav-link active");
+    }else{
+        $("#nav_5_2").attr("class","nav-link active");
+    }
+
+
+
+
     function onApplyView(Id,step)
     {
+        
         location.href='http://ktl-recruit.ableup.kr/apply_view.html?Id='+Id+"&userid="+$("#sel_userid").val();
     }
     $(function () {
@@ -414,6 +428,9 @@ session_start();
     $("#nav_15_"+$("#SelId").val()).attr("class","nav-link active");
     $("#" + "nav_16").attr("class","nav-item menu-is-opening menu-open");
     $("#nav_17_"+$("#SelId").val()).attr("class","nav-link active");
+
+  
+
 </script>
 </body>
 </html>

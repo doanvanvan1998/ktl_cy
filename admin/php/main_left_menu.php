@@ -96,7 +96,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/forms/review_list.php?Id=3" class="nav-link" id='nav_11_2'>
+                            <a href="pages/forms/review_list.php?Id=3" class="nav-link" id='nav_11_3'>
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>최종평가</p>
                             </a>
@@ -128,8 +128,8 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item" id='nav_14'>
-                    <a href="#" class="nav-link" id='nav_14_1'>
+                <li class="nav-item " id='nav_12'>
+                <a href="#" class="nav-link" id='nav_13_1'>
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
                             전형결과
@@ -139,13 +139,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/forms/result_list.php?Id=1" class="nav-link" id='nav_15_1'>
+                            <a href="pages/forms/result_list.php?Id=1" class="nav-link" id='nav_15_2'>
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>서류평가</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/forms/result_list.php?Id=2" class="nav-link" id='nav_15_2'>
+                            <a href="pages/forms/result_list.php?Id=2" class="nav-link" id='nav_15_3'>
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>면접평가</p>
                             </a>
@@ -202,6 +202,7 @@
     <!-- /.sidebar -->
 </aside>
 <script>
+    
     function onLogout()
     {
         $.post("../../php/fnc/logout.php",
