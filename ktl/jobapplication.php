@@ -353,7 +353,7 @@
 
     // handle form submit
     function hanldSubmit() {
-        if (!validate()) {
+        if (validate()) {
             $('#onSubmit').submit();
         }
     }
