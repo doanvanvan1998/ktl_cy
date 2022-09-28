@@ -86,7 +86,7 @@
 //                      $row['phone'] = Decrypt($row['phone'],$secret_key,$secret_iv);
 //                      $row['email'] = Decrypt($row['email'],$secret_key,$secret_iv);
                       echo "<tr id='3'><td>$nIndex</td>
-                        <td>abc</td>
+                        <td> </td>
                         <td>abc</td>
                         <td>abc</td>
                         <td>abc</td>
