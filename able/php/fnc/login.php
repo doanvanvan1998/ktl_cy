@@ -8,7 +8,7 @@
 
   $pass = Encrypt($pass,$secret_key,$secret_iv);
 
-  $query="select COUNT(*) from recruit_able_myadmin where userid='$userid' and pass='$pass'";
+  $query="select COUNT(*) from recruit_able_subadmin where userid='$userid' and pass='$pass'";
   $result = mysqli_query($con,$query);
   $row = mysqli_fetch_array($result);
 

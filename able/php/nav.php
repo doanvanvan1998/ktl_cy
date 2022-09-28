@@ -5,7 +5,7 @@
 
     include "php/mysql.php";
 
-    $query="select username from recruit_able_myadmin where userid='$userid'";
+    $query="select username from recruit_able_subadmin where userid='$userid'";
     $Aresult = mysqli_query($con,$query);
     $Arow = mysqli_fetch_array($Aresult);
 

@@ -12,7 +12,7 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="info">
-        <span class="d-block" style='color:#fff'><?=$Arow[0]?> 관리자 <a href='#' onclick='onLogout()'>[ 로그아웃 ]</a></span>
+        <span class="d-block" style='color:#fff'><?=$Arow[0]?> 평가위원으로 <a href='#' onclick='onLogout()'>[ 로그아웃 ]</a></span>
       </div>
     </div>
 
@@ -48,20 +48,17 @@
                <p>서류전형</p>
              </a>
            </li>
-           <li class="nav-item">
-             <a href="apply_list.php?Id=2" class="nav-link" id='nav_5_2'>
-               <i class="far fa-circle nav-icon"></i>
-               <p>면접현황</p>
-             </a>
-           </li>
-           <li class="nav-item">
-             <a href="apply_list.php?Id=3" class="nav-link" id='nav_5_3'>
-               <i class="far fa-circle nav-icon"></i>
-               <p>최종합격자</p>
-             </a>
-           </li>
+
          </ul>
        </li>
+          <li class="nav-item" id='nav_1'>
+              <a href="register_list.php" class="nav-link" id='nav_1_1'>
+                  <i class="nav-icon fas fa-book"></i>
+                  <p>
+                      지원자현황
+                  </p>
+              </a>
+          </li>
         <li class="nav-header">사이트</li>
         <li class="nav-item">
           <a href="https://kiat.or.kr/front/user/main.do" target="_blank" class="nav-link">
