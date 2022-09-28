@@ -102,19 +102,25 @@
                                 </div>
                                 <div class="col-md-9">
                                     <div class="d-flex">
-                                        <span>
-                                        <input type="radio" name="disabilities">
-                                        <label for="">Có</label>
+                                        <label>
+                                            <input type="radio" name="disabilities">
+                                            <span>
+                                                <span>Có</span>
+                                            </span>
+                                        </label>
 
-                                        <input type="radio" name="disabilities">
-                                        <label for="">Không</label>
-                                        </span>
+                                        <label>
+                                            <input type="radio" name="disabilities">
+                                            <span>
+                                                <span>Không</span>
+                                            </span>
+                                        </label>
 
-                                        <select class="form-control">
+                                        <select class="form-control" style="width: 30%;margin-left:15px">
                                             <option>Mức độ khuyết tật</option>
                                         </select>
 
-                                        <select class="form-control">
+                                        <select class="form-control" style="width: 30%;margin-left:15px">
                                             <option>Nội dung khuyết tật</option>
                                         </select>
                                     </div>
@@ -139,20 +145,26 @@
 
                                 <div class="col-md-9">
                                     <div class="d-flex">
-                                        <input type="radio">
-                                        <label for="">Không thuộc đối tượng</label>
-
-                                        <input type="radio">
-                                        <label for="">Đã xuất ngũ</label>
-
-                                        <input type="radio">
-                                        <label for="">Chưa tham gia</label>
-
-                                        <input type="radio">
-                                        <label for="">Được miễn</label>
-
-                                        <input type="radio">
-                                        <label for="">Đang tại ngũ</label>
+                                        <label>
+                                            <input type="radio" name="disabilities">
+                                            <span>Không thuộc đối tượng</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="disabilities">
+                                            <span>Đã xuất ngũ</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="disabilities">
+                                            <span>Chưa tham gia</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="disabilities">
+                                            <span>Được miễn</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="disabilities">
+                                            <span>Đang tại ngũ</span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -163,14 +175,20 @@
                                 </div>
                                 <div class="col-md-9">
                                     <div class="d-flex">
-                                        <input type="radio">
-                                        <label for="">Tôi</label>
+                                        <label>
+                                            <input type="radio" name="applicator">
+                                            <span>Tôi</span>
+                                        </label>
 
-                                        <input type="radio">
-                                        <label for="">Người bảo hộ</label>
+                                        <label>
+                                            <input type="radio" name="applicator">
+                                            <span>Người bảo hộ</span>
+                                        </label>
 
-                                        <input type="radio">
-                                        <label for="">Người uỷ thác</label>
+                                        <label>
+                                            <input type="radio" name="applicator">
+                                            <span>Người uỷ thác</span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -181,12 +199,15 @@
                                 </div>
                                 <div class="col-md-9">
                                     <div class="d-flex">
-                                        <input type="radio">
-                                        <label for="">Không</label>
+                                        <label>
+                                            <input type="radio" name="meritorious_person">
+                                            <span>Không</span>
+                                        </label>
 
-                                        <input type="radio">
-                                        <label for="">Có</label>
-
+                                        <label>
+                                            <input type="radio" name="meritorious_person">
+                                            <span>Có</span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -198,29 +219,41 @@
                                 <div class="col-md-9">
                                     <div>Tẩng lớp thu nhập thấp</div>
                                     <div class="d-flex">
-                                        <input type="radio">
-                                        <label for="">Không</label>
+                                        <label>
+                                            <input type="radio" name="low_benefit">
+                                            <span>Không</span>
+                                        </label>
 
-                                        <input type="radio">
-                                        <label for="">Có</label>
+                                        <label>
+                                            <input type="radio" name="low_benefit">
+                                            <span>Có</span>
+                                        </label>
                                     </div>
 
                                     <div>Người Triều Tiên di cư</div>
                                     <div class="d-flex">
-                                        <input type="radio">
-                                        <label for="">Không</label>
+                                        <label>
+                                            <input type="radio" name="korea_migrate">
+                                            <span>Không</span>
+                                        </label>
 
-                                        <input type="radio">
-                                        <label for="">Có</label>
+                                        <label>
+                                            <input type="radio" name="korea_migrate">
+                                            <span>Có</span>
+                                        </label>
                                     </div>
 
                                     <div>Con của gia đình di cư</div>
                                     <div class="d-flex">
-                                        <input type="radio">
-                                        <label for="">Không</label>
+                                        <label>
+                                            <input type="radio" name="son-of-korea-migrate">
+                                            <span>Không</span>
+                                        </label>
 
-                                        <input type="radio">
-                                        <label for="">Có</label>
+                                        <label>
+                                            <input type="radio" name="son-of-korea-migrate">
+                                            <span>Có</span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -455,6 +488,28 @@
 
     input:focus {
         border-color: #4880ef;
+    }
+
+    label input[type="radio"] + span {
+        border: 1px solid #e4e4e4;
+        cursor: pointer;
+        display: inline-block;
+        min-width: 4rem;
+        text-align: center;
+        border-radius: 0.2rem;
+        height: 2.4rem;
+        padding-top: 0.3rem;
+        padding-left: 0.6rem;
+        padding-right: 0.6rem;
+    }
+
+    label input[type="radio"] {
+        visibility: hidden;
+    }
+
+    label input[type="radio"]:checked + span {
+        color: #4880ef;
+        border: 1px solid #4880ef;
     }
 </style>
 </html>
