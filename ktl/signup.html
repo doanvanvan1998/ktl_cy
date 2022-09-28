@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="css/reset.css">
-    <!--    <link rel="stylesheet" href="css/slide.min.css">-->
-    <!--    <link rel="stylesheet" href="css/common.css?v=2022-09-27 02:49:53">-->
+    <link rel="stylesheet" href="css/slide.min.css">
+    <link rel="stylesheet" href="css/common.css?v=2022-09-27 02:49:53">
     <script src="js/jquery.js" charset="utf-8"></script>
     <script src="js/swiper.min.js" charset="utf-8"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -48,36 +48,36 @@
                         <hr>
                         <div>
                             <div class="row form-item">
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <label for="">
                                         Tên
                                     </label>
                                 </div>
-                                <div class="col-md-10">
+                                <div class="col-md-9">
                                     <input type="text" class="" id="field-name"
                                            placeholder="Enter email">
                                 </div>
                             </div>
 
                             <div class="row form-item">
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <label for="">
                                         SDT
                                     </label>
                                 </div>
-                                <div class="col-md-10">
+                                <div class="col-md-9">
                                     <input type="phone" class="" id="field-phone"
                                            placeholder="Enter email">
                                 </div>
                             </div>
 
                             <div class="row form-item">
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <label for="">
                                         Email
                                     </label>
                                 </div>
-                                <div class="col-md-10">
+                                <div class="col-md-9">
                                     <input type="email" class="" id="field-email"
                                            placeholder="Enter Email">
                                 </div>
@@ -85,89 +85,142 @@
 
 
                             <div class="row form-item">
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <label for="">
                                         Địa chỉ
                                     </label>
                                 </div>
-                                <div class="col-md-10">
+                                <div class="col-md-9">
                                     <input type="email" class="" id="field-email"
                                            placeholder="Enter Email">
                                 </div>
                             </div>
 
                             <div class="row form-item">
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <label for="">Khuyết tật</label>
                                 </div>
-                                <div class="col-md-10">
-                                    <input type="email" class="" id="field-email"
-                                           placeholder="Enter Email">
+                                <div class="col-md-9">
+                                    <div class="d-flex">
+                                        <span>
+                                        <input type="radio" name="disabilities">
+                                        <label for="">Có</label>
+
+                                        <input type="radio" name="disabilities">
+                                        <label for="">Không</label>
+                                        </span>
+
+                                        <select class="form-control">
+                                            <option>Mức độ khuyết tật</option>
+                                        </select>
+
+                                        <select class="form-control">
+                                            <option>Nội dung khuyết tật</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row form-item">
+                                <div class="col-md-3">
+                                    <label for="">Nghĩa vụ quân sự</label>
+                                </div>
+
+                                <div class="col-md-9">
+
                                 </div>
                             </div>
 
 
-                            <div class="form-group">
-                                <label for="">Nghĩa vụ Quân sự</label>
-                            </div>
+                            <div class="row form-item">
+                                <div class="col-md-3">
+                                    <label for="">Đối tượng nghĩa vụ quân sự</label>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="">Đối tượng nghĩa vụ quân sự</label>
-                                <div>
-                                   <span>
-                                        <input type="radio" value="1"/>
-                                        <span>Không thuộc</span>
-                                   </span>
-                                    <span>
-                                        <input type="radio" value="2"/>
-                                        <span>Có</span>
-                                   </span>
-                                    <span>
-                                        <input type="radio" value="3"/>
-                                        <span>Chưa hoàn tất</span>
-                                   </span>
-                                    <span>
-                                        <input type="radio" value="4"/>
-                                        <span>Được miễn</span>
-                                   </span>
-                                    <span>
-                                        <input type="radio" value="5"/>
-                                        <span>Đang tại ngũ</span>
-                                   </span>
+                                <div class="col-md-9">
+                                    <div class="d-flex">
+                                        <input type="radio">
+                                        <label for="">Không thuộc đối tượng</label>
+
+                                        <input type="radio">
+                                        <label for="">Đã xuất ngũ</label>
+
+                                        <input type="radio">
+                                        <label for="">Chưa tham gia</label>
+
+                                        <input type="radio">
+                                        <label for="">Được miễn</label>
+
+                                        <input type="radio">
+                                        <label for="">Đang tại ngũ</label>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label>Người điền đơn</label>
-                                <input type="text" Đ>
+                            <div class="row form-item">
+                                <div class="col-md-3">
+                                    Người điền đơn
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="d-flex">
+                                        <input type="radio">
+                                        <label for="">Tôi</label>
+
+                                        <input type="radio">
+                                        <label for="">Người bảo hộ</label>
+
+                                        <input type="radio">
+                                        <label for="">Người uỷ thác</label>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="">Người có công</label>
-                                <input type="radio" value="1"/>
-                                <input type="radio" value="2"/>
+                            <div class="row form-item">
+                                <div class="col-md-3">
+                                    Người có công
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="d-flex">
+                                        <input type="radio">
+                                        <label for="">Không</label>
+
+                                        <input type="radio">
+                                        <label for="">Có</label>
+
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="">Chế độ ưu tiên</label>
-                                <div>
-                                    <div>Tầng lớp thu nhập thấp</div>
-                                    <div>
-                                        <input type="radio" value="1"/>
-                                        <input type="radio" value="2"/>
+                            <div class="row form-item">
+                                <div class="col-md-3">
+                                    Chế độ ưu tiên
+                                </div>
+                                <div class="col-md-9">
+                                    <div>Tẩng lớp thu nhập thấp</div>
+                                    <div class="d-flex">
+                                        <input type="radio">
+                                        <label for="">Không</label>
+
+                                        <input type="radio">
+                                        <label for="">Có</label>
                                     </div>
 
                                     <div>Người Triều Tiên di cư</div>
-                                    <div>
-                                        <input type="radio" value="1">
-                                        <input type="radio" value="2">
+                                    <div class="d-flex">
+                                        <input type="radio">
+                                        <label for="">Không</label>
+
+                                        <input type="radio">
+                                        <label for="">Có</label>
                                     </div>
-                                    <div>
-                                        Con của gia đình di cư
-                                    </div>
-                                    <div>
-                                        <input type="radio" value="1">
-                                        <input type="radio" value="2">
+
+                                    <div>Con của gia đình di cư</div>
+                                    <div class="d-flex">
+                                        <input type="radio">
+                                        <label for="">Không</label>
+
+                                        <input type="radio">
+                                        <label for="">Có</label>
                                     </div>
                                 </div>
                             </div>
@@ -376,18 +429,18 @@
     }
 
 
-    .form-item div:first-child {
+    .form-item > div:first-child {
         background: #e8e8ea;
         display: flex;
         align-items: center;
     }
 
-    .form-item div:last-child {
+    .form-item > div:last-child {
         padding-top: 10px;
         padding-bottom: 10px;
     }
 
-    input {
+    input:not([type='radio']) {
         width: 100%;
         height: 2.4rem;
         border-radius: 0.2rem;
