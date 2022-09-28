@@ -74,7 +74,7 @@ session_start();
 
                                 if($Id == 1){
                                     echo "
-                                            <table id='#example1'  style='text-align:center;padding: 5px ' style='text-align:center;' >
+                                            <table id='#example1'  style='text-align:center;padding: 5px ' style='text-align:center;width: 100%' >
                                               <thead>
                                                  <tr rowspan ='2'>
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>no</th>
@@ -82,7 +82,7 @@ session_start();
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>지원자명</th>   
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 1</th>   
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 2</th>    
-                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 3</th>  
+                                                    
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가점수</th> 
                                                      <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>장애정도</th> 
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;'></th> 
@@ -119,7 +119,7 @@ session_start();
                                                                         <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th>   
                                                                         <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc 1</th>   
                                                                         <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc 2</th>    
-                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc 3</th>  
+                                                                
                                                                         <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th> 
                                                                       
                                                                         <th  style='border: 1px solid #dee2e6;'></th> 
@@ -147,7 +147,7 @@ session_start();
                                         </div>";
                                 } else if($Id ==2){
                                     echo "
-                                            <table id='#example1'  style='text-align:center;padding: 5px ' style='text-align:center;' >
+                                            <table id='#example1'  style='text-align:center;padding: 5px ' style='text-align:center; width: 100%    ' >
                                               <thead>
                                                  <tr rowspan ='2'>
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>no</th>
@@ -155,7 +155,7 @@ session_start();
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>지원자명</th>   
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 1</th>   
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 2</th>    
-                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 3</th>  
+                                          
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가점수</th> 
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;'></th>
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>장애정도</th> 
@@ -190,7 +190,7 @@ session_start();
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th>   
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>abc 1</th>   
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>abc 2</th>    
-                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>abc 3</th>  
+                                          
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th> 
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;'></th>
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th> 

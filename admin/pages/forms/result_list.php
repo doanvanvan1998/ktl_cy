@@ -73,7 +73,7 @@ session_start();
                                     echo "
                                             <button onclick='exportPdf()' class='btn btn-info mb-2' > PDF다운</button>
                                             <div id='dataPdf'>
-                                            <table   style='text-align:center;padding: 5px; '  style='text-align:center;' >
+                                            <table   style='text-align:center;padding: 5px;    width: 100% '   style='text-align:center;' id='dataPdf' >
                                               <thead>
                                                  <tr rowspan ='2'>
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>no</th>

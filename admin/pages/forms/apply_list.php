@@ -318,9 +318,10 @@ session_start();
                 legend: {
                     display: true,
                     position: 'right',
-                    align: "start",
+                    align: "center",
                     boxWidth : 80,
-                    boxHeight :60
+                    boxHeight : 60,
+                    padding : 10
                 }
             }
         });

@@ -65,7 +65,7 @@
               </h3>
             </div>
             <div class="card-body">
-              <input type='text' id='subject' value='<?php $row[1]  ?>' style='padding:8px;width:100%;' placeholder="제목을 입력하세요."/>
+              <input type='text' id='subject' style='padding:8px;width:100%;' placeholder="제목을 입력하세요."/>
               <div style='height:10px;'></div>
               <textarea id="summernote">
                 <!-- vandv comment -->

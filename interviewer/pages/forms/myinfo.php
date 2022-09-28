@@ -79,7 +79,7 @@
             <div class="card-body">
             <div class="form-group">
               <label for="inputClientCompany">아이디</label>
-              <input type="text" id="userid" value='<?=$userid?>' class="form-control" placeholder="아이디를 입력하세요.">
+              <input type="text" id="userid" value='<?=$userid?>' class="form-control" placeholder="아이디를 입력하세요." disabled="true">
             </div>
             <div class="form-group">
               <label for="inputProjectLeader">수정하실 패스워드</label>
