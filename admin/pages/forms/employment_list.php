@@ -62,6 +62,8 @@
                     <th>No.</th>
                     <th>형태</th>
                     <th>신청자</th>
+                    <th>이메일</th>
+                    <th>전화번호</th>
                     <th style='width:200px;'>제목</th>
                     <th style='width:300px;'>내용</th>
                     <th>등록날짜</th>
@@ -73,27 +75,43 @@
                   <?php
                     include "../../php/mysql.php";
                     include "../../php/crypt.php";
-                    $nIndex = 1;
-                    $query="select id,inquiry_type,write_user,subject,contents,answer,answer_date,date from employment_list order by id desc";
-                    $result = mysqli_query($con,$query);
-                    while($row = mysqli_fetch_array($result))
-                    {
+//                    $nIndex = 1;
+//                    $query="select id,inquiry_type,write_user,subject,contents,answer,answer_date,email,phone,date from employment_list order by id desc";
+//                    $result = mysqli_query($con,$query);
+//                    while($row = mysqli_fetch_array($result))
+//                    {
+//                      //vandv comment
+//                     // $row['phone'] = Decrypt($row['phone'],$secret_key,$secret_iv);
+//                         $row['email'] = Decrypt($row['email'],$secret_key,$secret_iv);
+//                         $row['phone'] = Decrypt($row['phone'],$secret_key,$secret_iv);
+//                      $row['contents'] = nl2br($row['contents']);
+//                      echo "<tr id='tr_$row[0]'><td>$nIndex</td>
+//                        <td>".$row['inquiry_type']."</td>
+//                        <td>".$row['write_user']."</td>
+//                        <td>".$row['email']."</td>
+//                        <td>".$row['phone']."</td>
+//                        <td>".$row['subject']."</td>
+//                        <td>".$row['contents']."</td>
+//                        <td>".$row['date']."</td>
+//                        <td><textarea style='width:100%;height:100px;resize:none;padding:10px;' id='answer_$row[0]'>".$row['answer']."</textarea></td>";
+//                      echo "<td><button class='btn btn-primary' onclick='onAnswerSave($row[0])'>등록</button></td></tr>";
+//                      $nIndex++;
+
                       //vandv comment
-                     // $row['phone'] = Decrypt($row['phone'],$secret_key,$secret_iv);
+                      // $row['phone'] = Decrypt($row['phone'],$secret_key,$secret_iv);
 
-                      $row['contents'] = nl2br($row['contents']);
-                      echo "<tr id='tr_$row[0]'><td>$nIndex</td>
-                        <td>".$row['inquiry_type']."</td>
-                        <td>".$row['write_user']."</td>
-                        <td>".$row['subject']."</td>
-                        <td>".$row['contents']."</td>
-                        <td>".$row['date']."</td>
-                        <td><textarea style='width:100%;height:100px;resize:none;padding:10px;' id='answer_$row[0]'>".$row['answer']."</textarea></td>";
-                      echo "<td><button class='btn btn-primary' onclick='onAnswerSave($row[0])'>등록</button></td></tr>";
-
-
-                      $nIndex++;
-                    }
+                      echo "<tr id='tr_abc'><td>1</td>
+                        <td>abc</td>
+                        <td>abc</td>
+                        <td>abc</td>
+                        <td>abc</td>
+                        <td>abc</td>
+                        <td>abc</td>
+                        <td>abc</td>
+                        <td><textarea style='width:100%;height:100px;resize:none;padding:10px;' id='answer_1'>tr_abc</textarea></td>";
+                      echo "<td><button class='btn btn-primary' onclick='onAnswerSave(abc)'>등록</button></td></tr>";
+//                      $nIndex++;
+//                    }
                     mysqli_close($con);
                   ?>
                   </tbody>

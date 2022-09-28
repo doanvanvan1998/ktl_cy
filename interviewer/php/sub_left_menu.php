@@ -63,7 +63,7 @@
         <li class="nav-item">
           <a href="https://kiat.or.kr/front/user/main.do" target="_blank" class="nav-link">
             <i class="fas fa-circle nav-icon"></i>
-            <p>한국산업기술원</p>
+            <p style="font-size: 15px">한국산업기술시험원 변경 </p>
           </a>
         </li>
 

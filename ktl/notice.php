@@ -34,29 +34,29 @@
                 <th>등록일</th>
               </tr>
             </thead>
-            <tbody>
-              <?php
-                include "php/mysql.php";
-                $nIndex = 1;
-                $query="select subject,date,id from recruit_able_notice order by id desc";
-                $result = mysqli_query($con,$query);
-                while($row = mysqli_fetch_array($result))
-                {
-                  echo "<tr style='cursor:pointer;' onclick='onNoticeView($row[2])'>
-                    <td>$nIndex</td>
-                    <td class='notitle'>[공지사항] $row[0]</td>
-                    <td>관리자</td>
-                    <td>$row[1]</td>
-                  </tr>";
-                  $nIndex++;
-                }
-                if($nIndex == 1)
-                {
-                  echo "<tr><td colspan=5>등록된 공지사항이 존재하지 않습니다.</td></tr>";
-                }
-                mysqli_close($con);
-              ?>
-            </tbody>
+<!--            <tbody>-->
+<!--              --><?php
+//                include "php/mysql.php";
+//                $nIndex = 1;
+//                $query="select subject,date,id from recruit_able_notice order by id desc";
+//                $result = mysqli_query($con,$query);
+//                while($row = mysqli_fetch_array($result))
+//                {
+//                  echo "<tr style='cursor:pointer;' onclick='onNoticeView($row[2])'>
+//                    <td>$nIndex</td>
+//                    <td class='notitle'>[공지사항] $row[0]</td>
+//                    <td>관리자</td>
+//                    <td>$row[1]</td>
+//                  </tr>";
+//                  $nIndex++;
+//                }
+//                if($nIndex == 1)
+//                {
+//                  echo "<tr><td colspan=5>등록된 공지사항이 존재하지 않습니다.</td></tr>";
+//                }
+//                mysqli_close($con);
+//              ?>
+<!--            </tbody>-->
           </table>
           <!-- <div class="pager flex">
             <div class="btn_prev btn flex"><span class="hide">이전</span><img src="images/btns/btn_pager_prev.png" alt="이전"></div>
