@@ -52,9 +52,9 @@
                   </p>
               </a>
           </li>
-          <li class="nav-item">
-              <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-copy"></i>
+          <li class="nav-item" id='nav_19'>
+              <a href="#" class="nav-link" id='nav_19_1'>
+                  <i class="nav-icon fas fa-book"></i>
                   <p>
                       평가전형
                       <i class="fas fa-angle-left right"></i>
@@ -62,20 +62,21 @@
               </a>
               <ul class="nav nav-treeview">
                   <li class="nav-item">
-                      <a href="pages/forms/evaluate_list.php?Id=1" class="nav-link">
+                      <a href="/pages/forms/evaluate_list.php?Id=3" class="nav-link" id='nav_20_3'>
                           <i class="far fa-circle nav-icon"></i>
                           <p>서류평가</p>
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="pages/forms/evaluate_list.php?Id=2" class="nav-link">
+                      <a href="/pages/forms/evaluate_list.php?Id=4" class="nav-link" id='nav_20_4'>
                           <i class="far fa-circle nav-icon"></i>
                           <p>면접평가</p>
                       </a>
                   </li>
 
+
                   <li class="nav-item">
-                      <a href="pages/forms/infor_general.php" class="nav-link">
+                      <a href="/pages/forms/infor_general.php" class="nav-link" >
                           <i class="far fa-circle nav-icon"></i>
                           <p>
                               Chi tiết thông tin

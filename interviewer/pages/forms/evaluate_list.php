@@ -27,9 +27,10 @@ session_start();
     include "../../php/sub_nav.php";
     include "../../php/sub_left_menu.php";
     $Id = $_GET["Id"];
+    echo "<input type='hidden' id='SelId2' value='$Id'/>";
     $strtitle = "";
-    if($Id == 1) { $strtitle = "서류평가"; }
-    else if($Id == 2) { $strtitle = "면접평가"; }
+    if($Id == 3) { $strtitle = "서류평가"; }
+    else if($Id == 4) { $strtitle = "면접평가"; }
     ?>
 
     <!-- Content Wrapper. Contains page content -->
@@ -94,7 +95,7 @@ session_start();
                                         include "../../php/mysql.php";
                                         include "../../php/crypt.php";
                                         $nIndex = 1;
-                                        if ($Id == 1){
+                                        if ($Id == 3){
                                             echo "
                                                    <tr rowspan ='2'>
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;width: 100px'>abc</th>
@@ -281,6 +282,8 @@ session_start();
     $("#nav_11_"+$("#SelId").val()).attr("class","nav-link active");
     $("#" + "nav_14").attr("class","nav-item menu-is-opening menu-open");
     $("#nav_15_"+$("#SelId").val()).attr("class","nav-link active");
+    $("#" + "nav_19").attr("class","nav-item menu-is-opening menu-open");
+    $("#nav_20_"+$("#SelId2").val()).attr("class","nav-link active");
     function exportPdf()
     {
 
