@@ -79,6 +79,18 @@
                           <p>면접평가</p>
                       </a>
                   </li>
+
+
+                  <li class="nav-item">
+                      <a href="infor_general.php" class="nav-link" id='nav_20_2'>
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>
+                              Chi tiết thông tin
+                          </p>
+                      </a>
+                  </li>
+
+
               </ul>
           </li>
         <li class="nav-header">사이트</li>
