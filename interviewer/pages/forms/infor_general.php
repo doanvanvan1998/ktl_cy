@@ -33,7 +33,7 @@ session_start();
     ?>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" >
+    <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="container-fluid">
@@ -55,213 +55,235 @@ session_start();
             </div><!-- /.container-fluid -->
         </section>
 
-        <div class="container-fluid ">
-            <div class="row " style=" border-bottom: 1px solid grey">
-                <div class="col mx" style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
-                    국내 최고의 장애인 뮤지션이 되겠습니다.
+
+        <div class="container-fluid" style="overflow: scroll; height: 25rem; width: auto; position: relative">
+
+            <div class="container-fluid" style="position: sticky; top: 0; z-index: 10">
+                <div class="row"
+                     style="background: darkgrey; color: #212121; font-weight: bold; margin-right: 1rem; margin-left: 1rem;">
+                    <div class="col mx" style="margin-top: 2rem;">
+                        <span style=" font-size: 1.3rem;font-weight: bold;">임선균</span> 1989년 (34세/만
+                        33세)
+                        남
+                    </div>
+                    <div class="col mx" style="margin-top: 2rem">
+                        <span style=" font-size: 1.3rem; font-weight: bold;">임선균</span> 1989년 (34세/만
+                        33세)
+                        남
+                    </div>
+                    <div class="col mx" style="margin-top: 2rem">
+                        <span style=" font-size: 1.3rem; font-weight: bold;">임선균</span> 1989년 (34세/만
+                        33세)
+                        남
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid" style="margin-top: 1rem">
+                <div class="row mx">
+                    <div>
+                        <i class="fa-solid fa-square-envelope" style="color: grey"></i> <span>hihi@gmail.com</span>
+                    </div>
+                    <div class="mx">
+                        <i class="fa-solid fa-phone" style="color: grey"></i> <span>0987678888</span>
+                    </div>
+                    <div class="mx">
+                        <i class="fa-solid fa-mobile-screen-button" style="color: grey"></i> <span>0987679999</span>
+                    </div>
+                    <div class="mx">
+                        <i class="fa-solid fa-house-user" style="color: grey"></i><span>Address: 123/123/123</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container-fluid" style="margin-top: 1.5rem">
+                <div style="">
+                    <div class="row mx" style=" margin-right: 1rem">
+
+                        <table class="table table-borderless" style="background: #fffffc">
+                            <thead style="background:darkgrey ">
+                            <tr>
+                                <th scope="col">Handle</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                                <th scope="col">Handle</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>@mdo</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container-fluid" style="margin-top: 1rem">
+                <div class="row">
+                    <div class="col mx" style="margin-right: 1rem">
+                        <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
+                            채용정보
+                        </div>
+                        <table class="table table-bordered">
+                            <thead style="background:darkgrey ">
+                            <tr>
+                                <th scope="col">vfvf</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                                <th scope="col">Handle</th>
+                            </tr>
+                            </thead>
+                            <tbody style="background: #fffffc">
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Larry the Bird</td>
+                                <td>@twitter</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" style="margin-top: 1rem">
+                <div class="row">
+                    <div class="col mx" style="margin-right: 1rem">
+                        <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
+                            채용정보
+                        </div>
+                        <table class="table table-bordered">
+                            <thead style="background:darkgrey ">
+                            <tr>
+                                <th scope="col">vfvf</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                                <th scope="col">Handle</th>
+                            </tr>
+                            </thead>
+                            <tbody style="background: #fffffc">
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Larry the Bird</td>
+                                <td>@twitter</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
 
+
+        <!--        ba cai cuoi-->
         <div class="container-fluid">
-            <div class="row">
-                <div class="col mx" style="margin-top: 2rem">
-                    <span style=" font-size: 1.3rem; color: #212121;font-weight: bold;">임선균</span> 1989년 (34세/만 33세) 남
+            <div class="container-fluid" style="margin-top: 1rem">
+                <div class="row">
+                    <div class="col mx" style="margin-right: 1rem">
+                        <div style=" font-size: 1.3rem; color: #212121;font-weight: bold; color: #0c84ff">
+                            면접평가
+                        </div>
+                        <table class="table table-bordered">
+                            <thead style="background: darkgrey" style="height: 0.2rem !important;" >
+                            <tr >
+                                <th scope="col" >vxcccccfvf</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                            </tr>
+                            </thead>
+
+                            <tbody style="background: #fffffc">
+                            <tr >
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>Otto</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Jacob</td>
+                                <td>Otto</td>
+                            </tr>
+                            </tbody>
+
+
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="container-fluid" style="margin-top: 1rem">
-            <div class="row mx">
-                <div>
-                    <i class="fa-solid fa-square-envelope" style="color: grey"></i> <span>hihi@gmail.com</span>
-                </div>
-                <div class="mx">
-                    <i class="fa-solid fa-phone" style="color: grey"></i> <span>0987678888</span>
-                </div>
-                <div class="mx">
-                    <i class="fa-solid fa-mobile-screen-button" style="color: grey"></i> <span>0987679999</span>
-                </div>
-                <div class="mx">
-                    <i class="fa-solid fa-house-user" style="color: grey"></i><span>Address: 123/123/123</span>
-                </div>
-            </div>
-        </div>
 
 
-        <div class="container-fluid" style="margin-top: 1.5rem">
-            <div style="">
-                <div class="row mx" style=" margin-right: 1rem">
-
-                    <table class="table table-borderless" style="background: #fffffc">
-                        <thead>
-                        <tr>
-                            <th scope="col">Handle</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>@mdo</td>
-                        </tr>
-                        </tbody>
-                    </table>
 
 
-                </div>
-            </div>
-        </div>
+            <div class="container-fluid"
+            ">
 
-
-        <div class="container-fluid" style="margin-top: 1rem">
             <div class="row">
                 <div class="col mx" style="margin-right: 1rem">
-                    <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
-                        채용정보
-                    </div>
                     <table class="table table-bordered">
-                        <thead style="background: #fffffc">
-                        <tr>
-                            <th scope="col">vfvf</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                            <th scope="col">Handle</th>
+                        <thead style="background: darkgrey;">
+                        <tr >
+                            <th scope="col"
+                                style="height: 0.2rem; display: flex; justify-content: center; align-items: center">vfvf
+                            </th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody style="background: #fffffc">
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>@mdo</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid" style="margin-top: 1rem">
-            <div class="row">
-                <div class="col mx" style="margin-right: 1rem">
-                    <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
-                        채용정보
-                    </div>
-                    <table class="table table-bordered">
-                        <thead style="background: #fffffc">
-                        <tr>
-                            <th scope="col">vfvf</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>@mdo</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid" style="margin-top: 1rem">
-            <div class="row">
-                <div class="col mx" style="margin-right: 1rem">
-                    <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
-                        면접평가
-                    </div>
-                    <table class="table table-bordered">
-                        <thead style="background: #fffffc">
-                        <tr>
-                            <th scope="col">vfvf</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div >
-
-
-        <div class="container-fluid" style="margin-top: 1rem">
-            <div class="row">
-                <div class="col mx " style="margin-right: 1rem">
-                    <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
-                        면접평가
-                    </div>
-                    <table class="table table-bordered">
-                        <thead style="background: #fffffc">
-                        <tr>
-                            <th scope="col" style="display: flex; justify-content: center">vfvf</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row" style="display: flex; justify-content: center">1</th>
-
+                            <th scope="col"
+                                style="height: 0.2rem; display: flex; justify-content: center; align-items: center">vfvf
+                            </th>
                         </tr>
                         </tbody>
                     </table>
@@ -270,43 +292,57 @@ session_start();
         </div>
 
 
-        <div class="container-fluid" style="margin-top: 1rem; ">
-            <div class="row">
-                <div class="col mx" style="margin-right: 1rem">
-                    <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
-                        면접평가
-                    </div>
-                    <table class="table table-bordered">
-                        <thead style="background: #fffffc">
-                        <tr>
-                            <th scope="col" style="display: flex; justify-content: center">vfvf</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row" style="display: flex; justify-content: center">1</th>
+        <div class="container-fluid"
+        ">
 
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+        <div class="row">
+            <div class="col mx" style="margin-right: 1rem">
+                <table class="table table-bordered">
+                    <thead style="background: darkgrey">
+                    <tr>
+                        <th scope="col"
+                            style="height: 0.2rem; display: flex; justify-content: center; align-items: center">vfvf
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody style="background: #fffffc">
+                    <tr>
+                        <th scope="col"
+                            style="height: 0.2rem; display: flex; justify-content: center; align-items: center">vfvf
+                        </th>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-
+    </div>
 
     </div>
-    <!-- /.content-wrapper -->
+
+    <div class="container">
+        <div class="row" style="justify-content: center; align-items: center">
+            <div style="cursor: pointer; color:white; display: flex; justify-content: center; align-items: center; clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%); background: green; margin-right: 0.5rem; width: 10rem; height: 3rem">
+                이전 페이지
+            </div>
+            <div style=" cursor: pointer; color: white; display: flex; justify-content: center; align-items: center; clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%); background: blue; margin-left: 0.5rem ;width: 10rem; height: 3rem">
+                다음 페이지
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.content-wrapper -->
 
 
 <!--    --><?php
 //    include "../../php/footer.php";
 //    ?>
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
 
 </div>
 <!-- ./wrapper -->
