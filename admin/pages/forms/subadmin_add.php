@@ -72,6 +72,13 @@
               <label for="inputProjectLeader">패스워드</label>
               <input type="password" id="pass" class="form-control" placeholder="패스워드를 입력하세요.">
             </div>
+                <div class="form-group">
+                    <label for="inputProjectLeader">권한</label>
+                   <select class='custom-select'   name='verifi' >
+                       <option value='평가위원' selected>평가위원</option>
+                       <option value='인터뷰 '>인터뷰</option>
+                   </select>
+                </div>
             </div>
             <!-- /.card-body -->
           </div>
