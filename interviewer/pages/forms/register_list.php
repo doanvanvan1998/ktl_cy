@@ -26,10 +26,8 @@ session_start();
     <?php
     include "../../php/sub_nav.php";
     include "../../php/sub_left_menu.php";
-
     $strtitle = "지원자현황";
     ?>
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -228,6 +226,8 @@ session_start();
     $("#nav_11_"+$("#SelId").val()).attr("class","nav-link active");
     $("#" + "nav_14").attr("class","nav-item menu-is-opening menu-open");
     $("#nav_15_"+$("#SelId").val()).attr("class","nav-link active");
+    $("#" + "nav_19").attr("class","nav-item menu-is-opening menu-open");
+    $("#nav_20_"+$("#SelId2").val()).attr("class","nav-link active");
 </script>
 </body>
 </html>
