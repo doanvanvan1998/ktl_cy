@@ -52,6 +52,29 @@
                   </p>
               </a>
           </li>
+          <li class="nav-item">
+              <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>
+                      평가전형
+                      <i class="fas fa-angle-left right"></i>
+                  </p>
+              </a>
+              <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                      <a href="pages/forms/evaluate_list.php?Id=1" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>서류평가</p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="pages/forms/evaluate_list.php?Id=2" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>면접평가</p>
+                      </a>
+                  </li>
+              </ul>
+          </li>
         <li class="nav-header">사이트</li>
         <li class="nav-item">
           <a href="https://kiat.or.kr/front/user/main.do" target="_blank" class="nav-link">

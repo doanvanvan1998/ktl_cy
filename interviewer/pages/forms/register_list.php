@@ -59,9 +59,9 @@ session_start();
                         <div class="card">
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <button onclick='exportPdf()' class='btn btn-info mb-2' > PDF다운</button>
-                                <button  class='btn btn-warning mb-2' >이전 </button>
-                                <button  class='btn btn-success mb-2' >최종제출 </button>
+<!--                                <button onclick='exportPdf()' class='btn btn-info mb-2' > PDF다운</button>-->
+<!--                                <button  class='btn btn-warning mb-2' >이전 </button>-->
+<!--                                <button  class='btn btn-success mb-2' >최종제출 </button>-->
                                 <div id="dataPdf">
                                     <table  style='text-align:center;'  class="table table-bordered table-striped">
                                         <thead>
@@ -228,23 +228,6 @@ session_start();
     $("#nav_11_"+$("#SelId").val()).attr("class","nav-link active");
     $("#" + "nav_14").attr("class","nav-item menu-is-opening menu-open");
     $("#nav_15_"+$("#SelId").val()).attr("class","nav-link active");
-
-    function exportPdf()
-    {
-
-        var mywindow = window.open('', 'my div', 'height=1000,width=1600');
-        mywindow.document.write('<html><head><title>전형결과</title>');
-        mywindow.document.write('</head><body>');
-        mywindow.document.write($("#dataPdf").html());
-        console.log($("#dataPdf").html());
-        mywindow.document.write('</body></html>');
-
-        mywindow.print();
-        mywindow.close();
-
-        return true;
-    }
-
 </script>
 </body>
 </html>
