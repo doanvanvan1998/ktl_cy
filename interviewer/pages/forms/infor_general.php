@@ -33,7 +33,7 @@ session_start();
     ?>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper" >
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="container-fluid">
@@ -56,16 +56,24 @@ session_start();
         </section>
 
         <div class="container-fluid ">
-            <div class="row ">
-                <div class="col " style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
-                    직무관리를 위한 채용정보
+            <div class="row " style=" border-bottom: 1px solid grey">
+                <div class="col mx" style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
+                    국내 최고의 장애인 뮤지션이 되겠습니다.
                 </div>
             </div>
         </div>
 
         <div class="container-fluid">
             <div class="row">
-                <div class="mx">
+                <div class="col mx" style="margin-top: 2rem">
+                    <span style=" font-size: 1.3rem; color: #212121;font-weight: bold;">임선균</span> 1989년 (34세/만 33세) 남
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid" style="margin-top: 1rem">
+            <div class="row mx">
+                <div>
                     <i class="fa-solid fa-square-envelope" style="color: grey"></i> <span>hihi@gmail.com</span>
                 </div>
                 <div class="mx">
@@ -81,13 +89,14 @@ session_start();
         </div>
 
 
-        <div class="container-fluid" style="margin-top: 0.5rem">
-            <div class="row">
-                <div class="col">
-                    <table class="table table-bordered">
+        <div class="container-fluid" style="margin-top: 1.5rem">
+            <div style="">
+                <div class="row mx" style=" margin-right: 1rem">
+
+                    <table class="table table-borderless" style="background: #fffffc">
                         <thead>
                         <tr>
-                            <th scope="col">vfvf</th>
+                            <th scope="col">Handle</th>
                             <th scope="col">First</th>
                             <th scope="col">Last</th>
                             <th scope="col">Handle</th>
@@ -109,27 +118,23 @@ session_start();
                             <td>@fat</td>
                             <td>@mdo</td>
                         </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>@mdo</td>
-                        </tr>
                         </tbody>
                     </table>
+
+
                 </div>
             </div>
         </div>
 
 
-        <div class="container-fluid">
+        <div class="container-fluid" style="margin-top: 1rem">
             <div class="row">
-                <div class="col">
+                <div class="col mx" style="margin-right: 1rem">
                     <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
                         채용정보
                     </div>
                     <table class="table table-bordered">
-                        <thead>
+                        <thead style="background: #fffffc">
                         <tr>
                             <th scope="col">vfvf</th>
                             <th scope="col">First</th>
@@ -164,14 +169,14 @@ session_start();
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid" style="margin-top: 1rem">
             <div class="row">
-                <div class="col">
+                <div class="col mx" style="margin-right: 1rem">
                     <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
                         채용정보
                     </div>
                     <table class="table table-bordered">
-                        <thead>
+                        <thead style="background: #fffffc">
                         <tr>
                             <th scope="col">vfvf</th>
                             <th scope="col">First</th>
@@ -206,14 +211,14 @@ session_start();
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid" style="margin-top: 1rem">
             <div class="row">
-                <div class="col">
+                <div class="col mx" style="margin-right: 1rem">
                     <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
                         면접평가
                     </div>
                     <table class="table table-bordered">
-                        <thead>
+                        <thead style="background: #fffffc">
                         <tr>
                             <th scope="col">vfvf</th>
                             <th scope="col">First</th>
@@ -238,17 +243,17 @@ session_start();
                     </table>
                 </div>
             </div>
-        </div>
+        </div >
 
 
-        <div class="container-fluid">
+        <div class="container-fluid" style="margin-top: 1rem">
             <div class="row">
-                <div class="col">
+                <div class="col mx " style="margin-right: 1rem">
                     <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
                         면접평가
                     </div>
                     <table class="table table-bordered">
-                        <thead>
+                        <thead style="background: #fffffc">
                         <tr>
                             <th scope="col" style="display: flex; justify-content: center">vfvf</th>
                         </tr>
@@ -265,14 +270,14 @@ session_start();
         </div>
 
 
-        <div class="container-fluid">
+        <div class="container-fluid" style="margin-top: 1rem; ">
             <div class="row">
-                <div class="col">
+                <div class="col mx" style="margin-right: 1rem">
                     <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
                         면접평가
                     </div>
                     <table class="table table-bordered">
-                        <thead>
+                        <thead style="background: #fffffc">
                         <tr>
                             <th scope="col" style="display: flex; justify-content: center">vfvf</th>
                         </tr>
@@ -293,9 +298,9 @@ session_start();
     <!-- /.content-wrapper -->
 
 
-    <?php
-    include "../../php/footer.php";
-    ?>
+<!--    --><?php
+//    include "../../php/footer.php";
+//    ?>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -331,7 +336,7 @@ session_start();
 </body>
 <style>
     .mx {
-        margin-left: 0.5rem;
+        margin-left: 1rem;
     }
 </style>
 </html>
