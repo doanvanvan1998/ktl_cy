@@ -68,13 +68,13 @@
               </a>
               <ul class="nav nav-treeview">
                   <li class="nav-item">
-                      <a href="evaluate_list.php?Id=1" class="nav-link" id='nav_20_1'>
+                      <a href="evaluate_list.php?Id=3" class="nav-link" id='nav_20_3'>
                           <i class="far fa-circle nav-icon"></i>
                           <p>서류평가</p>
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="evaluate_list.php?Id=2" class="nav-link" id='nav_20_2'>
+                      <a href="evaluate_list.php?Id=4" class="nav-link" id='nav_20_4'>
                           <i class="far fa-circle nav-icon"></i>
                           <p>면접평가</p>
                       </a>
@@ -82,7 +82,7 @@
 
 
                   <li class="nav-item">
-                      <a href="infor_general.php" class="nav-link" id='nav_20_2'>
+                      <a href="infor_general.php" class="nav-link" >
                           <i class="far fa-circle nav-icon"></i>
                           <p>
                               Chi tiết thông tin
