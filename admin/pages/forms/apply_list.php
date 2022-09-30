@@ -69,10 +69,11 @@ session_start();
                                 <?php
                                 $Id = $_GET["Id"];
                                 if($Id == 1){
-//                                    include "../../php/mysql.php";
-//                                    include "../../php/crypt.php";
-//                                    $query="select id,code_profile,username,phone,email,level_disabilities,subject,sub_subject,Verifi,date from objection_info where Verifi !='부적격'";
-//                                    $result = mysqli_query($con,$query);
+                                    include "../../php/mysql.php";
+                                    include "../../php/crypt.php";
+                                    $query="select u.id,u.username,u.phone,u.email,u.imp_uid,u.status_pass,a3.sent_date,a.is_disabilities,a2.major_main_id,a2.major_sub from recruit_able_user u inner join apply_step_1 a on u.id = a.able_id inner join apply_step_2 a2 on u.id = a2.able_id inner join apply_step_5 a3 on u.id = a3.userid where u.status_pass !='0'";
+
+                                    $result = mysqli_query($con,$query);
                                     echo "
                             <table id='example1' style='text-align:center;'  class='table table-bordered table-striped'>
                               <thead>
@@ -93,34 +94,60 @@ session_start();
                               </thead>
                               <tbody>";
                                     $nIndex = 1;
-//                                    while($row = mysqli_fetch_array($result)){
-//                                        $row['phone'] = Decrypt($row['phone'],$secret_key,$secret_iv);
-//                                        $row['email'] = Decrypt($row['email'],$secret_key,$secret_iv);
-                                        echo "<tr id='10'><td>$nIndex</td>
-                                        <td>abc</td>
-                                        <td>abc</td>
-                                        <td>abc</td>
-                                        <td>abc</td>
-                                        <td>abc</td>
-                                        <td>abc</td>
-                                        <td>abc</td>
-                                        <td>abc</td>
-                                        <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode(1, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
+                                    while($row = mysqli_fetch_array($result)){
+                                        $row['phone'] = Decrypt($row['phone'],$secret_key,$secret_iv);
+                                        $row['email'] = Decrypt($row['email'],$secret_key,$secret_iv);
+                                        echo "<tr><td>$nIndex</td>
+                                        <td>". $row['imp_uid'] ."</td>
+                                        <td>". $row['username'] ."</td>
+                                        <td>". $row['phone'] ."</td>
+                                        <td>". $row['email'] ."</td>
+                                        <td>";  if ($row['is_disabilities'] == 1){
+                                            echo "중증";
+                                        }else{
+                                            echo "경증";
+                                        } echo "</td>
+                                        <td>";
+                                        switch ($row['major_main_id']) {
+                                            case 1:
+                                                "a";
+                                                 break;
+                                            case 2:
+                                                "b";
+                                                break;
+                                            default:
+                                                "error";
+                                        }
+                                        echo"</td>
+                                        <td>". $row['major_university'] ."</td>
+                                        <td>". $row['sent_date'] ."</td>
+                                        <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode($row, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
                                         <td>
-                                            <select class='custom-select'  style='border: none'  name='verifi' onchange='updateVerifi(";echo 1 ?><?php echo ")' id= 1>
-                                            <option selected>적격</option>
-                                            <option value='적격'>적격</option>
-                                            <option value='부적격'>부적격</option>
+                                            <select class='custom-select'  style='border: none'  name='status_pass' onchange='updateStatusPass(";echo $row['id']; ?><?php echo ")' id= 1>
+                                            <option selected>";
+                                        switch ($row['status_pass']) {
+                                            case 0:
+                                                "적격";
+                                                break;
+                                            case 1:
+                                                "부적격";
+                                                break;
+                                            default:
+                                                "검증선택";
+                                        }
+                                            echo "</option>
+                                            <option value='0'>적격</option>
+                                            <option value='1'>부적격</option>
                                           </select></td>
                             ";
                                         $nIndex++;
-//                                    }
+                                    }
                                     echo "<a href='../../php/fnc/inquire_excel.php' style=' position: relative;top: 30px;z-index: 1; border: 1px #1e4a28 solid;background: #28a745;color: white;padding: 10px;border-radius: 22px;'>엑셀 파일 출력</a>
                               </tbody>
                             </table>
                           </div>";
 
-//                                    mysqli_close($con);
+                                    mysqli_close($con);
                                 }else{
                                     echo "<div >
                                     <div class='row'>
@@ -227,14 +254,14 @@ session_start();
 
 <script>
     let dataChart =[];
-    function onApplySuc(Id,step)
+
+    function updateStatusPass(Id)
     {
         if(confirm("해당 지원서를 통과하시겠습니까?"))
         {
             $.post("../../php/fnc/apply_pass.php",
                 {
                     Id : Id,
-                    step : step
                 },
                 function(data,status){
                     if(status != "fail"){
@@ -343,9 +370,6 @@ session_start();
                 }
             }
         });
-
-
-
     }
     function preview(data) {
         let html = `
