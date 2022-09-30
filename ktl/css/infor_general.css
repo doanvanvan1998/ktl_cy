@@ -1,0 +1,27 @@
+.text_main {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #212121;
+    border-bottom: 1px solid darkgrey;
+    padding-left: unset !important;
+}
+.text_main2 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #212121;
+}
+.mx {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+.table1{
+    background: lightgrey;
+    margin-top: 1rem;
+}
+.table_last {
+    border: 1px solid lightgrey;
+    padding:1rem;
+}
+.mt {
+    margin-top: 0.5rem;
+}
