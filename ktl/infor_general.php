@@ -68,7 +68,7 @@
     <div class="container">
         <div class="row">
             <div>
-                <span class="text_main2">학력</span> 최종학력 대학원석사휴학중
+                <span class="text_main2">학력</span> 최종학력 대학원  <span style="color: red">석사</span> 휴학중
             </div>
             <table class="table table-bordered">
                 <thead style="background: lightgrey">
@@ -102,7 +102,7 @@
     <div class="container" style="margin-top: 1rem">
         <div class="row">
             <div>
-                <span class="text_main2">학력</span> 최종학력 대학원석사휴학중
+                <span class="text_main2">경력</span>  총 <span style="color:red;">8</span> 년 <span style="color: red">6</span> 개월
             </div>
             <table class="table table-bordered">
                 <thead style="background: lightgrey">
@@ -136,7 +136,7 @@
     <div class="container" style="margin-top: 1rem">
         <div class="row">
             <div>
-                <span class="text_main2">학력</span> 최종학력 대학원석사휴학중
+                <span class="text_main2">대외활동</span>
             </div>
             <table class="table table-bordered">
                 <thead style="background: lightgrey">
@@ -170,7 +170,7 @@
     <div class="container " style="margin-top: 1rem">
         <div class="row">
             <div>
-                <span class="text_main2">학력</span> 최종학력 대학원석사휴학중
+                <span class="text_main2">자격증/어학/수상내역</span>
             </div>
             <table class="table table-bordered">
                 <thead style="background: lightgrey">
@@ -195,7 +195,8 @@
     <div class="container" style="margin-top: 1rem">
         <div class="row">
             <div>
-                <span class="text_main2">학력</span> 최종학력 대학원석사휴학중
+                <span class="text_main2">포트폴리오/기타문서
+</span>
             </div>
             <table class="table table-bordered">
                 <thead style="background: lightgrey">
