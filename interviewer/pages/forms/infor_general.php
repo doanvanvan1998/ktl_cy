@@ -61,20 +61,22 @@ session_start();
             <div class="container-fluid" style="position: sticky; top: 0; z-index: 10">
                 <div class="row"
                      style="background: darkgrey; color: #212121; font-weight: bold; margin-right: 1rem; margin-left: 1rem;">
-                    <div class="col mx" style="margin-top: 2rem;">
-                        <span style=" font-size: 1.3rem;font-weight: bold;">임선균</span> 1989년 (34세/만
-                        33세)
-                        남
-                    </div>
-                    <div class="col mx" style="margin-top: 2rem">
-                        <span style=" font-size: 1.3rem; font-weight: bold;">임선균</span> 1989년 (34세/만
-                        33세)
-                        남
-                    </div>
-                    <div class="col mx" style="margin-top: 2rem">
-                        <span style=" font-size: 1.3rem; font-weight: bold;">임선균</span> 1989년 (34세/만
-                        33세)
-                        남
+                    <div style="padding: 1rem; display: flex; width: 100%">
+                        <div class="col mx">
+                            <span style=" font-size: 1.3rem;font-weight: bold;">임선균</span> 1989년 (34세/만
+                            33세)
+                            남
+                        </div>
+                        <div class="col mx" >
+                            <span style=" font-size: 1.3rem; font-weight: bold;">임선균</span> 1989년 (34세/만
+                            33세)
+                            남
+                        </div>
+                        <div class="col mx" >
+                            <span style=" font-size: 1.3rem; font-weight: bold;">임선균</span> 1989년 (34세/만
+                            33세)
+                            남
+                        </div>
                     </div>
                 </div>
             </div>
