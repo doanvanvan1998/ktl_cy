@@ -149,60 +149,36 @@ session_start();
 
                                     mysqli_close($con);
                                 }else{
-                                    echo "<div >
+                                    ?>
+                                <div >
                                     <div class='row'>
                                         <div class='col-6'>
-                                        <canvas id='myChart' ></canvas>
+                                            <canvas id='myChart'></canvas>
                                         </div>
                                         <div class='col-6'>
-                                        ";
-                                    echo "
-                                     <table class='table ' style='margin-top: 15px'>
-                                      <thead  style='color:#523737'>
-                                        <tr style='border-top:2px solid'>
-                                          <th scope='col' class='border-0'  style='color:#e18181' >1</th>
-                                          <th scope='col'  class='border-0'>경기</th>
-                                          <th scope='col'  class='border-0'></th>
-                                          <th scope='col'   class='border-0'></th>
-                                          <th scope='col'  class='border-0' style='color:#b9adad'>10명</th>
-                                          <th scope='col'  class='border-0'>10%</th>
-                                        </tr>
-                                        <tr >
-                                          <th scope='col' class='border-0'  style='color:#e18181' >2</th>
-                                          <th scope='col'  class='border-0'>경기</th>
-                                          <th scope='col'  class='border-0'></th>
-                                          <th scope='col'   class='border-0'></th>
-                                          <th scope='col'  class='border-0' style='color:#b9adad'>20명</th>
-                                          <th scope='col'  class='border-0'>20%</th>
-                                        </tr><tr >
-                                          <th scope='col' class='border-0'  style='color:#e18181' >3</th>
-                                          <th scope='col'  class='border-0'>경기</th>
-                                          <th scope='col'  class='border-0'></th>
-                                          <th scope='col'   class='border-0'></th>
-                                          <th scope='col'  class='border-0' style='color:#b9adad'>30명</th>
-                                          <th scope='col'  class='border-0'>30%</th>
-                                        </tr>
-                                        <tr >
-                                          <th scope='col' class='border-0'  style='color:#e18181' >4</th>
-                                          <th scope='col'  class='border-0'>경기</th>
-                                          <th scope='col'  class='border-0'></th>
-                                          <th scope='col'   class='border-0'></th>
-                                          <th scope='col'  class='border-0' style='color:#b9adad'>40명</th>
-                                          <th scope='col'  class='border-0'>40%</th>
-                                        </tr>
-                                        
-                                      </thead>
-                                      </tbody>
-                                    </table>
-                          ";
-
-
-                                    echo "
+                                            <canvas id='ChartDisabilities'></canvas>
                                         </div>
                                     </div>
-                                </div>";
-                                }
+                                    <div class='row'>
+                                        <div class='col-6'>
+                                            <canvas id='ChartMajor'></canvas>
+                                        </div>
+                                        <div class='col-6'>
+                                            <canvas id='ChartResidence'></canvas>
+                                        </div>
+                                    </div>
 
+                                    <div class='row'>
+                                        <div class='col-6'>
+                                            <canvas id='ChartExperience'></canvas>
+                                        </div>
+                                        <div class='col-6'>
+                                            <canvas id='ChartDisabilities'></canvas>
+                                        </div>
+                                    </div>
+                                </div>;
+                                <?php
+                                }
                                 ?>
 
                                 <!-- /.card-body -->

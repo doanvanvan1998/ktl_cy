@@ -87,7 +87,7 @@ session_start();
 
 
                                         echo "<tr id='tr_$row[0]'><td>$nIndex</td><td>" . $row['userid'] . "</td><td>" . $row['username'] . "</td><td>" . $userphone . "</td><td>" . $useremail . "</td><td>" . $row['description'] . "</td><td><button   class='btn btn-info' onclick='onSubAdminReset(";
-                                        echo json_encode($row, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >리셋</button></td><td><button class='btn btn-danger' onclick='onSubAdminDel()'>삭제</button></td></tr>";
+                                        echo json_encode($row, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >리셋</button></td><td><button class='btn btn-danger' onclick='onSubAdminDel("; echo $row['id'] .")'>삭제</button></td></tr>";
                                         $nIndex++;
                                     }
                                     mysqli_close($con);

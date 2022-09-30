@@ -102,28 +102,43 @@ session_start();
                                               </thead>
                                               <tbody>";
 
-//                                    $query="select id,code_profile,username,phone,email,level_disabilities,subject,sub_subject,Verifi,date from objection_info";
-//                                    if($Id == 2 ){
-//                                        $query =  $query . " where Verifi !='부적격'";
-//                                    }else{
-//                                        $query =  $query . " where Verifi !='부적격'";
-//                                    }
-//
-//                                    $result = mysqli_query($con,$query);
+                                   $query = "select u.id,u.username,u.imp_uid,u.status_pass,a.is_disabilities from recruit_able_user u inner join apply_step_1 a on a.able_id = u.id where u.status_pass !='0'";
+
+                                    $result = mysqli_query($con,$query);
                                     $nIndex=0;
-//                                    while($row = mysqli_fetch_array($result)){
+                                    while($row = mysqli_fetch_array($result)){
+
                                         echo "
                                                                 <tr style='border: 1px solid #dee2e6;padding: 0 22px' id=20><td>$nIndex</td>
-                                                                         <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th>
-                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th>
-                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th>   
-                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc 1</th>   
-                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc 2</th>    
+                                                                         <th  style='border: 1px solid #dee2e6;padding: 0 22px'>". row['u.imp_uid'] ."</th>
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>". row['u.username'] ."</th>
+                                                                         
+                                                                        ";
+//
+//                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc 2</th>
+
+                                        $query = "select p.point from recruit_able_point p inner join recruit_able_user u on p.able_id = u.id where u.status_pass !='0'";
+                                    $result = mysqli_query($con,$query);
+                                    $medium = 0;
+                                    while($row = mysqli_fetch_array($result)){
+                                        $medium .= $medium;
+                                        ?>
+                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'><?php echo $row['point']?></th>
+                                <?php
+                                    }
+
+                                        echo "   
                                                                 
-                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th> 
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>" . round($row['u.username']/2, 2) ."</th> 
                                                                       
-                                                                        <th  style='border: 1px solid #dee2e6;'></th> 
-                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th>
+                                                                        <th  style='border: 1px solid #dee2e6;'>";
+                                                                            if ($row['is_disabilities'] == 1){
+                                                                                echo "중증";
+                                                                            }else{
+                                                                                echo "경증";
+                                                                            }
+                                        echo "</th>"; ?>
+                                                                        <th  style='border: 1px solid #dee2e6;padding: 0 22px'><?php echo $row['is_disabilities'] == 1 ? "10" : "5"; ?></th>
                                                                         <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th>  
                                                                         <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th> 
                                                                         <th  style='border: 1px solid #dee2e6;padding: 0 22px'>abc</th>  
@@ -138,13 +153,17 @@ session_start();
                                                                     <option value='적격'>적격</option>
                                                                     <option value='부적격'>부적격</option>
                                                                   </select></th>
-                                            ";
-//                                       break;
-//                                    }
+                                            ;
+                                    <?php
+                                       break;
+                                    }
                                     echo "
                                               </tbody>
                                             </table>
                                         </div>";
+                                    ?>
+                                <?php
+
                                 } else if($Id ==2){
                                     echo "
                                             <table id='#example1'  style='text-align:center;padding: 5px ' style='text-align:center; width: 100%    ' >

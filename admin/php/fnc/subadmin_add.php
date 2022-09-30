@@ -16,7 +16,7 @@
   $pass = Encrypt($pass,$secret_key,$secret_iv);
 
   $sql = "insert into recruit_able_subadmin (userid,pass,username,description,userphone,useremail,date,role) VALUES('$userid','$pass','$username','$description','$userphone','$useremail',NOW(),'$role')";
-
+  echo $sql;
   mysqli_query($con,$sql);
   mysqli_close($con);
 ?>

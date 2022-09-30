@@ -158,7 +158,8 @@
     },
      function(data,status){
      if(status != "fail"){
-      location.href='subadmin_list.php';
+          location.href='subadmin_list.php';
+         console.log(data);
      }
      else
      {
