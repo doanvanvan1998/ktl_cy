@@ -74,9 +74,9 @@
             </div>
                 <div class="form-group">
                     <label for="inputProjectLeader">권한</label>
-                   <select class='custom-select'   name='verifi' >
-                       <option value='평가위원' selected>평가위원</option>
-                       <option value='인터뷰 '>인터뷰</option>
+                   <select class='custom-select'   name='role' id="role">
+                       <option value='1' selected>평가위원</option>
+                       <option value='2 '>인터뷰</option>
                    </select>
                 </div>
             </div>
@@ -153,13 +153,12 @@
       username : $("#username").val(),
       description : $("#description").val(),
       userphone : $("#userphone").val(),
-      useremail : $("#useremail").val()
-
+      useremail : $("#useremail").val(),
+      role : $("#role").val()
     },
      function(data,status){
      if(status != "fail"){
-      alert("면접관이 등록되었습니다.");
-      location.href='subadmin_list.html';
+      location.href='subadmin_list.php';
      }
      else
      {
