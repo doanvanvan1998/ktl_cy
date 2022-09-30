@@ -499,14 +499,15 @@
                         Quá trình trưởng thành
                     </div>
                     <div class="col-md-9">
-                        <div class="d-flex" style="gap:0.5rem">
-                            <select>
-                                <option>Quá trình trưởng thành</option>
-                            </select>
-                            <button class="btn-add-more">+</button>
+                        <div class="duplicate-section">
+                            <div class="d-flex" style="gap:0.5rem">
+                                <select>
+                                    <option>Quá trình trưởng thành</option>
+                                </select>
+                                <button class="btn-add-more">+</button>
+                            </div>
+                            <textarea class="form-control" style="margin-top:0.5rem;height: 10rem"></textarea>
                         </div>
-
-                        <textarea class="form-control" style="margin-top:0.5rem;height: 10rem"></textarea>
                     </div>
                 </div>
             </div>
@@ -688,7 +689,7 @@
     }
 
     .btn-add-more {
-        padding: 0.5rem 1rem;
+        padding: 0.2rem 1rem;
         border-radius: 0.2rem;
         background: black;
         color: white;
@@ -701,4 +702,14 @@
         font-weight: var(--bold);
     }
 </style>
+
+<script>
+
+    $(document).ready(function () {
+        $('.btn-add-more').click(function () {
+            const duplicateSection = $(this).closest('.duplicate-section').parent().html();
+            $(this).closest('.duplicate-section').append(duplicateSection);
+        });
+    })
+</script>
 </html>
