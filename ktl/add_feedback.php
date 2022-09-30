@@ -11,95 +11,99 @@ if (isset($_GET['id'])) {
 }
 ?>
 <link rel="stylesheet" href="css/jobapplication.css">
+<link rel="stylesheet" href="css/inquiry.css">
 <body>
 <div class="wrap">
     <?php include 'php/common_header_menu.php' ?>
-    <div class="container-fluid">
-        <div class="banner flex">
-            <div class="flex-direction">
-                <h2>이의신청</h2>
-            </div>
-        </div>
-    </div>
     <div class="contents_wrap">
         <div class="container">
             <div class="jobapplication_title flex">
                 <h6>
-                    Danh sách feedback
+                    Tạo feedback
                 </h6>
                 <div class="flex">
                     <span>Home</span>
                     <img src="images/icons/ic_next.png" alt="다음">
                     <span>채용공고</span>
                     <img src="images/icons/ic_next.png" alt="다음">
-                    <span class="bor">Danh sách feedback</span>
+                    <span class="bor"> Tạo feedback</span>
+                </div>
+            </div>
+
+
+            <form action="../ktl/php/fnc/feedback.php" method="post" id="onSubmit">
+                <div class="write_form flex-direction">
+                    <div class="flex" style="justify-content: center; align-items: center">
+                        <div class="form_hd"><h6>Chọn tin</h6></div>
+                        <div class="form_con">
+                            <select id='news' name="news">
+                                <option value="1">1</option>
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="flex"  >
+                        <div class="form_hd"><h6>Loại feedback</h6></div>
+                        <div class="form_con">
+                            <select id='type' name="type" >
+                                <option value="loại 1"> loại 1</option>
+                                <option value="loại 2">loại 2</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="flex">
+                        <div class="form_hd"><h6>Tên người tạo</h6></div>
+                        <div class="form_con"><input type="text" id='name' name="name"></div>
+                    </div>
+
+
+                    <div class="flex">
+                        <div class="form_hd"><h6>Số điện thoại</h6></div>
+                        <div class="form_con"><input type="text" id='phone' name="phone" placeholder='이름을 입력하세요.'></div>
+                    </div>
+                    <div class="flex">
+                        <div class="form_hd"><h6>Email</h6></div>
+                        <div class="form_con"><input type="text" id='email' name="email" placeholder='이름을 입력하세요.'></div>
+                    </div>
+
+
+                    <div class="flex">
+                        <div class="form_hd"><h6>tiêu đề</h6></div>
+                        <div class="form_con"><input type="text" id='title' name="title" placeholder='이름을 입력하세요.'></div>
+                    </div>
+
+
+                    <div class="flex baseline">
+                        <div class="form_hd"><h6> content</h6></div>
+                        <div class="form_con">
+                            <textarea id='content' name="content"></textarea>
+                        </div>
+                    </div>
                 </div>
 
-            </div>
+                <div style="display: flex; justify-content: end; align-items: center; margin-top: 1rem; ">
+                    <div style="margin-right: 0.5rem">
+                        <button type="button" class="btn btn-secondary">
+                            <a style="color: white; text-decoration: none" href="../ktl/list_feedback.php">Cancel</a>
+                        </button>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-primary" onclick="handSubmit()">Submit</button>
+                    </div>
+                </div>
+            </form>
+
+
         </div>
 
     </div>
 
-    <div class="container">
-        <button type="button" class="btn btn-primary" style="margin-bottom: 5px">
-            <a href="../ktl/add_feedback.php" style="color: white; text-decoration: none;">Tạo feedback</a>
-        </button>
-    </div>
 
     <div class="container">
         <div>
-
-            <?php
-            include '../ktl/php/mysql.php';
-            $query = "select * from recruit_able_claim";
-            $result = mysqli_query($con, $query);
-            ?>
-
-            <table class='table'>
-                <thead style='background: lightgrey'>
-                <tr>
-                    <th>
-                    </th>
-                    <th scope='col'>Loại câu hỏi</th>
-                    <th scope='col'
-                    '>Tiêu đề</th>
-                    <th scope='col'>Ngày tạo</th>
-                    <th scope='col'
-                    '>Trạng thái</th>
-                    <th scope='col'>Xóa</th>
-                </tr>
-                </thead>
-                <tbody>
-
-                <?php
-                while ($row = mysqli_fetch_array($result)) {
-                    ?>
-                    <tr>
-
-                        <td>
-
-                        </td>
-                        <td><?php
-                            if ($row[1] == 1) {
-                                echo "type default";
-                            } else {
-                                echo "no type";
-                            }
-                            ?></td>
-                        <td><?php echo $row[7]; ?></td>
-                        <td><?php echo $row[8]; ?></td>
-                        <td style="color: blue"><?php echo $row[9]; ?></td>
-                        <td style="color: red; cursor: pointer">
-                            <a style="color: unset" onclick="return confirm('are you sure want to delete')"
-                               href="../ktl/list_feedback.php?id= <?php echo $row[0] ?> "><i
-                                        class="fa-solid fa-trash-can"></i></a>
-                        </td>
-                    </tr>
-                    <?php
-                }
-                ?>
-                </tbody>
-            </table>
 
 
         </div>
@@ -278,6 +282,11 @@ if (isset($_GET['id'])) {
 <?php include 'php/common_script.php' ?>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script>
+
+    function handSubmit() {
+        $("#onSubmit").submit();
+    }
+
     // cofirm or cancel
     function onPerInfoCheck(nCheck) {
         $('.popup_wrap').hide();
@@ -533,50 +542,7 @@ if (isset($_GET['id'])) {
 </script>
 </body>
 <style>
-    .flex.baseline {
-        align-items: flex-start;
-    }
 
-    .banner {
-        position: relative;
-        height: 15.5rem;
-        background: url(../ktl/images/banner/banner_inquiry.png) no-repeat center center / cover;
-    }
-
-    .banner::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        background: rgba(2, 8, 19, 0.9);
-        opacity: .88;
-    }
-
-    .banner .flex-direction {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        align-items: center;
-        justify-content: center;
-        gap: 1.2rem;
-        grid-gap: 1.2rem;
-    }
-
-    .banner .flex-direction h2 {
-        font-size: 1.5rem;
-        letter-spacing: -0.27px;
-        color: var(--base-white);
-        font-weight: var(--bold);
-    }
-
-    .banner .flex-direction span {
-        font-size: 0.85rem;
-        letter-spacing: 0;
-        color: var(--base-white);
-        font-weight: var(--medium);
-    }
 
 </style>
 </html>

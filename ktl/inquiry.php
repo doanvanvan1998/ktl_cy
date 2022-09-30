@@ -219,6 +219,7 @@
             </div>
             <span>작성일 : <?=$today?></span>
           </div>
+
           <div class="write_form flex-direction">
             <div class="flex">
               <div class="form_hd"><h6>이름</h6></div>
@@ -261,6 +262,9 @@
               </div>
             </div>
           </div>
+
+
+
           <script>
             function onDetailView(Id,type)
             {

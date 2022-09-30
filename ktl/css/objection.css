@@ -37,6 +37,9 @@
   color:var(--base-white);
   font-weight:var(--medium);
 }
+
+
+
 .contents_wrap > .container {
   margin-top:3.2rem;
   margin-bottom:8rem;
