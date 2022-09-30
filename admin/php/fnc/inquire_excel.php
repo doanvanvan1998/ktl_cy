@@ -39,29 +39,29 @@ $excel->getActiveSheet()->setCellValue('H1', '부전공');
 $excel->getActiveSheet()->setCellValue('I1', '제출일');
 $excel->getActiveSheet()->setCellValue('J1', '적격 검증');
 
-$query = "select code_profile,username,phone,email,level_disabilities,subject,sub_subject,Verifi,date from objection_info where Verifi !='부적격' ";
-$result = mysqli_query($con, $query);
+//$query = "select code_profile,username,phone,email,level_disabilities,subject,sub_subject,Verifi,date from objection_info where Verifi !='부적격' ";
+//$result = mysqli_query($con, $query);
 $numRow =2;
 $index =1;
 
-while($row = mysqli_fetch_array($result))
-{
-    $row['phone'] = Decrypt($row['phone'],$secret_key,$secret_iv);
-    $row['email'] = Decrypt($row['email'],$secret_key,$secret_iv);
-    $excel->getActiveSheet()->setCellValue('A' . $numRow, $index ." ");
-    $excel->getActiveSheet()->setCellValue('B' . $numRow, $row[0] ." ");
-    $excel->getActiveSheet()->setCellValue('C' . $numRow, $row[1]." ");
-    $excel->getActiveSheet()->setCellValue('D' . $numRow, $row['phone']."");
-    $excel->getActiveSheet()->setCellValue('E' . $numRow, $row['email']."");
-    $excel->getActiveSheet()->setCellValue('F' . $numRow, $row[4]." ");
-    $excel->getActiveSheet()->setCellValue('G' . $numRow, $row[5]." ");
-    $excel->getActiveSheet()->setCellValue('H' . $numRow, $row[6]." ");
-    $excel->getActiveSheet()->setCellValue('I' . $numRow, $row[7]." ");
-    $excel->getActiveSheet()->setCellValue('J' . $numRow, $row[8]." ");
+//while($row = mysqli_fetch_array($result))
+//{
+//    $row['phone'] = Decrypt($row['phone'],$secret_key,$secret_iv);
+//    $row['email'] = Decrypt($row['email'],$secret_key,$secret_iv);
+    $excel->getActiveSheet()->setCellValue('A2' ," adc");
+    $excel->getActiveSheet()->setCellValue('B2' , " adc");
+    $excel->getActiveSheet()->setCellValue('C2', "adc ");
+    $excel->getActiveSheet()->setCellValue('D2',"adc");
+    $excel->getActiveSheet()->setCellValue('E2',"adc");
+    $excel->getActiveSheet()->setCellValue('F2'," adc");
+    $excel->getActiveSheet()->setCellValue('G2'," adc");
+    $excel->getActiveSheet()->setCellValue('H2',"adc ");
+    $excel->getActiveSheet()->setCellValue('I2'," adc");
+    $excel->getActiveSheet()->setCellValue('J2'," adc");
 
     $numRow++;
     $index++;
-}
+//}
 $nameExcel = "지원자관리-".date("Y-m-d").".xls" ;
 
 header('Content-type: application/vnd.ms-excel');
