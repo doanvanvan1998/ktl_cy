@@ -129,9 +129,288 @@ session_start();
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Control sidebar content goes here -->
     </aside>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 1200px">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #17a2b8;color: white">
+                    <h5 class="modal-title" id="exampleModalLabel"> 포트폴리오 </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="color: white">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="table_profile" style="padding: 0.5rem">
+
+                </div>
+                <div class="modal-footer " style="margin: auto">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" style="background: #17a2b8;border: #17a2b8;">돌아와</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button data-toggle='modal' data-target='#exampleModal' style="display: none" id="btn-profile"></button>
+
     <!-- /.control-sidebar -->
 </div>
 <script>
+    function preview(data) {
+        let html = `
+    <div>
+
+        <div class="container-fluid ">
+            <div class="row " style=" border-bottom: 1px solid grey">
+                <div class="col " style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
+                    ?? ??? ??? ???? ?????.
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col " >
+                    <span style=" font-size: 1.3rem; color: #212121;font-weight: bold;">???</span> 1989? (34?/? 33?) ?
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid mt-2 mb-2" >
+            <div class="row mx">
+                <div>
+                    <i class="fa-solid fa-square-envelope" style="color: grey"></i> <span>hihi@gmail.com</span>
+                </div>
+                <div class="mx">
+                    <i class="fa-solid fa-phone" style="color: grey"></i> <span>0987678888</span>
+                </div>
+                <div class="mx">
+                    <i class="fa-solid fa-mobile-screen-button" style="color: grey"></i> <span>0987679999</span>
+                </div>
+                <div class="mx">
+                    <i class="fa-solid fa-house-user" style="color: grey"></i><span>Address: 123/123/123</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class=" col-lg-12 col-xl-6  col-md-12 col-sm-12 col-xs-12">
+                <div class="container-fluid">
+                    <div style="">
+                        <div class="row mx" style=" margin-right: 1rem">
+                         <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
+                                ????
+                            </div>
+                            <table class="table table-borderless" style="background: #fffffc">
+                                <thead style="background: #F3EFF9;border-top: 1px solid">
+                                <tr>
+                                    <th scope="col">Handle</th>
+                                    <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                    <th scope="col">Handle</th>
+                                    <th scope="col">Handle</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td scope="row">1</td>
+                                    <td style="width= 20%">MarkMark MarkMarkMark MarkMarkMarkMarkMarkMark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-lg-12 col-xl-6  col-md-12 col-sm-12 col-xs-12">
+                <div class="container-fluid" >
+                    <div style="">
+                        <div class="row mx" style=" margin-right: 1rem">
+                         <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
+                                ????
+                            </div>
+                            <table class="table table-borderless" style="background: #fffffc">
+                                <thead style="background: #F3EFF9;border-top: 1px solid">
+                                <tr>
+                                    <th scope="col">Handle</th>
+                                    <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                    <th scope="col">Handle</th>
+                                    <th scope="col">Handle</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td scope="row">1</td>
+                                    <td style="width= 20%">MarkMark MarkMarkMark MarkMarkMarkMarkMarkMark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div >
+<div class="row">
+            <div class=" col-lg-12 col-xl-6  col-md-12 col-sm-12 col-xs-12">
+                <div class="container-fluid" >
+                    <div style="">
+                        <div class="row mx" style=" margin-right: 1rem">
+                         <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
+                                ????
+                            </div>
+                            <table class="table table-borderless" style="background: #fffffc">
+                                <thead style="background: #F3EFF9;border-top: 1px solid">
+                                <tr>
+                                    <th scope="col">Handle</th>
+                                    <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                    <th scope="col">Handle</th>
+                                    <th scope="col">Handle</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td scope="row">1</td>
+                                    <td style="width= 20%">MarkMark MarkMarkMark MarkMarkMarkMarkMarkMark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-lg-12 col-xl-6  col-md-12 col-sm-12 col-xs-12">
+                <div class="container-fluid" >
+                    <div style="">
+                        <div class="row mx" style=" margin-right: 1rem">
+                         <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
+                                ????
+                            </div>
+                            <table class="table table-borderless" style="background: #fffffc">
+                                <thead style="background: #F3EFF9;border-top: 1px solid">
+                                <tr>
+                                    <th scope="col">Handle</th>
+                                    <th scope="col" style="text-align: center">First</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td scope="row">1</td>
+                                    <td >MarkMark MarkMarkMark MarkMarkMarkMarkMarkMark</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div >
+<div class="row">
+            <div class=" col-lg-12 col-xl-6  col-md-12 col-sm-12 col-xs-12">
+                <div class="container-fluid" >
+                    <div style="">
+                        <div class="row mx" style=" margin-right: 1rem">
+                         <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
+                                ????
+                            </div>
+                            <table class="table table-borderless" style="background: #fffffc">
+                                <thead style="background: #F3EFF9;border-top: 1px solid">
+                                <tr>
+                                    <th scope="col">Handle</th>
+                                    <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                    <th scope="col">Handle</th>
+                                    <th scope="col">Handle</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td scope="row">1</td>
+                                    <td style="width= 20%">MarkMark MarkMarkMark MarkMarkMarkMarkMarkMark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-lg-12 col-xl-6  col-md-12 col-sm-12 col-xs-12">
+                <div class="container-fluid" >
+                    <div style="">
+                        <div class="row mx" style=" margin-right: 1rem">
+                         <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
+                                ????
+                            </div>
+                            <table class="table table-borderless" style="background: #fffffc">
+                                <thead style="background: #F3EFF9;border-top: 1px solid">
+                                <tr>
+                                    <th scope="col">Handle</th>
+
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td scope="row">1</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div >
+    </div>
+        `
+        $("#table_profile").empty();
+        $("#table_profile").append(html);
+        $("#btn-profile").click();
+    }
     function onApplySuc(Id,step)
     {
         if(confirm("해당 지원서를 통과하시겠습니까?"))

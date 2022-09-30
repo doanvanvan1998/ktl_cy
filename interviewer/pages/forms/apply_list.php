@@ -210,6 +210,7 @@
   <!-- /.control-sidebar -->
 </div>
 <script>
+
   function onApplySuc(Id,step)
   {
     if(confirm("해당 지원서를 통과하시겠습니까?"))
