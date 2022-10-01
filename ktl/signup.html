@@ -19,6 +19,10 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <title>한국산업기술시험원</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <link rel="stylesheet" href="css/signup.css">
 <body>
@@ -191,24 +195,24 @@
                         </div>
                     </div>
 
-<!--                    <div class="row form-item">-->
-<!--                        <div class="col-md-3">-->
-<!--                            Người có công-->
-<!--                        </div>-->
-<!--                        <div class="col-md-9">-->
-<!--                            <div class="d-flex" style="gap:0.5rem">-->
-<!--                                <label>-->
-<!--                                    <input type="radio" name="meritorious_person">-->
-<!--                                    <span>Không</span>-->
-<!--                                </label>-->
+                    <!--                    <div class="row form-item">-->
+                    <!--                        <div class="col-md-3">-->
+                    <!--                            Người có công-->
+                    <!--                        </div>-->
+                    <!--                        <div class="col-md-9">-->
+                    <!--                            <div class="d-flex" style="gap:0.5rem">-->
+                    <!--                                <label>-->
+                    <!--                                    <input type="radio" name="meritorious_person">-->
+                    <!--                                    <span>Không</span>-->
+                    <!--                                </label>-->
 
-<!--                                <label>-->
-<!--                                    <input type="radio" name="meritorious_person">-->
-<!--                                    <span>Có</span>-->
-<!--                                </label>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <!--                                <label>-->
+                    <!--                                    <input type="radio" name="meritorious_person">-->
+                    <!--                                    <span>Có</span>-->
+                    <!--                                </label>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
 
                     <div class="row form-item">
                         <div class="col-md-3">
@@ -228,7 +232,6 @@
                                     <span>Có</span>
                                 </label>
                             </div>
-
 
 
                             <div>Tầng lớp thu nhập thấp</div>
@@ -420,28 +423,41 @@
                         Lý lịch chính
                     </div>
                     <div class="col-md-9">
-                        <div style="flex-wrap: wrap;gap:0.5rem" class="d-flex">
-                            <label>
-                                <input type="radio">
-                                <span>Tham gia cuộc thi buổi biễn diễn quy mô toàn quốc</span>
+                        <div style="flex-wrap: wrap;gap:0.5rem" class="d-flex main-profile-wrapper">
+                            <label class="custom-checkbox">
+                                <input type="checkbox">
+                                <span class="icon">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                <span class="text">Tham gia cuộc thi buổi biễn diễn quy mô toàn quốc</span>
                             </label>
-                            <label for="">
-                                <input type="radio">
-                                <span>Tham gia buổi biểu diễn quy mô tỉnh/thành</span>
+                            <label class="custom-checkbox">
+                                <input type="checkbox">
+                                <span class="icon">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                <span class="text">Tham gia buổi biểu diễn quy mô tỉnh</span>
                             </label>
-                            <label for="">
-                                <input type="radio">
-                                <span>Tham gia cuộc thi buổi biểu diễn do các tổ chức công tổ chức</span>
+                            <label class="custom-checkbox">
+                                <input type="checkbox">
+                                <span class="icon">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                <span class="text">Tham gia cuộc thi buổi biểu diễn do các tổ chức công tổ chức</span>
                             </label>
-                            <label for="">
-                                <input type="radio">
-                                <span>
-                                            Từng tham gia đoàn diễn của cơ quan, xí nghiệp nhỏ
-                                        </span>
+                            <label class="custom-checkbox">
+                                <input type="checkbox">
+                                <span class="icon">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                <span class="text"> Từng tham gia đoàn diễn của cơ quan, xí nghiệp nhỏ</span>
                             </label>
-                            <label for="">
-                                <input type="radio">
-                                <span>Đi diễn tự do</span>
+                            <label class="custom-checkbox">
+                                <input type="checkbox">
+                                <span class="icon">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                <span class="text">Đi diễn tự do</span>
                             </label>
                         </div>
                     </div>
@@ -616,6 +632,10 @@
             $('.tab-wrapper .tab-content').addClass('hidden');
             $(this).closest('.tab-wrapper').find('.tab-content').eq(tabIndex).removeClass('hidden');
         })
+        $('.btn-add-more').click(function () {
+            const duplicateSection = $(this).closest('.duplicate-section').parent().html();
+            $(this).closest('.duplicate-section').append(duplicateSection);
+        });
     });
 </script>
 
@@ -687,6 +707,10 @@
         font-weight: var(--medium);
     }
 
+    input[type="checkbox"] {
+        width: 1.2rem;
+    }
+
     .accept {
         cursor: pointer;
         margin-top: 0.5rem;
@@ -747,15 +771,44 @@
         color: #212121;
         font-weight: var(--bold);
     }
+
+
+    .custom-checkbox input {
+        display: none;
+    }
+
+
+    .custom-checkbox .text {
+        float: left;
+        margin-left: 0.2rem;
+    }
+
+    .custom-checkbox .icon {
+        display: inline-block;
+        margin-top: 0.2rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        border: 1px solid #e4e4e4;
+        border-radius: 999px;
+        float: left
+    }
+
+    .custom-checkbox .icon .fas {
+        display: none;
+        cursor: pointer;
+        color: white;
+        margin-top: 0.1rem;
+    }
+
+    .custom-checkbox input:checked + .icon {
+        background: #0077ff;
+    }
+
+    .custom-checkbox input:checked + .icon .fas {
+        display: block;
+    }
+
+
 </style>
 
-<script>
-
-    $(document).ready(function () {
-        $('.btn-add-more').click(function () {
-            const duplicateSection = $(this).closest('.duplicate-section').parent().html();
-            $(this).closest('.duplicate-section').append(duplicateSection);
-        });
-    })
-</script>
 </html>
