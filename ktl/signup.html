@@ -590,7 +590,8 @@
                                 </select>
                                 <button class="btn-add-more">+</button>
                             </div>
-                            <textarea  class="form-control self_introduction_content" style="margin-top:0.5rem;height: 10rem"></textarea>
+                            <textarea class="form-control self_introduction_content"
+                                      style="margin-top:0.5rem;height: 10rem"></textarea>
                         </div>
                     </div>
                 </div>
@@ -654,6 +655,10 @@
             });
         }
     }
+
+    $('.btn-add-more').each(function (index, value) {
+        $(this).attr('data-count', 0);
+    });
 
     function reIndex() {
         $('.self-introduction').each(function (index, value) {
@@ -725,10 +730,15 @@
         })
 
         $('.btn-add-more').click(function () {
-            const duplicateSection = $(this).closest('.duplicate-section');
-            console.log(duplicateSection.html());
-            $(this).closest('.duplicate-section').parent().append(duplicateSection.clone());
-            indexing();
+            let dataCount = parseInt($(this).attr('data-count'));
+            if (dataCount < 3) {
+                const duplicateSection = $(this).closest('.duplicate-section');
+                console.log(duplicateSection.html());
+                $(this).closest('.duplicate-section').parent().append(duplicateSection.clone());
+                indexing();
+                dataCount++;
+                $(this).attr('data-count', dataCount);
+            }
         });
 
         const indexing = () => {
@@ -759,6 +769,20 @@
 
 
         const removeDuplicateSection = (element) => {
+            console.log($(element)
+                .closest('.duplicate-section')
+                .parent().find('.btn-add-more').attr('data-count'));
+            let dataCount = parseInt($(element)
+                .closest('.duplicate-section')
+                .parent().find('.btn-add-more').attr('data-count'));
+            if (dataCount > 0) {
+                dataCount--;
+                $(element)
+                    .closest('.duplicate-section')
+                    .parent().find('.btn-add-more')
+                    .attr('data-count', dataCount);
+            }
+
             $(element).closest('.duplicate-section').remove();
             indexing();
         }
