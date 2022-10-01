@@ -145,7 +145,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="">Đại học</label>
+                            <label>Đại học</label>
                             <div>
                                 <div>
                                     <select>

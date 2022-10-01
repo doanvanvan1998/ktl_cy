@@ -323,25 +323,29 @@
                     </div>
 
                     <div class="col-md-9">
-                        <div class="d-flex" style="gap:0.5rem">
-                            <select>
-                                <option>Phân loại trường</option>
-                            </select>
+                        <div class="duplicate-section academy">
+                            <div class="d-flex" style="gap:0.5rem">
+                                <select>
+                                    <option>Phân loại trường</option>
+                                </select>
 
-                            <input type="text" placeholder="Tên trường">
-                            <input type="text" placeholder="Tháng  năm nhập học">
-                            <input type="text" placeholder="Tháng năm tốt nghiệp">
-                            <select>
-                                <option>Tình trạng tốt nghiệp</option>
-                            </select>
-                        </div>
+                                <input type="text" class="academy_name" placeholder="Tên trường">
+                                <input type="text" class="academy_start_date" placeholder="Tháng  năm nhập học">
+                                <input type="text" class="academy_end_date" placeholder="Tháng năm tốt nghiệp">
+                                <select class="academy_status">
+                                    <option>Tình trạng tốt nghiệp</option>
+                                </select>
 
-                        <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
-                            <input type="text" placeholder="Tên chuyên ngành">
-                            <input type="text" placeholder="Điểm trung bình">
-                            <select>
-                                <option>Tổng điểm</option>
-                            </select>
+                                <button class="btn-add-more">+</button>
+                            </div>
+
+                            <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
+                                <input type="text" class="academy_major" placeholder="Tên chuyên ngành">
+                                <input type="text" class="academy_gpa" placeholder="Điểm trung bình">
+                                <select class="academy_total_score">
+                                    <option>Tổng điểm</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -351,23 +355,26 @@
                         Cao học
                     </div>
                     <div class="col-md-9">
-                        <div class="d-flex" style="gap:0.5rem">
-                            <input type="text" placeholder="Tên trường">
-                            <input type="text" placeholder="Tháng năm nhập học">
-                            <input type="text" placeholder="Tháng năm tốt nghiệp">
-                            <select name="">
-                                <option>Tình trạng tốt nghiệp</option>
-                            </select>
-                        </div>
-                        <div class="d-flex" style="margin-top: 0.5rem;gap:0.5rem">
-                            <input type="text" placeholder="Tên chuyên ngành">
-                            <input type="text" placeholder="Điểm trung bình">
-                            <select>
-                                <option>Tổng điểm</option>
-                            </select>
-                            <select>
-                                <option value="">Học vị</option>
-                            </select>
+                        <div class="duplicate-section postgraduate">
+                            <div class="d-flex" style="gap:0.5rem">
+                                <input type="text" class="postgraduate_name" placeholder="Tên trường">
+                                <input type="text" class="postgraduate_start_date" placeholder="Tháng năm nhập học">
+                                <input type="text" class="postgraduate_end_date" placeholder="Tháng năm tốt nghiệp">
+                                <select class="postgraduate_type">
+                                    <option>Tình trạng tốt nghiệp</option>
+                                </select>
+                                <button class="btn-add-more">+</button>
+                            </div>
+                            <div class="d-flex" style="margin-top: 0.5rem;gap:0.5rem">
+                                <input type="text" class="postgraduate_major" placeholder="Tên chuyên ngành">
+                                <input type="text" class="postgraduate_gpa" placeholder="Điểm trung bình">
+                                <select class="postgraduate_total_score">
+                                    <option>Tổng điểm</option>
+                                </select>
+                                <select class="postgraduate_degree">
+                                    <option value="">Học vị</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -468,14 +475,20 @@
                         Nội dung hoạt động
                     </div>
                     <div class="col-md-9">
-                        <div class="d-flex" style="gap:0.5rem">
-                            <input type="date" style="width:30%" placeholder="Năm/Tháng/Ngày">
-                            <input type="date" style="width: 30%" placeholder="Năm/Tháng/Ngày">
-                            <input type="text" style="width:60%"
-                                   placeholder=" Vui lòng nhập tên chi nhánh / tổ chức / nhóm hoặc tên cuộc thi / buổi hòa nhạc bạn đã tham gia.">
-                        </div>
-                        <div class="d-flex" style="margin-top:0.5rem">
-                            <input type="text" placeholder="Nhập nội dung hoạt động">
+                        <div class="duplicate-section activity">
+                            <div class="d-flex" style="gap:0.5rem">
+                                <input type="date" class="activity_start_date" style="width:30%"
+                                       placeholder="Năm/Tháng/Ngày">
+                                <input type="date" class="activity_end_date" style="width: 30%"
+                                       placeholder="Năm/Tháng/Ngày">
+                                <input type="text" style="width:60%"
+                                       class="activity_organization"
+                                       placeholder=" Vui lòng nhập tên chi nhánh / tổ chức / nhóm hoặc tên cuộc thi / buổi hòa nhạc bạn đã tham gia.">
+                            </div>
+                            <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
+                                <input class="activity_content" type="text" placeholder="Nhập nội dung hoạt động">
+                                <button class="btn-add-more">+</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -485,14 +498,17 @@
                         Đào tạo
                     </div>
                     <div class="col-md-9">
-                        <div class="d-flex" style="gap:0.5rem">
-                            <input type="text" placeholder="Tên chương trình">
-                            <input type="text" placeholder="Tên chương trình đào tạo">
-                            <input type="date" placeholder="Năm-Tháng-Ngày">
-                            <input type="date" placeholder="Năm-Tháng-Ngày">
-                        </div>
-                        <div class="d-flex" style="margin-top:0.5rem">
-                            <input type="text" placeholder="Tóm tắt nội dung đào tạo">
+                        <div class="duplicate-section training">
+                            <div class="d-flex" style="gap:0.5rem">
+                                <input type="date" class="training_name" placeholder="Tên Chương trình đào tạo">
+                                <input type="date" class="training_organization" placeholder="Tên tổ chức đào tạo">
+                                <input type="text" class="training_start_date" placeholder="Ngày bắt đầu">
+                                <input type="text" class="training_end_date" placeholder="Ngày kết thúc">
+                                <button class="btn-add-more">+</button>
+                            </div>
+                            <div class="d-flex" style="margin-top:0.5rem">
+                                <input type="text" placeholder="Tóm tắt nội dung đào tạo" name="training_content">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -506,10 +522,13 @@
                         Bằng cấp
                     </div>
                     <div class="col-md-9">
-                        <div class="d-flex" style="gap:0.5rem">
-                            <input type="text" placeholder="Tên bằng cấp/chứng chỉ">
-                            <input type="text" placeholder="Nơi cấp">
-                            <input type="date" placeholder="Ngày-tháng-năm">
+                        <div class="duplicate-section certificate">
+                            <div class="d-flex" style="gap:0.5rem">
+                                <input type="text" class="certificate_name" placeholder="Tên bằng cấp/chứng chỉ">
+                                <input type="text" class="certificate_issued_by" placeholder="Nơi cấp">
+                                <input type="date" class="certificate_date_issued" placeholder="Ngày-tháng-năm">
+                                <button class="btn-add-more">+</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -519,14 +538,17 @@
                         Giải thưởng
                     </div>
                     <div class="col-md-9">
-                        <div class="d-flex" style="gap:0.5rem">
-                            <input type="text" placeholder="Tên cuộc thi/giải thưởng">
-                            <input type="text" placeholder="Cơ quan cấp">
-                            <input type="date" placeholder="Ngày-tháng-năm">
-                            <input type="date" placeholder="Ngày-tháng-năm">
-                        </div>
-                        <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
-                            <input type="text" placeholder="Nhập nội dung giải thưởng">
+                        <div class="duplicate-section award">
+                            <div class="d-flex" style="gap:0.5rem">
+                                <input type="text" class="award_name" placeholder="Tên cuộc thi/giải thưởng">
+                                <input type="text" class="award_issued_by" placeholder="Cơ quan cấp">
+                                <input type="date" class="award_date_issued" placeholder="Ngày-tháng-năm">
+                                <input type="date" class="award_type" placeholder="Ngày-tháng-năm">
+                                <button class="btn-add-more">+</button>
+                            </div>
+                            <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
+                                <input type="text" class="award_content" placeholder="Nhập nội dung giải thưởng">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -561,14 +583,14 @@
                         Quá trình trưởng thành
                     </div>
                     <div class="col-md-9">
-                        <div class="duplicate-section">
+                        <div class="duplicate-section self-introduction">
                             <div class="d-flex" style="gap:0.5rem">
-                                <select>
+                                <select class="self_introduction_type">
                                     <option>Quá trình trưởng thành</option>
                                 </select>
                                 <button class="btn-add-more">+</button>
                             </div>
-                            <textarea class="form-control" style="margin-top:0.5rem;height: 10rem"></textarea>
+                            <textarea  class="form-control self_introduction_content" style="margin-top:0.5rem;height: 10rem"></textarea>
                         </div>
                     </div>
                 </div>
@@ -624,7 +646,76 @@
 </body>
 
 <script>
+    function changePlusToMinus(index, removeDuplicateSection) {
+        if (index > 0) {
+            $(this).html('-');
+            $(this).click(function () {
+                removeDuplicateSection($(this));
+            });
+        }
+    }
+
+    function reIndex() {
+        $('.self-introduction').each(function (index, value) {
+            $(this).find('input.self_introduction_type').attr('name', `self_introduction[${index}][type]`);
+            $(this).find('textarea.self_introduction_content').attr('name', `self_introduction[${index}][content]`);
+        });
+
+        $('.academy').each(function (index, value) {
+            $(this).find('input.academy_type').attr('name', `academy[${index}][type]`);
+            $(this).find('input.academy_name').attr('name', `academy[${index}][name]`);
+            $(this).find('input.academy_start_date').attr('name', `academy[${index}][start_date]`);
+            $(this).find('input.academy_end_date').attr('name', `academy[${index}][end_date]`);
+            $(this).find('input.academy_major').attr('name', `academy[${index}][major]`);
+            $(this).find('input.academy_gpa').attr('name', `academy[${index}][gpa]`);
+            $(this).find('input.academy_total_score').attr('name', `academy[${index}][total_score]`);
+            $(this).find('input.academy_status').attr('name', `academy[${index}][status]`);
+        });
+
+        $('.postgraduate').each(function (index, value) {
+            $(this).find('input.postgraduate_type').attr('name', `postgraduate[${index}][type]`);
+            $(this).find('input.postgraduate_name').attr('name', `postgraduate[${index}][name]`);
+            $(this).find('input.postgraduate_start_date').attr('name', `postgraduate[${index}][start_date]`);
+            $(this).find('input.postgraduate_end_date').attr('name', `postgraduate[${index}][end_date]`);
+            $(this).find('input.postgraduate_major').attr('name', `postgraduate[${index}][major]`);
+            $(this).find('input.postgraduate_gpa').attr('name', `postgraduate[${index}][gpa]`);
+            $(this).find('input.postgraduate_total_score').attr('name', `postgraduate[${index}][total_score]`);
+            $(this).find('input.postgraduate_status').attr('name', `postgraduate[${index}][status]`);
+            $(this).find('input.postgraduate_degree').attr('name', `postgraduate[${index}][degree]`);
+        });
+
+        $('.activity').each(function (index, value) {
+            $(this).find('input.activity_start_date').attr('name', `activity[${index}][start_date]`);
+            $(this).find('input.activity_end_date').attr('name', `activity[${index}][end_date]`);
+            $(this).find('input.activity_organization').attr('name', `activity[${index}][organization]`);
+            $(this).find('input.activity_content').attr('name', `activity[${index}][organization]`);
+        });
+
+        $('.training').each(function (index, value) {
+            $(this).find('input.training_name').attr('name', `training[${index}][name]`);
+            $(this).find('input.training_start_date').attr('name', `training[${index}][start_date]`);
+            $(this).find('input.training_end_date').attr('name', `training[${index}][end_date]`);
+            $(this).find('input.training_organization').attr('name', `training[${index}][organization]`);
+            $(this).find('input.training_content').attr('name', `training[${index}][content]`);
+        });
+
+        $('.certificate').each(function (index, value) {
+            $(this).find('input.certificate_name').attr('certificate_name', `certificate[${index}][name]`);
+            $(this).find('input.certificate_issued_by').attr('certificate_issued_by', `certificate[${index}][issued_by]`);
+            $(this).find('input.certificate_date_issued').attr('certificate_date_issued', `certificate[${index}][date_issued]`);
+        });
+
+        $('.award').each(function (index, value) {
+            $(this).find('input.award_name').attr('award_name', `award[${index}][name]`);
+            $(this).find('input.award_issued_by').attr('award_issued_by', `award[${index}][issued_by]`);
+            $(this).find('input.award_date_issued').attr('award_date_issued', `award[${index}][date_issued]`);
+            $(this).find('input.award_type').attr('award_type', `award[${index}][type]`);
+            $(this).find('input.award_content').attr('award_content', `award[${index}][content]`);
+        });
+    }
+
     $(document).ready(function () {
+        reIndex();
         $('.tab-heading .tab-item').click(function () {
             $(this).closest('.tab-wrapper').find('.tab-item').removeClass('active');
             $(this).addClass('active');
@@ -632,10 +723,46 @@
             $('.tab-wrapper .tab-content').addClass('hidden');
             $(this).closest('.tab-wrapper').find('.tab-content').eq(tabIndex).removeClass('hidden');
         })
+
         $('.btn-add-more').click(function () {
-            const duplicateSection = $(this).closest('.duplicate-section').parent().html();
-            $(this).closest('.duplicate-section').append(duplicateSection);
+            const duplicateSection = $(this).closest('.duplicate-section');
+            console.log(duplicateSection.html());
+            $(this).closest('.duplicate-section').parent().append(duplicateSection.clone());
+            indexing();
         });
+
+        const indexing = () => {
+            reIndex();
+
+            $('.self-introduction .btn-add-more').each(function (index, value) {
+                changePlusToMinus.call(this, index, removeDuplicateSection);
+            });
+            $('.academy .btn-add-more').each(function (index, value) {
+                changePlusToMinus.call(this, index, removeDuplicateSection);
+            });
+            $('.postgraduate .btn-add-more').each(function (index, value) {
+                changePlusToMinus.call(this, index, removeDuplicateSection);
+            });
+            $('.activity .btn-add-more').each(function (index, value) {
+                changePlusToMinus.call(this, index, removeDuplicateSection);
+            });
+            $('.training .btn-add-more').each(function (index, value) {
+                changePlusToMinus.call(this, index, removeDuplicateSection);
+            });
+            $('.certificate .btn-add-more').each(function (index, value) {
+                changePlusToMinus.call(this, index, removeDuplicateSection);
+            });
+            $('.award .btn-add-more').each(function (index, value) {
+                changePlusToMinus.call(this, index, removeDuplicateSection);
+            });
+        }
+
+
+        const removeDuplicateSection = (element) => {
+            $(element).closest('.duplicate-section').remove();
+            indexing();
+        }
+
     });
 </script>
 
@@ -666,11 +793,6 @@
 
     .tab-wrapper .tab-item:last-child {
         border: none
-    }
-
-    .title {
-        border-bottom: 1px solid #e8e8ea;
-        margin-top: 4rem;
     }
 
     .tab-wrapper .tab-item.active {
@@ -772,11 +894,9 @@
         font-weight: var(--bold);
     }
 
-
     .custom-checkbox input {
         display: none;
     }
-
 
     .custom-checkbox .text {
         float: left;
@@ -808,7 +928,8 @@
         display: block;
     }
 
-
+    .duplicate-section {
+        margin-top: 0.5rem;
+    }
 </style>
-
 </html>
