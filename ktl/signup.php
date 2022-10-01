@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="css/signup.css">
 <body>
 
+
 <div class="container">
     <div class="signup_form">
 
@@ -455,7 +456,7 @@
 
 
     <!--    step 3-->
-    <form action="../ktl/php/fnc/signup_step3.php" method="post" id="form_step_3">
+    <form action="../ktl/php/fnc/signup_step3.php" method="post" id="form_step_3" enctype="multipart/form-data">
 
         <div class="tab-content hidden">
             <h3>Bằng cấp, giải thưởng</h3>

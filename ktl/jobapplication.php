@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <?php include 'php/common_header.php' ?>
 <link rel="stylesheet" href="css/jobapplication.css">
+
 <body>
 <div class="wrap">
     <?php include 'php/common_header_menu.php' ?>
 
 
     <div class="contents_wrap">
-        <div class="container">
-            <div class="jobapplication_title flex">
+        <div class="container" style="border: 1px solid #000000 ">
+            <div class="jobapplication_title flex" style="padding: 1rem">
                 <h6>입사지원서 작성</h6>
                 <div class="flex">
                     <span>Home</span>
@@ -20,7 +21,7 @@
             </div>
             <form id="onSubmit" action="../ktl/php/fnc/recruit_step.php" method="post">
                 <div class="flex">
-                    <div class="form_title">
+                    <div class="form_title" >
                         <h6>공고명</h6>
                     </div>
                     <div class="form_con">
@@ -372,7 +373,7 @@
 
     // handle form submit
     function hanldSubmit() {
-        if (!validate()) {
+        if (validate()) {
             $('#onSubmit').submit();
         }
     }
