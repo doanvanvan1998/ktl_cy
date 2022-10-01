@@ -27,6 +27,8 @@
                         <span>2022년 문화/예술 장애인 채용공고</span>
                     </div>
                 </div>
+
+
                 <div class="flex">
                     <div class="form_title">
                         <h6>개인정보 수집·이용 동의</h6>
@@ -54,12 +56,29 @@
                     <div class="form_title">
                         <h6>휴대전화</h6>
                     </div>
+
                     <div class="form_con">
                         <div class="flex-direction inputbox">
-                            <input name="userphone" placeholder="전화 번호" type="text" id='userphone' required numberOnly>
+                            <div class="phone flex">
+                                <input type="text" id="userphone" name="userphone" maxlength="3" required=""
+                                       numberonly="">
+                                <span class="linebar"></span>
+                                <input type="text" id="userphone2" name="userphone2" maxlength="4" required=""
+                                       numberonly="">
+                                <span class="linebar"></span>
+                                <input type="text" id="userphone3" name="userphone3" maxlength="4" required=""
+                                       numberonly="">
+                            </div>
                             <span class="noti errorPhone" style="color: red; font-size: small">(*) </span>
                         </div>
                     </div>
+
+                    <!--                    <div class="form_con">-->
+                    <!--                        <div class="flex-direction inputbox">-->
+                    <!--                            <input name="userphone" placeholder="전화 번호" type="text" id='userphone' required numberOnly>-->
+                    <!--                            <span class="noti errorPhone" style="color: red; font-size: small">(*) </span>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
                 </div>
                 <div class="flex baseline">
                     <div class="form_title">
@@ -353,7 +372,7 @@
 
     // handle form submit
     function hanldSubmit() {
-        if (validate()) {
+        if (!validate()) {
             $('#onSubmit').submit();
         }
     }
