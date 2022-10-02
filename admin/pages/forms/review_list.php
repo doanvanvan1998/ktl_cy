@@ -221,18 +221,6 @@ session_start();
                                             $sum = 5;
                                         }
 
-                                        if ($row['low_income'] == 1) {
-                                            $sum = $sum + 5;
-                                        }
-                                        if ($row['children_of_migrant_families'] == 1) {
-                                            $sum = $sum + 5;
-                                        }
-                                        if ($row['immigrant'] == 1) {
-                                            $sum = $sum + 5;
-                                        }
-                                        if ($sum > 15) {
-                                            $sum = 15;
-                                        }
                                         echo "
                                                                 <tr style='border: 1px solid #dee2e6;padding: 0 22px' id=20>
                                                                 <td>$nIndex</td>
