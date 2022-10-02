@@ -28,6 +28,9 @@ session_start();
     include "../../php/sub_nav.php";
     include "../../php/sub_left_menu.php";
 
+    $pointResultOne=0;
+    $pointResultTwo=0;
+
 
     ?>
 
@@ -72,6 +75,7 @@ session_start();
                                 $Id = $_GET["Id"];
                                 include "../../php/mysql.php";
                                 include "../../php/crypt.php";
+                                echo "<input type='hidden' id='category' value='$Id'>";
                                 if ($Id == 1) {
                                     echo "
                                             <table id=''  style='text-align:center;padding: 5px ' style='text-align:center;width: 100%' >
@@ -102,7 +106,7 @@ session_start();
                                               </thead>
                                               <tbody>";
 
-                                    $query10 = "select a.veterans,u.id,u.username,u.imp_uid,u.status_pass,a.is_disabilities,a.low_income,a.children_of_migrant_families,a.immigrant from recruit_able_user u inner join apply_step_1 a on a.able_id = u.id where u.status_pass != '0'";
+                                    $query10 = "select u.round_one,a.veterans,u.id,u.username,u.imp_uid,u.status_pass,a.is_disabilities,a.low_income,a.children_of_migrant_families,a.immigrant from recruit_able_user u inner join apply_step_1 a on a.able_id = u.id where u.status_pass != '0'";
 
                                     $result10 = mysqli_query($con, $query10);
                                     $nIndex = 1;
@@ -118,6 +122,9 @@ session_start();
                                             $sum = $sum + 10;
                                         }else if ($row['immigrant'] == 1 || $row['children_of_migrant_families'] == 1 || $row['low_income'] == 1){
                                             $sum = $sum + 5;
+                                        }
+                                        if ($sum > 15){
+                                            $sum = 15;
                                         }
 
                                         echo "
@@ -142,6 +149,7 @@ session_start();
                                         } else {
                                             $sumAll = round($medium / 2, 2) + $sum;
                                         }
+                                        $pointResultOne = $sumAll;
                                         echo "   
                                                                         <th  style='border: 1px solid #dee2e6;padding: 0 22px'>" . $medium = round($medium / 2, 2) . "</th> 
                                                                         <th  style='border: 1px solid #dee2e6;'>";
@@ -164,8 +172,19 @@ session_start();
 
                                         <th style='border: 1px solid #dee2e6;padding: 0 22px'>
                                             <select class='custom-select' style='border: none' name='verifi'
+                                                    id="status<?php echo $row['id']?>"
                                                     onchange='updateVerifi(<?php echo $row['id']?>)' >
-                                                <option> <?php echo $row['status_pass'] == 1 ? "합격" : "선택"; ?></option>
+                                                <option checked> <?php
+                                                switch ($row['round_one']) {
+                                                        case 1:
+                                                            echo "합격";
+                                                            break;
+                                                        case 0:
+                                                            echo "불합격";
+                                                            break;
+                                                        default:
+                                                            "선택";
+                                                    } ?></option>
                                                 <option value='1'>합격</option>
                                                 <option value='0'>불합격</option>
                                             </select></th>
@@ -209,7 +228,7 @@ session_start();
                                               </thead>
                                               <tbody>";
 
-                                    $query10 = "select a.veterans,u.id,u.username,u.imp_uid,u.status_pass,a.is_disabilities,a.low_income,a.children_of_migrant_families,a.immigrant from recruit_able_user u inner join apply_step_1 a on a.able_id = u.id where u.status_pass != '0'";
+                                    $query10 = "select u.round_two,a.veterans,u.id,u.username,u.imp_uid,u.status_pass,a.is_disabilities,a.low_income,a.children_of_migrant_families,a.immigrant from recruit_able_user u inner join apply_step_1 a on a.able_id = u.id where u.status_pass !='0'";
 
                                     $result10 = mysqli_query($con, $query10);
                                     $nIndex = 1;
@@ -236,7 +255,13 @@ session_start();
                                             <th style='border: 1px solid #dee2e6;padding: 0 22px'><?php echo $row1['point'] ?></th>
                                             <?php
                                         }
+
                                         $medium = round($medium/2,2);
+                                        if ($row['is_disabilities'] == 1){
+                                            $pointResultTwo = $medium + 10;
+                                        }else{
+                                            $pointResultTwo = $medium + 5;
+                                        }
                                         echo " 
                                       
                                                     <th rowspan ='1' style='border: 1px solid #dee2e6;padding: 0 22px'>".$medium."</th> 
@@ -249,9 +274,20 @@ session_start();
                                                    <th rowspan ='1' style='border: 1px solid #dee2e6;padding: 0 22px' id='".$row['id']."'> abc</th>  
                                                  
                                                       <th style='border: 1px solid #dee2e6;padding: 0 22px'>
-                                                    <select class='custom-select' style='border: none' name='verifi'
+                                                    <select class='custom-select' style='border: none' name='verifi' id='status".$row['id']."'
                                                             onchange='updateVerifi(".$row['id'].")' >
-                                                        <option>"; echo $row['status_pass'] == 1 ? '합격' : '선택'; echo "</option>
+                                                        <option>"?>   <?php
+                                                            switch ($row['round_two']) {
+                                                                case 1:
+                                                                    echo "합격";
+                                                                    break;
+                                                                case 0:
+                                                                    echo "불합격";
+                                                                    break;
+                                                                default:
+                                                                    "선택";
+                                                            }
+                                                     echo "</option>
                                                         <option value='1'>합격</option>
                                                         <option value='0'>불합격</option>
                                                     </select></th>
@@ -284,33 +320,33 @@ session_start();
                                           </thead>
                                           <tbody>";
 
-//                                    $query="select id,code_profile,username,phone,email,level_disabilities,subject,sub_subject,Verifi,date from objection_info where Verifi !='부적격'";
-//                                    $result = mysqli_query($con,$query);
+                                    $query10 = "select distinct u.id,a.able_detailAddress,u.username,u.phone,u.email,u.imp_uid,u.status_pass,a3.sent_date,a.is_disabilities,a2.major_main_id, a2.major_sub  , a2.status_graduation_high_school, a2.graduation_high_school_year , a2.name_high_school from recruit_able_user u left join  apply_step_1 a on u.id = a.able_id left join apply_step_2 a2 on u.id = a2.able_id left join apply_step_5 a3 on u.id = a3.userid where u.status_pass !='0'";
+                                    $result10 = mysqli_query($con, $query10);
+
                                     $nIndex = 0;
-//                                    while($row = mysqli_fetch_array($result)){
-                                    echo "<tr id='31'><td>$nIndex</td>
-                                               <th>abc</th>
-                                              <th>abc</th>
-                                              <th >abc</th>
-                                              <th >abc</th>
-                                              <th>abc</th>
-                                              <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";
-                                    echo json_encode(1, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
-                                              <th width='300px'></th>
+                                    while($row = mysqli_fetch_array($result10)){
+                                    echo "<tr style='border: 1px solid #dee2e6;padding: 0 22px' id=20>
+                                                                <td>$nIndex</td>
+                                                                         <th  style='border: 1px solid #dee2e6;'>" . $row['imp_uid'] . "</th>
+                                                                        <th  style='border: 1px solid #dee2e6;'>" . $row['username'] . "</th>  
+                                              <th style='border: 1px solid #dee2e6;' id='pointResultOne" . $row['id'] . "'></th>
+                                              <th style='border: 1px solid #dee2e6; 'id='pointResultTwo" . $row['id'] . "'></th>
+                                              <th style='border: 1px solid #dee2e6;'>abc</th>
+                                              <td style='border: 1px solid #dee2e6;'><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode(1, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
+                                              <th width='300px'> <textarea > </textarea></th>
                                             <td>
-                                                <select class='custom-select'  style='border: none'  name='verifi' onchange='updateVerifi(";
-                                    echo 1 ?><?php echo ")' id= 1000>
-                                                <option selected>적격</option>
-                                                <option value='적격'>적격</option>
-                                                <option value='부적격'>부적격</option>
+                                                <select class='custom-select'  style='border: none' id='status'".$row['id']." name='verifi' onchange='updateVerifi(";echo $row['id']; ?><?php echo ")'>
+                                                <option selected>"; echo $row['round_two'] == 1 ? '합격' : '선택'; echo "</option>
+                                                <option value='1'>적격</option>
+                                                <option value='0'>부적격</option>
                                               </select></td>
+                                              </tr>
                                             ";
+                                    }
                                     echo "
                                               </tbody>
                                             </table>
                                         </div>";
-//                                        break;
-//                                    }
                                 }
                                 ?>
                                 <!-- /.card-body -->
@@ -343,16 +379,24 @@ session_start();
 <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
 <script>
 
-    function updateVerifi(Id, step) {
-        if (confirm("해당 지원서를 통과하시겠습니까?")) {
+    function updateVerifi(Id) {
+        if(confirm("해당 지원서를 통과하시겠습니까?"))
+        {
             $.post("../../php/fnc/apply_pass.php",
                 {
-                    Id: Id,
+                    Id : Id,
+                    category : $("#category").val(),
+                    status : $("#status"+Id).val()
                 },
-                function (data, status) {
-                    if (status != "fail") {
+                function(data,status){
+                    console.log(data);
+                    if(status != "fail"){
+                        alert("해당 지원서가 통과었습니다.");
                         location.reload();
-                    } else {
+                    }
+                    else
+                    {
+                        alert("네트워크 오류");
                     }
                 });
         }
@@ -443,9 +487,9 @@ session_start();
     $("#" + "nav_10").attr("class", "nav-item menu-is-opening menu-open");
     $("#nav_11_" + $("#SelId").val()).attr("class", "nav-link active");
 
-    function sortPoint() {
+    function sortPoint(id) {
         let a =[];
-        fetch("/ktl_cy/admin/php/fnc/sortReview.php")
+        fetch("/ktl_cy/admin/php/fnc/sortReview.php?category="+id)
             .then(res => res.json())
             .then(data => {
                     a = data.sort((a, b) => {
@@ -459,8 +503,12 @@ session_start();
                 console.log(error)
             })
     }
+    let category = $("#category").val();
+    sortPoint(category);
+    function getPoint(){
+    }
+    getPoint();
 
-    sortPoint();
 </script>
 </body>
 </html>
