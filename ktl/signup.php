@@ -22,201 +22,465 @@
 </head>
 <link rel="stylesheet" href="css/signup.css">
 <body>
+<?php include 'php/common_header_menu.php' ?>
+<div class="wrap">
+    <br>
+    <div class="container">
+        <div class="signup_form">
 
-
-<div class="container">
-    <div class="signup_form">
-
-        <div class="tab-wrapper">
-            <div class="tab-heading d-flex cursor">
-                <div class="tab-item active" tabindex="1">
-                    Thông tin cơ bản
+            <div class="tab-wrapper">
+                <div class="tab-heading d-flex cursor">
+                    <div class="tab-item active" tabindex="1">
+                        Thông tin cơ bản
+                    </div>
+                    <div class="tab-item" tabindex="2">
+                        Học lực/ kinh nghiệm
+                    </div>
+                    <div class="tab-item" tabindex="3">Chứng chỉ/giải thưởng</div>
+                    <div class="tab-item" tabindex="4">Bản giới thiệu bản thân</div>
+                    <div class="tab-item" tabindex="5">
+                        Nộp
+                    </div>
                 </div>
-                <div class="tab-item" tabindex="2">
-                    Học lực/ kinh nghiệm
-                </div>
-                <div class="tab-item" tabindex="3">Chứng chỉ/giải thưởng</div>
-                <div class="tab-item" tabindex="4">Bản giới thiệu bản thân</div>
-                <div class="tab-item" tabindex="5">
-                    Nộp
-                </div>
-            </div>
-            <form   action="../ktl/php/fnc/signup.php"  method="post" id="onSubmit">
-                <div class="tab-content">
-                    <h3>Thông tin cơ bản</h3>
-                    <hr>
-                    <div>
-                        <div class="row form-item">
-                            <div class="col-md-3">
-                                <label for="">
-                                    Tên
-                                </label>
-                            </div>
-                            <div class="col-md-9">
-                                <input type="text" class="" id="field-name"
-                                       placeholder="Enter email">
-                            </div>
-                        </div>
 
-                        <div class="row form-item">
-                            <div class="col-md-3">
-                                <label for="">
-                                    SDT
-                                </label>
+                <form action="../ktl/php/fnc/signup.php" method="post">
+                    <div class="tab-content">
+                        <h3>Thông tin cơ bản</h3>
+                        <hr>
+                        <div>
+                            <div class="row form-item">
+                                <div class="col-md-3">
+                                    <label for="">
+                                        Tên
+                                    </label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" class="" id="field-name"
+                                           placeholder="Enter email">
+                                </div>
                             </div>
-                            <div class="col-md-9">
-                                <input type="text" class="" id="field-phone"
-                                       placeholder="Enter email">
-                            </div>
-                        </div>
 
-                        <div class="row form-item">
-                            <div class="col-md-3">
-                                <label for="">
-                                    Email
-                                </label>
+                            <div class="row form-item">
+                                <div class="col-md-3">
+                                    <label for="">
+                                        SDT
+                                    </label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" class="" id="field-phone"
+                                           placeholder="Enter email">
+                                </div>
                             </div>
-                            <div class="col-md-9">
-                                <input type="email" class="" id="field-email"
-                                       placeholder="Enter Email">
+
+                            <div class="row form-item">
+                                <div class="col-md-3">
+                                    <label for="">
+                                        Email
+                                    </label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="email" class="" id="field-email"
+                                           placeholder="Enter Email">
+                                </div>
                             </div>
-                        </div>
 
 
-                        <div class="row form-item">
-                            <div class="col-md-3">
-                                <label for="">
-                                    Địa chỉ
-                                </label>
+                            <div class="row form-item">
+                                <div class="col-md-3">
+                                    <label for="">
+                                        Địa chỉ
+                                    </label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" name="address" class="" id="field-email"
+                                           placeholder="Enter address">
+                                </div>
                             </div>
-                            <div class="col-md-9">
-                                <input type="text" class="" id="field-address" name="address"
-                                       placeholder="Enter address">
-                            </div>
-                        </div>
 
-                        <div class="row form-item">
-                            <div class="col-md-3">
-                                <label for="">Khuyết tật</label>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="d-flex" style="gap:0.5rem">
-                                    <label>
-                                        <input type="radio" name="disabilities" value="1">
-                                        <span>
+                            <div class="row form-item">
+                                <div class="col-md-3">
+                                    <label for="">Khuyết tật</label>
+                                </div>
+
+
+                                <div class="col-md-9">
+                                    <div class="d-flex" style="gap:0.5rem">
+                                        <label>
+                                            <input type="radio" name="disabilities" value="1">
+                                            <span>
                                                 <span>Có</span>
                                             </span>
-                                    </label>
+                                        </label>
 
-                                    <label>
-                                        <input type="radio" name="disabilities" value="0">
-                                        <span>
+                                        <label>
+                                            <input type="radio" name="disabilities" value="0">
+                                            <span>
                                                 <span>Không</span>
                                             </span>
-                                    </label>
+                                        </label>
 
-                                    <select name="level_disabilities" class="form-control"
-                                            style="width: 30%;margin-left:0.1rem">
-                                        <option value="">Mức độ khuyết tật</option>
-                                        <option value="1">Nhẹ</option>
-                                        <option value="2">Nặng</option>
-                                        <option value="3">Niệm</option>
-                                    </select>
+                                        <select name="level_disabilities " class="form-control"
+                                                style="width: 30%;margin-left:0.1rem">
+                                            <option value="0">Mức độ khuyết tật</option>
+                                            <option value="1">Mức độ khuyết tật</option>
+                                            <option value="3">Mức độ khuyết tật</option>
+                                            <option value="4">Mức độ khuyết tật</option>
+                                        </select>
 
-                                    <select name="content_disabilities" class="form-control"
-                                            style="width: 30%;margin-left:0.1rem">
-                                        <option>Nội dung khuyết tật</option>
-                                        <option value="0">
-                                            không
-                                        </option>
-                                        <option value="1">
-                                            có
-                                        </option>
-                                    </select>
+                                        <select name="content_disabilities " class="form-control"
+                                                style="width: 30%;margin-left:0.1rem">
+                                            <option value="">Nội dung khuyết tật</option>
+                                            <option value="0">Nội dung khuyết tật</option>
+                                            <option value="1">Nội dung khuyết tật</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="row form-item">
-                            <div class="col-md-3">
-                                <label for="">Nghĩa vụ quân sự</label>
-                            </div>
+                            <div class="row form-item">
+                                <div class="col-md-3">
+                                    <label for="">Nghĩa vụ quân sự</label>
+                                </div>
 
-                            <div class="col-md-9">
+                                <div class="col-md-9">
 
-                            </div>
-                        </div>
-
-
-                        <div class="row form-item">
-                            <div class="col-md-3">
-                                <label for="">Đối tượng nghĩa vụ quân sự</label>
-                            </div>
-
-                            <div class="col-md-9">
-                                <div class="d-flex flex-wrap" style="gap:0.5rem">
-                                    <label>
-                                        <input type="radio" name="duty" value="không thuộc đối tượng">
-                                        <span>Không thuộc đối tượng</span>
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="duty" value="đã xuất ngũ">
-                                        <span>Đã xuất ngũ</span>
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="duty" value="chưa tham gia">
-                                        <span>Chưa tham gia</span>
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="duty" value="được miễn">
-                                        <span>Được miễn</span>
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="duty" value="đang xuất ngũ">
-                                        <span>Đang tại ngũ</span>
-                                    </label>
                                 </div>
                             </div>
-                        </div>
 
+
+                            <div class="row form-item">
+                                <div class="col-md-3">
+                                    <label for="">Đối tượng nghĩa vụ quân sự</label>
+                                </div>
+
+                                <div class="col-md-9">
+                                    <div class="d-flex flex-wrap" style="gap:0.5rem">
+                                        <label>
+                                            <input type="radio" name="duty" value="0">
+                                            <span>Không thuộc đối tượng</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="duty" value="1">
+                                            <span>Đã xuất ngũ</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="duty" value="2">
+                                            <span>Chưa tham gia</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="duty" value="3">
+                                            <span>Được miễn</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="duty" value="4">
+                                            <span>Đang tại ngũ</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row form-item">
+                                <div class="col-md-3">
+                                    Người điền đơn
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="d-flex" style="gap:0.5rem">
+                                        <label>
+                                            <input type="radio" name="single_user " value="0">
+                                            <span>Tôi</span>
+                                        </label>
+
+                                        <label>
+                                            <input type="radio" name="single_user " value="1">
+                                            <span>Người bảo hộ</span>
+                                        </label>
+
+                                        <label>
+                                            <input type="radio" name="single_user " value="2">
+                                            <span>Người uỷ thác</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--                    <div class="row form-item">-->
+                            <!--                        <div class="col-md-3">-->
+                            <!--                            Người có công-->
+                            <!--                        </div>-->
+                            <!--                        <div class="col-md-9">-->
+                            <!--                            <div class="d-flex" style="gap:0.5rem">-->
+                            <!--                                <label>-->
+                            <!--                                    <input type="radio" name="meritorious_person">-->
+                            <!--                                    <span>Không</span>-->
+                            <!--                                </label>-->
+
+                            <!--                                <label>-->
+                            <!--                                    <input type="radio" name="meritorious_person">-->
+                            <!--                                    <span>Có</span>-->
+                            <!--                                </label>-->
+                            <!--                            </div>-->
+                            <!--                        </div>-->
+                            <!--                    </div>-->
+
+                            <div class="row form-item">
+                                <div class="col-md-3">
+                                    Chế độ ưu tiên
+                                </div>
+                                <div class="col-md-9">
+
+                                    <div>Người có công</div>
+                                    <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
+                                        <label>
+                                            <input type="radio" name="meritorious_person " value="0">
+                                            <span>Không</span>
+                                        </label>
+
+                                        <label>
+                                            <input type="radio" name="meritorious_person " value="1">
+                                            <span>Có</span>
+                                        </label>
+                                    </div>
+
+
+                                    <div>Tầng lớp thu nhập thấp</div>
+                                    <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
+                                        <label>
+                                            <input type="radio" name="low_benefit " value="0">
+                                            <span>Không</span>
+                                        </label>
+
+                                        <label>
+                                            <input type="radio" name="low_benefit " value="1">
+                                            <span>Có</span>
+                                        </label>
+                                    </div>
+
+                                    <div>Người Triều Tiên di cư</div>
+                                    <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
+                                        <label>
+                                            <input type="radio" name="korea_migrate " value="0">
+                                            <span>Không</span>
+                                        </label>
+
+                                        <label>
+                                            <input type="radio" name="korea_migrate " value="1">
+                                            <span>Có</span>
+                                        </label>
+                                    </div>
+
+                                    <div>Con của gia đình di cư</div>
+                                    <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
+                                        <label>
+                                            <input type="radio" name="son-of-korea-migrate" value="0">
+                                            <span>Không</span>
+                                        </label>
+
+                                        <label>
+                                            <input type="radio" name="son-of-korea-migrate" value="1">
+                                            <span>Có</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row form-item d-flex justify-content-center" style="gap:0.5rem;margin-top:1rem">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Tiếp theo</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <form action="../ktl/php/fnc/signup_step2.php" method="post" id="form_step_2">
+                    <div class="tab-content hidden">
+                        <h3>Học vấn/ Kinh nghiệm/ Chương trình giáo dục</h3>
+                        <hr>
                         <div class="row form-item">
                             <div class="col-md-3">
-                                Người điền đơn
+                                <label for="">
+                                    고등학교 학력
+                                </label>
                             </div>
                             <div class="col-md-9">
                                 <div class="d-flex" style="gap:0.5rem">
-                                    <label>
-                                        <input type="radio" name="single_user" value="tôi">
-                                        <span>Tôi</span>
-                                    </label>
+                                    <input type="text" name="high_school" class="high_school" id="high_school"
+                                           placeholder="학교명" style="width:20%">
+                                    <input type="date" class="date_graduate_school" id="date_graduate_school"
+                                           placeholder="Năm tốt nghiệp" style="width: 20%">
+                                    <select class="form-control" style="width:20%" name="status_graduate"
+                                            id="status_graduate">
+                                        <option value="0">Tốt nghiệp</option>
+                                        <option value="1">Chưa tốt nghiệp</option>
+                                    </select>
+                                    <div style="flex-wrap: wrap;gap:0.5rem" class="d-flex main-profile-wrapper">
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" name="injoin_university" value="1">
+                                            <span class="icon">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                            <span class="text">Tham gia </span>
+                                        </label>
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" name="not_injoin_university" value="1">
+                                            <span class="icon">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                            <span class="text">Tham gia </span>
+                                        </label>
 
-                                    <label>
-                                        <input type="radio" name="single_user" value="người nội bộ">
-                                        <span>Người bảo hộ</span>
-                                    </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                    <label>
-                                        <input type="radio" name="single_user" value="người ủy thác">
-                                        <span>Người uỷ thác</span>
-                                    </label>
+
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                <label>Đại học</label>
+                            </div>
+
+                            <div class="col-md-9">
+                                <div class="duplicate-section academy">
+                                    <div class="d-flex" style="gap:0.5rem">
+                                        <input type="text" class="academy_name" placeholder="Tên trường" id="academy_name">
+                                        <input type="date" class="academy_start_date" placeholder="Tháng  năm nhập học"
+                                               id="academy_start_date">
+                                        <input type="date" class="academy_end_date" placeholder="Tháng năm tốt nghiệp"
+                                               id="academy_end_date">
+                                        <select class="academy_status">
+                                            <option value="1">Tốt nghiệp</option>
+                                            <option value="0">Chưa tốt nghiệp</option>
+                                        </select>
+
+                                        <div class="btn-add-more">+</div>
+                                    </div>
+
+                                    <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
+                                        <input type="text" class="academy_major" placeholder="Tên chuyên ngành">
+                                        <input type="text" class="academy_avager_gpa" placeholder="Điểm trung bình">
+                                        <input type="text" class="academy_total_gpa" placeholder="Tổng điểm">
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="row form-item">
                             <div class="col-md-3">
-                                Người có công
+                                Cao học
+                            </div>
+                            <div class="col-md-9">
+                                <div class="duplicate-section postgraduate">
+                                    <div class="d-flex" style="gap:0.5rem">
+                                        <input type="text" class="postgraduate_name" placeholder="Tên trường">
+                                        <input type="date" class="postgraduate_start_date" placeholder="Tháng năm nhập học">
+                                        <input type="date" class="postgraduate_end_date" placeholder="Tháng năm tốt nghiệp">
+                                        <select class="postgraduate_type">
+                                            <option value="1"> Tốt nghiệp</option>
+                                            <option value="0">Chưa tốt nghiệp</option>
+                                        </select>
+                                        <div class="btn-add-more">+</div>
+                                    </div>
+                                    <div class="d-flex" style="margin-top: 0.5rem;gap:0.5rem">
+                                        <input type="text" class="postgraduate_major" placeholder="Tên chuyên ngành">
+                                        <input type="text" class="postgraduate_avage_gpa" placeholder="Điểm trung bình">
+                                        <input type="text" class="postgraduate_total_gpa" placeholder="Tổng điểm">
+
+                                        <select class="postgraduate_degree">
+                                            <option value="0">Thạc sĩ</option>
+                                            <option value="1">Tiến sĩ</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                Kinh nghiệm
                             </div>
                             <div class="col-md-9">
                                 <div class="d-flex" style="gap:0.5rem">
-                                    <label>
-                                        <input type="radio" name="meritorious_person" value="0">
-                                        <span>Không</span>
-                                    </label>
+                                    <select>
+                                        <option value="0">바이올린</option>
+                                        <option value="1">첼로</option>
+                                        <option value="2">하프</option>
+                                        <option value="3">풀루트</option>
+                                        <option value="4">오보에</option>
+                                        <option value="5">클라리넷</option>
+                                        <option value="6">바순</option>
+                                        <option value="7">트럼폣</option>
+                                        <option value="8">호른</option>
+                                        <option value="9">비올라</option>
+                                        <option value="10">팀파니</option>
+                                        <option value="11">기타 (직접작성)</option>
+                                        <option value="12">부 전공을 선택해주세요</option>
+                                        <option value="13">주요이력</option>
+                                        <option value="14">(중복선택가능)</option>
 
-                                    <label>
-                                        <input type="radio" name="meritorious_person" value="1">
-                                        <span>Có</span>
+
+                                    </select>
+                                    <select name="" id="">
+                                        <option value="0">바이올린</option>
+                                        <option value="1">첼로</option>
+                                        <option value="2">하프</option>
+                                        <option value="3">풀루트</option>
+                                        <option value="4">오보에</option>
+                                        <option value="5">클라리넷</option>
+                                        <option value="6">바순</option>
+                                        <option value="7">트럼폣</option>
+                                        <option value="8">호른</option>
+                                        <option value="9">비올라</option>
+                                        <option value="10">팀파니</option>
+                                        <option value="11">기타 (직접작성)</option>
+                                        <option value="12">부 전공을 선택해주세요</option>
+                                        <option value="13">주요이력</option>
+                                        <option value="14">(중복선택가능)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                Lý lịch chính
+                            </div>
+                            <div class="col-md-9">
+                                <div style="flex-wrap: wrap;gap:0.5rem" class="d-flex main-profile-wrapper">
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox">
+                                        <span class="icon">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                        <span class="text">Tham gia cuộc thi buổi biễn diễn quy mô toàn quốc</span>
+                                    </label>
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox">
+                                        <span class="icon">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                        <span class="text">Tham gia buổi biểu diễn quy mô tỉnh</span>
+                                    </label>
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox">
+                                        <span class="icon">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                        <span class="text">Tham gia cuộc thi buổi biểu diễn do các tổ chức công tổ chức</span>
+                                    </label>
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox">
+                                        <span class="icon">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                        <span class="text"> Từng tham gia đoàn diễn của cơ quan, xí nghiệp nhỏ</span>
+                                    </label>
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox">
+                                        <span class="icon">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                        <span class="text">Đi diễn tự do</span>
                                     </label>
                                 </div>
                             </div>
@@ -224,413 +488,356 @@
 
                         <div class="row form-item">
                             <div class="col-md-3">
-                                Chế độ ưu tiên
+                                Nội dung hoạt động
                             </div>
                             <div class="col-md-9">
-                                <div>Tầng lớp thu nhập thấp</div>
-                                <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
-                                    <label>
-                                        <input type="radio" name="low_benefit" value="0">
-                                        <span>Không</span>
-                                    </label>
-
-                                    <label>
-                                        <input type="radio" name="low_benefit" value="1">
-                                        <span>Có</span>
-                                    </label>
-                                </div>
-
-                                <div>Người Triều Tiên di cư</div>
-                                <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
-                                    <label>
-                                        <input type="radio" name="korea_migrate" value="0">
-                                        <span>Không</span>
-                                    </label>
-
-                                    <label>
-                                        <input type="radio" name="korea_migrate" value="1">
-                                        <span>Có</span>
-                                    </label>
-                                </div>
-
-                                <div>Con của gia đình di cư</div>
-                                <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
-                                    <label>
-                                        <input type="radio" name="son_of_korea_migrate" value="0">
-                                        <span>Không</span>
-                                    </label>
-
-                                    <label>
-                                        <input type="radio" name="son_of_korea_migrate" value="1">
-                                        <span>Có</span>
-                                    </label>
+                                <div class="duplicate-section activity">
+                                    <div class="d-flex" style="gap:0.5rem">
+                                        <input type="date" class="activity_start_date" style="width:30%"
+                                               placeholder="Năm/Tháng/Ngày">
+                                        <input type="date" class="activity_end_date" style="width: 30%"
+                                               placeholder="Năm/Tháng/Ngày">
+                                        <input type="text" style="width:60%"
+                                               class="activity_organization"
+                                               placeholder=" Vui lòng nhập tên chi nhánh / tổ chức / nhóm hoặc tên cuộc thi / buổi hòa nhạc bạn đã tham gia.">
+                                    </div>
+                                    <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
+                                        <input class="activity_content" type="text" placeholder="Nhập nội dung hoạt động">
+                                        <div class="btn-add-more">+</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-            </form>
-
-
-            <div class="row form-item d-flex justify-content-center" style="gap:0.5rem;margin-top:1rem">
-                <button onclick="handSubmit()" type="submit" class="btn btn-primary">Submit</button>
-                <button type="submit" class="btn btn-primary">Tiếp theo</button>
-            </div>
-            <!--            end step1-->
-
-        </div>
-    </div>
-
-    <div class="tab-content hidden">
-        <h3>Học vấn/ Kinh nghiệm/ Chương trình giáo dục</h3>
-        <hr>
-        <div class="row form-item">
-            <div class="col-md-3">
-                <label for="">
-                    Trường
-                </label>
-            </div>
-            <div class="col-md-9">
-                <div class="d-flex" style="gap:0.5rem">
-                    <input type="text" class="" id="field-name"
-                           placeholder="Tên trường" style="width:20%">
-                    <input type="text" class="" id="field-name"
-                           placeholder="Năm tốt nghiệp" style="width: 20%">
-                    <select class="form-control" style="width:20%" name="" id="">
-                        <option value="">Tình trạng TN</option>
-                    </select>
-                    <label>
-                        <input type="radio" name="disabilities">
-                        <span>
-                                                <span>Tham gia tuyển sinh đại học</span>
-                                            </span>
-                    </label>
-                    <label>
-                        <input type="radio" name="disabilities">
-                        <span>
-                                                <span>Chưa tốt nghiệp THPT</span>
-                                            </span>
-                    </label>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row form-item">
-            <div class="col-md-3">
-                <label>Đại học</label>
-            </div>
-
-            <div class="col-md-9">
-                <div class="d-flex" style="gap:0.5rem">
-                    <select>
-                        <option>Phân loại trường</option>
-                    </select>
-
-                    <input type="text" placeholder="Tên trường">
-                    <input type="text" placeholder="Tháng  năm nhập học">
-                    <input type="text" placeholder="Tháng năm tốt nghiệp">
-                    <select>
-                        <option>Tình trạng tốt nghiệp</option>
-                    </select>
-                </div>
-
-                <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
-                    <input type="text" placeholder="Tên chuyên ngành">
-                    <input type="text" placeholder="Điểm trung bình">
-                    <select>
-                        <option>Tổng điểm</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <div class="row form-item">
-            <div class="col-md-3">
-                Cao học
-            </div>
-            <div class="col-md-9">
-                <div class="d-flex" style="gap:0.5rem">
-                    <input type="text" placeholder="Tên trường">
-                    <input type="text" placeholder="Tháng năm nhập học">
-                    <input type="text" placeholder="Tháng năm tốt nghiệp">
-                    <select name="">
-                        <option>Tình trạng tốt nghiệp</option>
-                    </select>
-                </div>
-                <div class="d-flex" style="margin-top: 0.5rem;gap:0.5rem">
-                    <input type="text" placeholder="Tên chuyên ngành">
-                    <input type="text" placeholder="Điểm trung bình">
-                    <select>
-                        <option>Tổng điểm</option>
-                    </select>
-                    <select>
-                        <option value="">Học vị</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <div class="row form-item">
-            <div class="col-md-3">
-                Kinh nghiệm
-            </div>
-            <div class="col-md-9">
-                <div class="d-flex" style="gap:0.5rem">
-                    <select>
-                        <option value="">Chọn chuyên nghành chính</option>
-                    </select>
-                    <select name="" id="">
-                        <option>Chọn chuyên ngành phụ</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <div class="row form-item">
-            <div class="col-md-3">
-                Lý lịch chính
-            </div>
-            <div class="col-md-9">
-                <div style="flex-wrap: wrap;gap:0.5rem" class="d-flex">
-                    <label>
-                        <input type="radio">
-                        <span>Tham gia cuộc thi buổi biễn diễn quy mô toàn quốc</span>
-                    </label>
-                    <label for="">
-                        <input type="radio">
-                        <span>Tham gia buổi biểu diễn quy mô tỉnh/thành</span>
-                    </label>
-                    <label for="">
-                        <input type="radio">
-                        <span>Tham gia cuộc thi buổi biểu diễn do các tổ chức công tổ chức</span>
-                    </label>
-                    <label for="">
-                        <input type="radio">
-                        <span>
-                                            Từng tham gia đoàn diễn của cơ quan, xí nghiệp nhỏ
-                                        </span>
-                    </label>
-                    <label for="">
-                        <input type="radio">
-                        <span>Đi diễn tự do</span>
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <div class="row form-item">
-            <div class="col-md-3">
-                Nội dung hoạt động
-            </div>
-            <div class="col-md-9">
-                <div class="d-flex" style="gap:0.5rem">
-                    <input type="date" style="width:30%" placeholder="Năm/Tháng/Ngày">
-                    <input type="date" style="width: 30%" placeholder="Năm/Tháng/Ngày">
-                    <input type="text" style="width:60%"
-                           placeholder=" Vui lòng nhập tên chi nhánh / tổ chức / nhóm hoặc tên cuộc thi / buổi hòa nhạc bạn đã tham gia.">
-                </div>
-                <div class="d-flex" style="margin-top:0.5rem">
-                    <input type="text" placeholder="Nhập nội dung hoạt động">
-                </div>
-            </div>
-        </div>
-
-        <div class="row form-item">
-            <div class="col-md-3">
-                Đào tạo
-            </div>
-            <div class="col-md-9">
-                <div class="d-flex" style="gap:0.5rem">
-                    <input type="text" placeholder="Tên chương trình">
-                    <input type="text" placeholder="Tên chương trình đào tạo">
-                    <input type="date" placeholder="Năm-Tháng-Ngày">
-                    <input type="date" placeholder="Năm-Tháng-Ngày">
-                </div>
-                <div class="d-flex" style="margin-top:0.5rem">
-                    <input type="text" placeholder="Tóm tắt nội dung đào tạo">
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!--    step 3-->
-    <form action="../ktl/php/fnc/signup_step3.php" method="post" id="form_step_3" enctype="multipart/form-data">
-
-        <div class="tab-content hidden">
-            <h3>Bằng cấp, giải thưởng</h3>
-            <hr>
-            <div class="row form-item">
-                <div class="col-md-3">
-                    Bằng cấp
-                </div>
-                <div class="col-md-9">
-                    <div class="d-flex" style="gap:0.5rem">
-                        <input type="text" name="name_equals" placeholder="Tên bằng cấp/chứng chỉ" value="">
-                        <input type="text" name="issued_by" placeholder="Nơi cấp" value="">
-                        <input type="date" name="time_equals" placeholder="Ngày-tháng-năm" value="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row form-item">
-                <div class="col-md-3">
-                    Giải thưởng
-                </div>
-                <div class="col-md-9">
-                    <div class="d-flex" style="gap:0.5rem">
-                        <input type="text" name="contest_name" placeholder="Tên cuộc thi/giải thưởng" value="">
-                        <input type="text" name="granting_agencies" value="" placeholder="Cơ quan cấp">
-                        <input type="date" name="time_start" placeholder="Ngày-tháng-năm" value="">
-                        <input type="date" name="time_end" placeholder="Ngày-tháng-năm" value="">
-                    </div>
-                    <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
-                        <input value="" type="text" name="content_prize" placeholder="Nhập nội dung giải thưởng">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row form-item">
-                <div class="col-md-3">
-                    Portfolio
-                </div>
-                <div class="col-md-9">
-                    <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
-                        <input type="file" name="file" placeholder="Chưa có file nào được chọn" value="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row form-item">
-                <div class="col-md-3">
-                    Link
-                </div>
-                <div class="col-md-9">
-                    <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
-                        <input type="url" name="link" placeholder="https://" value="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row form-item d-flex justify-content-center" style="gap:0.5rem;margin-top:1rem">
-                <button onclick="handStep3()" type="submit" class="btn btn-primary">Submit</button>
-                <button type="submit" class="btn btn-primary">Tiếp theo</button>
-            </div>
-        </div>
-
-
-    </form>
-
-    <!--  step 4-->
-    <form action="../ktl/php/fnc/signup_step_4.php" method="post" id="form_step_4">
-        <div class="tab-content hidden">
-            <h3>Bản giới thiệu bản thân</h3>
-            <div class="row form-item">
-                <div class="col-md-3">
-                    Quá trình trưởng thành
-                </div>
-                <div class="col-md-9">
-                    <div class="duplicate-section">
-                        <div class="d-flex" style="gap:0.5rem">
-                            <select>
-                                <option>Quá trình trưởng thành</option>
-                            </select>
-                            <div class="btn-add-more"
-                                 style="display: flex; justify-content: center; align-items: center; cursor: pointer">+
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                Đào tạo
+                            </div>
+                            <div class="col-md-9">
+                                <div class="duplicate-section training">
+                                    <div class="d-flex" style="gap:0.5rem">
+                                        <input type="text" class="training_name" placeholder="Tên Chương trình đào tạo">
+                                        <input type="text" class="training_organization" placeholder="Tên tổ chức đào tạo">
+                                        <input type="date" class="training_date_start" placeholder="Ngày bắt đầu">
+                                        <input type="date" class="training_end_date" placeholder="Ngày kết thúc">
+                                        <div class="btn-add-more">+</div>
+                                    </div>
+                                    <div class="d-flex" style="margin-top:0.5rem">
+                                        <input type="text" placeholder="Tóm tắt nội dung đào tạo" name="training_content">
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: flex; justify-content: center; align-items: center; margin-top: 1rem;">
+                                <div>
+                                    <div class="btn btn-light">Bước trước</div>
+                                </div>
+                                <div style="margin-left: 0.5rem; margin-right: 0.5rem">
+                                    <div class="btn btn-secondary"> Lưu tạm thời</div>
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary" type="submit" onclick="handSubmitStep2()"> Submit
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                        <textarea name="contents" class="form-control"
-                                  style="margin-top:0.5rem;height: 10rem"></textarea>
                     </div>
+                </form>
+
+                <div class="tab-content hidden">
+                    <h3>Bằng cấp, giải thưởng</h3>
+                    <hr>
+                    <div class="row form-item">
+                        <div class="col-md-3">
+                            Bằng cấp
+                        </div>
+                        <div class="col-md-9">
+                            <div class="duplicate-section certificate">
+                                <div class="d-flex" style="gap:0.5rem">
+                                    <input type="text" class="certificate_name" placeholder="Tên bằng cấp/chứng chỉ">
+                                    <input type="text" class="certificate_issued_by" placeholder="Nơi cấp">
+                                    <input type="date" class="certificate_date_issued" placeholder="Ngày-tháng-năm">
+                                    <button class="btn-add-more">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-item">
+                        <div class="col-md-3">
+                            Giải thưởng
+                        </div>
+                        <div class="col-md-9">
+                            <div class="duplicate-section award">
+                                <div class="d-flex" style="gap:0.5rem">
+                                    <input type="text" class="award_name" placeholder="Tên cuộc thi/giải thưởng">
+                                    <input type="text" class="award_issued_by" placeholder="Cơ quan cấp">
+                                    <input type="date" class="award_date_issued" placeholder="Ngày-tháng-năm">
+                                    <input type="date" class="award_type" placeholder="Ngày-tháng-năm">
+                                    <button class="btn-add-more">+</button>
+                                </div>
+                                <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
+                                    <input type="text" class="award_content" placeholder="Nhập nội dung giải thưởng">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-item">
+                        <div class="col-md-3">
+                            Portfolio
+                        </div>
+                        <div class="col-md-9">
+                            <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
+                                <input type="file" placeholder="Chưa có file nào được chọn">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-item">
+                        <div class="col-md-3">
+                            Link
+                        </div>
+                        <div class="col-md-9">
+                            <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
+                                <input type="url" placeholder="https://">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-top: 1rem;">
+                        <div>
+                            <button class="btn btn-light">Bước trước</button>
+                        </div>
+                        <div style="margin-left: 0.5rem; margin-right: 0.5rem">
+                            <button class="btn btn-secondary"> Lưu tạm thời</button>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" onclick="handSubmitStep4()"> Submit</button>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
-            <div class="row form-item d-flex justify-content-center" style="gap:0.5rem;margin-top:1rem">
-                <button onclick="handStep4()" type="submit" class="btn btn-primary">Submit</button>
-                <button type="submit" class="btn btn-primary">Tiếp theo</button>
-            </div>
+                </form>
+                <form action="../ktl/php/fnc/signup_step_4.php" method="post" id="form_step_4">
+                    <div class="tab-content hidden">
+                        <h3>Bản giới thiệu bản thân</h3>
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                Quá trình trưởng thành
+                            </div>
+                            <div class="col-md-9">
+                                <div class="duplicate-section self-introduction">
+                                    <div class="d-flex" style="gap:0.5rem">
+                                        <select class="self_introduction_type">
+                                            <option value="">Quá trình trưởng thành</option>
+                                            <option value="1">Động cơ</option>
+                                            <option value="2">Điểm mạnh và điểm yếu của nhân các</option>
+                                            <option value="3">Nguyện vọng sau khi tham gia</option>
+                                            <option value="4">Mô tả điều gì khác biệt với những người khác và những nỗ lực
+                                                bạn đã thực
+                                                hiện để đạt được điều đó
+                                            </option>
+                                            <option value="5">
+                                                Chọn và mô tả một ví dụ về trải nghiệm mà bạn đã thành công khi hoàn thành
+                                                một
+                                                nhiệm vụ khó khăn và bạn thử nhưng không thành công
+                                            </option>
 
-        </div>
-    </form>
+                                        </select>
+                                        <div class="btn-add-more">+</div>
+                                    </div>
+                                    <textarea class="form-control self_introduction_content"
+                                              style="margin-top:0.5rem;height: 10rem"></textarea>
 
-    <div class="tab-content hidden">
-        <h3>Bản thân</h3>
-        <hr>
-        <div style="background:rgba(191,182,182,0.26);padding:0.8rem;border-radius: 0.5rem">
-            <p>Cam kết đồng ý của ứng viên</p>
-            <p>
-                is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                galley
-                of type and scrambled it to make a type specimen book
-            </p>
-            <p>
-                <span>Ngày gửi</span>
-                <span>2022-12-01</span>
-            </p>
-            <p>
-                <span>Người gửi</span>
-                <span>Nguyễn Thành Luân</span>
-            </p>
-        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: center; align-items: center; margin-top: 1rem;">
+                            <div>
+                                <button class="btn btn-light">Bước trước</button>
+                            </div>
+                            <div style="margin-left: 0.5rem; margin-right: 0.5rem">
+                                <button class="btn btn-secondary"> Lưu tạm thời</button>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary" onclick="handSubmitStep4()"> Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="tab-content hidden">
+                    <h3>Bản thân</h3>
+                    <hr>
+                    <div style="background:rgba(191,182,182,0.26);padding:0.8rem;border-radius: 0.5rem">
+                        <p>Cam kết đồng ý của ứng viên</p>
+                        <p>
+                            is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley
+                            of type and scrambled it to make a type specimen book
+                        </p>
+                        <p>
+                            <span>Ngày gửi</span>
+                            <span>2022-12-01</span>
+                        </p>
+                        <p>
+                            <span>Người gửi</span>
+                            <span>Nguyễn Thành Luân</span>
+                        </p>
+                    </div>
 
 
-        <div class="float-right clear">
-            <label class="accept">
-                <input type="checkbox">
-                Click để đồng ý tất cả nội dung trên</label>
-        </div>
+                    <div class="float-right clear">
+                        <label class="accept">
+                            <input type="checkbox">
+                            Click để đồng ý tất cả nội dung trên</label>
+                    </div>
 
-        <hr class="clear">
+                    <hr class="clear">
 
-        <div>
-            <div class="form-item row">
-                <div class="col-md-3">
+                    <div>
+                        <div class="form-item row">
+                            <div class="col-md-3">
 
-                </div>
+                            </div>
 
-                <div class="col-md-9">
-                    Thêm tệp đính kèm bằng cách định dạng như PDF, Word, JPEG, PNG (thêm ghi chú)
-                    <input type="file" style="margin-top: 0.5rem">
+                            <div class="col-md-9">
+                                Thêm tệp đính kèm bằng cách định dạng như PDF, Word, JPEG, PNG (thêm ghi chú)
+                                <input type="file" style="margin-top: 0.5rem">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-</div>
+    <br>
+    <?php include 'php/common_footer.php' ?>
 </div>
 
 </body>
 
-
 <script>
 
-
-    function handStep4() {
+    function handSubmitStep4() {
         $('#form_step_4').submit();
     }
 
-    function handSubmit() {
-        $('#onSubmit').submit();
-    }
-
-    function handStep3() {
-        $('#form_step_3').submit();
-    }
-
-    // function openTab(evt, tabName) {
-    //     var i, tabcontent, tablinks;
-    //     tabcontent = document.getElementsByClassName("tab-content");
-    //     for (i = 0; i < tabcontent.length; i++) {
-    //         tabcontent[i].classList.add('hidden');
-    //     }
-    //     tablinks = document.getElementsByClassName("tablinks");
-    //     for (i = 0; i < tablinks.length; i++) {
-    //         tablinks[i].className = tablinks[i].className.replace(" active", "");
-    //     }
-    //     document.getElementById(tabName).classList.remove('hidden');
-    //     evt.currentTarget.className += " active";
+    // function handSubmitStep2() {
+    //     $('#form_step_2').submit(function (){
+    //          alert($("#hight_school").val());
+    //         //  alert($("#status_graduate").val());
+    //         // alert($("#date_graduate_school").val());
+    //         //  alert($('input[name="injoin_university"]:checked').val());
+    //
+    //         // alert($('input[name="not_injoin_university"]:checked').val());
+    //
+    //          alert($("#academy_name").val());
+    //         // alert($("#academy_start_date").val());
+    //         // alert($("#academy_end_date").val());
+    //         // alert($("#academy_major").val());
+    //         // alert($("#academy_avager_gpa").val());
+    //         // alert($("#academy_total_gpa").val());
+    //         // alert($("#postgraduate_name").val());
+    //         // alert($("#postgraduate_start_date").val());
+    //         // alert($("#postgraduate_end_date").val());
+    //         // alert($("#postgraduate_major").val());
+    //         // alert($("#postgraduate_avage_gpa").val());
+    //         // alert($("#postgraduate_total_gpa").val());
+    //         //
+    //         // alert($("#activity_start_date").val());
+    //         // alert($("#activity_end_date").val());
+    //         // alert($("#activity_organization").val());
+    //         // alert($("#activity_content").val());
+    //         // alert($("#postgraduate_total_gpa").val());
+    //         //
+    //         //
+    //         // alert($("#training_name").val());
+    //         // alert($("#training_organization").val());
+    //         // alert($("#training_date_start").val());
+    //         // alert($("#training_end_date").val());
+    //         // alert($("#training_content").val());
+    //
+    //
+    //
+    //     });
     // }
+
+
+    function changePlusToMinus(index, removeDuplicateSection) {
+        if (index > 0) {
+            $(this).html('-');
+            $(this).click(function () {
+                removeDuplicateSection($(this));
+            });
+        }
+    }
+
+    $('.btn-add-more').each(function (index, value) {
+        $(this).attr('data-count', 0);
+    });
+
+    function reIndex() {
+        $('.self-introduction').each(function (index, value) {
+            $(this).find('select.self_introduction_type').attr('name', `self_introduction[${index}][type]`);
+            $(this).find('textarea.self_introduction_content').attr('name', `self_introduction[${index}][content]`);
+        });
+
+        $('.academy').each(function (index, value) {
+            $(this).find('input.academy_type').attr('name', `academy[${index}][type]`);
+            $(this).find('input.academy_name').attr('name', `academy[${index}][name]`);
+            $(this).find('input.academy_start_date').attr('name', `academy[${index}][start_date]`);
+            $(this).find('input.academy_end_date').attr('name', `academy[${index}][end_date]`);
+            $(this).find('input.academy_major').attr('name', `academy[${index}][major]`);
+            $(this).find('input.academy_gpa').attr('name', `academy[${index}][gpa]`);
+            $(this).find('input.academy_total_score').attr('name', `academy[${index}][total_score]`);
+            $(this).find('input.academy_status').attr('name', `academy[${index}][status]`);
+        });
+
+        $('.postgraduate').each(function (index, value) {
+            $(this).find('input.postgraduate_type').attr('name', `postgraduate[${index}][type]`);
+            $(this).find('input.postgraduate_name').attr('name', `postgraduate[${index}][name]`);
+            $(this).find('input.postgraduate_start_date').attr('name', `postgraduate[${index}][start_date]`);
+            $(this).find('input.postgraduate_end_date').attr('name', `postgraduate[${index}][end_date]`);
+            $(this).find('input.postgraduate_major').attr('name', `postgraduate[${index}][major]`);
+            $(this).find('input.postgraduate_gpa').attr('name', `postgraduate[${index}][gpa]`);
+            $(this).find('input.postgraduate_total_score').attr('name', `postgraduate[${index}][total_score]`);
+            $(this).find('input.postgraduate_status').attr('name', `postgraduate[${index}][status]`);
+            $(this).find('input.postgraduate_degree').attr('name', `postgraduate[${index}][degree]`);
+        });
+
+        $('.activity').each(function (index, value) {
+            $(this).find('input.activity_start_date').attr('name', `activity[${index}][start_date]`);
+            $(this).find('input.activity_end_date').attr('name', `activity[${index}][end_date]`);
+            $(this).find('input.activity_organization').attr('name', `activity[${index}][organization]`);
+            $(this).find('input.activity_content').attr('name', `activity[${index}][organization]`);
+        });
+
+        $('.training').each(function (index, value) {
+            $(this).find('input.training_name').attr('name', `training[${index}][name]`);
+            $(this).find('input.training_start_date').attr('name', `training[${index}][start_date]`);
+            $(this).find('input.training_end_date').attr('name', `training[${index}][end_date]`);
+            $(this).find('input.training_organization').attr('name', `training[${index}][organization]`);
+            $(this).find('input.training_content').attr('name', `training[${index}][content]`);
+        });
+
+        $('.certificate').each(function (index, value) {
+            $(this).find('input.certificate_name').attr('certificate_name', `certificate[${index}][name]`);
+            $(this).find('input.certificate_issued_by').attr('certificate_issued_by', `certificate[${index}][issued_by]`);
+            $(this).find('input.certificate_date_issued').attr('certificate_date_issued', `certificate[${index}][date_issued]`);
+        });
+
+        $('.award').each(function (index, value) {
+            $(this).find('input.award_name').attr('award_name', `award[${index}][name]`);
+            $(this).find('input.award_issued_by').attr('award_issued_by', `award[${index}][issued_by]`);
+            $(this).find('input.award_date_issued').attr('award_date_issued', `award[${index}][date_issued]`);
+            $(this).find('input.award_type').attr('award_type', `award[${index}][type]`);
+            $(this).find('input.award_content').attr('award_content', `award[${index}][content]`);
+        });
+    }
+
     $(document).ready(function () {
+        reIndex();
         $('.tab-heading .tab-item').click(function () {
             $(this).closest('.tab-wrapper').find('.tab-item').removeClass('active');
             $(this).addClass('active');
@@ -638,9 +845,69 @@
             $('.tab-wrapper .tab-content').addClass('hidden');
             $(this).closest('.tab-wrapper').find('.tab-content').eq(tabIndex).removeClass('hidden');
         })
+
+        $('.btn-add-more').click(function () {
+            let dataCount = parseInt($(this).attr('data-count'));
+            if (dataCount < 3) {
+                const duplicateSection = $(this).closest('.duplicate-section');
+                console.log(duplicateSection.html());
+                $(this).closest('.duplicate-section').parent().append(duplicateSection.clone());
+                indexing();
+                dataCount++;
+                $(this).closest('.duplicate-section').parent().find('.duplicate-section').last().find('select').val('');
+                $(this).closest('.duplicate-section').parent().find('.duplicate-section').last().find('textarea').val('');
+                $(this).attr('data-count', dataCount);
+            }
+        });
+
+        const indexing = () => {
+            reIndex();
+
+            $('.self-introduction .btn-add-more').each(function (index, value) {
+                changePlusToMinus.call(this, index, removeDuplicateSection);
+            });
+            $('.academy .btn-add-more').each(function (index, value) {
+                changePlusToMinus.call(this, index, removeDuplicateSection);
+            });
+            $('.postgraduate .btn-add-more').each(function (index, value) {
+                changePlusToMinus.call(this, index, removeDuplicateSection);
+            });
+            $('.activity .btn-add-more').each(function (index, value) {
+                changePlusToMinus.call(this, index, removeDuplicateSection);
+            });
+            $('.training .btn-add-more').each(function (index, value) {
+                changePlusToMinus.call(this, index, removeDuplicateSection);
+            });
+            $('.certificate .btn-add-more').each(function (index, value) {
+                changePlusToMinus.call(this, index, removeDuplicateSection);
+            });
+            $('.award .btn-add-more').each(function (index, value) {
+                changePlusToMinus.call(this, index, removeDuplicateSection);
+            });
+        }
+
+
+        const removeDuplicateSection = (element) => {
+            console.log($(element)
+                .closest('.duplicate-section')
+                .parent().find('.btn-add-more').attr('data-count'));
+            let dataCount = parseInt($(element)
+                .closest('.duplicate-section')
+                .parent().find('.btn-add-more').attr('data-count'));
+            if (dataCount > 0) {
+                dataCount--;
+                $(element)
+                    .closest('.duplicate-section')
+                    .parent().find('.btn-add-more')
+                    .attr('data-count', dataCount);
+            }
+
+            $(element).closest('.duplicate-section').remove();
+            indexing();
+        }
+
     });
 </script>
-
 <style>
     .hidden {
         display: none
@@ -668,11 +935,6 @@
 
     .tab-wrapper .tab-item:last-child {
         border: none
-    }
-
-    .title {
-        border-bottom: 1px solid #e8e8ea;
-        margin-top: 4rem;
     }
 
     .tab-wrapper .tab-item.active {
@@ -707,6 +969,10 @@
         letter-spacing: -0.35px;
         color: #222;
         font-weight: var(--medium);
+    }
+
+    input[type="checkbox"] {
+        width: 1.2rem;
     }
 
     .accept {
@@ -769,19 +1035,43 @@
         color: #212121;
         font-weight: var(--bold);
     }
+
+    .custom-checkbox input {
+        display: none;
+    }
+
+    .custom-checkbox .text {
+        float: left;
+        margin-left: 0.2rem;
+    }
+
+    .custom-checkbox .icon {
+        display: inline-block;
+        margin-top: 0.2rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        border: 1px solid #e4e4e4;
+        border-radius: 999px;
+        float: left
+    }
+
+    .custom-checkbox .icon .fas {
+        display: none;
+        cursor: pointer;
+        color: white;
+        margin-top: 0.1rem;
+    }
+
+    .custom-checkbox input:checked + .icon {
+        background: #0077ff;
+    }
+
+    .custom-checkbox input:checked + .icon .fas {
+        display: block;
+    }
+
+    .duplicate-section {
+        margin-top: 0.5rem;
+    }
 </style>
-
-<script>
-
-    $(document).ready(function () {
-        $('.btn-add-more').click(function () {
-            // const duplicateSection = $(this).closest('.duplicate-section').parent().html();
-            // $(this).closest('.duplicate-section').append(duplicateSection);
-            const duplicateSection = $(this).closest('.duplicate-section');
-            duplicateSection.clone().insertAfter(duplicateSection);
-            duplicateSection.find('textarea').val('');
-            duplicateSection.find('select').val('');
-        });
-    })
-</script>
 </html>
