@@ -18,6 +18,7 @@
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script src="js/sign_up_step1.js" charset="utf-8"></script>
+    <script src="js/signup.js"></script>
 
     <title>한국산업기술시험원</title>
 </head>
@@ -28,6 +29,7 @@
     <br>
     <div class="container">
         <div class="signup_form">
+
             <div class="tab-wrapper">
                 <div class="tab-heading d-flex cursor">
                     <div class="tab-item active" tabindex="1">
@@ -126,7 +128,8 @@
 
                                         </select>
 
-                                        <select name="content_disabilities " class="form-control" id="content_disabilities"
+                                        <select name="content_disabilities " class="form-control"
+                                                id="content_disabilities"
                                                 style="width: 30%;margin-left:0.1rem">
                                             <option value="">Nội dung khuyết tật</option>
                                             <option value="0">Nội dung khuyết tật</option>
@@ -271,27 +274,32 @@
                     </div>
                 </form>
 
-                <form action="../ktl/php/fnc/signup_step2.php" method="post" id="form_step_2">
+                <form method="post" id="form_step_2">
+                    <input type="hidden" name="step" value="2">
                     <div class="tab-content hidden">
                         <h3>Học vấn/ Kinh nghiệm/ Chương trình giáo dục</h3>
                         <hr>
                         <div class="row form-item high-school-row">
-                            <div class="col-md-3">
+                            <div class="col-md-3 disable-section">
                                 <label for="">
                                     고등학교 학력
                                 </label>
                             </div>
+
                             <div class="col-md-9">
                                 <div class="d-flex" style="gap:0.5rem">
-                                    <input type="text" name="high_school" class="high_school" id="high_school"
-                                           placeholder="학교명" style="width:20%">
-                                    <input type="date" class="date_graduate_school" id="date_graduate_school"
-                                           placeholder="Năm tốt nghiệp" style="width: 20%">
-                                    <select class="form-control" style="width:20%" name="status_graduate"
-                                            id="status_graduate">
-                                        <option value="0">Tốt nghiệp</option>
-                                        <option value="1">Chưa tốt nghiệp</option>
-                                    </select>
+                                    <div class="d-flex disable-section" style="gap:0.5rem;flex-basis: 80%">
+                                        <input type="text" name="high_school_name" class="high_school" id="high_school"
+                                               placeholder="학교명" style="width:30%">
+                                        <input type="date" class="date_graduate_school" id="date_graduate_school"
+                                               placeholder="Năm tốt nghiệp" style="width: 30%">
+                                        <select class="form-control" style="width:30%" name="status_graduate"
+                                                id="status_graduate">
+                                            <option value="1">Tốt nghiệp</option>
+                                            <option value="0">Chưa tốt nghiệp</option>
+                                        </select>
+                                    </div>
+
                                     <div style="flex-wrap: wrap;gap:0.5rem" class="d-flex main-profile-wrapper">
                                         <label class="custom-circle-radio injoin_university">
                                             <input type="radio" name="injoin_university" value="1">
@@ -340,8 +348,8 @@
 
                                     <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
                                         <input type="text" class="academy_major" placeholder="Tên chuyên ngành">
-                                        <input type="text" class="academy_avager_gpa" placeholder="Điểm trung bình">
-                                        <input type="text" class="academy_total_gpa" placeholder="Tổng điểm">
+                                        <input type="text" class="academy_gpa" placeholder="Điểm trung bình">
+                                        <input type="text" class="academy_total_score" placeholder="Tổng điểm">
 
                                     </div>
                                 </div>
@@ -368,8 +376,8 @@
                                     </div>
                                     <div class="d-flex" style="margin-top: 0.5rem;gap:0.5rem">
                                         <input type="text" class="postgraduate_major" placeholder="Tên chuyên ngành">
-                                        <input type="text" class="postgraduate_avage_gpa" placeholder="Điểm trung bình">
-                                        <input type="text" class="postgraduate_total_gpa" placeholder="Tổng điểm">
+                                        <input type="text" class="postgraduate_gpa" placeholder="Điểm trung bình">
+                                        <input type="text" class="postgraduate_total_score" placeholder="Tổng điểm">
 
                                         <select class="postgraduate_degree">
                                             <option value="0">Thạc sĩ</option>
@@ -386,7 +394,7 @@
                             </div>
                             <div class="col-md-9">
                                 <div class="d-flex" style="gap:0.5rem">
-                                    <select>
+                                    <select name="main_experience">
                                         <option value="0">바이올린</option>
                                         <option value="1">첼로</option>
                                         <option value="2">하프</option>
@@ -405,7 +413,7 @@
 
 
                                     </select>
-                                    <select name="" id="">
+                                    <select name="extra_experience" id="">
                                         <option value="0">바이올린</option>
                                         <option value="1">첼로</option>
                                         <option value="2">하프</option>
@@ -433,35 +441,35 @@
                             <div class="col-md-9">
                                 <div style="flex-wrap: wrap;gap:0.5rem" class="d-flex main-profile-wrapper">
                                     <label class="custom-checkbox">
-                                        <input type="checkbox">
+                                        <input type="checkbox" name="main_portfolio[]">
                                         <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
                                         <span class="text">Tham gia cuộc thi buổi biễn diễn quy mô toàn quốc</span>
                                     </label>
                                     <label class="custom-checkbox">
-                                        <input type="checkbox">
+                                        <input type="checkbox" name="main_portfolio[]">
                                         <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
                                         <span class="text">Tham gia buổi biểu diễn quy mô tỉnh</span>
                                     </label>
                                     <label class="custom-checkbox">
-                                        <input type="checkbox">
+                                        <input type="checkbox" name="main_portfolio[]">
                                         <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
                                         <span class="text">Tham gia cuộc thi buổi biểu diễn do các tổ chức công tổ chức</span>
                                     </label>
                                     <label class="custom-checkbox">
-                                        <input type="checkbox">
+                                        <input type="checkbox" name="main_portfolio[]">
                                         <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
                                         <span class="text"> Từng tham gia đoàn diễn của cơ quan, xí nghiệp nhỏ</span>
                                     </label>
                                     <label class="custom-checkbox">
-                                        <input type="checkbox">
+                                        <input type="checkbox" name="main_portfolio[]">
                                         <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
@@ -560,7 +568,13 @@
                                     <input type="text" class="award_name" placeholder="Tên cuộc thi/giải thưởng">
                                     <input type="text" class="award_issued_by" placeholder="Cơ quan cấp">
                                     <input type="date" class="award_date_issued" placeholder="Ngày-tháng-năm">
-                                    <input type="date" class="award_date_expired" placeholder="Ngày-tháng-năm">
+                                    <select class="cert_type">
+                                        <option value="">Cert type</option>
+                                        <option value="1">Động cơ</option>
+                                        <option value="2">Điểm mạnh và điểm yếu của nhân các</option>
+                                        <option value="3">Nguyện vọng sau khi tham gia</option>
+
+                                    </select>
                                     <button class="btn-add-more">+</button>
                                 </div>
                                 <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
@@ -576,7 +590,8 @@
                         </div>
                         <div class="col-md-9">
                             <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
-                                <input type="file" id="portfolio_file" placeholder="Chưa có file nào được chọn">
+                                <input type="file" id="portfolio_file" accept="image/*"
+                                       placeholder="Chưa có file nào được chọn">
                             </div>
                         </div>
                     </div>
@@ -596,10 +611,10 @@
                             <button class="btn btn-light">Bước trước</button>
                         </div>
                         <div style="margin-left: 0.5rem; margin-right: 0.5rem">
-                            <button class="btn btn-secondary" id='tempStep4'> Lưu tạm thời</button>
+                            <button class="btn btn-secondary" onclick="handSubmitTempStep3()"> Lưu tạm thời</button>
                         </div>
                         <div>
-                            <button class="btn btn-primary" onclick="handSubmitStep4()"> Submit</button>
+                            <button class="btn btn-primary" onclick="handSubmitStep3()"> Submit</button>
                         </div>
                     </div>
 
@@ -615,8 +630,8 @@
                             <div class="col-md-9">
                                 <div class="duplicate-section self-introduction">
                                     <div class="d-flex" style="gap:0.5rem">
-                                        <select class="self_introduction_type">
-                                            <option value="">Quá trình trưởng thành</option>
+                                        <select class="self_introduction_type" value="0">
+                                            <option value="0" checked>Quá trình trưởng thành</option>
                                             <option value="1">Động cơ</option>
                                             <option value="2">Điểm mạnh và điểm yếu của nhân các</option>
                                             <option value="3">Nguyện vọng sau khi tham gia</option>
@@ -646,10 +661,13 @@
                                 <button class="btn btn-light">Bước trước</button>
                             </div>
                             <div style="margin-left: 0.5rem; margin-right: 0.5rem">
-                                <button class="btn btn-secondary"> Lưu tạm thời</button>
+                                <button class="btn btn-secondary" id="tempStep5" onclick="handSubmitTempStep4()"
+                                        type="button"> Lưu tạm thời
+                                </button>
                             </div>
                             <div>
-                                <button class="btn btn-primary" onclick="handSubmitStep4()"> Submit</button>
+                                <button class="btn btn-primary" onclick="handSubmitStep4()" type="button"> Submit
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -708,6 +726,109 @@
 </body>
 
 <script>
+
+    function handSubmitStep3() {
+        console.log('submit step3')
+
+        const payload = handSubmitTempStep3();
+
+
+        const formData = new FormData();
+        formData.append('data', JSON.stringify(payload));
+        formData.append('portfolio', payload.portfolio);
+        delete payload.portfolio;
+
+        $.ajax({
+            url: 'php/fnc/signup_step3.php',
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                if (data == 1) {
+                    alert('Đăng ký thành công')
+                } else {
+                    alert('Đăng ký thất bại')
+                }
+
+            },
+            error: function (data) {
+                alert('Server got error!')
+            }
+        });
+
+
+    }
+
+    function handSubmitStep4() {
+        console.log('submit step4');
+
+        const payload = handSubmitTempStep4();
+
+        const formData = new FormData();
+        formData.append('data', JSON.stringify(payload));
+
+        $.ajax({
+            url: 'php/fnc/signup_step_4.php',
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                if (data == 1) {
+                    alert('Đăng ký thành công')
+                } else {
+                    alert('Đăng ký thất bại')
+                }
+
+            },
+            error: function (data) {
+                alert('Server got error!')
+            }
+        });
+    }
+
+    // function handSubmitStep2() {
+    //     $('#form_step_2').submit(function (){
+    //          alert($("#hight_school").val());
+    //         //  alert($("#status_graduate").val());
+    //         // alert($("#date_graduate_school").val());
+    //         //  alert($('input[name="injoin_university"]:checked').val());
+    //
+    //         // alert($('input[name="not_injoin_university"]:checked').val());
+    //
+    //          alert($("#academy_name").val());
+    //         // alert($("#academy_start_date").val());
+    //         // alert($("#academy_end_date").val());
+    //         // alert($("#academy_major").val());
+    //         // alert($("#academy_avager_gpa").val());
+    //         // alert($("#academy_total_gpa").val());
+    //         // alert($("#postgraduate_name").val());
+    //         // alert($("#postgraduate_start_date").val());
+    //         // alert($("#postgraduate_end_date").val());
+    //         // alert($("#postgraduate_major").val());
+    //         // alert($("#postgraduate_avage_gpa").val());
+    //         // alert($("#postgraduate_total_gpa").val());
+    //         //
+    //         // alert($("#activity_start_date").val());
+    //         // alert($("#activity_end_date").val());
+    //         // alert($("#activity_organization").val());
+    //         // alert($("#activity_content").val());
+    //         // alert($("#postgraduate_total_gpa").val());
+    //         //
+    //         //
+    //         // alert($("#training_name").val());
+    //         // alert($("#training_organization").val());
+    //         // alert($("#training_date_start").val());
+    //         // alert($("#training_end_date").val());
+    //         // alert($("#training_content").val());
+    //
+    //
+    //
+    //     });
+    // }
+
+
     function changePlusToMinus(index, removeDuplicateSection) {
         if (index > 0) {
             $(this).html('-');
@@ -735,7 +856,7 @@
             $(this).find('input.academy_major').attr('name', `academy[${index}][major]`);
             $(this).find('input.academy_gpa').attr('name', `academy[${index}][gpa]`);
             $(this).find('input.academy_total_score').attr('name', `academy[${index}][total_score]`);
-            $(this).find('input.academy_status').attr('name', `academy[${index}][status]`);
+            $(this).find('select.academy_status').attr('name', `academy[${index}][status]`);
         });
 
         $('.postgraduate').each(function (index, value) {
@@ -746,15 +867,15 @@
             $(this).find('input.postgraduate_major').attr('name', `postgraduate[${index}][major]`);
             $(this).find('input.postgraduate_gpa').attr('name', `postgraduate[${index}][gpa]`);
             $(this).find('input.postgraduate_total_score').attr('name', `postgraduate[${index}][total_score]`);
-            $(this).find('input.postgraduate_status').attr('name', `postgraduate[${index}][status]`);
-            $(this).find('input.postgraduate_degree').attr('name', `postgraduate[${index}][degree]`);
+            $(this).find('select.postgraduate_status').attr('name', `postgraduate[${index}][status]`);
+            $(this).find('select.postgraduate_degree').attr('name', `postgraduate[${index}][degree]`);
         });
 
         $('.activity').each(function (index, value) {
             $(this).find('input.activity_start_date').attr('name', `activity[${index}][start_date]`);
             $(this).find('input.activity_end_date').attr('name', `activity[${index}][end_date]`);
             $(this).find('input.activity_organization').attr('name', `activity[${index}][organization]`);
-            $(this).find('input.activity_content').attr('name', `activity[${index}][organization]`);
+            $(this).find('input.activity_content').attr('name', `activity[${index}][content]`);
         });
 
         $('.training').each(function (index, value) {
@@ -1076,15 +1197,33 @@
         margin-left: 0.2rem
     }
 
-    .disable-input {
+    .academy-row.disable-input {
         pointer-events: none;
         opacity: 0.5;
     }
 
-
+    .high-school-row.disable-input .disable-section {
+        pointer-events: none;
+        opacity: 0.5;
+    }
 </style>
 
 
-<script src="js/signup.js"></script>
-
+<script>
+    $('#form_step_2').submit(function (event) {
+        event.preventDefault();
+        const payload = $(this).serialize();
+        $.ajax({
+            type: "POST",
+            url: "ajax/save-signup.php",
+            data: payload,
+            success: function () {
+                alert("Add OK");
+            },
+            error: function () {
+                alert("Add Lỗi");
+            }
+        });
+    });
+</script>
 </html>

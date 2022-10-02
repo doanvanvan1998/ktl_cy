@@ -9,7 +9,7 @@
 
 $PHPMAILER_LANG['authenticate']         = 'SMTP Error: Impossibile autenticarsi.';
 $PHPMAILER_LANG['connect_host']         = 'SMTP Error: Impossibile connettersi all\'host SMTP.';
-$PHPMAILER_LANG['data_not_accepted']    = 'SMTP Error: Dati non accettati dal server.';
+$PHPMAILER_LANG['data_not_accepted']    = 'SMTP Error: Dati non accettati dals server.';
 $PHPMAILER_LANG['empty_message']        = 'Il corpo del messaggio è vuoto';
 $PHPMAILER_LANG['encoding']             = 'Codifica dei caratteri sconosciuta: ';
 $PHPMAILER_LANG['execute']              = 'Impossibile eseguire l\'operazione: ';
