@@ -572,7 +572,7 @@
                                     <input type="text" class="award_name" placeholder="Tên cuộc thi/giải thưởng">
                                     <input type="text" class="award_issued_by" placeholder="Cơ quan cấp">
                                     <input type="date" class="award_date_issued" placeholder="Ngày-tháng-năm">
-                                    <input type="date" class="award_type" placeholder="Ngày-tháng-năm">
+                                    <input type="date" class="award_date_expired" placeholder="Ngày-tháng-năm">
                                     <button class="btn-add-more">+</button>
                                 </div>
                                 <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
@@ -588,7 +588,7 @@
                         </div>
                         <div class="col-md-9">
                             <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
-                                <input type="file" placeholder="Chưa có file nào được chọn">
+                                <input type="file" id="portfolio_file" placeholder="Chưa có file nào được chọn">
                             </div>
                         </div>
                     </div>
@@ -599,7 +599,7 @@
                         </div>
                         <div class="col-md-9">
                             <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
-                                <input type="url" placeholder="https://">
+                                <input type="url" id="step4Url" placeholder="https://">
                             </div>
                         </div>
                     </div>
@@ -608,7 +608,7 @@
                             <button class="btn btn-light">Bước trước</button>
                         </div>
                         <div style="margin-left: 0.5rem; margin-right: 0.5rem">
-                            <button class="btn btn-secondary"> Lưu tạm thời</button>
+                            <button class="btn btn-secondary" id='tempStep4'> Lưu tạm thời</button>
                         </div>
                         <div>
                             <button class="btn btn-primary" onclick="handSubmitStep4()"> Submit</button>
@@ -1074,4 +1074,8 @@
         margin-top: 0.5rem;
     }
 </style>
+
+
+<script src="js/signup.js"></script>
+
 </html>
