@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -18,6 +23,7 @@
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script src="js/sign_up_step1.js" charset="utf-8"></script>
+    <script src="js/signup.js"></script>
 
     <title>한국산업기술시험원</title>
 </head>
@@ -127,7 +133,8 @@
 
                                         </select>
 
-                                        <select name="content_disabilities " class="form-control" id="content_disabilities"
+                                        <select name="content_disabilities " class="form-control"
+                                                id="content_disabilities"
                                                 style="width: 30%;margin-left:0.1rem">
                                             <option value="">Nội dung khuyết tật</option>
                                             <option value="0">Nội dung khuyết tật</option>
@@ -323,7 +330,8 @@
                             <div class="col-md-9">
                                 <div class="duplicate-section academy">
                                     <div class="d-flex" style="gap:0.5rem">
-                                        <input type="text" class="academy_name" placeholder="Tên trường" id="academy_name">
+                                        <input type="text" class="academy_name" placeholder="Tên trường"
+                                               id="academy_name">
                                         <input type="date" class="academy_start_date" placeholder="Tháng  năm nhập học"
                                                id="academy_start_date">
                                         <input type="date" class="academy_end_date" placeholder="Tháng năm tốt nghiệp"
@@ -354,8 +362,10 @@
                                 <div class="duplicate-section postgraduate">
                                     <div class="d-flex" style="gap:0.5rem">
                                         <input type="text" class="postgraduate_name" placeholder="Tên trường">
-                                        <input type="date" class="postgraduate_start_date" placeholder="Tháng năm nhập học">
-                                        <input type="date" class="postgraduate_end_date" placeholder="Tháng năm tốt nghiệp">
+                                        <input type="date" class="postgraduate_start_date"
+                                               placeholder="Tháng năm nhập học">
+                                        <input type="date" class="postgraduate_end_date"
+                                               placeholder="Tháng năm tốt nghiệp">
                                         <select class="postgraduate_type">
                                             <option value="1"> Tốt nghiệp</option>
                                             <option value="0">Chưa tốt nghiệp</option>
@@ -483,7 +493,8 @@
                                                placeholder=" Vui lòng nhập tên chi nhánh / tổ chức / nhóm hoặc tên cuộc thi / buổi hòa nhạc bạn đã tham gia.">
                                     </div>
                                     <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
-                                        <input class="activity_content" type="text" placeholder="Nhập nội dung hoạt động">
+                                        <input class="activity_content" type="text"
+                                               placeholder="Nhập nội dung hoạt động">
                                         <div class="btn-add-more">+</div>
                                     </div>
                                 </div>
@@ -498,13 +509,15 @@
                                 <div class="duplicate-section training">
                                     <div class="d-flex" style="gap:0.5rem">
                                         <input type="text" class="training_name" placeholder="Tên Chương trình đào tạo">
-                                        <input type="text" class="training_organization" placeholder="Tên tổ chức đào tạo">
+                                        <input type="text" class="training_organization"
+                                               placeholder="Tên tổ chức đào tạo">
                                         <input type="date" class="training_date_start" placeholder="Ngày bắt đầu">
                                         <input type="date" class="training_end_date" placeholder="Ngày kết thúc">
                                         <div class="btn-add-more">+</div>
                                     </div>
                                     <div class="d-flex" style="margin-top:0.5rem">
-                                        <input type="text" placeholder="Tóm tắt nội dung đào tạo" name="training_content">
+                                        <input type="text" placeholder="Tóm tắt nội dung đào tạo"
+                                               name="training_content">
                                     </div>
                                 </div>
                             </div>
@@ -553,7 +566,13 @@
                                     <input type="text" class="award_name" placeholder="Tên cuộc thi/giải thưởng">
                                     <input type="text" class="award_issued_by" placeholder="Cơ quan cấp">
                                     <input type="date" class="award_date_issued" placeholder="Ngày-tháng-năm">
-                                    <input type="date" class="award_date_expired" placeholder="Ngày-tháng-năm">
+                                    <select class="cert_type">
+                                        <option value="">Cert type</option>
+                                        <option value="1">Động cơ</option>
+                                        <option value="2">Điểm mạnh và điểm yếu của nhân các</option>
+                                        <option value="3">Nguyện vọng sau khi tham gia</option>
+
+                                    </select>
                                     <button class="btn-add-more">+</button>
                                 </div>
                                 <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
@@ -569,7 +588,8 @@
                         </div>
                         <div class="col-md-9">
                             <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
-                                <input type="file" id="portfolio_file" placeholder="Chưa có file nào được chọn">
+                                <input type="file" id="portfolio_file" accept="image/*"
+                                       placeholder="Chưa có file nào được chọn">
                             </div>
                         </div>
                     </div>
@@ -589,10 +609,10 @@
                             <button class="btn btn-light">Bước trước</button>
                         </div>
                         <div style="margin-left: 0.5rem; margin-right: 0.5rem">
-                            <button class="btn btn-secondary" id='tempStep4'> Lưu tạm thời</button>
+                            <button class="btn btn-secondary" onclick="handSubmitTempStep3()"> Lưu tạm thời</button>
                         </div>
                         <div>
-                            <button class="btn btn-primary" onclick="handSubmitStep4()"> Submit</button>
+                            <button class="btn btn-primary" onclick="handSubmitStep3()"> Submit</button>
                         </div>
                     </div>
 
@@ -608,17 +628,19 @@
                             <div class="col-md-9">
                                 <div class="duplicate-section self-introduction">
                                     <div class="d-flex" style="gap:0.5rem">
-                                        <select class="self_introduction_type">
-                                            <option value="">Quá trình trưởng thành</option>
+                                        <select class="self_introduction_type" value="0">
+                                            <option value="0" checked>Quá trình trưởng thành</option>
                                             <option value="1">Động cơ</option>
                                             <option value="2">Điểm mạnh và điểm yếu của nhân các</option>
                                             <option value="3">Nguyện vọng sau khi tham gia</option>
-                                            <option value="4">Mô tả điều gì khác biệt với những người khác và những nỗ lực
+                                            <option value="4">Mô tả điều gì khác biệt với những người khác và những nỗ
+                                                lực
                                                 bạn đã thực
                                                 hiện để đạt được điều đó
                                             </option>
                                             <option value="5">
-                                                Chọn và mô tả một ví dụ về trải nghiệm mà bạn đã thành công khi hoàn thành
+                                                Chọn và mô tả một ví dụ về trải nghiệm mà bạn đã thành công khi hoàn
+                                                thành
                                                 một
                                                 nhiệm vụ khó khăn và bạn thử nhưng không thành công
                                             </option>
@@ -637,10 +659,13 @@
                                 <button class="btn btn-light">Bước trước</button>
                             </div>
                             <div style="margin-left: 0.5rem; margin-right: 0.5rem">
-                                <button class="btn btn-secondary"> Lưu tạm thời</button>
+                                <button class="btn btn-secondary" id="tempStep5" onclick="handSubmitTempStep4()"
+                                        type="button"> Lưu tạm thời
+                                </button>
                             </div>
                             <div>
-                                <button class="btn btn-primary" onclick="handSubmitStep4()"> Submit</button>
+                                <button class="btn btn-primary" onclick="handSubmitStep4()" type="button"> Submit
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -700,8 +725,65 @@
 
 <script>
 
+    function handSubmitStep3() {
+        console.log('submit step3')
+
+        const payload = handSubmitTempStep3();
+
+
+        const formData = new FormData();
+        formData.append('data', JSON.stringify(payload));
+        formData.append('portfolio', payload.portfolio);
+        delete payload.portfolio;
+
+        $.ajax({
+            url: 'php/fnc/signup_step3.php',
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                if (data == 1) {
+                    alert('Đăng ký thành công')
+                } else {
+                    alert('Đăng ký thất bại')
+                }
+
+            },
+            error: function (data) {
+                alert('Server got error!')
+            }
+        });
+
+
+    }
+
     function handSubmitStep4() {
-        $('#form_step_4').submit();
+        console.log('submit step4');
+
+        const payload = handSubmitTempStep4();
+
+        const formData = new FormData();
+        formData.append('data', JSON.stringify(payload));
+
+        $.ajax({
+            url: 'php/fnc/signup_step_4.php',
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                if (data == 1) {
+                    alert('Đăng ký thành công')
+                } else {
+                    alert('Đăng ký thất bại')
+                }
+
+            },
+            error: function (data) {
+                alert('Server got error!')
+            }
+        });
     }
 
     // function handSubmitStep2() {
@@ -846,6 +928,7 @@
 
             $('.self-introduction .btn-add-more').each(function (index, value) {
                 changePlusToMinus.call(this, index, removeDuplicateSection);
+
             });
             $('.academy .btn-add-more').each(function (index, value) {
                 changePlusToMinus.call(this, index, removeDuplicateSection);
@@ -1056,7 +1139,5 @@
     }
 </style>
 
-
-<script src="js/signup.js"></script>
 
 </html>
