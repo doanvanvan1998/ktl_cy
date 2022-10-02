@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script src="js/sign_up_step1.js" charset="utf-8"></script>
 
     <title>한국산업기술시험원</title>
 </head>
@@ -43,7 +44,7 @@
                     </div>
                 </div>
 
-                <form action="../ktl/php/fnc/signup.php" method="post">
+                <form id="form_step_1">
                     <div class="tab-content">
                         <h3>Thông tin cơ bản</h3>
                         <hr>
@@ -56,7 +57,7 @@
                                 </div>
                                 <div class="col-md-9">
                                     <input type="text" class="" id="field-name"
-                                           placeholder="Enter email">
+                                           placeholder="Enter Name">
                                 </div>
                             </div>
 
@@ -68,7 +69,7 @@
                                 </div>
                                 <div class="col-md-9">
                                     <input type="text" class="" id="field-phone"
-                                           placeholder="Enter email">
+                                           placeholder="Enter Phone">
                                 </div>
                             </div>
 
@@ -92,7 +93,7 @@
                                     </label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" name="address" class="" id="field-email"
+                                    <input type="text" name="address" class="" id="field-address"
                                            placeholder="Enter address">
                                 </div>
                             </div>
@@ -119,15 +120,14 @@
                                             </span>
                                         </label>
 
-                                        <select name="level_disabilities " class="form-control"
+                                        <select name="level_disabilities " class="form-control" id="level_disabilities"
                                                 style="width: 30%;margin-left:0.1rem">
-                                            <option value="0">Mức độ khuyết tật</option>
-                                            <option value="1">Mức độ khuyết tật</option>
-                                            <option value="3">Mức độ khuyết tật</option>
-                                            <option value="4">Mức độ khuyết tật</option>
+                                            <option value="0">Nhẹ</option>
+                                            <option value="1">Nặng</option>
+
                                         </select>
 
-                                        <select name="content_disabilities " class="form-control"
+                                        <select name="content_disabilities " class="form-control" id="content_disabilities"
                                                 style="width: 30%;margin-left:0.1rem">
                                             <option value="">Nội dung khuyết tật</option>
                                             <option value="0">Nội dung khuyết tật</option>
@@ -203,25 +203,6 @@
                                 </div>
                             </div>
 
-                            <!--                    <div class="row form-item">-->
-                            <!--                        <div class="col-md-3">-->
-                            <!--                            Người có công-->
-                            <!--                        </div>-->
-                            <!--                        <div class="col-md-9">-->
-                            <!--                            <div class="d-flex" style="gap:0.5rem">-->
-                            <!--                                <label>-->
-                            <!--                                    <input type="radio" name="meritorious_person">-->
-                            <!--                                    <span>Không</span>-->
-                            <!--                                </label>-->
-
-                            <!--                                <label>-->
-                            <!--                                    <input type="radio" name="meritorious_person">-->
-                            <!--                                    <span>Có</span>-->
-                            <!--                                </label>-->
-                            <!--                            </div>-->
-                            <!--                        </div>-->
-                            <!--                    </div>-->
-
                             <div class="row form-item">
                                 <div class="col-md-3">
                                     Chế độ ưu tiên
@@ -284,8 +265,8 @@
                             </div>
 
                             <div class="row form-item d-flex justify-content-center" style="gap:0.5rem;margin-top:1rem">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                                <button type="submit" class="btn btn-primary">Tiếp theo</button>
+                                <button type="submit" class="btn btn-primary" onclick="save()">Submit</button>
+                                <button type="submit" class="btn btn-primary" onclick="nextStep()">Tiếp theo</button>
                             </div>
                         </div>
                     </div>
