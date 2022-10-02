@@ -126,7 +126,8 @@
 
                                         </select>
 
-                                        <select name="content_disabilities " class="form-control" id="content_disabilities"
+                                        <select name="content_disabilities " class="form-control"
+                                                id="content_disabilities"
                                                 style="width: 30%;margin-left:0.1rem">
                                             <option value="">Nội dung khuyết tật</option>
                                             <option value="0">Nội dung khuyết tật</option>
@@ -276,22 +277,27 @@
                         <h3>Học vấn/ Kinh nghiệm/ Chương trình giáo dục</h3>
                         <hr>
                         <div class="row form-item high-school-row">
-                            <div class="col-md-3">
+                            <div class="col-md-3 disable-section">
                                 <label for="">
                                     고등학교 학력
                                 </label>
                             </div>
+
+
                             <div class="col-md-9">
                                 <div class="d-flex" style="gap:0.5rem">
-                                    <input type="text" name="high_school" class="high_school" id="high_school"
-                                           placeholder="학교명" style="width:20%">
-                                    <input type="date" class="date_graduate_school" id="date_graduate_school"
-                                           placeholder="Năm tốt nghiệp" style="width: 20%">
-                                    <select class="form-control" style="width:20%" name="status_graduate"
-                                            id="status_graduate">
-                                        <option value="0">Tốt nghiệp</option>
-                                        <option value="1">Chưa tốt nghiệp</option>
-                                    </select>
+                                    <div class="d-flex disable-section" style="gap:0.5rem;flex-basis: 80%">
+                                        <input type="text" name="high_school" class="high_school" id="high_school"
+                                               placeholder="학교명" style="width:30%">
+                                        <input type="date" class="date_graduate_school" id="date_graduate_school"
+                                               placeholder="Năm tốt nghiệp" style="width: 30%">
+                                        <select class="form-control" style="width:30%" name="status_graduate"
+                                                id="status_graduate">
+                                            <option value="0">Tốt nghiệp</option>
+                                            <option value="1">Chưa tốt nghiệp</option>
+                                        </select>
+                                    </div>
+
                                     <div style="flex-wrap: wrap;gap:0.5rem" class="d-flex main-profile-wrapper">
                                         <label class="custom-circle-radio injoin_university">
                                             <input type="radio" name="injoin_university" value="1">
@@ -1076,12 +1082,15 @@
         margin-left: 0.2rem
     }
 
-    .disable-input {
+    .academy-row.disable-input {
         pointer-events: none;
         opacity: 0.5;
     }
 
-
+    .high-school-row.disable-input .disable-section {
+        pointer-events: none;
+        opacity: 0.5;
+    }
 </style>
 
 
