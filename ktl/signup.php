@@ -272,7 +272,8 @@
                     </div>
                 </form>
 
-                <form action="../ktl/php/fnc/signup_step2.php" method="post" id="form_step_2">
+                <form method="post" id="form_step_2">
+                    <input type="hidden" name="step" value="2">
                     <div class="tab-content hidden">
                         <h3>Học vấn/ Kinh nghiệm/ Chương trình giáo dục</h3>
                         <hr>
@@ -283,18 +284,17 @@
                                 </label>
                             </div>
 
-
                             <div class="col-md-9">
                                 <div class="d-flex" style="gap:0.5rem">
                                     <div class="d-flex disable-section" style="gap:0.5rem;flex-basis: 80%">
-                                        <input type="text" name="high_school" class="high_school" id="high_school"
+                                        <input type="text" name="high_school_name" class="high_school" id="high_school"
                                                placeholder="학교명" style="width:30%">
                                         <input type="date" class="date_graduate_school" id="date_graduate_school"
                                                placeholder="Năm tốt nghiệp" style="width: 30%">
                                         <select class="form-control" style="width:30%" name="status_graduate"
                                                 id="status_graduate">
-                                            <option value="0">Tốt nghiệp</option>
-                                            <option value="1">Chưa tốt nghiệp</option>
+                                            <option value="1">Tốt nghiệp</option>
+                                            <option value="0">Chưa tốt nghiệp</option>
                                         </select>
                                     </div>
 
@@ -346,8 +346,8 @@
 
                                     <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
                                         <input type="text" class="academy_major" placeholder="Tên chuyên ngành">
-                                        <input type="text" class="academy_avager_gpa" placeholder="Điểm trung bình">
-                                        <input type="text" class="academy_total_gpa" placeholder="Tổng điểm">
+                                        <input type="text" class="academy_gpa" placeholder="Điểm trung bình">
+                                        <input type="text" class="academy_total_score" placeholder="Tổng điểm">
 
                                     </div>
                                 </div>
@@ -374,8 +374,8 @@
                                     </div>
                                     <div class="d-flex" style="margin-top: 0.5rem;gap:0.5rem">
                                         <input type="text" class="postgraduate_major" placeholder="Tên chuyên ngành">
-                                        <input type="text" class="postgraduate_avage_gpa" placeholder="Điểm trung bình">
-                                        <input type="text" class="postgraduate_total_gpa" placeholder="Tổng điểm">
+                                        <input type="text" class="postgraduate_gpa" placeholder="Điểm trung bình">
+                                        <input type="text" class="postgraduate_total_score" placeholder="Tổng điểm">
 
                                         <select class="postgraduate_degree">
                                             <option value="0">Thạc sĩ</option>
@@ -392,7 +392,7 @@
                             </div>
                             <div class="col-md-9">
                                 <div class="d-flex" style="gap:0.5rem">
-                                    <select>
+                                    <select name="main_experience">
                                         <option value="0">바이올린</option>
                                         <option value="1">첼로</option>
                                         <option value="2">하프</option>
@@ -411,7 +411,7 @@
 
 
                                     </select>
-                                    <select name="" id="">
+                                    <select name="extra_experience" id="">
                                         <option value="0">바이올린</option>
                                         <option value="1">첼로</option>
                                         <option value="2">하프</option>
@@ -439,35 +439,35 @@
                             <div class="col-md-9">
                                 <div style="flex-wrap: wrap;gap:0.5rem" class="d-flex main-profile-wrapper">
                                     <label class="custom-checkbox">
-                                        <input type="checkbox">
+                                        <input type="checkbox" name="main_portfolio[]">
                                         <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
                                         <span class="text">Tham gia cuộc thi buổi biễn diễn quy mô toàn quốc</span>
                                     </label>
                                     <label class="custom-checkbox">
-                                        <input type="checkbox">
+                                        <input type="checkbox" name="main_portfolio[]">
                                         <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
                                         <span class="text">Tham gia buổi biểu diễn quy mô tỉnh</span>
                                     </label>
                                     <label class="custom-checkbox">
-                                        <input type="checkbox">
+                                        <input type="checkbox" name="main_portfolio[]">
                                         <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
                                         <span class="text">Tham gia cuộc thi buổi biểu diễn do các tổ chức công tổ chức</span>
                                     </label>
                                     <label class="custom-checkbox">
-                                        <input type="checkbox">
+                                        <input type="checkbox" name="main_portfolio[]">
                                         <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
                                         <span class="text"> Từng tham gia đoàn diễn của cơ quan, xí nghiệp nhỏ</span>
                                     </label>
                                     <label class="custom-checkbox">
-                                        <input type="checkbox">
+                                        <input type="checkbox" name="main_portfolio[]">
                                         <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
@@ -741,7 +741,7 @@
             $(this).find('input.academy_major').attr('name', `academy[${index}][major]`);
             $(this).find('input.academy_gpa').attr('name', `academy[${index}][gpa]`);
             $(this).find('input.academy_total_score').attr('name', `academy[${index}][total_score]`);
-            $(this).find('input.academy_status').attr('name', `academy[${index}][status]`);
+            $(this).find('select.academy_status').attr('name', `academy[${index}][status]`);
         });
 
         $('.postgraduate').each(function (index, value) {
@@ -752,15 +752,15 @@
             $(this).find('input.postgraduate_major').attr('name', `postgraduate[${index}][major]`);
             $(this).find('input.postgraduate_gpa').attr('name', `postgraduate[${index}][gpa]`);
             $(this).find('input.postgraduate_total_score').attr('name', `postgraduate[${index}][total_score]`);
-            $(this).find('input.postgraduate_status').attr('name', `postgraduate[${index}][status]`);
-            $(this).find('input.postgraduate_degree').attr('name', `postgraduate[${index}][degree]`);
+            $(this).find('select.postgraduate_status').attr('name', `postgraduate[${index}][status]`);
+            $(this).find('select.postgraduate_degree').attr('name', `postgraduate[${index}][degree]`);
         });
 
         $('.activity').each(function (index, value) {
             $(this).find('input.activity_start_date').attr('name', `activity[${index}][start_date]`);
             $(this).find('input.activity_end_date').attr('name', `activity[${index}][end_date]`);
             $(this).find('input.activity_organization').attr('name', `activity[${index}][organization]`);
-            $(this).find('input.activity_content').attr('name', `activity[${index}][organization]`);
+            $(this).find('input.activity_content').attr('name', `activity[${index}][content]`);
         });
 
         $('.training').each(function (index, value) {
@@ -1095,5 +1095,21 @@
 
 
 <script src="js/signup.js"></script>
-
+<script>
+    $('#form_step_2').submit(function (event) {
+        event.preventDefault();
+        const payload = $(this).serialize();
+        $.ajax({
+            type: "POST",
+            url: "ajax/save-signup.php",
+            data: payload,
+            success: function () {
+                alert("Add OK");
+            },
+            error: function () {
+                alert("Add Lỗi");
+            }
+        });
+    });
+</script>
 </html>
