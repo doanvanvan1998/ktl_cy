@@ -27,7 +27,6 @@
     <br>
     <div class="container">
         <div class="signup_form">
-
             <div class="tab-wrapper">
                 <div class="tab-heading d-flex cursor">
                     <div class="tab-item active" tabindex="1">
@@ -295,7 +294,7 @@
                     <div class="tab-content hidden">
                         <h3>Học vấn/ Kinh nghiệm/ Chương trình giáo dục</h3>
                         <hr>
-                        <div class="row form-item">
+                        <div class="row form-item high-school-row">
                             <div class="col-md-3">
                                 <label for="">
                                     고등학교 학력
@@ -313,19 +312,21 @@
                                         <option value="1">Chưa tốt nghiệp</option>
                                     </select>
                                     <div style="flex-wrap: wrap;gap:0.5rem" class="d-flex main-profile-wrapper">
-                                        <label class="custom-checkbox">
-                                            <input type="checkbox" name="injoin_university" value="1">
+                                        <label class="custom-circle-radio injoin_university">
+                                            <input type="radio" name="injoin_university" value="1">
                                             <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
-                                            <span class="text">Tham gia </span>
+                                            <span class="text">Tham gia tuyển sinh đại học</span>
                                         </label>
-                                        <label class="custom-checkbox">
-                                            <input type="checkbox" name="not_injoin_university" value="1">
+
+
+                                        <label class="custom-circle-radio injoin_university">
+                                            <input type="radio" name="injoin_university" value="0">
                                             <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
-                                            <span class="text">Tham gia </span>
+                                            <span class="text">Chưa tốt nghiệp THPT</span>
                                         </label>
 
                                     </div>
@@ -334,7 +335,7 @@
                         </div>
 
 
-                        <div class="row form-item">
+                        <div class="row form-item academy-row">
                             <div class="col-md-3">
                                 <label>Đại học</label>
                             </div>
@@ -342,7 +343,8 @@
                             <div class="col-md-9">
                                 <div class="duplicate-section academy">
                                     <div class="d-flex" style="gap:0.5rem">
-                                        <input type="text" class="academy_name" placeholder="Tên trường" id="academy_name">
+                                        <input type="text" class="academy_name" placeholder="Tên trường"
+                                               id="academy_name">
                                         <input type="date" class="academy_start_date" placeholder="Tháng  năm nhập học"
                                                id="academy_start_date">
                                         <input type="date" class="academy_end_date" placeholder="Tháng năm tốt nghiệp"
@@ -373,8 +375,10 @@
                                 <div class="duplicate-section postgraduate">
                                     <div class="d-flex" style="gap:0.5rem">
                                         <input type="text" class="postgraduate_name" placeholder="Tên trường">
-                                        <input type="date" class="postgraduate_start_date" placeholder="Tháng năm nhập học">
-                                        <input type="date" class="postgraduate_end_date" placeholder="Tháng năm tốt nghiệp">
+                                        <input type="date" class="postgraduate_start_date"
+                                               placeholder="Tháng năm nhập học">
+                                        <input type="date" class="postgraduate_end_date"
+                                               placeholder="Tháng năm tốt nghiệp">
                                         <select class="postgraduate_type">
                                             <option value="1"> Tốt nghiệp</option>
                                             <option value="0">Chưa tốt nghiệp</option>
@@ -502,7 +506,8 @@
                                                placeholder=" Vui lòng nhập tên chi nhánh / tổ chức / nhóm hoặc tên cuộc thi / buổi hòa nhạc bạn đã tham gia.">
                                     </div>
                                     <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
-                                        <input class="activity_content" type="text" placeholder="Nhập nội dung hoạt động">
+                                        <input class="activity_content" type="text"
+                                               placeholder="Nhập nội dung hoạt động">
                                         <div class="btn-add-more">+</div>
                                     </div>
                                 </div>
@@ -517,13 +522,15 @@
                                 <div class="duplicate-section training">
                                     <div class="d-flex" style="gap:0.5rem">
                                         <input type="text" class="training_name" placeholder="Tên Chương trình đào tạo">
-                                        <input type="text" class="training_organization" placeholder="Tên tổ chức đào tạo">
+                                        <input type="text" class="training_organization"
+                                               placeholder="Tên tổ chức đào tạo">
                                         <input type="date" class="training_date_start" placeholder="Ngày bắt đầu">
                                         <input type="date" class="training_end_date" placeholder="Ngày kết thúc">
                                         <div class="btn-add-more">+</div>
                                     </div>
                                     <div class="d-flex" style="margin-top:0.5rem">
-                                        <input type="text" placeholder="Tóm tắt nội dung đào tạo" name="training_content">
+                                        <input type="text" placeholder="Tóm tắt nội dung đào tạo"
+                                               name="training_content">
                                     </div>
                                 </div>
                             </div>
@@ -632,12 +639,14 @@
                                             <option value="1">Động cơ</option>
                                             <option value="2">Điểm mạnh và điểm yếu của nhân các</option>
                                             <option value="3">Nguyện vọng sau khi tham gia</option>
-                                            <option value="4">Mô tả điều gì khác biệt với những người khác và những nỗ lực
+                                            <option value="4">Mô tả điều gì khác biệt với những người khác và những nỗ
+                                                lực
                                                 bạn đã thực
                                                 hiện để đạt được điều đó
                                             </option>
                                             <option value="5">
-                                                Chọn và mô tả một ví dụ về trải nghiệm mà bạn đã thành công khi hoàn thành
+                                                Chọn và mô tả một ví dụ về trải nghiệm mà bạn đã thành công khi hoàn
+                                                thành
                                                 một
                                                 nhiệm vụ khó khăn và bạn thử nhưng không thành công
                                             </option>
@@ -718,52 +727,6 @@
 </body>
 
 <script>
-
-    function handSubmitStep4() {
-        $('#form_step_4').submit();
-    }
-
-    // function handSubmitStep2() {
-    //     $('#form_step_2').submit(function (){
-    //          alert($("#hight_school").val());
-    //         //  alert($("#status_graduate").val());
-    //         // alert($("#date_graduate_school").val());
-    //         //  alert($('input[name="injoin_university"]:checked').val());
-    //
-    //         // alert($('input[name="not_injoin_university"]:checked').val());
-    //
-    //          alert($("#academy_name").val());
-    //         // alert($("#academy_start_date").val());
-    //         // alert($("#academy_end_date").val());
-    //         // alert($("#academy_major").val());
-    //         // alert($("#academy_avager_gpa").val());
-    //         // alert($("#academy_total_gpa").val());
-    //         // alert($("#postgraduate_name").val());
-    //         // alert($("#postgraduate_start_date").val());
-    //         // alert($("#postgraduate_end_date").val());
-    //         // alert($("#postgraduate_major").val());
-    //         // alert($("#postgraduate_avage_gpa").val());
-    //         // alert($("#postgraduate_total_gpa").val());
-    //         //
-    //         // alert($("#activity_start_date").val());
-    //         // alert($("#activity_end_date").val());
-    //         // alert($("#activity_organization").val());
-    //         // alert($("#activity_content").val());
-    //         // alert($("#postgraduate_total_gpa").val());
-    //         //
-    //         //
-    //         // alert($("#training_name").val());
-    //         // alert($("#training_organization").val());
-    //         // alert($("#training_date_start").val());
-    //         // alert($("#training_end_date").val());
-    //         // alert($("#training_content").val());
-    //
-    //
-    //
-    //     });
-    // }
-
-
     function changePlusToMinus(index, removeDuplicateSection) {
         if (index > 0) {
             $(this).html('-');
@@ -837,6 +800,19 @@
     }
 
     $(document).ready(function () {
+
+        $('.injoin_university input[type="radio"]').change(function () {
+            if ($(this).is(':checked') && $(this).val() == 1) {
+                $('.disable-input').removeClass('disable-input');
+                $(this).closest('.high-school-row').addClass('disable-input');
+            } else {
+                $('.disable-input').removeClass('disable-input');
+                $(this).closest('.high-school-row').parent().find('.academy-row')
+                    .addClass('disable-input');
+            }
+        });
+
+
         reIndex();
         $('.tab-heading .tab-item').click(function () {
             $(this).closest('.tab-wrapper').find('.tab-item').removeClass('active');
@@ -905,6 +881,7 @@
             $(element).closest('.duplicate-section').remove();
             indexing();
         }
+
 
     });
 </script>
@@ -1003,6 +980,18 @@
         padding-right: 0.6rem;
     }
 
+    label.custom-checkbox input[type="radio"] + span {
+        border: unset;
+        cursor: unset;
+        display: unset;
+        min-width: unset;
+        text-align: unset;
+        height: unset;
+        padding-top: unset;
+        padding-left: unset;
+        padding-right: unset;
+    }
+
     label input[type="radio"] {
         display: none;
     }
@@ -1055,6 +1044,7 @@
         float: left
     }
 
+
     .custom-checkbox .icon .fas {
         display: none;
         cursor: pointer;
@@ -1073,5 +1063,43 @@
     .duplicate-section {
         margin-top: 0.5rem;
     }
+
+    label.custom-circle-radio .icon {
+        display: inline-block;
+        margin-top: 0.2rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        border: 1px solid #e4e4e4;
+        border-radius: 999px;
+        float: left;
+        min-width: unset;
+        padding: unset;
+    }
+
+    label.custom-circle-radio .icon .fas {
+        display: none;
+        cursor: pointer;
+        color: white;
+        margin-top: 0.1rem;
+    }
+
+    label.custom-circle-radio input:checked + .icon {
+        background: #0077ff;
+    }
+
+    label.custom-circle-radio input:checked + .icon .fas {
+        display: block;
+    }
+
+    label.custom-circle-radio .text {
+        margin-left: 0.2rem
+    }
+
+    .disable-input {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+
 </style>
 </html>
