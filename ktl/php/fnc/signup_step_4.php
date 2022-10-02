@@ -1,8 +1,22 @@
 <?php
 require '../mysql.php';
-$content_1 = $_POST['self_introduction[1][content]'];
-$type_1 = $_POST['self_introduction[1][type]'];
 
-echo $content_1;
-echo $type_1;
+
+$data = json_decode($_POST['data']);
+
+
+foreach ($data as $record) {
+    $selfIntroductionTypeName = $record->{'selfIntroductionTypeName'};
+    $selfIntroductionType = $record->{'selfIntroductionType'};
+    $selfIntroductionContent = $record->{'selfIntroductionContent'};
+
+    $insertQuery = "INSERT INTO `main_resume` (`id`, `content`, `able_id`, `id_type`, `name_type`) VALUES (NULL, '$selfIntroductionContent', '1', '$selfIntroductionType', '$selfIntroductionTypeName');";
+    $result = mysqli_query($con, $insertQuery);
+    if (!$result) {
+        echo false;
+    }
+}
+
+echo true;
+
 ?>
