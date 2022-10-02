@@ -283,37 +283,44 @@ session_start();
                     <div class="tab-content hidden">
                         <h3>Học vấn/ Kinh nghiệm/ Chương trình giáo dục</h3>
                         <hr>
-                        <div class="row form-item">
-                            <div class="col-md-3">
+                        <div class="row form-item high-school-row">
+                            <div class="col-md-3 disable-section">
                                 <label for="">
                                     고등학교 학력
                                 </label>
                             </div>
+
+
                             <div class="col-md-9">
                                 <div class="d-flex" style="gap:0.5rem">
-                                    <input type="text" name="high_school" class="high_school" id="high_school"
-                                           placeholder="학교명" style="width:20%">
-                                    <input type="date" class="date_graduate_school" id="date_graduate_school"
-                                           placeholder="Năm tốt nghiệp" style="width: 20%">
-                                    <select class="form-control" style="width:20%" name="status_graduate"
-                                            id="status_graduate">
-                                        <option value="0">Tốt nghiệp</option>
-                                        <option value="1">Chưa tốt nghiệp</option>
-                                    </select>
+                                    <div class="d-flex disable-section" style="gap:0.5rem;flex-basis: 80%">
+                                        <input type="text" name="high_school" class="high_school" id="high_school"
+                                               placeholder="학교명" style="width:30%">
+                                        <input type="date" class="date_graduate_school" id="date_graduate_school"
+                                               placeholder="Năm tốt nghiệp" style="width: 30%">
+                                        <select class="form-control" style="width:30%" name="status_graduate"
+                                                id="status_graduate">
+                                            <option value="0">Tốt nghiệp</option>
+                                            <option value="1">Chưa tốt nghiệp</option>
+                                        </select>
+                                    </div>
+
                                     <div style="flex-wrap: wrap;gap:0.5rem" class="d-flex main-profile-wrapper">
-                                        <label class="custom-checkbox">
-                                            <input type="checkbox" name="injoin_university" value="1">
+                                        <label class="custom-circle-radio injoin_university">
+                                            <input type="radio" name="injoin_university" value="1">
                                             <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
-                                            <span class="text">Tham gia </span>
+                                            <span class="text">Tham gia tuyển sinh đại học</span>
                                         </label>
-                                        <label class="custom-checkbox">
-                                            <input type="checkbox" name="not_injoin_university" value="1">
+
+
+                                        <label class="custom-circle-radio injoin_university">
+                                            <input type="radio" name="injoin_university" value="0">
                                             <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
-                                            <span class="text">Tham gia </span>
+                                            <span class="text">Chưa tốt nghiệp THPT</span>
                                         </label>
 
                                     </div>
@@ -322,7 +329,7 @@ session_start();
                         </div>
 
 
-                        <div class="row form-item">
+                        <div class="row form-item academy-row">
                             <div class="col-md-3">
                                 <label>Đại học</label>
                             </div>
@@ -900,6 +907,19 @@ session_start();
     }
 
     $(document).ready(function () {
+
+        $('.injoin_university input[type="radio"]').change(function () {
+            if ($(this).is(':checked') && $(this).val() == 1) {
+                $('.disable-input').removeClass('disable-input');
+                $(this).closest('.high-school-row').addClass('disable-input');
+            } else {
+                $('.disable-input').removeClass('disable-input');
+                $(this).closest('.high-school-row').parent().find('.academy-row')
+                    .addClass('disable-input');
+            }
+        });
+
+
         reIndex();
         $('.tab-heading .tab-item').click(function () {
             $(this).closest('.tab-wrapper').find('.tab-item').removeClass('active');
@@ -928,7 +948,6 @@ session_start();
 
             $('.self-introduction .btn-add-more').each(function (index, value) {
                 changePlusToMinus.call(this, index, removeDuplicateSection);
-
             });
             $('.academy .btn-add-more').each(function (index, value) {
                 changePlusToMinus.call(this, index, removeDuplicateSection);
@@ -969,6 +988,7 @@ session_start();
             $(element).closest('.duplicate-section').remove();
             indexing();
         }
+
 
     });
 </script>
@@ -1067,6 +1087,18 @@ session_start();
         padding-right: 0.6rem;
     }
 
+    label.custom-checkbox input[type="radio"] + span {
+        border: unset;
+        cursor: unset;
+        display: unset;
+        min-width: unset;
+        text-align: unset;
+        height: unset;
+        padding-top: unset;
+        padding-left: unset;
+        padding-right: unset;
+    }
+
     label input[type="radio"] {
         display: none;
     }
@@ -1119,6 +1151,7 @@ session_start();
         float: left
     }
 
+
     .custom-checkbox .icon .fas {
         display: none;
         cursor: pointer;
@@ -1136,6 +1169,47 @@ session_start();
 
     .duplicate-section {
         margin-top: 0.5rem;
+    }
+
+    label.custom-circle-radio .icon {
+        display: inline-block;
+        margin-top: 0.2rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        border: 1px solid #e4e4e4;
+        border-radius: 999px;
+        float: left;
+        min-width: unset;
+        padding: unset;
+    }
+
+    label.custom-circle-radio .icon .fas {
+        display: none;
+        cursor: pointer;
+        color: white;
+        margin-top: 0.1rem;
+    }
+
+    label.custom-circle-radio input:checked + .icon {
+        background: #0077ff;
+    }
+
+    label.custom-circle-radio input:checked + .icon .fas {
+        display: block;
+    }
+
+    label.custom-circle-radio .text {
+        margin-left: 0.2rem
+    }
+
+    .academy-row.disable-input {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    .high-school-row.disable-input .disable-section {
+        pointer-events: none;
+        opacity: 0.5;
     }
 </style>
 
