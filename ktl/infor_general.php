@@ -291,7 +291,7 @@
         </div>
     </div>
 
-    <!--    --><?php //include 'php/common_footer.php' ?>
+    <!--        --><?php //include 'php/common_footer.php' ?>
     <script>
         function exportFile() {
             //export to pdf
