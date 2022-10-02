@@ -13,6 +13,7 @@ $result = mysqli_query($con, $query);
 if ($result) {
     header("Location: ../../list_feedback.php");
 } else {
-    echo "fails";
+    // catch error
+    echo "Error: " . $query . "<br>" . mysqli_error($con);
 }
 ?>
