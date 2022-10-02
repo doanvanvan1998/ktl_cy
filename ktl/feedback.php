@@ -4,9 +4,9 @@
 <body>
 <div class="wrap">
     <?php include 'php/common_header_menu.php' ?>
-    <div class="contents_wrap" >
-        <div class="container" >
-            <div class="jobapplication_title flex" >
+    <div class="contents_wrap">
+        <div class="container">
+            <div class="jobapplication_title flex">
                 <h6> 따오 판 호이 </h6>
                 <div class="flex">
                     <span>Home</span>
@@ -16,112 +16,143 @@
                     <span class="bor">채용공고 내용보기</span>
                 </div>
             </div>
-            <form id="onSubmit" action="../ktl/php/fnc/recruit_step.php" method="post" style="background: #ededed">
+            <form id="onSubmit" action="../ktl/php/fnc/recruit_step.php" method="post">
 
-                <div class="flex baseline">
-                    <div class="form_title">
-                        <h6> chọn tin</h6>
+                <div class="row" style="border-top: 1px solid lightgrey">
+                    <div class="col-2"
+                         style="background: #f9f9f9; display: flex; justify-content: center; align-items: center">
+                        <div style="padding: 1rem;">
+                            chọn tin
+                        </div>
                     </div>
-                    <div class="form_con">
-                        <div class="flex-direction inputbox">
-                            <select class="custom-select" id="news">
+
+                    <div class="col-10" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="flex-direction inputbox" style=" width: 100%; padding: 1rem">
+                            <select class="custom-select" id="news" name="news">
                                 <option selected>Open this select menu</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>
-                            <span class="noti error_news" style="color: red; font-size: small"> (*) </span>
                         </div>
                     </div>
                 </div>
-
-
-                <div class="flex baseline">
-                    <div class="form_title">
-                        <h6>Loại tin</h6>
+                <div class="row" style="border-top: 1px solid lightgrey">
+                    <div class="col-2"
+                         style="background: #f9f9f9; display: flex; justify-content: center; align-items: center">
+                        <div style="padding: 1rem;">
+                            Loại kháng nghị
+                        </div>
                     </div>
-                    <div class="form_con">
-                        <div class="flex-direction inputbox">
-                            <select class="custom-select col" id="type_news">
+
+                    <div class="col-10" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="flex-direction inputbox" style=" width: 100%; padding: 1rem">
+                            <select class="custom-select" id="news" name="news">
                                 <option selected>Open this select menu</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>
-                            <span class="noti error_type_news" style="color: red; font-size: small"> (*) </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex baseline">
-                    <div class="form_title">
-                        <h6>tên ngupowfi taojSDFm,b cad</h6>
-                    </div>
-                    <div class="form_con col">
-                        <div class="flex-direction inputbox">
-                            <input name="username" placeholder="전화 번호" type="text" id='username' required numberOnly>
-                            <span class="noti errorPhone" style="color: red; font-size: small">(*) </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex baseline">
-                    <div class="form_title">
-                        <h6>Số điện thoại</h6>
-                    </div>
-                    <div class="form_con">
-                        <div class="flex-direction inputbox">
-                            <input name="userphone" type="number" id='userphone' placeholder="nhập phone" required>
-                            <span class="noti errorPhone" style="color: red; font-size: small">(*)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex baseline">
-                    <div class="form_title">
-                        <h6>email</h6>
-                    </div>
-                    <div class="form_con">
-                        <div class="flex-direction inputbox">
-                            <input name="useremail" type="email" id='useremail' placeholder="nhập email" required
-                            ">
-                            <span class="noti errorEmail" style="color: red; font-size: small">(*) <span
-                                        class="textlength"></span>
                         </div>
                     </div>
                 </div>
 
-                <div class="flex">
-                    <div class="form_title">
-                        <h6>Tiêu đề</h6>
-                    </div>
-                    <div class="form_con col">
-                        <div class=" flex">
-                            <input name="title" type="text" id="title" placeholder="tiêu đề" style="width: 100%" >
-                        </div>
 
-                        <span class="noti errorTitle" style="color: red; font-size: small">(*) <span
-                                    class="textlength"></span>
+                <div class="row" style="border-top: 1px solid lightgrey">
+                    <div class="col-2"
+                         style="background: #f9f9f9; display: flex; justify-content: center; align-items: center">
+                        <div style="padding: 1rem;">
+                            Tên người tạo
+                        </div>
+                    </div>
+
+                    <div class="col-10" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="flex-direction inputbox" style=" width: 100%; padding: 1rem">
+                            <input type="text" class="form-control"  >
+                        </div>
                     </div>
                 </div>
 
 
-                <div class="flex">
-                    <div class="form_title">
-                        <h6>Nội dung</h6>
-                    </div>
-                    <div class="form_con">
-                        <div class=" flex">
-                            <div class="form-group col">
-                                <label for="exampleFormControlTextarea1">Example textarea</label>
-                                <textarea style="width: 55rem" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            </div>
+                <div class="row" style="border-top: 1px solid lightgrey">
+                    <div class="col-2"
+                         style="background: #f9f9f9; display: flex; justify-content: center; align-items: center">
+                        <div style="padding: 1rem;">
+                            Số điện thoại
                         </div>
-                        <span class="noti errorTitle" style="color: red; font-size: small">(*) <span
-                                    class="textlength"></span>
+                    </div>
+
+                    <div class="col-10" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="flex-direction inputbox" style=" width: 100%; padding: 1rem">
+                            <input type="text" class="form-control"  >
+                        </div>
                     </div>
                 </div>
 
+
+                <div class="row" style="border-top: 1px solid lightgrey">
+                    <div class="col-2"
+                         style="background: #f9f9f9; display: flex; justify-content: center; align-items: center">
+                        <div style="padding: 1rem;">
+                            email
+                        </div>
+                    </div>
+
+                    <div class="col-10" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="flex-direction inputbox" style=" width: 100%; padding: 1rem">
+                            <input type="text" class="form-control"  >
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row" style="border-top: 1px solid lightgrey">
+                    <div class="col-2"
+                         style="background: #f9f9f9; display: flex; justify-content: center; align-items: center">
+                        <div style="padding: 1rem;">
+                            Tiêu đề
+                        </div>
+                    </div>
+
+                    <div class="col-10" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="flex-direction inputbox" style=" width: 100%; padding: 1rem">
+                            <input type="text" class="form-control"  >
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row" style="border-top: 1px solid lightgrey; border-bottom: 1px solid lightgrey">
+                    <div class="col-2"
+                         style="background: #f9f9f9; display: flex; justify-content: center; align-items: center">
+                        <div style="padding: 1rem;">
+                            nội dung
+                        </div>
+                    </div>
+
+                    <div class="col-10" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="flex-direction inputbox" style=" width: 100%; padding: 1rem">
+                            <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
 
             </form>
-            <div class="btn_write flex" onclick="hanldSubmit()"><span>입사지원서 작성</span></div>
+
+            <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 2rem; margin-top: 2rem;">
+                <div>
+                    <button class="btn"style="background: lightgrey">
+                        Hủy
+                    </button>
+                </div>
+                <div style="margin-left: 1rem;">
+                    <button class="btn btn-primary">
+                        Tạo
+                    </button>
+                </div>
+            </div>
+
+
         </div>
     </div>
     <?php include 'php/common_footer.php' ?>
