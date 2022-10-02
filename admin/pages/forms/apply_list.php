@@ -18,6 +18,7 @@ session_start();
     <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 <body class="hold-transition sidebar-mini">
@@ -71,7 +72,7 @@ session_start();
                                 if($Id == 1){
                                     include "../../php/mysql.php";
                                     include "../../php/crypt.php";
-                                    $query="select u.id,u.username,u.phone,u.email,u.imp_uid,u.status_pass,a3.sent_date,a.is_disabilities,a2.major_main_id,a2.major_sub from recruit_able_user u inner join apply_step_1 a on u.id = a.able_id inner join apply_step_2 a2 on u.id = a2.able_id inner join apply_step_5 a3 on u.id = a3.userid where u.status_pass !='0'";
+                                    $query="select distinct u.id,a.able_detailAddress,u.username,u.phone,u.email,u.imp_uid,u.status_pass,a3.sent_date,a.is_disabilities,a2.major_main_id, a2.major_sub  , a2.status_graduation_high_school, a2.graduation_high_school_year , a2.name_high_school from recruit_able_user u left join  apply_step_1 a on u.id = a.able_id left join apply_step_2 a2 on u.id = a2.able_id left join apply_step_5 a3 on u.id = a3.userid where u.status_pass !='0'";
 
                                     $result = mysqli_query($con,$query);
                                     echo "
@@ -100,8 +101,8 @@ session_start();
                                         echo "<tr><td>$nIndex</td>
                                         <td>". $row['imp_uid'] ."</td>
                                         <td>". $row['username'] ."</td>
-                                        <td>". $row['phone'] ."</td>
-                                        <td>". $row['email'] ."</td>
+                                        <td>". $row['phone']  ."</td>
+                                        <td>". $row['email']  ."</td>
                                         <td>";  if ($row['is_disabilities'] == 1){
                                             echo "중증";
                                         }else{
@@ -110,31 +111,111 @@ session_start();
                                         <td>";
                                         switch ($row['major_main_id']) {
                                             case 1:
-                                                "a";
+                                                echo "바이올린";
                                                  break;
                                             case 2:
-                                                "b";
+                                                echo "첼로";
+                                                break;
+                                            case 3:
+                                                echo "하프";
+                                                break;
+                                            case 4:
+                                                echo "풀루트";
+                                                break;
+                                            case 5:
+                                                echo "오보에";
+                                                break;
+                                            case 6:
+                                                echo "클라리넷";
+                                                break;
+                                            case 7:
+                                                echo "바순";
+                                                break;
+                                            case 8:
+                                                echo "트럼폣";
+                                                break;
+                                            case 9:
+                                                echo "호른";
+                                                break;
+                                            case 10:
+                                                echo "비올라";
+                                                break;
+                                            case 11:
+                                                echo "베이스";
+                                                break;
+                                            case 12:
+                                                echo "팀파니";
+                                                break;
+                                            case 0:
+                                                echo "기타 (직접작성)";
                                                 break;
                                             default:
-                                                "error";
+                                                echo "error";
+                                        }?>
+                                        <td>
+                                        <?php
+                                        switch ($row['major_sub']) {
+                                            case 1:
+                                                echo "바이올린";
+                                                break;
+                                            case 2:
+                                                echo "첼로";
+                                                break;
+                                            case 3:
+                                                echo "하프";
+                                                break;
+                                            case 4:
+                                                echo "풀루트";
+                                                break;
+                                            case 5:
+                                                echo "오보에";
+                                                break;
+                                            case 6:
+                                                echo "클라리넷";
+                                                break;
+                                            case 7:
+                                                echo "바순";
+                                                break;
+                                            case 8:
+                                                echo "트럼폣";
+                                                break;
+                                            case 9:
+                                                echo "호른";
+                                                break;
+                                            case 10:
+                                                echo "비올라";
+                                                break;
+                                            case 11:
+                                                echo "베이스";
+                                                break;
+                                            case 12:
+                                                echo "팀파니";
+                                                break;
+                                            case 0:
+                                                echo "기타 (직접작성)";
+                                                break;
+                                            default:
+                                                echo "error";
                                         }
+                                        ?>
+                                        </td>
+                                        <?php
                                         echo"</td>
-                                        <td>". $row['major_university'] ."</td>
                                         <td>". $row['sent_date'] ."</td>
                                         <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode($row, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
                                         <td>
                                             <select class='custom-select'  style='border: none'  name='status_pass' onchange='updateStatusPass(";echo $row['id']; ?><?php echo ")' id= 1>
                                             <option selected>";
-                                        switch ($row['status_pass']) {
-                                            case 0:
-                                                "적격";
-                                                break;
-                                            case 1:
-                                                "부적격";
-                                                break;
-                                            default:
-                                                "검증선택";
-                                        }
+                                            switch ($row['status_pass']) {
+                                                case 1:
+                                                    echo "적격";
+                                                    break;
+                                                case 0:
+                                                    echo "부적격";
+                                                    break;
+                                                default:
+                                                    "검증선택";
+                                            }
                                             echo "</option>
                                             <option value='0'>적격</option>
                                             <option value='1'>부적격</option>
@@ -159,24 +240,12 @@ session_start();
                                             <canvas id='ChartDisabilities'></canvas>
                                         </div>
                                     </div>
-                                    <div class='row'>
-                                        <div class='col-6'>
+                                    <div class='row mt-5  justify-content-md-center' >
+                                        <div class='col-6 mt-5'>
                                             <canvas id='ChartMajor'></canvas>
                                         </div>
-                                        <div class='col-6'>
-                                            <canvas id='ChartResidence'></canvas>
-                                        </div>
                                     </div>
-
-                                    <div class='row'>
-                                        <div class='col-6'>
-                                            <canvas id='ChartExperience'></canvas>
-                                        </div>
-                                        <div class='col-6'>
-                                            <canvas id='ChartDisabilities'></canvas>
-                                        </div>
-                                    </div>
-                                </div>;
+                                </div>
                                 <?php
                                 }
                                 ?>
@@ -230,6 +299,7 @@ session_start();
 
 <script>
     let dataChart =[];
+    let dataDisability =[];
 
     function updateStatusPass(Id)
     {
@@ -277,25 +347,63 @@ session_start();
     }
 </script>
 <script>
-
+    dataDisability = [];
+    dataMajor = [];
+    DataExperience = [];
     window.addEventListener('DOMContentLoaded', (event) => {
         setInterval(function () {
             refreshData();
+            refreshDataDisability();
+            refreshDataMajor();
         }, 1000);
         function refreshData() {
             fetch("/ktl_cy/admin/php/fnc/chart.php")
             .then(res=>res.json())
                 .then(data => {
                     if (dataChart.length < 1){
-                    dataChart =  data;
-                    chart(dataChart);
+                        dataChart = data;
+                    chart('myChart',dataChart,['고등학교 미만 졸업','고졸','학원','대학교','석사','박사']);
                 }else if (!equal(data,dataChart)){
-                    dataChart = data;
-                    chart(data);
+                        dataChart = data;
+                    chart('myChart',dataChart,['고등학교 미만 졸업','고졸','학원','대학교','석사','박사']);
+
                 }})
                 .catch(error => {console.log(error)})
         }
         refreshData();
+        function refreshDataDisability() {
+            fetch("/ktl_cy/admin/php/fnc/chartDisability.php")
+                .then(res=>res.json())
+                .then(data => {
+                    if (dataDisability.length < 1){
+                        dataDisability = data;
+
+                        chart("ChartDisabilities",dataDisability,['중증','경증']);
+                    }else if (!equal(data,dataDisability)){
+                        dataDisability = data;
+
+                        chart("ChartDisabilities",dataDisability,['중증','경증']);
+                    }})
+                .catch(error => {console.log(error)})
+        }
+        refreshDataDisability();
+        function refreshDataMajor() {
+            fetch("/ktl_cy/admin/php/fnc/chartMajor.php")
+                .then(res=>res.json())
+                .then(data => {
+                    if (dataMajor.length < 1){
+                        dataMajor = data;
+
+                        chart("ChartMajor",dataMajor,['바이올린','첼로','하프','풀루트','오보에','클라리넷','바순','트럼폣','호른','비올라','베이스','팀파니','기타 (직접작성)']);
+                    }else if (!equal(data,dataMajor)){
+
+                        dataMajor = data;
+                        chart("ChartMajor",dataMajor,['바이올린','첼로','하프','풀루트','오보에','클라리넷','바순','트럼폣','호른','비올라','베이스','팀파니','기타 (직접작성)']);
+                    }})
+                .catch(error => {console.log(error)})
+        }
+        refreshDataMajor();
+
     });
     function equal(data , dataChart){
         for (let i = 0 ; i < data.length ; i++){
@@ -306,21 +414,12 @@ session_start();
         return true;
     }
 
-    function chart(data){
-
-        const ctx = document.getElementById('myChart');
+    function chart(name,data ,labels){
+        const ctx = document.getElementById(name);
         const myChart = new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: [
-
-                    '고졸',
-                    '전문대',
-                    '학사 (편입포함)',
-                    '석사',
-                    '박사',
-                    '기타',
-                ],
+                labels:labels,
                 datasets: [{
                     label: 'My First Dataset',
                     data: data,
@@ -331,6 +430,13 @@ session_start();
                         'rgb(255, 120, 76)',
                         'rgb(255, 10, 66)',
                         'rgb(255, 140, 56)',
+                        'rgb(255, 30, 56)',
+                        'rgb(255, 10, 56)',
+                        'rgb(255, 255, 56)',
+                        'rgb(255, 200, 56)',
+                        'rgb(255, 50, 30)',
+                        'rgb(255, 68, 10)',
+                        'rgb(255, 72, 40)',
                     ],
                     hoverOffset: 4
                 }]
@@ -347,14 +453,154 @@ session_start();
             }
         });
     }
+    function checkName(name){
+        switch (name) {
+            case 1:
+                name =  "바이올린";
+                break;
+            case 2:
+                name = "첼로";
+                break;
+            case 3:
+                name = "하프";
+                break;
+            case 4:
+                name = "풀루트";
+                break;
+            case 5:
+                name = "오보에";
+                break;
+            case 6:
+                name = "클라리넷";
+                break;
+            case 7:
+                name = "바순";
+                break;
+            case 8:
+                name = "트럼폣";
+                break;
+            case 9:
+                name = "호른";
+                break;
+            case 10:
+                name = "비올라";
+                break;
+            case 11:
+                name = "베이스";
+                break;
+            case 12:
+                name = "팀파니";
+                break;
+            case 0:
+                name = "기타 (직접작성)";
+                break;
+            default:
+                name = "error";
+        }
+        return name;
+    }
     function preview(data) {
+
+        fetch("/ktl_cy/admin/php/fnc/prize.php?Id="+data['id'])
+            .then(res=>res.json())
+            .then(dataPrize => {
+                let htmlPrize ='';
+                console.log(dataPrize);
+                for (let i = 0 ; i < dataPrize.length; i++){
+                    htmlPrize += `
+                    <tr style="font-size: 14px">
+                        <td>${dataPrize[i].title}</td>
+                        <td>${dataPrize[i].date}</td>
+                    </tr>
+                    `
+                }
+                $('#dataPrize').empty();
+                $('#dataPrize').append(htmlPrize);
+
+            })
+            .catch(error => {console.log(error)});
+
+        fetch("/ktl_cy/admin/php/fnc/university.php?Id="+data['id'])
+            .then(res=>res.json())
+            .then(dataUniversity => {
+                console.log(dataUniversity);
+
+                let htmlSchool='';
+                if (data['status_graduation_high_school'] == 1){
+                    htmlSchool = `<tr style="font-size: 14px">
+                            <th scope="col">대학</th>
+                            <th scope="col">  </th>
+                            <th scope="col">${data['graduation_high_school_year'] == null ? "" : data['graduation_high_school_year'] } </th>
+                            <th scope="col"> ${data['name_high_school'] == null ? "" : data['name_high_school'] }</th>
+                            <th scope="col"></th>
+                            <th scope="col"> </th>
+                             <th scope="col"> </th>
+                        </tr>`;
+                }
+
+                for (let i = 0 ; i < dataUniversity.length; i++){
+                    if (dataUniversity[i].type == 'college'){
+                        htmlSchool += `
+                         <tr style="font-size: 14px">
+                            <th scope="col">대학 학위</th>
+                    `
+                    }else if (dataUniversity[i].type == 'university'){
+                        htmlSchool += `
+                         <tr style="font-size: 14px">
+                            <th scope="col">대학 학위</th>
+                    `
+                    }if (dataUniversity[i].type == 'postgraduate' && dataUniversity[i].degree == 1 ){
+                        htmlSchool += `
+                         <tr style="font-size: 14px">
+                            <th scope="col">석사 학위</th>
+                    `
+                    }else {
+                        htmlSchool += `
+                         <tr style="font-size: 14px">
+                            <th scope="col">박사</th>
+                    `
+                    }
+                    htmlSchool += `
+                            <th scope="col">${dataUniversity[i].date_start}</th>
+                            <th scope="col">${dataUniversity[i].date_end} </th>
+                            <th scope="col"> ${dataUniversity[i].name}</th>
+                            <th scope="col">${checkName(parseInt(dataUniversity[i].main_major))}</th>
+                            <th scope="col">${dataUniversity[i].poit_average} </th>
+                            <th scope="col">${dataUniversity[i].total_point} </th>
+                        </tr>`
+                }
+                $('#degree').empty();
+                $('#degree').append(htmlSchool);
+            })
+            .catch(error => {console.log(error)});
+        fetch("/ktl_cy/admin/php/fnc/resume.php?Id="+data['id'])
+            .then(res=>res.json())
+            .then(dataPrize => {
+                let htmlResume ='';
+                console.log(dataPrize);
+                for (let i = 0 ; i < dataPrize.length; i++){
+                    htmlResume += `
+                            <tr style="font-size: 16px">
+                                <th scope="row">${dataPrize[i].name_type}</th>
+                            </tr>
+                            <tr style="font-size: 14px">
+                                <td>${dataPrize[i].content}</td>
+                            </tr>
+                    `
+                }
+                $('#resume').empty();
+                $('#resume').append(htmlResume);
+
+            })
+            .catch(error => {console.log(error)});
+
         let html = `
         <div  >
 
         <div class="container-fluid ">
             <div class="row " style=" border-bottom: 1px solid grey">
                 <div class="col " style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
-                    ?? ??? ??? ???? ?????.
+                   ${data['username']}
                 </div>
             </div>
         </div>
@@ -362,263 +608,94 @@ session_start();
         <div class="container-fluid">
             <div class="row">
                 <div class="col " >
-                    <span style=" font-size: 1.3rem; color: #212121;font-weight: bold;">???</span> 1989? (34?/? 33?) ?
+                    <span style=" font-size: 1.3rem; color: #212121;font-weight: bold;"></span>
                 </div>
             </div>
         </div>
         <div class="container-fluid mt-2 mb-2" style="margin-left: 8px;">
             <div class="row mx">
-                <div>
-                    <i class="fa-solid fa-square-envelope" style="color: grey"></i> <span>hihi@gmail.com</span>
+                <div class="mr-5">
+                    <i class="fa-solid fa-square-envelope" style="color: grey"></i> <span>${data['email']}</span>
                 </div>
-                <div class="mx">
-                    <i class="fa-solid fa-phone" style="color: grey"></i> <span>0987678888</span>
+                <div class=" mr-5">
+                    <i class="fa-solid fa-phone" style="color: grey"></i> <span>${data['phone']}</span>
                 </div>
-                <div class="mx">
-                    <i class="fa-solid fa-mobile-screen-button" style="color: grey"></i> <span>0987679999</span>
-                </div>
-                <div class="mx">
-                    <i class="fa-solid fa-house-user" style="color: grey"></i><span>Address: 123/123/123</span>
+                <div class="mr-5">
+                    <i class="fa-solid fa-house-user" style="color: grey"></i><span>Address: ${data['able_detailAddress']}</span>
                 </div>
             </div>
         </div>
         <!-- Content Header (Page header) -->
-        <div class="row">
-         <div class=" col-lg-12 col-xl-6  col-md-12 col-sm-12 col-xs-12">
+
+   <div class="row mt-3">
+         <div class=" col-lg-12 col-xl-12  col-md-12 col-sm-12 col-xs-12">
           <div class="container-fluid" >
             <div class="row">
                 <div class="col mx" style="margin-right: 1rem">
                     <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
-                        ????
+                        학력사항
                     </div>
-                     <table class="table table-borderless">
-                        <thead style="background: #F3EFF9;border-top: 1px solid">
-                        <tr>
-                            <th scope="col">vfvf</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                            <th scope="col">Handle</th>
+                     <table class="table table-borderless" style="text-align: center">
+                        <thead style="background:#e1fbff;border-top: 1px solid">
+                        <tr style="font-size: 16px">
+                            <th scope="col">학력</th>
+                            <th scope="col">입학년일 </th>
+                            <th scope="col">졸업년일 </th>
+                            <th scope="col">학교명 </th>
+
+                            <th scope="col">전공</th>
+                            <th scope="col">학점</th>
+                            <th scope="col">총점</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>@mdo</td>
-                        </tr>
+                        <tbody id="degree">
+
                         </tbody>
                     </table>
                 </div>
             </div>
           </div>
         </div>
-        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-6">
+
+        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-6 mt-3">
              <div class="container-fluid">
                 <div class="row">
                     <div class="col mx" style="margin-right: 1rem">
                         <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
-                            ????
+                            수상
                         </div>
                          <table class="table table-borderless">
-                            <thead style="background: #F3EFF9;border-top: 1px solid">
-                            <tr>
-                                <th scope="col">vfvf</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                                <th scope="col">Handle</th>
+                            <thead style="background:#e1fbff;border-top: 1px solid" >
+                            <tr style="font-size: 16px">
+                                <th scope="col">수상명</th>
+                                <th scope="col">수상 날짜</th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td>@fat</td>
-                            </tr>
+                            <tbody id="dataPrize">
+
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-   <div class="row">
-         <div class=" col-lg-12 col-xl-6  col-md-12 col-sm-12 col-xs-12">
-          <div class="container-fluid" >
-            <div class="row">
-                <div class="col mx" style="margin-right: 1rem">
-                    <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
-                        ????
-                    </div>
-                     <table class="table table-borderless">
-                        <thead style="background: #F3EFF9;border-top: 1px solid">
-                        <tr>
-                            <th scope="col">vfvf</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>@mdo</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-6">
+        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-6 mt-3">
              <div class="container-fluid">
                 <div class="row">
                     <div class="col mx" style="margin-right: 1rem">
-                        <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
-                            ????
+                        <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;border-bottom: 1px solid">
+                         자기소개서
                         </div>
                          <table class="table table-borderless">
-                            <thead style="background: #F3EFF9;border-top: 1px solid">
-                            <tr>
-                                <th style="width: 25%">vfvf</th>
-                                <th style="width: 75% ; text-align: center" >First</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
+                            <tbody id='resume'>
 
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-
-                            </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-   <div class="row">
-         <div class=" col-lg-12 col-xl-6  col-md-12 col-sm-12 col-xs-12">
-          <div class="container-fluid" >
-            <div class="row">
-                <div class="col mx" style="margin-right: 1rem">
-                    <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
-                        ????
-                    </div>
-                     <table class="table table-borderless">
-                        <thead style="background: #F3EFF9;border-top: 1px solid">
-                        <tr>
-                            <th scope="col">vfvf</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-6">
-             <div class="container-fluid">
-                <div class="row">
-                    <div class="col mx" style="margin-right: 1rem">
-                        <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
-                            ????
-                        </div>
-                         <table class="table table-borderless">
-                            <thead style="background: #F3EFF9;border-top: 1px solid">
-                            <tr>
-                                <th scope="col">vfvf</th>
 
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
         `
         $("#table_profile").empty();
@@ -662,7 +739,28 @@ session_start();
         $("#nav_5_2").attr("class","nav-link active");
     }
 
+    function sort(){
+        fetch("/ktl_cy/admin/php/fnc/sortReview.php?=")
+            .then(res=>res.json())
+            .then(dataSort => {
+                let htmlPrize ='';
+                console.log(dataPrize);
+                // for (let i = 0 ; i < dataPrize.length; i++){
+                //     htmlPrize += `
+                //     <tr style="font-size: 14px">
+                //         <td>${dataPrize[i].title}</td>
+                //         <td>${dataPrize[i].date}</td>
+                //     </tr>
+                //     `
+                // }
+                // $('#dataPrize').empty();
+                // $('#dataPrize').append(htmlPrize);
 
+            })
+            .catch(error => {console.log(error)});
+
+
+    }
 
 
     function onApplyView(Id,step)
