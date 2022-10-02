@@ -19,66 +19,80 @@
             </div>
 
             <form action="../ktl/php/fnc/submit_file.php" id="form" method="post" enctype="multipart/form-data">
+
                 <div class="container" style="border: 1px solid #e8e8ea">
-                    <div class="row" style="padding: 1rem;">
-                        <div>
-                            <div class="col">
-                                자격증사본 <span style="color: #d05245">*첨부파일 형식은 로 제출부탁드립니다.</span>
+
+                    <div>
+                        <div class="row" style="padding: 1rem;">
+                            <div>
+                                <div class="col">
+                                    자격증사본 <span style="color: #d05245">*첨부파일 형식은 로 제출부탁드립니다.</span>
+                                </div>
+                                <div class="col">
+                                    <input type="file" name="file1">
+                                </div>
                             </div>
-                            <div class="col">
-                                <input type="file" name="file1">
+
+
+                        </div>
+                        <div class="row" style="padding: 1rem;">
+                            <div>
+                                <div class="col">
+                                    경력증명서 <span style="color: #d05245">*첨부파일 형식은 로 제출부탁드립니다. </span>
+                                </div>
+                                <div class="col">
+                                    <input type="file" name="file2" >
+                                </div>
                             </div>
+
+
+                        </div>
+                        <div class="row" style="padding: 1rem;">
+                            <div>
+                                <div class="col">
+                                    건강보험자격득실확인서 <span style="color: #d05245">*첨부파일 형식은 로 제출부탁드립니다. </span>
+                                </div>
+                                <div class="col">
+                                    <input type="file" name="file3">
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row" style="padding: 1rem;">
+                            <div>
+                                <div class="col">
+                                    고용보험피보험자격이력내역서 <span style="color: #d05245">*첨부파일 형식은 로 제출부탁드립니다. </span>
+                                </div>
+                                <div class="col">
+                                    <input type="file" name="file4">
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row" style="padding: 1rem;">
+                            <div>
+                                <div class="col">
+                                    병적증명서/초본(병역사항)/군경력증명서 <span style="color: #d05245">*첨부파일 형식은 로 제출부탁드립니다.</span>
+                                </div>
+                                <div class="col">
+                                    <input type="file" name="file5">
+                                </div>
+                            </div>
+
                         </div>
 
 
-                    </div>
-                    <div class="row" style="padding: 1rem;">
-                        <div>
-                            <div class="col">
-                                경력증명서 <span style="color: #d05245">*첨부파일 형식은 로 제출부탁드립니다. </span>
-                            </div>
-                            <div class="col">
-                                <input type="file" name="file2" >
-                            </div>
-                        </div>
+
+
+<!--                        form-->
 
 
                     </div>
-                    <div class="row" style="padding: 1rem;">
-                        <div>
-                            <div class="col">
-                                건강보험자격득실확인서 <span style="color: #d05245">*첨부파일 형식은 로 제출부탁드립니다. </span>
-                            </div>
-                            <div class="col">
-                                <input type="file" name="file3">
-                            </div>
-                        </div>
 
 
-                    </div>
-                    <div class="row" style="padding: 1rem;">
-                        <div>
-                            <div class="col">
-                                고용보험피보험자격이력내역서 <span style="color: #d05245">*첨부파일 형식은 로 제출부탁드립니다. </span>
-                            </div>
-                            <div class="col">
-                                <input type="file" name="file4">
-                            </div>
-                        </div>
 
-
-                    </div>
-                    <div class="row" style="padding: 1rem;">
-                        <div>
-                            <div class="col">
-                                병적증명서/초본(병역사항)/군경력증명서 <span style="color: #d05245">*첨부파일 형식은 로 제출부탁드립니다.</span>
-                            </div>
-                            <div class="col">
-                                <input type="file" name="file5">
-                            </div>
-                        </div>
-
-                    </div>
                     <div class="col">
                         <div style="padding: 0.2rem; margin-bottom: 1rem">
                             <button class="btn btn-primary" onclick="handSubmit()">
@@ -87,6 +101,8 @@
                         </div>
                     </div>
                 </div>
+
+
             </form>
 
 

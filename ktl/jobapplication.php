@@ -21,7 +21,7 @@
             </div>
             <form id="onSubmit" action="../ktl/php/fnc/recruit_step.php" method="post">
                 <div class="flex">
-                    <div class="form_title" >
+                    <div class="form_title">
                         <h6>공고명</h6>
                     </div>
                     <div class="form_con">
@@ -104,6 +104,28 @@
                             <input type="password" id='userpass_check' placeholder="비밀번호 확인을 위해 다시 한번 입력해주세요." required>
                             <span class="noti errorPassword" style="color: red; font-size: small">(*) <span
                                         class="textlength"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex baseline">
+                    <div class="form_title">
+                        <h6>이메일 또는 전화번호 확인</h6>
+                    </div>
+                    <div class="form_con">
+                        <div class="flex-direction inputbox" >
+                           <div style="display: flex ">
+                               <div >
+                                   <button class="btn btn-dark">
+                                       email
+                                   </button>
+                               </div>
+                               <div style="margin-left: 0.5rem;">
+                                   <button class="btn btn-dark">
+                                       password
+                                   </button>
+                               </div>
+                           </div>
                         </div>
                     </div>
                 </div>

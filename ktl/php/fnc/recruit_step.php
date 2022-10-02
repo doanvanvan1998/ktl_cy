@@ -53,14 +53,13 @@ $userpass = Encrypt($userpass, $secret_key, $secret_iv);
 //}
 // create random code
 
-$rand_code = mt_rand(100, 10000);
 //
-$query = "INSERT INTO `recruit_able_user`( `imp_uid`, `username`, `phone`, `email`, `pass`, `rand_code`, `acept_rule`) VALUES ('$imp_uid','$username','$phone','$useremail','$userpass','$rand_code','')";
+$query = "INSERT INTO `recruit_able_user`( `imp_uid`, `username`, `phone`, `email`, `pass`, `acept_rule`) VALUES ('$imp_uid','$username','$phone','$useremail','$userpass','')";
 $result = mysqli_query($con, $query);
 if ($result) {
     header("Location: ../../verify_email.php?email=$useremail");
 } else {
-    echo "fail";
+    echo " fails";
 }
 mysqli_close($con);
 ?>

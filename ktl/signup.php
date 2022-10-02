@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script src="js/sign_up_step1.js" charset="utf-8"></script>
 
     <title>한국산업기술시험원</title>
 </head>
@@ -27,7 +28,6 @@
     <br>
     <div class="container">
         <div class="signup_form">
-
             <div class="tab-wrapper">
                 <div class="tab-heading d-flex cursor">
                     <div class="tab-item active" tabindex="1">
@@ -43,7 +43,7 @@
                     </div>
                 </div>
 
-                <form action="../ktl/php/fnc/signup.php" method="post">
+                <form id="form_step_1">
                     <div class="tab-content">
                         <h3>Thông tin cơ bản</h3>
                         <hr>
@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="col-md-9">
                                     <input type="text" class="" id="field-name"
-                                           placeholder="Enter email">
+                                           placeholder="Enter Name">
                                 </div>
                             </div>
 
@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="col-md-9">
                                     <input type="text" class="" id="field-phone"
-                                           placeholder="Enter email">
+                                           placeholder="Enter Phone">
                                 </div>
                             </div>
 
@@ -92,7 +92,7 @@
                                     </label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" name="address" class="" id="field-email"
+                                    <input type="text" name="address" class="" id="field-address"
                                            placeholder="Enter address">
                                 </div>
                             </div>
@@ -119,15 +119,14 @@
                                             </span>
                                         </label>
 
-                                        <select name="level_disabilities " class="form-control"
+                                        <select name="level_disabilities " class="form-control" id="level_disabilities"
                                                 style="width: 30%;margin-left:0.1rem">
-                                            <option value="0">Mức độ khuyết tật</option>
-                                            <option value="1">Mức độ khuyết tật</option>
-                                            <option value="3">Mức độ khuyết tật</option>
-                                            <option value="4">Mức độ khuyết tật</option>
+                                            <option value="0">Nhẹ</option>
+                                            <option value="1">Nặng</option>
+
                                         </select>
 
-                                        <select name="content_disabilities " class="form-control"
+                                        <select name="content_disabilities " class="form-control" id="content_disabilities"
                                                 style="width: 30%;margin-left:0.1rem">
                                             <option value="">Nội dung khuyết tật</option>
                                             <option value="0">Nội dung khuyết tật</option>
@@ -203,25 +202,6 @@
                                 </div>
                             </div>
 
-                            <!--                    <div class="row form-item">-->
-                            <!--                        <div class="col-md-3">-->
-                            <!--                            Người có công-->
-                            <!--                        </div>-->
-                            <!--                        <div class="col-md-9">-->
-                            <!--                            <div class="d-flex" style="gap:0.5rem">-->
-                            <!--                                <label>-->
-                            <!--                                    <input type="radio" name="meritorious_person">-->
-                            <!--                                    <span>Không</span>-->
-                            <!--                                </label>-->
-
-                            <!--                                <label>-->
-                            <!--                                    <input type="radio" name="meritorious_person">-->
-                            <!--                                    <span>Có</span>-->
-                            <!--                                </label>-->
-                            <!--                            </div>-->
-                            <!--                        </div>-->
-                            <!--                    </div>-->
-
                             <div class="row form-item">
                                 <div class="col-md-3">
                                     Chế độ ưu tiên
@@ -284,8 +264,8 @@
                             </div>
 
                             <div class="row form-item d-flex justify-content-center" style="gap:0.5rem;margin-top:1rem">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                                <button type="submit" class="btn btn-primary">Tiếp theo</button>
+                                <button type="submit" class="btn btn-primary" onclick="save()">Submit</button>
+                                <button type="submit" class="btn btn-primary" onclick="nextStep()">Tiếp theo</button>
                             </div>
                         </div>
                     </div>
@@ -295,7 +275,7 @@
                     <div class="tab-content hidden">
                         <h3>Học vấn/ Kinh nghiệm/ Chương trình giáo dục</h3>
                         <hr>
-                        <div class="row form-item">
+                        <div class="row form-item high-school-row">
                             <div class="col-md-3">
                                 <label for="">
                                     고등학교 학력
@@ -313,19 +293,21 @@
                                         <option value="1">Chưa tốt nghiệp</option>
                                     </select>
                                     <div style="flex-wrap: wrap;gap:0.5rem" class="d-flex main-profile-wrapper">
-                                        <label class="custom-checkbox">
-                                            <input type="checkbox" name="injoin_university" value="1">
+                                        <label class="custom-circle-radio injoin_university">
+                                            <input type="radio" name="injoin_university" value="1">
                                             <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
-                                            <span class="text">Tham gia </span>
+                                            <span class="text">Tham gia tuyển sinh đại học</span>
                                         </label>
-                                        <label class="custom-checkbox">
-                                            <input type="checkbox" name="not_injoin_university" value="1">
+
+
+                                        <label class="custom-circle-radio injoin_university">
+                                            <input type="radio" name="injoin_university" value="0">
                                             <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
-                                            <span class="text">Tham gia </span>
+                                            <span class="text">Chưa tốt nghiệp THPT</span>
                                         </label>
 
                                     </div>
@@ -334,7 +316,7 @@
                         </div>
 
 
-                        <div class="row form-item">
+                        <div class="row form-item academy-row">
                             <div class="col-md-3">
                                 <label>Đại học</label>
                             </div>
@@ -342,7 +324,8 @@
                             <div class="col-md-9">
                                 <div class="duplicate-section academy">
                                     <div class="d-flex" style="gap:0.5rem">
-                                        <input type="text" class="academy_name" placeholder="Tên trường" id="academy_name">
+                                        <input type="text" class="academy_name" placeholder="Tên trường"
+                                               id="academy_name">
                                         <input type="date" class="academy_start_date" placeholder="Tháng  năm nhập học"
                                                id="academy_start_date">
                                         <input type="date" class="academy_end_date" placeholder="Tháng năm tốt nghiệp"
@@ -373,8 +356,10 @@
                                 <div class="duplicate-section postgraduate">
                                     <div class="d-flex" style="gap:0.5rem">
                                         <input type="text" class="postgraduate_name" placeholder="Tên trường">
-                                        <input type="date" class="postgraduate_start_date" placeholder="Tháng năm nhập học">
-                                        <input type="date" class="postgraduate_end_date" placeholder="Tháng năm tốt nghiệp">
+                                        <input type="date" class="postgraduate_start_date"
+                                               placeholder="Tháng năm nhập học">
+                                        <input type="date" class="postgraduate_end_date"
+                                               placeholder="Tháng năm tốt nghiệp">
                                         <select class="postgraduate_type">
                                             <option value="1"> Tốt nghiệp</option>
                                             <option value="0">Chưa tốt nghiệp</option>
@@ -502,7 +487,8 @@
                                                placeholder=" Vui lòng nhập tên chi nhánh / tổ chức / nhóm hoặc tên cuộc thi / buổi hòa nhạc bạn đã tham gia.">
                                     </div>
                                     <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
-                                        <input class="activity_content" type="text" placeholder="Nhập nội dung hoạt động">
+                                        <input class="activity_content" type="text"
+                                               placeholder="Nhập nội dung hoạt động">
                                         <div class="btn-add-more">+</div>
                                     </div>
                                 </div>
@@ -517,13 +503,15 @@
                                 <div class="duplicate-section training">
                                     <div class="d-flex" style="gap:0.5rem">
                                         <input type="text" class="training_name" placeholder="Tên Chương trình đào tạo">
-                                        <input type="text" class="training_organization" placeholder="Tên tổ chức đào tạo">
+                                        <input type="text" class="training_organization"
+                                               placeholder="Tên tổ chức đào tạo">
                                         <input type="date" class="training_date_start" placeholder="Ngày bắt đầu">
                                         <input type="date" class="training_end_date" placeholder="Ngày kết thúc">
                                         <div class="btn-add-more">+</div>
                                     </div>
                                     <div class="d-flex" style="margin-top:0.5rem">
-                                        <input type="text" placeholder="Tóm tắt nội dung đào tạo" name="training_content">
+                                        <input type="text" placeholder="Tóm tắt nội dung đào tạo"
+                                               name="training_content">
                                     </div>
                                 </div>
                             </div>
@@ -572,7 +560,7 @@
                                     <input type="text" class="award_name" placeholder="Tên cuộc thi/giải thưởng">
                                     <input type="text" class="award_issued_by" placeholder="Cơ quan cấp">
                                     <input type="date" class="award_date_issued" placeholder="Ngày-tháng-năm">
-                                    <input type="date" class="award_type" placeholder="Ngày-tháng-năm">
+                                    <input type="date" class="award_date_expired" placeholder="Ngày-tháng-năm">
                                     <button class="btn-add-more">+</button>
                                 </div>
                                 <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
@@ -588,7 +576,7 @@
                         </div>
                         <div class="col-md-9">
                             <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
-                                <input type="file" placeholder="Chưa có file nào được chọn">
+                                <input type="file" id="portfolio_file" placeholder="Chưa có file nào được chọn">
                             </div>
                         </div>
                     </div>
@@ -599,7 +587,7 @@
                         </div>
                         <div class="col-md-9">
                             <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
-                                <input type="url" placeholder="https://">
+                                <input type="url" id="step4Url" placeholder="https://">
                             </div>
                         </div>
                     </div>
@@ -608,7 +596,7 @@
                             <button class="btn btn-light">Bước trước</button>
                         </div>
                         <div style="margin-left: 0.5rem; margin-right: 0.5rem">
-                            <button class="btn btn-secondary"> Lưu tạm thời</button>
+                            <button class="btn btn-secondary" id='tempStep4'> Lưu tạm thời</button>
                         </div>
                         <div>
                             <button class="btn btn-primary" onclick="handSubmitStep4()"> Submit</button>
@@ -632,12 +620,14 @@
                                             <option value="1">Động cơ</option>
                                             <option value="2">Điểm mạnh và điểm yếu của nhân các</option>
                                             <option value="3">Nguyện vọng sau khi tham gia</option>
-                                            <option value="4">Mô tả điều gì khác biệt với những người khác và những nỗ lực
+                                            <option value="4">Mô tả điều gì khác biệt với những người khác và những nỗ
+                                                lực
                                                 bạn đã thực
                                                 hiện để đạt được điều đó
                                             </option>
                                             <option value="5">
-                                                Chọn và mô tả một ví dụ về trải nghiệm mà bạn đã thành công khi hoàn thành
+                                                Chọn và mô tả một ví dụ về trải nghiệm mà bạn đã thành công khi hoàn
+                                                thành
                                                 một
                                                 nhiệm vụ khó khăn và bạn thử nhưng không thành công
                                             </option>
@@ -718,52 +708,6 @@
 </body>
 
 <script>
-
-    function handSubmitStep4() {
-        $('#form_step_4').submit();
-    }
-
-    // function handSubmitStep2() {
-    //     $('#form_step_2').submit(function (){
-    //          alert($("#hight_school").val());
-    //         //  alert($("#status_graduate").val());
-    //         // alert($("#date_graduate_school").val());
-    //         //  alert($('input[name="injoin_university"]:checked').val());
-    //
-    //         // alert($('input[name="not_injoin_university"]:checked').val());
-    //
-    //          alert($("#academy_name").val());
-    //         // alert($("#academy_start_date").val());
-    //         // alert($("#academy_end_date").val());
-    //         // alert($("#academy_major").val());
-    //         // alert($("#academy_avager_gpa").val());
-    //         // alert($("#academy_total_gpa").val());
-    //         // alert($("#postgraduate_name").val());
-    //         // alert($("#postgraduate_start_date").val());
-    //         // alert($("#postgraduate_end_date").val());
-    //         // alert($("#postgraduate_major").val());
-    //         // alert($("#postgraduate_avage_gpa").val());
-    //         // alert($("#postgraduate_total_gpa").val());
-    //         //
-    //         // alert($("#activity_start_date").val());
-    //         // alert($("#activity_end_date").val());
-    //         // alert($("#activity_organization").val());
-    //         // alert($("#activity_content").val());
-    //         // alert($("#postgraduate_total_gpa").val());
-    //         //
-    //         //
-    //         // alert($("#training_name").val());
-    //         // alert($("#training_organization").val());
-    //         // alert($("#training_date_start").val());
-    //         // alert($("#training_end_date").val());
-    //         // alert($("#training_content").val());
-    //
-    //
-    //
-    //     });
-    // }
-
-
     function changePlusToMinus(index, removeDuplicateSection) {
         if (index > 0) {
             $(this).html('-');
@@ -837,6 +781,19 @@
     }
 
     $(document).ready(function () {
+
+        $('.injoin_university input[type="radio"]').change(function () {
+            if ($(this).is(':checked') && $(this).val() == 1) {
+                $('.disable-input').removeClass('disable-input');
+                $(this).closest('.high-school-row').addClass('disable-input');
+            } else {
+                $('.disable-input').removeClass('disable-input');
+                $(this).closest('.high-school-row').parent().find('.academy-row')
+                    .addClass('disable-input');
+            }
+        });
+
+
         reIndex();
         $('.tab-heading .tab-item').click(function () {
             $(this).closest('.tab-wrapper').find('.tab-item').removeClass('active');
@@ -905,6 +862,7 @@
             $(element).closest('.duplicate-section').remove();
             indexing();
         }
+
 
     });
 </script>
@@ -1003,6 +961,18 @@
         padding-right: 0.6rem;
     }
 
+    label.custom-checkbox input[type="radio"] + span {
+        border: unset;
+        cursor: unset;
+        display: unset;
+        min-width: unset;
+        text-align: unset;
+        height: unset;
+        padding-top: unset;
+        padding-left: unset;
+        padding-right: unset;
+    }
+
     label input[type="radio"] {
         display: none;
     }
@@ -1055,6 +1025,7 @@
         float: left
     }
 
+
     .custom-checkbox .icon .fas {
         display: none;
         cursor: pointer;
@@ -1073,5 +1044,47 @@
     .duplicate-section {
         margin-top: 0.5rem;
     }
+
+    label.custom-circle-radio .icon {
+        display: inline-block;
+        margin-top: 0.2rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        border: 1px solid #e4e4e4;
+        border-radius: 999px;
+        float: left;
+        min-width: unset;
+        padding: unset;
+    }
+
+    label.custom-circle-radio .icon .fas {
+        display: none;
+        cursor: pointer;
+        color: white;
+        margin-top: 0.1rem;
+    }
+
+    label.custom-circle-radio input:checked + .icon {
+        background: #0077ff;
+    }
+
+    label.custom-circle-radio input:checked + .icon .fas {
+        display: block;
+    }
+
+    label.custom-circle-radio .text {
+        margin-left: 0.2rem
+    }
+
+    .disable-input {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+
 </style>
+
+
+<script src="js/signup.js"></script>
+
 </html>
