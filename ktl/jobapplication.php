@@ -117,12 +117,12 @@
                            <div style="display: flex ">
                                <div >
                                    <button class="btn btn-dark">
-                                       cdcdc
+                                       email
                                    </button>
                                </div>
                                <div style="margin-left: 0.5rem;">
                                    <button class="btn btn-dark">
-                                       ccdc
+                                       password
                                    </button>
                                </div>
                            </div>
