@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -46,242 +45,251 @@
                 </div>
             </div>
 
-            <div class="tab-content">
-                <h3>Thông tin cơ bản</h3>
-                <hr>
-                <div>
-                    <div class="row form-item">
-                        <div class="col-md-3">
-                            <label for="">
-                                Tên
-                            </label>
+            <form action="../ktl/php/fnc/signup.php" method="post">
+                <div class="tab-content">
+                    <h3>Thông tin cơ bản</h3>
+                    <hr>
+                    <div>
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                <label for="">
+                                    Tên
+                                </label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" class="" id="field-name"
+                                       placeholder="Enter email">
+                            </div>
                         </div>
-                        <div class="col-md-9">
-                            <input type="text" class="" id="field-name"
-                                   placeholder="Enter email">
-                        </div>
-                    </div>
 
-                    <div class="row form-item">
-                        <div class="col-md-3">
-                            <label for="">
-                                SDT
-                            </label>
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                <label for="">
+                                    SDT
+                                </label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" class="" id="field-phone"
+                                       placeholder="Enter email">
+                            </div>
                         </div>
-                        <div class="col-md-9">
-                            <input type="text" class="" id="field-phone"
-                                   placeholder="Enter email">
-                        </div>
-                    </div>
 
-                    <div class="row form-item">
-                        <div class="col-md-3">
-                            <label for="">
-                                Email
-                            </label>
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                <label for="">
+                                    Email
+                                </label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="email" class="" id="field-email"
+                                       placeholder="Enter Email">
+                            </div>
                         </div>
-                        <div class="col-md-9">
-                            <input type="email" class="" id="field-email"
-                                   placeholder="Enter Email">
-                        </div>
-                    </div>
 
 
-                    <div class="row form-item">
-                        <div class="col-md-3">
-                            <label for="">
-                                Địa chỉ
-                            </label>
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                <label for="">
+                                    Địa chỉ
+                                </label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" name="address" class="" id="field-email"
+                                       placeholder="Enter address">
+                            </div>
                         </div>
-                        <div class="col-md-9">
-                            <input type="email" class="" id="field-email"
-                                   placeholder="Enter Email">
-                        </div>
-                    </div>
 
-                    <div class="row form-item">
-                        <div class="col-md-3">
-                            <label for="">Khuyết tật</label>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="d-flex" style="gap:0.5rem">
-                                <label>
-                                    <input type="radio" name="disabilities">
-                                    <span>
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                <label for="">Khuyết tật</label>
+                            </div>
+
+
+                            <div class="col-md-9">
+                                <div class="d-flex" style="gap:0.5rem">
+                                    <label>
+                                        <input type="radio" name="disabilities" value="1">
+                                             <span>
                                                 <span>Có</span>
                                             </span>
-                                </label>
+                                    </label>
 
-                                <label>
-                                    <input type="radio" name="disabilities">
-                                    <span>
+                                    <label>
+                                        <input type="radio" name="disabilities" value="0">
+                                        <span>
                                                 <span>Không</span>
                                             </span>
-                                </label>
+                                    </label>
 
-                                <select class="form-control" style="width: 30%;margin-left:0.1rem">
-                                    <option>Mức độ khuyết tật</option>
-                                </select>
+                                    <select name="level_disabilities "  class="form-control" style="width: 30%;margin-left:0.1rem">
+                                        <option value="0">Mức độ khuyết tật</option>
+                                        <option value="1">Mức độ khuyết tật</option>
+                                        <option value="3">Mức độ khuyết tật</option>
+                                        <option value="4">Mức độ khuyết tật</option>
+                                    </select>
 
-                                <select class="form-control" style="width: 30%;margin-left:0.1rem">
-                                    <option>Nội dung khuyết tật</option>
-                                </select>
+                                    <select   name="content_disabilities " class="form-control" style="width: 30%;margin-left:0.1rem">
+                                        <option value="">Nội dung khuyết tật</option>
+                                        <option value="0">Nội dung khuyết tật</option>
+                                        <option value="1">Nội dung khuyết tật</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row form-item">
-                        <div class="col-md-3">
-                            <label for="">Nghĩa vụ quân sự</label>
-                        </div>
-
-                        <div class="col-md-9">
-
-                        </div>
-                    </div>
-
-
-                    <div class="row form-item">
-                        <div class="col-md-3">
-                            <label for="">Đối tượng nghĩa vụ quân sự</label>
-                        </div>
-
-                        <div class="col-md-9">
-                            <div class="d-flex flex-wrap" style="gap:0.5rem">
-                                <label>
-                                    <input type="radio" name="disabilities">
-                                    <span>Không thuộc đối tượng</span>
-                                </label>
-                                <label>
-                                    <input type="radio" name="disabilities">
-                                    <span>Đã xuất ngũ</span>
-                                </label>
-                                <label>
-                                    <input type="radio" name="disabilities">
-                                    <span>Chưa tham gia</span>
-                                </label>
-                                <label>
-                                    <input type="radio" name="disabilities">
-                                    <span>Được miễn</span>
-                                </label>
-                                <label>
-                                    <input type="radio" name="disabilities">
-                                    <span>Đang tại ngũ</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row form-item">
-                        <div class="col-md-3">
-                            Người điền đơn
-                        </div>
-                        <div class="col-md-9">
-                            <div class="d-flex" style="gap:0.5rem">
-                                <label>
-                                    <input type="radio" name="applicator">
-                                    <span>Tôi</span>
-                                </label>
-
-                                <label>
-                                    <input type="radio" name="applicator">
-                                    <span>Người bảo hộ</span>
-                                </label>
-
-                                <label>
-                                    <input type="radio" name="applicator">
-                                    <span>Người uỷ thác</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--                    <div class="row form-item">-->
-                    <!--                        <div class="col-md-3">-->
-                    <!--                            Người có công-->
-                    <!--                        </div>-->
-                    <!--                        <div class="col-md-9">-->
-                    <!--                            <div class="d-flex" style="gap:0.5rem">-->
-                    <!--                                <label>-->
-                    <!--                                    <input type="radio" name="meritorious_person">-->
-                    <!--                                    <span>Không</span>-->
-                    <!--                                </label>-->
-
-                    <!--                                <label>-->
-                    <!--                                    <input type="radio" name="meritorious_person">-->
-                    <!--                                    <span>Có</span>-->
-                    <!--                                </label>-->
-                    <!--                            </div>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-
-                    <div class="row form-item">
-                        <div class="col-md-3">
-                            Chế độ ưu tiên
-                        </div>
-                        <div class="col-md-9">
-
-                            <div>Người có công</div>
-                            <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
-                                <label>
-                                    <input type="radio" name="low_benefit">
-                                    <span>Không</span>
-                                </label>
-
-                                <label>
-                                    <input type="radio" name="low_benefit">
-                                    <span>Có</span>
-                                </label>
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                <label for="">Nghĩa vụ quân sự</label>
                             </div>
 
+                            <div class="col-md-9">
 
-                            <div>Tầng lớp thu nhập thấp</div>
-                            <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
-                                <label>
-                                    <input type="radio" name="low_benefit">
-                                    <span>Không</span>
-                                </label>
-
-                                <label>
-                                    <input type="radio" name="low_benefit">
-                                    <span>Có</span>
-                                </label>
-                            </div>
-
-                            <div>Người Triều Tiên di cư</div>
-                            <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
-                                <label>
-                                    <input type="radio" name="korea_migrate">
-                                    <span>Không</span>
-                                </label>
-
-                                <label>
-                                    <input type="radio" name="korea_migrate">
-                                    <span>Có</span>
-                                </label>
-                            </div>
-
-                            <div>Con của gia đình di cư</div>
-                            <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
-                                <label>
-                                    <input type="radio" name="son-of-korea-migrate">
-                                    <span>Không</span>
-                                </label>
-
-                                <label>
-                                    <input type="radio" name="son-of-korea-migrate">
-                                    <span>Có</span>
-                                </label>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row form-item d-flex justify-content-center" style="gap:0.5rem;margin-top:1rem">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="submit" class="btn btn-primary">Tiếp theo</button>
+
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                <label for="">Đối tượng nghĩa vụ quân sự</label>
+                            </div>
+
+                            <div class="col-md-9">
+                                <div class="d-flex flex-wrap" style="gap:0.5rem">
+                                    <label>
+                                        <input type="radio" name="duty" value="0">
+                                        <span>Không thuộc đối tượng</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="duty" value="1">
+                                        <span>Đã xuất ngũ</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="duty"  value="2">
+                                        <span>Chưa tham gia</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="duty" value="3">
+                                        <span>Được miễn</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="duty" value="4">
+                                        <span>Đang tại ngũ</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                Người điền đơn
+                            </div>
+                            <div class="col-md-9">
+                                <div class="d-flex" style="gap:0.5rem">
+                                    <label>
+                                        <input type="radio" name="single_user " value="0">
+                                        <span>Tôi</span>
+                                    </label>
+
+                                    <label>
+                                        <input type="radio" name="single_user " value="1">
+                                        <span>Người bảo hộ</span>
+                                    </label>
+
+                                    <label>
+                                        <input type="radio" name="single_user " value="2">
+                                        <span>Người uỷ thác</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--                    <div class="row form-item">-->
+                        <!--                        <div class="col-md-3">-->
+                        <!--                            Người có công-->
+                        <!--                        </div>-->
+                        <!--                        <div class="col-md-9">-->
+                        <!--                            <div class="d-flex" style="gap:0.5rem">-->
+                        <!--                                <label>-->
+                        <!--                                    <input type="radio" name="meritorious_person">-->
+                        <!--                                    <span>Không</span>-->
+                        <!--                                </label>-->
+
+                        <!--                                <label>-->
+                        <!--                                    <input type="radio" name="meritorious_person">-->
+                        <!--                                    <span>Có</span>-->
+                        <!--                                </label>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                        <!--                    </div>-->
+
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                Chế độ ưu tiên
+                            </div>
+                            <div class="col-md-9">
+
+                                <div>Người có công</div>
+                                <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
+                                    <label>
+                                        <input type="radio" name="meritorious_person " value="0">
+                                        <span>Không</span>
+                                    </label>
+
+                                    <label>
+                                        <input type="radio" name="meritorious_person " value="1">
+                                        <span>Có</span>
+                                    </label>
+                                </div>
+
+
+                                <div>Tầng lớp thu nhập thấp</div>
+                                <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
+                                    <label>
+                                        <input type="radio" name="low_benefit " value="0">
+                                        <span>Không</span>
+                                    </label>
+
+                                    <label>
+                                        <input type="radio" name="low_benefit " value="1">
+                                        <span>Có</span>
+                                    </label>
+                                </div>
+
+                                <div>Người Triều Tiên di cư</div>
+                                <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
+                                    <label>
+                                        <input type="radio" name="korea_migrate " value="0">
+                                        <span>Không</span>
+                                    </label>
+
+                                    <label>
+                                        <input type="radio" name="korea_migrate " value="1">
+                                        <span>Có</span>
+                                    </label>
+                                </div>
+
+                                <div>Con của gia đình di cư</div>
+                                <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
+                                    <label>
+                                        <input type="radio" name="son-of-korea-migrate" value="0">
+                                        <span>Không</span>
+                                    </label>
+
+                                    <label>
+                                        <input type="radio" name="son-of-korea-migrate" value="1">
+                                        <span>Có</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row form-item d-flex justify-content-center" style="gap:0.5rem;margin-top:1rem">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Tiếp theo</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
 
             <div class="tab-content hidden">
                 <h3>Học vấn/ Kinh nghiệm/ Chương trình giáo dục</h3>
@@ -577,26 +585,53 @@
                 </div>
             </div>
 
-            <div class="tab-content hidden">
-                <h3>Bản giới thiệu bản thân</h3>
-                <div class="row form-item">
-                    <div class="col-md-3">
-                        Quá trình trưởng thành
-                    </div>
-                    <div class="col-md-9">
-                        <div class="duplicate-section self-introduction">
-                            <div class="d-flex" style="gap:0.5rem">
-                                <select class="self_introduction_type">
-                                    <option>Quá trình trưởng thành</option>
-                                </select>
-                                <button class="btn-add-more">+</button>
+            <form action="../ktl/php/fnc/signup_step_4.php" method="post" id="form_step_4">
+                <div class="tab-content hidden">
+                    <h3>Bản giới thiệu bản thân</h3>
+                    <div class="row form-item">
+                        <div class="col-md-3">
+                            Quá trình trưởng thành
+                        </div>
+                        <div class="col-md-9">
+                            <div class="duplicate-section self-introduction">
+                                <div class="d-flex" style="gap:0.5rem">
+                                    <select class="self_introduction_type">
+                                        <option value="">Quá trình trưởng thành</option>
+                                        <option value="1">Động cơ</option>
+                                        <option value="2">Điểm mạnh và điểm yếu của nhân các</option>
+                                        <option value="3">Nguyện vọng sau khi tham gia</option>
+                                        <option value="4">Mô tả điều gì khác biệt với những người khác và những nỗ lực
+                                            bạn đã thực
+                                            hiện để đạt được điều đó
+                                        </option>
+                                        <option value="5">
+                                            Chọn và mô tả một ví dụ về trải nghiệm mà bạn đã thành công khi hoàn thành
+                                            một
+                                            nhiệm vụ khó khăn và bạn thử nhưng không thành công
+                                        </option>
+
+                                    </select>
+                                    <div class="btn-add-more">+</div>
+                                </div>
+                                <textarea class="form-control self_introduction_content"
+                                          style="margin-top:0.5rem;height: 10rem"></textarea>
+
                             </div>
-                            <textarea class="form-control self_introduction_content"
-                                      style="margin-top:0.5rem;height: 10rem"></textarea>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-top: 1rem;">
+                        <div>
+                            <button class="btn btn-light">Bước trước</button>
+                        </div>
+                        <div style="margin-left: 0.5rem; margin-right: 0.5rem">
+                            <button class="btn btn-secondary"> Lưu tạm thời</button>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" onclick="handSubmitStep4()"> Submit</button>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
 
             <div class="tab-content hidden">
                 <h3>Bản thân</h3>
@@ -648,6 +683,10 @@
 </body>
 
 <script>
+    function handSubmitStep4() {
+        $('#form_step_4').submit();
+    }
+
     function changePlusToMinus(index, removeDuplicateSection) {
         if (index > 0) {
             $(this).html('-');
@@ -663,7 +702,7 @@
 
     function reIndex() {
         $('.self-introduction').each(function (index, value) {
-            $(this).find('input.self_introduction_type').attr('name', `self_introduction[${index}][type]`);
+            $(this).find('select.self_introduction_type').attr('name', `self_introduction[${index}][type]`);
             $(this).find('textarea.self_introduction_content').attr('name', `self_introduction[${index}][content]`);
         });
 
@@ -738,6 +777,8 @@
                 $(this).closest('.duplicate-section').parent().append(duplicateSection.clone());
                 indexing();
                 dataCount++;
+                $(this).closest('.duplicate-section').parent().find('.duplicate-section').last().find('select').val('');
+                $(this).closest('.duplicate-section').parent().find('.duplicate-section').last().find('textarea').val('');
                 $(this).attr('data-count', dataCount);
             }
         });

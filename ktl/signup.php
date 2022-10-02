@@ -41,8 +41,7 @@
                     Nộp
                 </div>
             </div>
-            <!--            action="../ktl/php/fnc/signup.php"-->
-            <form method="post" id="onSubmit">
+            <form   action="../ktl/php/fnc/signup.php"  method="post" id="onSubmit">
                 <div class="tab-content">
                     <h3>Thông tin cơ bản</h3>
                     <hr>
