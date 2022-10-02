@@ -72,7 +72,7 @@ session_start();
                                 if($Id == 1){
                                     include "../../php/mysql.php";
                                     include "../../php/crypt.php";
-                                    $query="select distinct u.id,a.able_detailAddress,u.username,u.phone,u.email,u.imp_uid,u.status_pass,a3.sent_date,a.is_disabilities,a2.major_main_id, a2.major_sub  , a2.status_graduation_high_school, a2.graduation_high_school_year , a2.name_high_school from recruit_able_user u left join  apply_step_1 a on u.id = a.able_id left join apply_step_2 a2 on u.id = a2.able_id left join apply_step_5 a3 on u.id = a3.userid where u.status_pass !='0'";
+                                    $query="select distinct u.status_pass,u.round_one,u.id,a.able_detailAddress,u.username,u.phone,u.email,u.imp_uid,u.status_pass,a3.sent_date,a.is_disabilities,a2.major_main_id, a2.major_sub  , a2.status_graduation_high_school, a2.graduation_high_school_year , a2.name_high_school from recruit_able_user u left join  apply_step_1 a on u.id = a.able_id left join apply_step_2 a2 on u.id = a2.able_id left join apply_step_5 a3 on u.id = a3.userid ";
 
                                     $result = mysqli_query($con,$query);
                                     echo "
@@ -204,21 +204,21 @@ session_start();
                                         <td>". $row['sent_date'] ."</td>
                                         <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode($row, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
                                         <td>
-                                            <select class='custom-select'  style='border: none'  name='status_pass' onchange='updateStatusPass(";echo $row['id']; ?><?php echo ")' id= 1>
+                                            <select class='custom-select'  style='border: none' id='status". $row['id']."'  onchange='updateStatusPass(";echo $row['id']; ?><?php echo ")' id= 1>
                                             <option selected>";
-                                            switch ($row['status_pass']) {
+                                            switch ($row['status_pass']){
                                                 case 1:
-                                                    echo "적격";
+                                                    echo "합격";
                                                     break;
                                                 case 0:
-                                                    echo "부적격";
+                                                    echo "불합격";
                                                     break;
                                                 default:
-                                                    "검증선택";
+                                                    "선택";
                                             }
                                             echo "</option>
-                                            <option value='0'>적격</option>
-                                            <option value='1'>부적격</option>
+                                            <option value='1'>합격</option>
+                                            <option value='0'>불합격</option>
                                           </select></td>
                             ";
                                         $nIndex++;
@@ -308,8 +308,11 @@ session_start();
             $.post("../../php/fnc/apply_pass.php",
                 {
                     Id : Id,
+                    category : "status_pass",
+                    status : $("#status"+Id).val()
                 },
                 function(data,status){
+                    console.log(data);
                     if(status != "fail"){
                         alert("해당 지원서가 통과었습니다.");
                         location.reload();
@@ -393,7 +396,6 @@ session_start();
                 .then(data => {
                     if (dataMajor.length < 1){
                         dataMajor = data;
-
                         chart("ChartMajor",dataMajor,['바이올린','첼로','하프','풀루트','오보에','클라리넷','바순','트럼폣','호른','비올라','베이스','팀파니','기타 (직접작성)']);
                     }else if (!equal(data,dataMajor)){
 
