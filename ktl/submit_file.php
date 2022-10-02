@@ -1,4 +1,4 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <?php include 'php/common_header.php' ?>
 <link rel="stylesheet" href="css/result.css">
 <link rel="stylesheet" href="css/login.css">
@@ -8,7 +8,7 @@
     <div class="contents_wrap">
         <div class="container">
             <div class="title flex">
-                <h2>전형결과</h2>
+                <h2>파일을 보내다</h2>
                 <div class="flex">
                     <span>Home</span>
                     <img src="images/icons/ic_next.png" alt="">
@@ -17,42 +17,77 @@
                     <span class="on">전형결과</span>
                 </div>
             </div>
-            <div class="result_notice flex-direction">
-                <img src="images/icons/ic_result.png" alt="결과 순서">
-            </div>
 
-            <div>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col"> 수험번호​</th>
-                        <th scope="col"> 성명</th>
-                        <th scope="col">이메일​</th>
-                        <th scope="col">지원부문</th>
-                        <th scope="col">전형결과</th>
-                        <th scope="col"> 장애증명서</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">
-                            2022-00121
-                        </th>
-                        <td>홍길동​</td>
-                        <td>ableup@ableup.org​</td>
-                        <td>@2022년 기간제 장애 문화·예술인 채용​</td>
-                        <td style="color: #0c84ff; cursor: pointer" data-toggle="modal"
-                            data-target="#exampleModalCenter">@면접-불합격​
-                        </td>
-                        <td style="color: blue; cursor: pointer">
-                            <a href="./submit_file.php" >
-                                제출
-                            </a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+            <form action="../ktl/php/fnc/submit_file.php" id="form" method="post" enctype="multipart/form-data">
+                <div class="container" style="border: 1px solid #e8e8ea">
+                    <div class="row" style="padding: 1rem;">
+                        <div>
+                            <div class="col">
+                                자격증사본 <span style="color: #d05245">*첨부파일 형식은 로 제출부탁드립니다.</span>
+                            </div>
+                            <div class="col">
+                                <input type="file" name="file1">
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="row" style="padding: 1rem;">
+                        <div>
+                            <div class="col">
+                                경력증명서 <span style="color: #d05245">*첨부파일 형식은 로 제출부탁드립니다. </span>
+                            </div>
+                            <div class="col">
+                                <input type="file" name="file2" >
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="row" style="padding: 1rem;">
+                        <div>
+                            <div class="col">
+                                건강보험자격득실확인서 <span style="color: #d05245">*첨부파일 형식은 로 제출부탁드립니다. </span>
+                            </div>
+                            <div class="col">
+                                <input type="file" name="file3">
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="row" style="padding: 1rem;">
+                        <div>
+                            <div class="col">
+                                고용보험피보험자격이력내역서 <span style="color: #d05245">*첨부파일 형식은 로 제출부탁드립니다. </span>
+                            </div>
+                            <div class="col">
+                                <input type="file" name="file4">
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="row" style="padding: 1rem;">
+                        <div>
+                            <div class="col">
+                                병적증명서/초본(병역사항)/군경력증명서 <span style="color: #d05245">*첨부파일 형식은 로 제출부탁드립니다.</span>
+                            </div>
+                            <div class="col">
+                                <input type="file" name="file5">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col">
+                        <div style="padding: 0.2rem; margin-bottom: 1rem">
+                            <button class="btn btn-primary" onclick="handSubmit()">
+                                제출하다
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
 
 
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -95,6 +130,10 @@
 
         <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
         <script>
+
+            function  handSubmit() {
+             $('#form').submit();
+            }
             function onFindPw() {
                 location.href = 'find_pass.html';
             }

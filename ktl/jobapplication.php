@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <?php include 'php/common_header.php' ?>
 <link rel="stylesheet" href="css/jobapplication.css">
+
 <body>
 <div class="wrap">
     <?php include 'php/common_header_menu.php' ?>
 
 
     <div class="contents_wrap">
-        <div class="container">
-            <div class="jobapplication_title flex">
+        <div class="container" style="border: 1px solid #000000 ">
+            <div class="jobapplication_title flex" style="padding: 1rem">
                 <h6>입사지원서 작성</h6>
                 <div class="flex">
                     <span>Home</span>
@@ -20,13 +21,15 @@
             </div>
             <form id="onSubmit" action="../ktl/php/fnc/recruit_step.php" method="post">
                 <div class="flex">
-                    <div class="form_title">
+                    <div class="form_title" >
                         <h6>공고명</h6>
                     </div>
                     <div class="form_con">
                         <span>2022년 문화/예술 장애인 채용공고</span>
                     </div>
                 </div>
+
+
                 <div class="flex">
                     <div class="form_title">
                         <h6>개인정보 수집·이용 동의</h6>
@@ -54,12 +57,29 @@
                     <div class="form_title">
                         <h6>휴대전화</h6>
                     </div>
+
                     <div class="form_con">
                         <div class="flex-direction inputbox">
-                            <input name="userphone" placeholder="전화 번호" type="text" id='userphone' required numberOnly>
+                            <div class="phone flex">
+                                <input type="text" id="userphone" name="userphone" maxlength="3" required=""
+                                       numberonly="">
+                                <span class="linebar"></span>
+                                <input type="text" id="userphone2" name="userphone2" maxlength="4" required=""
+                                       numberonly="">
+                                <span class="linebar"></span>
+                                <input type="text" id="userphone3" name="userphone3" maxlength="4" required=""
+                                       numberonly="">
+                            </div>
                             <span class="noti errorPhone" style="color: red; font-size: small">(*) </span>
                         </div>
                     </div>
+
+                    <!--                    <div class="form_con">-->
+                    <!--                        <div class="flex-direction inputbox">-->
+                    <!--                            <input name="userphone" placeholder="전화 번호" type="text" id='userphone' required numberOnly>-->
+                    <!--                            <span class="noti errorPhone" style="color: red; font-size: small">(*) </span>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
                 </div>
                 <div class="flex baseline">
                     <div class="form_title">

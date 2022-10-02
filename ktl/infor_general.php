@@ -2,7 +2,7 @@
 <?php include 'php/common_header.php' ?>
 <link rel="stylesheet" href="css/login.css">
 <link rel="stylesheet" href="css/infor_general.css">
-<body>
+<body id="pdf">
 <div class="wrap">
     <?php include 'php/common_header_menu.php' ?>
 
@@ -36,6 +36,10 @@
                             <i class="fa-solid fa-house-user" style="color: grey"></i><span>Address: 123/123/123</span>
                         </div>
                     </div>
+                    <div style="display: flex; justify-content: end; align-items: center"
+                         onclick="exportFile()">
+                        <i class="fa-regular fa-file-pdf" style="color: red; font-size: 2rem; cursor: pointer"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -68,7 +72,7 @@
     <div class="container">
         <div class="row">
             <div>
-                <span class="text_main2">학력</span> 최종학력 대학원  <span style="color: red">석사</span> 휴학중
+                <span class="text_main2">학력</span> 최종학력 대학원 <span style="color: red">석사</span> 휴학중
             </div>
             <table class="table table-bordered">
                 <thead style="background: lightgrey">
@@ -102,7 +106,8 @@
     <div class="container" style="margin-top: 1rem">
         <div class="row">
             <div>
-                <span class="text_main2">경력</span>  총 <span style="color:red;">8</span> 년 <span style="color: red">6</span> 개월
+                <span class="text_main2">경력</span> 총 <span style="color:red;">8</span> 년 <span
+                        style="color: red">6</span> 개월
             </div>
             <table class="table table-bordered">
                 <thead style="background: lightgrey">
@@ -286,10 +291,25 @@
         </div>
     </div>
 
-    <!--    --><?php //include 'php/common_footer.php' ?>
+    <!--        --><?php //include 'php/common_footer.php' ?>
+    <script>
+        function exportFile() {
+            //export to pdf
+            var mywindow = window.open('', 'my div', 'height=1000,width=1600');
+            mywindow.document.write('<html><head><title>전형결과</title>');
+            mywindow.document.write('</head><body>');
+            mywindow.document.write($("#pdf").html());
+
+            mywindow.document.write('</body></html>');
+
+            mywindow.print();
+            mywindow.close();
+
+            return true;
+
+        }
+    </script>
 </div>
 <?php include 'php/common_script.php' ?>
 </body>
-<style>
-</style>
 </html>
