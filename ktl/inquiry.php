@@ -114,90 +114,42 @@
                 </tr>
               </thead>
               <tbody>
-<!--              miendz comment-->
-<!--                --><?php
-//                  include "php/mysql.php";
-//                  $nIndex = 1;
-//                  if($_GET["type"])
-//                  {
-//                    $type = $_GET["type"];
-//                    $type2 = $_GET["type2"];
-//                    $q = $_GET["q"];
-//                    if($type == "전체")
-//                    {
-//                      if($type2 == "전체")
-//                      {
-//                        $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where subject like '%$q%' or contents like '%$q%' order by id desc";
-//                      }
-//                      else
-//                      {
-//                        if($type2 == "제목")
-//                        {
-//                            $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where subject like '%$q%' order by id desc";
-//                        }
-//                        else if($type2 == "내용")
-//                        {
-//                            $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where contents like '%$q%' order by id desc";
-//                        }
-//
-//                      }
-//                    }
-//                    else
-//                    {
-//                      if($type2 == "전체")
-//                      {
-//                        if($q == "")
-//                        {
-//                          $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where inquiry_type='$type' order by id desc";
-//                        }
-//                        else
-//                        {
-//                          $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where inquiry_type='$type' and (subject like '%$q%' or contents like '%$q%') order by id desc";
-//                        }
-//
-//                      }
-//                      else
-//                      {
-//                        if($type2 == "제목")
-//                        {
-//                            $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where inquiry_type='$type' and subject like '%$q%' order by id desc";
-//                        }
-//                        else if($type2 == "내용")
-//                        {
-//                            $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list where inquiry_type='$type' and contents like '%$q%' order by id desc";
-//                        }
-//
-//                      }
-//                    }
-//
-//                  }
-//                  else
-//                    $query="select inquiry_type,subject,date,write_user,hits,state,type,answer,id from employment_list order by id desc";
-//
-//                  $result = mysqli_query($con,$query);
-//                  while($row = mysqli_fetch_array($result))
-//                  {
-//                    $row[3] = mb_substr($row[3],0,1, "utf8");
-//
+                <?php
+                  include "php/mysql.php";
+                  $nIndex = 1;
+                    $query="select id, classify,title,createby ,create_date,is_public,context_question ,status from manager_faq order by id desc";
+                    mysqli_query($con,"set names utf8");
+                  $result = mysqli_query($con,$query);
+
+                  while($row = mysqli_fetch_array($result,MYSQLI_NUM))
+                  {
+                    $row[3] = mb_substr($row[3],0,1, "utf8");
+
 //                    echo "<tr id='tr_$row[8]' onclick=onDetailView($row[8],'$row[6]') style='cursor:pointer;'>
-//                      <td>$nIndex</td>
-//                      <td>$row[0]</td>
-//                      <td class='notitle flex'>$row[1]";
-//                      if($row[6] == "비공개")
-//                        echo "<img src='images/icons/ic_lock.png' alt='잠금'></td>";
-//                      echo "<td>".$row[3]."**</td>
-//                      <td>$row[2]</td>
-//                      <td>$row[5]</td>
-//                    </tr>";
-//                    $nIndex++;
-//                  }
+                    echo "
+                      <td>$nIndex</td>
+                      <td>$row[1]</td>
+                      <td class='notitle flex'>$row[2]";
+                      if($row[5] == 0)
+                        echo "<img src='images/icons/ic_lock.png' alt='잠금'></td>";
+                      echo "<td>".$row[3]."**</td>
+                      <td>$row[4]</td>";
+                      if($row[7] == 0){
+                        echo "<td>đang</td>";
+                      }else{
+                          echo "<td>nhận</td>";
+                      }
+                   echo "
+                    </tr>";
+                    $nIndex++;
+                  }
 //                  if($nIndex == 1)
 //                  {
 //                    echo "<tr><td colspan=7>채용문의가 존재하지 않습니다.</td></tr>";
 //                  }
-//
-//                  mysqli_close($con);
-//                ?>
+
+                  mysqli_close($con);
+                ?>
 
               </tbody>
             </table>
@@ -230,12 +182,12 @@
               <div class="form_con">
                 <select id='inquiry_type'>
                   <option value="">문의 유형을 선택해주세요.</option>
-                  <option>직무</option>
-                  <option>채용절차</option>
-                  <option>자격요건</option>
-                  <option>평가전형</option>
-                  <option>결과발표</option>
-                  <option>기타</option>
+                  <option value="1">직무</option>
+                  <option value="2">채용절차</option>
+                  <option value="3">자격요건</option>
+                  <option value="4">평가전형</option>
+                  <option value="5">결과발표</option>
+                  <option value="6">기타</option>
                 </select>
               </div>
             </div>
@@ -255,8 +207,8 @@
               <div class="form_hd"><h6>공개여부</h6></div>
               <div class="form_con">
                 <select id='viewtype'>
-                  <option>공개</option>
-                  <option>비공개</option>
+                  <option value="1">공개</option>
+                  <option value="2">비공개</option>
                 </select>
                 <input type="password" id='viewtype_pass' style='margin-top:10px;' placeholder='삭제용 및 비공개 패스워드를 입력하세요. ( 해당 패스워드는 꼭 아셔야 내용을 확인하거나 삭제할 수 있습니다. )'>
               </div>
@@ -314,8 +266,8 @@
                 contents : $("#contents").val(),
                 viewtype : $("#viewtype").val(),
                 subject : $("#subject").val(),
-                viewtype_pass : $("#viewtype_pass").val(),
-                inquiry_type : $("#inquiry_type").val()
+                viewtype_pass : $("#viewtype_pass").find(":selected").val(),
+                inquiry_type : $("#inquiry_type").find(":selected").text()
               },
                function(data,status){
                if(status != "fail"){
