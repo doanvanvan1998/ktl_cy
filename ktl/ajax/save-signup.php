@@ -1,6 +1,8 @@
 <?php
 header('application/json');
 require_once './../dals/Generic.php';
+session_start();
+$able_id = $_SESSION["Id"];
 if (isset($_POST['step'])) {
     $step = $_POST['step'];
     switch ($step) {
@@ -10,11 +12,11 @@ if (isset($_POST['step'])) {
                 ':name_high_school' => $_POST['high_school'],
                 ':graduation_high_school_year' => $_POST['graduation_high_school_year'],
                 ':status_graduation_high_school' => $_POST['status_graduate'],
-                ':participate_exam_college' => $_POST['injoin_university'] ?? 0,
+                ':participate_exam_college' => $_POST['injoin_university'] == 1 ? 0 : 1,
                 ':not_graduated' => $_POST['status_graduate'] == 1 ? 0 : 1,
                 ':major_sub' => $_POST['main_experience'],
                 ':major_main_id' => $_POST['extra_experience'],
-                ':able_id' => $_POST['able_id'] ?? 1,
+                ':able_id' => $able_id,
                 ':main_profile' => json_encode($_POST['main_profile']),
             );
 
@@ -30,7 +32,7 @@ if (isset($_POST['step'])) {
                     ':total_point' => $academy['total_score'],
                     ':type_school' => "university",
                     ':main_major' => $academy['major'],
-                    ':able_id' => $_POST['able_id'] ?? 1,
+                    ':able_id' => $able_id,
                     //':degree' => $academy['degree']
                 );
             }
@@ -46,7 +48,7 @@ if (isset($_POST['step'])) {
                     ':total_point' => $postgraduate['total_score'],
                     ':type_school' => "postgraduate",
                     ':main_major' => $postgraduate['major'],
-                    ':able_id' => $_POST['able_id'] ?? 1,
+                    ':able_id' => $able_id,
                     ':degree' => $postgraduate['degree']
                 );
             }
@@ -57,7 +59,7 @@ if (isset($_POST['step'])) {
                     ':date_start_activity' => $activity['start_date'],
                     ':date_end_activity' => $activity['end_date'],
                     ':organizational_name' => $activity['organization'],
-                    ':able_id' => $_POST['able_id'] ?? 1,
+                    ':able_id' => $able_id,
                     ':contents' => $activity['content']
                 );
             }
@@ -69,7 +71,7 @@ if (isset($_POST['step'])) {
                     ':date_end' => $training['end_date'],
                     ':name' => $training['name'],
                     ':organizational_name' => $training['organization'],
-                    ':able_id' => $_POST['able_id'] ?? 1,
+                    ':able_id' => $able_id,
                     ':contents' => $training['content']
                 );
             }
