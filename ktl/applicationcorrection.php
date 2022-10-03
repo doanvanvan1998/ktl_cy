@@ -63,9 +63,9 @@
                 $('#form_login').submit(function (e) {
                     e.preventDefault();
                     $.post("php/fnc/login.php", {
-                            email: $("#username").val(),
-                            pass: $("#useremail").val(),
-                            name: $("#userpass").val()
+                            email: $("#useremail").val(),
+                            pass: $("#userpass").val(),
+                            name: $("#username").val()
                         },
                         function (data, status) {
                             if (status != "fail") {
