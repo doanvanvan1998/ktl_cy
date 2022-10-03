@@ -77,7 +77,6 @@ foreach ($certs as $cert) {
     }
 }
 
-
 // handle insert db award
 $awards = $data->{'awards'};
 foreach ($awards as $award) {

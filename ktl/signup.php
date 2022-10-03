@@ -507,35 +507,35 @@
                             <div class="col-md-9">
                                 <div style="flex-wrap: wrap;gap:0.5rem" class="d-flex main-profile-wrapper">
                                     <label class="custom-checkbox">
-                                        <input type="checkbox" name="main_portfolio[]">
+                                        <input type="checkbox" name="main_profile[]">
                                         <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
                                         <span class="text">Tham gia cuộc thi buổi biễn diễn quy mô toàn quốc</span>
                                     </label>
                                     <label class="custom-checkbox">
-                                        <input type="checkbox" name="main_portfolio[]">
+                                        <input type="checkbox" name="main_profile[]">
                                         <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
                                         <span class="text">Tham gia buổi biểu diễn quy mô tỉnh</span>
                                     </label>
                                     <label class="custom-checkbox">
-                                        <input type="checkbox" name="main_portfolio[]">
+                                        <input type="checkbox" name="main_profile[]">
                                         <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
                                         <span class="text">Tham gia cuộc thi buổi biểu diễn do các tổ chức công tổ chức</span>
                                     </label>
                                     <label class="custom-checkbox">
-                                        <input type="checkbox" name="main_portfolio[]">
+                                        <input type="checkbox" name="main_profile[]">
                                         <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
                                         <span class="text"> Từng tham gia đoàn diễn của cơ quan, xí nghiệp nhỏ</span>
                                     </label>
                                     <label class="custom-checkbox">
-                                        <input type="checkbox" name="main_portfolio[]">
+                                        <input type="checkbox" name="main_profile[]">
                                         <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
