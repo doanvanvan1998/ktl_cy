@@ -389,9 +389,9 @@
 
     </div>
 </div>
-<div style="margin-top: 1rem;">
-    <?php include 'php/common_footer.php' ?>
-</div>
+<!--<div style="margin-top: 1rem;">-->
+<!--    --><?php //include 'php/common_footer.php' ?>
+<!--</div>-->
 </div>
 <?php include 'php/common_script.php' ?>
 <script>
