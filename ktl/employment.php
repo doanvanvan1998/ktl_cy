@@ -22,78 +22,161 @@
             </p>
         </div>
     </div>
-    <div class="contents_wrap">
+    <div style="margin-top: 1rem;">
         <div class="container">
-            <div class="title flex">
-                <h2>채용공고 상세보기</h2>
-                <div class="flex">
-                    <span>Home</span>
-                    <img src="images/icons/ic_next.png" alt="">
-                    <span>채용공고</span>
-                    <img src="images/icons/ic_next.png" alt="">
-                    <span class="on">채용공고 상세보기</span>
+            <div style="margin-bottom: 1rem;">
+                <div style="height: 25rem; overflow: hidden">
+                    <img src="../ktl/images/banner/image_main.jpg" alt=""
+                         style="width: 100%; height: 100%; object-fit: cover">
                 </div>
             </div>
-            <!--          mien comment-->
-            <!--        <div class="contibox">-->
-            <!--          <div>-->
-            <!--            <div class="flex contitop">-->
-            <!--              <img src="images/icons/ic_ktl_s.png" alt="KTL">-->
-            <!--              <span>한국산업기술시험원</span>-->
-            <!--            </div>-->
-            <!--            <h6>2022년 한국산업기술시험원 기간제 장애·문화예술인 채용 (오케스트라단원 부문)</h6>-->
-            <!--          </div>-->
-            <!--        </div>-->
-            <div class="box">
-                <div class="recruitment flex-direction">
-                    <h6 class="title">모집부문</h6>
-                    <div class="con flex-direction">
-                        <div class="flex">
-                            <h6>공고명</h6>
-                            <span>2022 한국산업기술시험원 기간제 장애 문화 예술인 채용(오케스트라단원 부문)</span>
-                        </div>
-                        <div class="flex">
-                            <h6>채용분야</h6>
-                            <span>홍보 공연팀</span>
-                        </div>
-                        <div class="flex">
-                            <h6>모집인원</h6>
-                            <span>10명(기간제)</span>
-                        </div>
-                        <div class="flex">
-                            <h6>응시자격</h6>
-                            <span>장애인고용촉진 및 직업재활법시형령 제3조의 규정에 해당하는 장애인</span>
-                        </div>
-                        <div class="flex">
-                            <h6>채용형태</h6>
-                            <span>제한경쟁 채용</span>
+
+
+            <div class="row">
+                <div class="col" style="display: flex; justify-content: center; align-items: center">
+                    <div style="font-weight: bold; font-size: 1.3rem">
+                        2022년 한국산업기술시험원
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col" style="display: flex; justify-content: center; align-items: center">
+                    <div style="font-size: 1.3rem; font-weight: bold; color: #0c84ff">기간제 장애 문화·예술인 제한경쟁</div>
+                    <span style="font-size: 1.3rem; font-weight: bold">채용공고</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col"
+                     style="color: #0c84ff; font-size: 1.3rem; display: flex; align-items: center; justify-content: center ">
+                    <div>
+                        (오케스트라단원 부문)
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 1rem;">
+                <div class="col">
+                    한국산업기술시험원은 지역사회에 문화·예술을 통해 소통할 수 있는 환경을
+                    조성하고 장애인식 개선에 앞장서고자 장애인 오케스트라단을 창단하고자
+                    합니다. 이에 유능한 인재를 모집하오니 많은 지원 부탁드립니다.
+                </div>
+            </div>
+
+            <div class="row" style=" margin-top: 1rem;">
+                <div class="col">
+                    <div style="border: 1px solid black">
+                        <div style="padding: 0.5rem">
+                            <div>
+
+                                ◇ 우리 KTL(한국산업기술시험원)은 「공기업·준정부기관의 경영에 관한 지침」제 15조에 의거, 공개경쟁
+                                채용하는 것을 원칙으로 하고 있습니다. 공개채용 외의 사적인 채용 전형을 시행하고 있지 않으니
+                                취업알선/소개 등과 같은 피해가 발생하지 않도록 주의하시기 바랍
+                            </div>
+                            <div>
+                                ◇ 본 공고는 장애인 제한경쟁 채용으로 비장애인은 접수가 불가함을 알려드립니다
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="box">
-                <div class="duty flex-direction">
-                    <h6 class="title">직무소개</h6>
-                    <div class="con flex-direction">
-                        <div class="flex">
-                            <h6>담당업무</h6>
-                            <span>문화 예술연주회 참여 및 그것을 활용한 회사홍보 활동</span>
-                        </div>
-                        <div class="flex">
-                            <h6>자격요건</h6>
-                            <span>
-                  1. 악기에 대한 기본적인 지식과 악기 활용능력을 겸비한 자<br>
-                  2. 합동연주에 대한 이해를 가진자<br>
-                  3. 진주시에 있는 본원에 근무가 가능한자 (최소 월 1~2회)
-                </span>
-                        </div>
-                        <div class="flex">
-                            <h6>경력사항</h6>
-                            <span>제한없음</span>
-                        </div>
-                    </div>
+
+            <div class="row" style="margin-top: 1rem;">
+                <div class="col" style="font-size: 1rem; font-weight: bold">
+                    1. 채용
                 </div>
             </div>
+            <div class="row">
+                <div class="col">
+                    <i class="fa-thin fa-square-check"></i> 채용분야 및 인원 : 총 10명
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr style="background: lightgrey">
+                            <th scope="col">
+                                채용
+                            </th>
+                            <th scope="col">야 고용</th>
+                            <th scope="col">태 선발</th>
+                            <th scope="col">야 모집</th>
+                            <th scope="col">원 직무기</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">
+                                홍보 및 공
+                            </th>
+                            <td>팀 기</td>
+                            <td>제 오케스트라</td>
+                            <td>@원 1</td>
+                            <td>명 별첨</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <div class="row" style="margin-top: 1rem;">
+                <div class="col">
+                    <i class="fa-thin fa-square-check"></i> 근무
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col">
+                    <i class="fa-regular fa-circle" style="font-size: 0.7rem"></i>근무지역 : 한국산업기술시험원 진주본원 및 별도 지정한 훈련장소
+                    * 연주회 진행 시 근무로
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <i class="fa-regular fa-circle" style="font-size: 0.7rem"></i> ◦계약조건 : 기간제 근로자(정규직 전환 비대
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <i class="fa-regular fa-circle" style="font-size: 0.7rem"></i> ◦계약기간 : 1년(최초 1년 계약 후, 성과평가 등을 통해 재계약
+                    협
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <i class="fa-regular fa-circle" style="font-size: 0.7rem"></i> ◦근무형태 : 주 3회 15시간 근무(요일 및 시간 추후지
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <i class="fa-regular fa-circle" style="font-size: 0.7rem"></i> ◦근무내용 : 문화·예술 연주회 참여 및 그것을 활용한 회사홍보
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <i class="fa-regular fa-circle" style="font-size: 0.7rem"></i> ◦근무내용 : 문화·예술 연주회 참여 및 그것을 활용한 회사홍보
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <i class="fa-regular fa-circle" style="font-size: 0.7rem"></i> ◦기타사항 : 유연근무제, 지정장소 근무 시 별도 플랫폼을 통한
+                    근태 확인, 장애로 인해 입사지원서 작성이 불가할 경우 대리인 작성
+                    (단, 적정한 사유와 위임장 첨부 필
+                </div>
+            </div>
+
+
         </div>
     </div>
     <?php include 'php/common_footer.php' ?>
