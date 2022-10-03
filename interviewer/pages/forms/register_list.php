@@ -75,6 +75,7 @@ session_start();
                                             <th style='border: 1px solid #dee2e6;width: 250px'>수상구분</th>
                                             <th style='border: 1px solid #dee2e6;width: 350px'>포트폴리오</th>
                                             <th style='border: 1px solid #dee2e6;width: 350px'>메모</th>
+                                            <th style='border: 1px solid #dee2e6;width: 350px'></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -83,7 +84,7 @@ session_start();
                                             include "../../php/crypt.php";
                                             $nIndex = 1;
 
-                                            $query = "select distinct a3.file_portlio,u.id,u.email,u.phone,a.is_disabilities,u.username,u.imp_uid, a2.major_main_id , a2.major_sub  from recruit_able_user u inner join apply_step_1 a on u.id = a.able_id inner join apply_step_2 a2 on a2.able_id = u.id inner join apply_step_3 a3 on a3.able_id = u.id where u.status_pass !='0'";
+                                            $query = "select distinct u.note,a3.file_portlio,u.id,u.email,u.phone,a.is_disabilities,u.username,u.imp_uid, a2.major_main_id , a2.major_sub  from recruit_able_user u inner join apply_step_1 a on u.id = a.able_id inner join apply_step_2 a2 on a2.able_id = u.id inner join apply_step_3 a3 on a3.able_id = u.id where u.status_pass !='0'";
                                             $result = mysqli_query($con, $query);
 
                                             while ($row = mysqli_fetch_array($result)) {
@@ -98,11 +99,11 @@ session_start();
 
                                                 ?>
                                                  <tr>
-                                                    <th style='border: 1px solid #dee2e6;width: 100px' rowspan='<?php echo $length ?>'><?php echo $nIndex ?></th>
-                                                    <th rowspan='<?php echo $length ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php echo $row['imp_uid'] ?></th>
-                                                    <th rowspan='<?php echo $length ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php echo $row['username'] ?></th>
-                                                    <th rowspan='<?php echo $length ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php echo $row['is_disabilities'] == 1 ? "중증" :'경증' ?></th>
-                                                    <th rowspan='<?php echo $length ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php
+                                                    <th style='border: 1px solid #dee2e6;width: 100px' rowspan='<?php echo $length ?>'><?php echo $nIndex; ?></th>
+                                                    <th rowspan='<?php echo $length; ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php echo $row['imp_uid']; ?></th>
+                                                    <th rowspan='<?php echo $length; ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php echo $row['username']; ?></th>
+                                                    <th rowspan='<?php echo $length; ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php echo $row['is_disabilities'] == 1 ? "중증" :'경증' ?></th>
+                                                    <th rowspan='<?php echo $length; ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php
                                                         switch ($row['major_main_id']) {
                                                             case 1:
                                                                 echo "바이올린";
@@ -146,7 +147,7 @@ session_start();
                                                             default:
                                                                 echo "error";
                                                         } ?></th>
-                                                    <th rowspan='<?php echo $length ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php
+                                                    <th rowspan='<?php echo $length; ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php
                                                         switch ($row['major_sub']) {
                                                             case 1:
                                                                 echo "바이올린";
@@ -190,7 +191,7 @@ session_start();
                                                             default:
                                                                 echo "error";
                                                         } ?></th>
-                                                     <th rowspan='<?php echo $length ?>' style='border: 1px solid #dee2e6;padding: 0 25px'>
+                                                     <th rowspan='<?php echo $length; ?>' style='border: 1px solid #dee2e6;padding: 0 25px'>
                                                 <?php
 
                                                 foreach ($arr as $item) {
@@ -217,21 +218,22 @@ session_start();
                                                      <?php
                                                         if ($row['file_portlio'] != null ){
                                                             ?>
-                                                            <th rowspan='<?php echo $length ?>' style='border: 1px solid #dee2e6;'><button style='width:100px;border: none;background: none;color: blue;text-decoration: underline;' onclick="openFile('<?php echo $row['file_portlio'];?>')">미리보기</button></td>
+                                                            <th rowspan='<?php echo $length; ?>' style='border: 1px solid #dee2e6;'><button style='width:100px;border: none;background: none;color: blue;text-decoration: underline;' onclick="openFile('<?php echo $row['file_portlio'];?>')">미리보기</button></td>
                                                             <?php
                                                         }else{
                                                             ?>
-                                                            <th rowspan='<?php echo $length ?>' style='border: 1px solid #dee2e6;'>미첨부</td>
+                                                            <th rowspan='<?php echo $length; ?>' style='border: 1px solid #dee2e6;'>미첨부</td>
                                                             <?php
                                                         }
                                                      ?>
 
-                                                     <th rowspan='<?php echo $length ?>'> <textarea></textarea></th>
+                                                     <th rowspan='<?php echo $length ?>'> <textarea id="note<?php echo $row['id']; ?>"><?php echo $row['note']; ?></textarea></th>
+                                                     <th rowspan='<?php echo $length ?>'> <button class="btn btn-info" onclick="updateNote(<?php echo $row['id']; ?>)">수정</button></th>
                                                  </tr>
                                                      <?php
 
                                                 if ($length > 1){
-                                                    $sql2 = "select m.title from recruit_able_award m where m.able_id =" .$row[ 'id'] ." limit 1 , 100";
+                                                    $sql2 = "select m.title from recruit_able_award m where m.able_id =" .$row['id'] ." limit 1 , 100";
                                                     $resultSql2 = mysqli_query($con, $sql2);
                                                     while ($row2 = mysqli_fetch_array($resultSql2)) {
                                                         ?>
@@ -624,8 +626,8 @@ session_start();
 <script src="../../dist/js/demo.js"></script>
 <!-- Page specific script -->
 <script>
-    function openFile(data;){
-        window.open("https://www.w3schools.com");
+    function openFile(data){
+        window.open(data);
     }
     function onApplyView(Id,step)
     {
@@ -643,6 +645,28 @@ session_start();
             "order": [[5, 'desc']],
         });
     });
+
+    function updateNote(id){
+        if(confirm("정말로 삭제하시겠습니까?"))
+        {
+            $.post("../../php/fnc/update_noteUser.php",
+                {
+                    Id : id,
+                    note : $("#note"+id).val()
+                },
+                function(data,status){
+                    if(status != "fail"){
+
+                        alert("해당 공지내용이 삭제되었습니다.");
+                        location.reload();
+                    }
+                    else
+                    {
+                        alert("네트워크 오류");
+                    }
+                });
+        }
+    }
 
     $("#nav_4").attr("class","nav-item menu-is-opening menu-open");
     $("#nav_5_"+$("#SelId").val()).attr("class","nav-link active");
