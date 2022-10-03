@@ -87,34 +87,12 @@
                       $nIndex = 1;
                       if($Id == 1)
                         $query="select id,username,phone,email from recruit_able_user";
-                      else if($Id == 2)
-                        $query="select id,username,phone,email from recruit_able_user ";
-                      else if($Id == 3)
-                        $query="select id,username,phone,email from recruit_able_user ";
-//quang
-//                      $Uresult = mysqli_query($con,$query);
-//                      while($Urow = mysqli_fetch_array($Uresult))
-//                      {
-//                        $query="select sum(score) from recruit_able_score where step='$Id' and userid='$Urow[0]'";
-//                        $ScoreResult = mysqli_query($con,$query);
-//                        $ScoreRow = mysqli_fetch_array($ScoreResult);
-//
-//                        if($ScoreRow[0] == "") $ScoreRow[0] = 0;
-//
-//                        $query="select user_address,user_detailAddress,sel_tab_num,step0_view_sel,step0_view_sel2,sel2_tab_num,sel3_tab_num,sel4_tab_num,data1,data2,data3,data4,data5,data6,data7,data8,check_phone,data12,data13 from apply_step_1 where userid='$Urow[0]'";
-//                        $ApplyResult1 = mysqli_query($con,$query);
-//                        $ApplyRow1 = mysqli_fetch_array($ApplyResult1);
-//
-//                        $Urow[2] = Decrypt($Urow[2],$secret_key,$secret_iv);
-//                        $Urow[3] = Decrypt($Urow[3],$secret_key,$secret_iv);
-//
-//                        echo "<tr><td>$nIndex</td><td>$Urow[4]</td><td>$Urow[1]</td><td>$Urow[2]</td><td>$Urow[3]</td><td>$ScoreRow[0]</td><td>";
-//                        $strPdf = "../../../ktl/portfolio/".$Urow[0].".pdf";
-//                        if(file_exists("../../../ktl/portfolio/".$Urow[0].".pdf")) {
-//                            echo "<a href='$strPdf' target='_blank' class='btn btn-warning' style='font-weight:600'>포트폴리오</a>";
-//                        }else{
-//                            echo "없음";
-//                        }
+//quan
+                      $Uresult = mysqli_query($con,$query);
+                      while($Urow = mysqli_fetch_array($Uresult)) {
+                          $Urow['phone'] = Decrypt($Urow['phone'], $secret_key, $secret_iv);
+                          $Urow['username'] = Decrypt($Urow['username'], $secret_key, $secret_iv);
+                      }
 //                        echo "</td><td><button class='btn btn-primary' onclick='onApplyView($Urow[0],$Id)'>지원페이지로 이동</button></td>";
 //
 //                        if($Id == 1) {

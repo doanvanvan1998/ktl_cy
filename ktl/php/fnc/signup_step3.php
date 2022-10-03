@@ -54,7 +54,7 @@ if ($file != null) {
 
 // handle insert db apply_step_3
 $link = $data->{'link'};
-$insertStep3Query = "INSERT INTO apply_step_3 (`id`, `userlink`, `file_portlio`, `able_id`) VALUES (NULL, '$link', '$filenamenew', '1')";
+$insertStep3Query = "INSERT INTO apply_step_3 (`id`, `userlink`, `file_portlio`, `able_id`) VALUES (NULL, '$link', '$filenamenew', '3')";
 $result = mysqli_query($con, $insertStep3Query);
 
 if (!$result) {
@@ -68,7 +68,7 @@ foreach ($certs as $cert) {
     $certName = $cert->{'certName'};
     $certIssuedBy = $cert->{'certIssuedBy'};
     $certIssuedDate = $cert->{'certIssuedDate'};
-    $insertCertQuery = "INSERT INTO `recruit_able_certification` (`id`, `name`, `place_of_issue`, `date_of_issue`, `able_id`) VALUES (NULL,  '$certName', '$certIssuedBy', '$certIssuedDate', '1')";
+    $insertCertQuery = "INSERT INTO `recruit_able_certification` (`id`, `name`, `place_of_issue`, `date_of_issue`, `able_id`) VALUES (NULL,  '$certName', '$certIssuedBy', '$certIssuedDate', '3')";
 
     $rs = mysqli_query($con, $insertCertQuery);
     if (!$rs) {
@@ -86,11 +86,12 @@ foreach ($awards as $award) {
     $awardType = $award->{'awardType'};
     $awardContent = $award->{'awardContent'};
 
-    $insertAwardQuery = "INSERT INTO `recruit_able_award` (`id`, `title`, `place_of_issue`, `contents`, `date`, `able_id`, `cert_type`) VALUES (NULL, '$awardName', '$awardIssuedBy', '$awardContent', '$awardIssuedDate', '1', '$awardType');";
+    $insertAwardQuery = "INSERT INTO `recruit_able_award` (`id`, `title`, `place_of_issue`, `contents`, `date`, `able_id`, `award_type`) VALUES (NULL, '$awardName', '$awardIssuedBy', '$awardContent', '$awardIssuedDate', '3', '$awardType');";
 
     $rs = mysqli_query($con, $insertAwardQuery);
     if (!$rs) {
         echo false;
+        var_dump(mysqli_error($con ));
         die();
     }
 }

@@ -82,26 +82,168 @@ session_start();
                                             include "../../php/mysql.php";
                                             include "../../php/crypt.php";
                                             $nIndex = 1;
-                                            echo "
-                                            <tr>
-                                                <th style='border: 1px solid #dee2e6;width: 100px' rowspan='2'>1</th>
-                                                <th rowspan='2' style='border: 1px solid #dee2e6;padding: 10px 25px'>abd</th>
-                                                <th rowspan='2' style='border: 1px solid #dee2e6;padding: 10px 25px'>abd</th>
-                                                <th rowspan='2' style='border: 1px solid #dee2e6;padding: 10px 25px'>abd</th>
-                                                <th rowspan='2' style='border: 1px solid #dee2e6;padding: 10px 25px'>abd</th>
-                                                <th rowspan='2' style='border: 1px solid #dee2e6;padding: 10px 25px'>abd</th>
-                                                <th rowspan='2' style='border: 1px solid #dee2e6;padding: 10px 25px'>abd</th>
-                                                <th style='border: 1px solid #dee2e6;padding: 0 25px'>abd</th>
-                                                <th style='border: 1px solid #dee2e6;padding: 0 25px'>abd</th>
-                                               <td rowspan='2' style='border: 1px solid #dee2e6;'><button style='width:100px;border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode(1, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
-                                                <th rowspan='2' style='border: 1px solid #dee2e6;padding: 10px 25px'>abd</th>
-                                            </tr>
-                                            <tr>
-                                                <th   style='border: 1px solid #dee2e6;padding: 0 25px'>abd</th>
-                                                <th  style='border: 1px solid #dee2e6;padding: 0 25px'>abd</th>
-                                            </tr>
-                                            ";
 
+                                            $query = "select distinct a3.file_portlio,u.id,u.email,u.phone,a.is_disabilities,u.username,u.imp_uid, a2.major_main_id , a2.major_sub  from recruit_able_user u inner join apply_step_1 a on u.id = a.able_id inner join apply_step_2 a2 on a2.able_id = u.id inner join apply_step_3 a3 on a3.able_id = u.id where u.status_pass !='0'";
+                                            $result = mysqli_query($con, $query);
+
+                                            while ($row = mysqli_fetch_array($result)) {
+                                                $sql = "select * from recruit_able_award m where m.able_id =" .$row[ 'id'];
+                                                $resultSql = mysqli_query($con, $sql);
+
+                                                $arr = $resultSql->fetch_all();
+                                                $length = count($arr);
+                                                if ($length < 2){
+                                                    $length = 1;
+                                                }
+
+                                                ?>
+                                                 <tr>
+                                                    <th style='border: 1px solid #dee2e6;width: 100px' rowspan='<?php echo $length ?>'><?php echo $nIndex ?></th>
+                                                    <th rowspan='<?php echo $length ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php echo $row['imp_uid'] ?></th>
+                                                    <th rowspan='<?php echo $length ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php echo $row['username'] ?></th>
+                                                    <th rowspan='<?php echo $length ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php echo $row['is_disabilities'] == 1 ? "중증" :'경증' ?></th>
+                                                    <th rowspan='<?php echo $length ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php
+                                                        switch ($row['major_main_id']) {
+                                                            case 1:
+                                                                echo "바이올린";
+                                                                break;
+                                                            case 2:
+                                                                echo "첼로";
+                                                                break;
+                                                            case 3:
+                                                                echo "하프";
+                                                                break;
+                                                            case 4:
+                                                                echo "풀루트";
+                                                                break;
+                                                            case 5:
+                                                                echo "오보에";
+                                                                break;
+                                                            case 6:
+                                                                echo "클라리넷";
+                                                                break;
+                                                            case 7:
+                                                                echo "바순";
+                                                                break;
+                                                            case 8:
+                                                                echo "트럼폣";
+                                                                break;
+                                                            case 9:
+                                                                echo "호른";
+                                                                break;
+                                                            case 10:
+                                                                echo "비올라";
+                                                                break;
+                                                            case 11:
+                                                                echo "베이스";
+                                                                break;
+                                                            case 12:
+                                                                echo "팀파니";
+                                                                break;
+                                                            case 0:
+                                                                echo "기타 (직접작성)";
+                                                                break;
+                                                            default:
+                                                                echo "error";
+                                                        } ?></th>
+                                                    <th rowspan='<?php echo $length ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php
+                                                        switch ($row['major_sub']) {
+                                                            case 1:
+                                                                echo "바이올린";
+                                                                break;
+                                                            case 2:
+                                                                echo "첼로";
+                                                                break;
+                                                            case 3:
+                                                                echo "하프";
+                                                                break;
+                                                            case 4:
+                                                                echo "풀루트";
+                                                                break;
+                                                            case 5:
+                                                                echo "오보에";
+                                                                break;
+                                                            case 6:
+                                                                echo "클라리넷";
+                                                                break;
+                                                            case 7:
+                                                                echo "바순";
+                                                                break;
+                                                            case 8:
+                                                                echo "트럼폣";
+                                                                break;
+                                                            case 9:
+                                                                echo "호른";
+                                                                break;
+                                                            case 10:
+                                                                echo "비올라";
+                                                                break;
+                                                            case 11:
+                                                                echo "베이스";
+                                                                break;
+                                                            case 12:
+                                                                echo "팀파니";
+                                                                break;
+                                                            case 0:
+                                                                echo "기타 (직접작성)";
+                                                                break;
+                                                            default:
+                                                                echo "error";
+                                                        } ?></th>
+                                                     <th rowspan='<?php echo $length ?>' style='border: 1px solid #dee2e6;padding: 0 25px'>
+                                                <?php
+
+                                                foreach ($arr as $item) {
+                                                   echo $item[2] ."<br>";
+                                                   }
+                                                ?>
+                                                     </th>
+                                                     <?php
+                                                     if ($length == 1){
+                                                         ?>
+                                                         <th  style='border: 1px solid #dee2e6;padding: 10px 25px'></th>
+                                                         <th  style='border: 1px solid #dee2e6;padding: 10px 25px'></th>
+                                                             <?php
+                                                     }
+                                                     foreach ($arr as $item) {
+                                                         ?>
+                                                         <th  style='border: 1px solid #dee2e6;padding: 10px 25px'>abd</th>
+                                                         <th  style='border: 1px solid #dee2e6;padding: 10px 25px'>abd</th>
+                                                             <?php
+                                                         break;
+                                                     }
+                                                     ?>
+
+                                                     <?php
+                                                        if ($row['file_portlio'] != null ){
+                                                            ?>
+                                                            <th rowspan='<?php echo $length ?>' style='border: 1px solid #dee2e6;'><button style='width:100px;border: none;background: none;color: blue;text-decoration: underline;' onclick="openFile('<?php echo $row['file_portlio'];?>')">미리보기</button></td>
+                                                            <?php
+                                                        }else{
+                                                            ?>
+                                                            <th rowspan='<?php echo $length ?>' style='border: 1px solid #dee2e6;'>미첨부</td>
+                                                            <?php
+                                                        }
+                                                     ?>
+
+                                                     <th rowspan='<?php echo $length ?>'> <textarea></textarea></th>
+                                                 </tr>
+                                                     <?php
+
+                                                if ($length > 1){
+                                                    $sql2 = "select m.title from recruit_able_award m where m.able_id =" .$row[ 'id'] ." limit 1 , 100";
+                                                    $resultSql2 = mysqli_query($con, $sql2);
+                                                    while ($row2 = mysqli_fetch_array($resultSql2)) {
+                                                        ?>
+                                                        <tr>
+                                                            <th  style='border: 1px solid #dee2e6;padding: 0 25px'>abd</th>
+                                                            <th  style='border: 1px solid #dee2e6;padding: 0 25px'>abd</th>
+                                                        </tr>
+                                                        <?php
+                                                    }
+                                                }
+                                                $nIndex++;
+                                            }
                                             mysqli_close($con);
                                             ?>
                                         </tbody>
@@ -482,6 +624,9 @@ session_start();
 <script src="../../dist/js/demo.js"></script>
 <!-- Page specific script -->
 <script>
+    function openFile(data;){
+        window.open("https://www.w3schools.com");
+    }
     function onApplyView(Id,step)
     {
         location.href='http://ktl-recruit.ableup.kr/apply_view_interview.html?Id='+Id+"&step="+step+"&userid="+$("#sel_userid").val();

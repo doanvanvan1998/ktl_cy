@@ -204,7 +204,7 @@ session_start();
                                         <td>". $row['sent_date'] ."</td>
                                         <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode($row, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
                                         <td>
-                                            <select class='custom-select'  style='border: none' id='status". $row['id']."'  onchange='updateStatusPass(";echo $row['id']; ?><?php echo ")' id= 1>
+                                            <select class='custom-select'  style='border: none;width: 90px' id='status". $row['id']."'  onchange='updateStatusPass(";echo $row['id']; ?><?php echo ")' id= 1>
                                             <option selected>";
                                             switch ($row['status_pass']){
                                                 case 1:
@@ -214,7 +214,7 @@ session_start();
                                                     echo "불합격";
                                                     break;
                                                 default:
-                                                    "선택";
+                                                    echo "선택";
                                             }
                                             echo "</option>
                                             <option value='1'>합격</option>

@@ -171,7 +171,7 @@ session_start();
                                         <th style='border: 1px solid #dee2e6;padding: 0 22px' id="<?php echo $row['id']?>">abc</th>
 
                                         <th style='border: 1px solid #dee2e6;padding: 0 22px'>
-                                            <select class='custom-select' style='border: none' name='verifi'
+                                            <select class='custom-select' style='border: none;width: 90px' name='verifi'
                                                     id="status<?php echo $row['id']?>"
                                                     onchange='updateVerifi(<?php echo $row['id']?>)' >
                                                 <option checked> <?php
@@ -183,7 +183,7 @@ session_start();
                                                             echo "불합격";
                                                             break;
                                                         default:
-                                                            "선택";
+                                                            echo "선택";
                                                     } ?></option>
                                                 <option value='1'>합격</option>
                                                 <option value='0'>불합격</option>
@@ -274,7 +274,7 @@ session_start();
                                                    <th rowspan ='1' style='border: 1px solid #dee2e6;padding: 0 22px' id='".$row['id']."'> abc</th>  
                                                  
                                                       <th style='border: 1px solid #dee2e6;padding: 0 22px'>
-                                                    <select class='custom-select' style='border: none' name='verifi' id='status".$row['id']."'
+                                                    <select class='custom-select' style='border: none;width: 90px' name='verifi' id='status".$row['id']."'
                                                             onchange='updateVerifi(".$row['id'].")' >
                                                         <option>"?>   <?php
                                                             switch ($row['round_two']) {
@@ -285,7 +285,7 @@ session_start();
                                                                     echo "불합격";
                                                                     break;
                                                                 default:
-                                                                    "선택";
+                                                                    echo   "선택";
                                                             }
                                                      echo "</option>
                                                         <option value='1'>합격</option>
@@ -320,7 +320,7 @@ session_start();
                                           </thead>
                                           <tbody>";
 
-                                    $query10 = "select distinct u.id,a.able_detailAddress,u.username,u.phone,u.email,u.imp_uid,u.status_pass,a3.sent_date,a.is_disabilities,a2.major_main_id, a2.major_sub  , a2.status_graduation_high_school, a2.graduation_high_school_year , a2.name_high_school from recruit_able_user u left join  apply_step_1 a on u.id = a.able_id left join apply_step_2 a2 on u.id = a2.able_id left join apply_step_5 a3 on u.id = a3.userid where u.status_pass !='0'";
+                                    $query10 = "select distinct u.round_three,u.id,a.able_detailAddress,u.username,u.phone,u.email,u.imp_uid,u.status_pass,a3.sent_date,a.is_disabilities,a2.major_main_id, a2.major_sub  , a2.status_graduation_high_school, a2.graduation_high_school_year , a2.name_high_school from recruit_able_user u left join  apply_step_1 a on u.id = a.able_id left join apply_step_2 a2 on u.id = a2.able_id left join apply_step_5 a3 on u.id = a3.userid where u.status_pass !='0'";
                                     $result10 = mysqli_query($con, $query10);
 
                                     $nIndex = 0;
@@ -329,14 +329,72 @@ session_start();
                                                                 <td>$nIndex</td>
                                                                          <th  style='border: 1px solid #dee2e6;'>" . $row['imp_uid'] . "</th>
                                                                         <th  style='border: 1px solid #dee2e6;'>" . $row['username'] . "</th>  
+                                              <th style='border: 1px solid #dee2e6;'>";?>
+                                        <?php
+                                        switch ($row['major_main_id']) {
+                                            case 1:
+                                                echo "바이올린";
+                                                break;
+                                            case 2:
+                                                echo "첼로";
+                                                break;
+                                            case 3:
+                                                echo "하프";
+                                                break;
+                                            case 4:
+                                                echo "풀루트";
+                                                break;
+                                            case 5:
+                                                echo "오보에";
+                                                break;
+                                            case 6:
+                                                echo "클라리넷";
+                                                break;
+                                            case 7:
+                                                echo "바순";
+                                                break;
+                                            case 8:
+                                                echo "트럼폣";
+                                                break;
+                                            case 9:
+                                                echo "호른";
+                                                break;
+                                            case 10:
+                                                echo "비올라";
+                                                break;
+                                            case 11:
+                                                echo "베이스";
+                                                break;
+                                            case 12:
+                                                echo "팀파니";
+                                                break;
+                                            case 0:
+                                                echo "기타 (직접작성)";
+                                                break;
+                                            default:
+                                                echo "error";
+                                        }
+                                        ?>
+                                        <?php echo "</th>
                                               <th style='border: 1px solid #dee2e6;' id='pointResultOne" . $row['id'] . "'></th>
                                               <th style='border: 1px solid #dee2e6; 'id='pointResultTwo" . $row['id'] . "'></th>
-                                              <th style='border: 1px solid #dee2e6;'>abc</th>
+                                              
                                               <td style='border: 1px solid #dee2e6;'><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode(1, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
                                               <th width='300px'> <textarea > </textarea></th>
                                             <td>
-                                                <select class='custom-select'  style='border: none' id='status'".$row['id']." name='verifi' onchange='updateVerifi(";echo $row['id']; ?><?php echo ")'>
-                                                <option selected>"; echo $row['round_two'] == 1 ? '합격' : '선택'; echo "</option>
+                                                <select class='custom-select'  style='border: none;width: 90px;' id='status".$row['id']."' name='verifi' onchange='updateVerifi(";echo $row['id']; ?><?php echo ")'>
+                                                <option selected>";?>   <?php
+                                        switch ($row['round_three']) {
+                                            case 1:
+                                                echo "합격";
+                                                break;
+                                            case 0:
+                                                echo "불합격";
+                                                break;
+                                            default:
+                                                echo "선택";
+                                        }
+                                        echo "</option>
                                                 <option value='1'>적격</option>
                                                 <option value='0'>부적격</option>
                                               </select></td>
@@ -422,6 +480,52 @@ session_start();
                 });
         }
     }
+    function checkName(name){
+        switch (name) {
+            case 1:
+                name =  "바이올린";
+                break;
+            case 2:
+                name = "첼로";
+                break;
+            case 3:
+                name = "하프";
+                break;
+            case 4:
+                name = "풀루트";
+                break;
+            case 5:
+                name = "오보에";
+                break;
+            case 6:
+                name = "클라리넷";
+                break;
+            case 7:
+                name = "바순";
+                break;
+            case 8:
+                name = "트럼폣";
+                break;
+            case 9:
+                name = "호른";
+                break;
+            case 10:
+                name = "비올라";
+                break;
+            case 11:
+                name = "베이스";
+                break;
+            case 12:
+                name = "팀파니";
+                break;
+            case 0:
+                name = "기타 (직접작성)";
+                break;
+            default:
+                name = "error";
+        }
+        return name;
+    }
 </script>
 <!-- ./wrapper -->
 
@@ -505,7 +609,21 @@ session_start();
     }
     let category = $("#category").val();
     sortPoint(category);
+
     function getPoint(){
+        fetch("/ktl_cy/admin/php/fnc/review_getPoint.php")
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                for (let i = 0 ; i < data.length ; i++){
+                       document.getElementById("pointResultOne"+data[i][0]).innerHTML =  data[i][1];
+                       document.getElementById("pointResultTwo"+data[i][0]).innerHTML =  data[i][2];
+                    }
+                }
+            )
+            .catch(error => {
+                console.log(error)
+            })
     }
     getPoint();
 

@@ -14,7 +14,6 @@
     $sql = "update recruit_able_user set status_pass = " .$status ." where id= " .$Id;
   }
 
-  echo $sql;
   mysqli_query($con,$sql);
   mysqli_close($con);
 ?>

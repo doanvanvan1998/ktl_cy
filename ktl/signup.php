@@ -188,17 +188,17 @@
                                 <div class="col-md-9">
                                     <div class="d-flex" style="gap:0.5rem">
                                         <label>
-                                            <input type="radio" name="single_user " value="0">
+                                            <input type="radio" name="single_user" value="0">
                                             <span>Tôi</span>
                                         </label>
 
                                         <label>
-                                            <input type="radio" name="single_user " value="1">
+                                            <input type="radio" name="single_user" value="1">
                                             <span>Người bảo hộ</span>
                                         </label>
 
                                         <label>
-                                            <input type="radio" name="single_user " value="2">
+                                            <input type="radio" name="single_user" value="2">
                                             <span>Người uỷ thác</span>
                                         </label>
                                     </div>
@@ -214,12 +214,12 @@
                                     <div>Người có công</div>
                                     <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
-                                            <input type="radio" name="meritorious_person " value="0">
+                                            <input type="radio" name="meritorious_person" value="0">
                                             <span>Không</span>
                                         </label>
 
                                         <label>
-                                            <input type="radio" name="meritorious_person " value="1">
+                                            <input type="radio" name="meritorious_person" value="1">
                                             <span>Có</span>
                                         </label>
                                     </div>
@@ -228,25 +228,26 @@
                                     <div>Tầng lớp thu nhập thấp</div>
                                     <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
-                                            <input type="radio" name="low_benefit " value="0">
+                                            <input type="radio" name="low_benefit" value="0">
                                             <span>Không</span>
                                         </label>
 
                                         <label>
-                                            <input type="radio" name="low_benefit " value="1">
+                                            <input type="radio" name="low_benefit" value="1">
                                             <span>Có</span>
                                         </label>
                                     </div>
 
                                     <div>Người Triều Tiên di cư</div>
+
                                     <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
-                                            <input type="radio" name="korea_migrate " value="0">
+                                            <input type="radio" name="korea_migrate" value="0">
                                             <span>Không</span>
                                         </label>
 
                                         <label>
-                                            <input type="radio" name="korea_migrate " value="1">
+                                            <input type="radio" name="korea_migrate" value="1">
                                             <span>Có</span>
                                         </label>
                                     </div>
@@ -254,12 +255,12 @@
                                     <div>Con của gia đình di cư</div>
                                     <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
-                                            <input type="radio" name="son-of-korea-migrate" value="0">
+                                            <input type="radio" name="son_of_korea_migrate" value="0">
                                             <span>Không</span>
                                         </label>
 
                                         <label>
-                                            <input type="radio" name="son-of-korea-migrate" value="1">
+                                            <input type="radio" name="son_of_korea_migrate" value="1">
                                             <span>Có</span>
                                         </label>
                                     </div>
