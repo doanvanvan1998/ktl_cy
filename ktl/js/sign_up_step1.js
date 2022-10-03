@@ -7,7 +7,7 @@ $('#signup_form').submit(function (e) {
                 userphone: userphone,
                 useremail: $("#useremail").val(),
                 userpass: $("#userpass").val(),
-                acept_rule: sessionStorage.getItem("checked")
+                acept_rule: sessionStorage.getItem("checked"),
             },
             function (data, status) {
                 if (status != "fail") {
