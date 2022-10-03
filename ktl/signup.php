@@ -648,7 +648,7 @@
                                     <div class="btn btn-secondary"> Lưu tạm thời</div>
                                 </div>
                                 <div>
-                                    <button class="btn btn-primary" type="submit" onclick="handSubmitStep2()"> Submit
+                                    <button class="btn btn-primary" type="submit"> Submit
                                     </button>
                                 </div>
                             </div>
@@ -657,84 +657,117 @@
                 </form>
 
                 <div class="tab-content hidden">
-                    <h3>자격증/수상/포트폴리오</h3>
-                    <hr>
-                    <div class="row form-item">
-                        <div class="col-md-3">
-                            Bằng cấp
-                        </div>
-                        <div class="col-md-9">
-                            <div class="duplicate-section certificate">
-                                <div class="d-flex" style="gap:0.5rem">
-                                    <input type="text" class="certificate_name" placeholder="Tên bằng cấp/chứng chỉ">
-                                    <input type="text" class="certificate_issued_by" placeholder="Nơi cấp">
-                                    <input type="date" class="certificate_date_issued" placeholder="Ngày-tháng-năm">
-                                    <button class="btn-add-more">+</button>
+                    <form id="form_step_3" method="post" class="needs-validation">
+                        <h3>자격증/수상/포트폴리오</h3>
+                        <hr>
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                Bằng cấp
+                            </div>
+                            <div class="col-md-9">
+                                <div class="duplicate-section certificate form-item">
+                                    <div class="d-flex" style="gap:0.5rem">
+                                        <div>
+                                            <input type="text" class="certificate_name validate-required"
+                                                   placeholder="Tên bằng cấp/chứng chỉ">
+                                            <div class="error-msg"></div>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="certificate_issued_by validate-required"
+                                                   placeholder="Nơi cấp">
+                                            <div class="error-msg"></div>
+                                        </div>
+                                        <div>
+                                            <input type="date" class="certificate_date_issued validate-required"
+                                                   placeholder="Ngày-tháng-năm">
+                                            <div class="error-msg"></div>
+                                        </div>
+                                        <button class="btn-add-more" type="button">+</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row form-item">
-                        <div class="col-md-3">
-                            Giải thưởng
-                        </div>
-                        <div class="col-md-9">
-                            <div class="duplicate-section award">
-                                <div class="d-flex" style="gap:0.5rem">
-                                    <input type="text" class="award_name" placeholder="Tên cuộc thi/giải thưởng">
-                                    <input type="text" class="award_issued_by" placeholder="Cơ quan cấp">
-                                    <input type="date" class="award_date_issued" placeholder="Ngày-tháng-năm">
-                                    <select class="cert_type">
-                                        <option value="">Cert type</option>
-                                        <option value="1">Động cơ</option>
-                                        <option value="2">Điểm mạnh và điểm yếu của nhân các</option>
-                                        <option value="3">Nguyện vọng sau khi tham gia</option>
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                Giải thưởng
+                            </div>
+                            <div class="col-md-9">
+                                <div class="duplicate-section award form-item">
+                                    <div class="d-flex" style="gap:0.5rem">
+                                        <div>
+                                            <input type="text" class="award_name validate-required"
+                                                   placeholder="Tên cuộc thi/giải thưởng">
+                                            <div class="error-msg"></div>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="award_issued_by validate-required"
+                                                   placeholder="Cơ quan cấp">
+                                            <div class="error-msg"></div>
+                                        </div>
+                                        <div>
+                                            <input type="date" class="award_date_issued validate-required"
+                                                   placeholder="Ngày-tháng-năm">
+                                            <div class="error-msg"></div>
+                                        </div>
+                                        <div>
+                                            <select class="award_type validate-required">
+                                                <option value="">Cert type</option>
+                                                <option value="1">Động cơ</option>
+                                                <option value="2">Điểm mạnh và điểm yếu của nhân các</option>
+                                                <option value="3">Nguyện vọng sau khi tham gia</option>
+                                            </select>
+                                            <div class="error-msg"></div>
+                                        </div>
+                                        <button class="btn-add-more" type="button">+</button>
+                                    </div>
+                                    <div style="gap:0.5rem;margin-top:0.5rem">
+                                        <input type="text" class="award_content validate-required"
+                                               placeholder="Nhập nội dung giải thưởng">
+                                        <div class="error-msg"></div>
+                                    </div>
 
-                                    </select>
-                                    <button class="btn-add-more">+</button>
                                 </div>
-                                <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
-                                    <input type="text" class="award_content" placeholder="Nhập nội dung giải thưởng">
+                            </div>
+                        </div>
+
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                Portfolio
+                            </div>
+                            <div class="col-md-9">
+                                <div style="gap:0.5rem;margin-top:0.5rem">
+                                    <input type="file" id="portfolio_file" accept="image/*"
+                                           class="validate-required"
+                                           placeholder="Chưa có file nào được chọn">
+                                    <div class="error-msg"></div>
                                 </div>
-
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row form-item">
-                        <div class="col-md-3">
-                            Portfolio
-                        </div>
-                        <div class="col-md-9">
-                            <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
-                                <input type="file" id="portfolio_file" accept="image/*"
-                                       placeholder="Chưa có file nào được chọn">
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                Link
+                            </div>
+                            <div class="col-md-9">
+                                <div style="gap:0.5rem;margin-top:0.5rem">
+                                    <input type="url" id="step4Url" class="validate-required" placeholder="https://">
+                                    <div class="error-msg"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row form-item">
-                        <div class="col-md-3">
-                            Link
-                        </div>
-                        <div class="col-md-9">
-                            <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
-                                <input type="url" id="step4Url" placeholder="https://">
+                        <div style="display: flex; justify-content: center; align-items: center; margin-top: 1rem;">
+                            <div>
+                                <button class="btn btn-light" type="button">Bước trước</button>
+                            </div>
+                            <div style="margin-left: 0.5rem; margin-right: 0.5rem">
+                                <button class="btn btn-secondary" type="button"> Lưu tạm thời</button>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary" type="submit"> Submit</button>
                             </div>
                         </div>
-                    </div>
-                    <div style="display: flex; justify-content: center; align-items: center; margin-top: 1rem;">
-                        <div>
-                            <button class="btn btn-light">Bước trước</button>
-                        </div>
-                        <div style="margin-left: 0.5rem; margin-right: 0.5rem">
-                            <button class="btn btn-secondary" onclick="handSubmitTempStep3()"> Lưu tạm thời</button>
-                        </div>
-                        <div>
-                            <button class="btn btn-primary" onclick="handSubmitStep3()"> Submit</button>
-                        </div>
-                    </div>
+                    </form>
 
                 </div>
                 </form>
@@ -768,8 +801,11 @@
                                         </select>
                                         <div class="btn-add-more">+</div>
                                     </div>
-                                    <textarea class="form-control self_introduction_content"
-                                              style="margin-top:0.5rem;height: 10rem"></textarea>
+                                    <div>
+                                        <textarea class="form-control self_introduction_content validate-required"
+                                                  style="margin-top:0.5rem;height: 10rem"></textarea>
+                                        <div class="error-msg"></div>
+                                    </div>
 
                                 </div>
                             </div>
@@ -779,12 +815,12 @@
                                 <button class="btn btn-light">Bước trước</button>
                             </div>
                             <div style="margin-left: 0.5rem; margin-right: 0.5rem">
-                                <button class="btn btn-secondary" id="tempStep5" onclick="handSubmitTempStep4()"
+                                <button class="btn btn-secondary" id="tempStep5"
                                         type="button"> Lưu tạm thời
                                 </button>
                             </div>
                             <div>
-                                <button class="btn btn-primary" onclick="handSubmitStep4()" type="button"> Submit
+                                <button class="btn btn-primary" type="submit"> Submit
                                 </button>
                             </div>
                         </div>
@@ -847,11 +883,33 @@
 
 <script>
 
-    function handSubmitStep3() {
-        console.log('submit step3')
+    //    handle submit step3
+    $('#form_step_3').submit(function (event) {
+        console.log('submit step 3');
+
+        event.preventDefault();
+
+
+        //validate step 3
+        let isValid = true;
+        $('#form_step_3 .validate-required').each(function (index, value) {
+            if ($(this).val() == '' && !$(this).closest('.form-item').hasClass('disable-input')) {
+                $(this).next('.error-msg').html('Trường này là bắt buộc');
+                isValid = false;
+            } else {
+                $(this).next('.error-msg').html('');
+            }
+        });
+
+        console.log('is valid', isValid);
+        if (!isValid) {
+            alert("Vui lòng nhập đầy đủ thông tin");
+            return;
+        }
+        //end validate
+
 
         const payload = handSubmitTempStep3();
-
 
         const formData = new FormData();
         formData.append('data', JSON.stringify(payload));
@@ -866,6 +924,7 @@
             contentType: false,
             success: function (data) {
                 if (data == 1) {
+                    $('#form_step_3')[0].reset();
                     alert('Đăng ký thành công')
                 } else {
                     alert('Đăng ký thất bại')
@@ -877,11 +936,31 @@
             }
         });
 
+    });
 
-    }
+    //    handle submit step4
+    $('#form_step_4').submit(function (event) {
+        console.log('submit step 4');
+        event.preventDefault();
 
-    function handSubmitStep4() {
-        console.log('submit step4');
+
+        //validate step 3
+        let isValid = true;
+        $('#form_step_4 .validate-required').each(function (index, value) {
+            if ($(this).val() == '' && !$(this).closest('.form-item').hasClass('disable-input')) {
+                $(this).next('.error-msg').html('Trường này là bắt buộc');
+                isValid = false;
+            } else {
+                $(this).next('.error-msg').html('');
+            }
+        });
+
+        console.log('is valid', isValid);
+        if (!isValid) {
+            alert("Vui lòng nhập đầy đủ thông tin");
+            return;
+        }
+        //end validate
 
         const payload = handSubmitTempStep4();
 
@@ -896,6 +975,9 @@
             contentType: false,
             success: function (data) {
                 if (data == 1) {
+                    // reset original form
+                    $("#form_step_4 .self-introduction:not(#form_step_4 .self-introduction:first)").remove();
+                    $("#form_step_4 .self_introduction_content:first").val('');
                     alert('Đăng ký thành công')
                 } else {
                     alert('Đăng ký thất bại')
@@ -906,7 +988,10 @@
                 alert('Server got error!')
             }
         });
-    }
+
+
+    });
+
 
     // function handSubmitStep2() {
     //     $('#form_step_2').submit(function (){
@@ -964,7 +1049,11 @@
 
     function reIndex() {
         $('.self-introduction').each(function (index, value) {
-            $(this).find('select.self_introduction_type').attr('name', `self_introduction[${index}][type]`);
+            $(this).find('select.self_introduction_type')
+                .attr('name', `self_introduction[${index}][type]`)
+                .attr('data-index', index);
+
+            console.log('current index', index);
             $(this).find('textarea.self_introduction_content').attr('name', `self_introduction[${index}][content]`);
         });
 
@@ -1064,7 +1153,12 @@
 
             $('.self-introduction .btn-add-more').each(function (index, value) {
                 changePlusToMinus.call(this, index, removeDuplicateSection);
+                setTimeout(() => {
+                    const lastSelectTag = $('select.self_introduction_type:last');
+                    lastSelectTag.val(lastSelectTag.attr('data-index'));
+                }, 100);
             });
+
             $('.academy .btn-add-more').each(function (index, value) {
                 changePlusToMinus.call(this, index, removeDuplicateSection);
             });
