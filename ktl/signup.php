@@ -290,7 +290,7 @@
                                 <div class="" style="gap:0.5rem">
                                     <div class="d-flex disable-section" style="gap:0.5rem;flex-basis: 80%">
                                         <div style="width:50%">
-                                            <input type="text" name="high_school_name"
+                                            <input type="text" name="high_school"
                                                    class="high_school validate-required" id="high_school"
                                                    placeholder="학교명">
                                             <div class="error-msg"></div>
@@ -298,6 +298,7 @@
 
                                         <div style="width:50%">
                                             <input type="date" class="date_graduate_school validate-required"
+                                                   name="graduation_high_school_year"
                                                    id="date_graduate_school"
                                                    placeholder="졸업연도">
                                             <div class="error-msg"></div>
@@ -416,7 +417,7 @@
                                                    placeholder="졸업년월">
                                             <div class="error-msg"></div>
                                         </div>
-                                        <select class="postgraduate_type">
+                                        <select class="postgraduate_status">
                                             <option value="1">졸업</option>
                                             <option value="0">졸업예정</option>
                                         </select>
@@ -619,7 +620,7 @@
                                         </div>
 
                                         <div>
-                                            <input type="date" class="training_date_start" placeholder="년도 월 일">
+                                            <input type="date" class="training_start_date" placeholder="년도 월 일">
                                             <div class="error-msg"></div>
                                         </div>
 
@@ -632,7 +633,7 @@
                                         <div class="btn-add-more">+</div>
                                     </div>
                                     <div>
-                                        <input type="text" class="validate-required"
+                                        <input type="text" class="validate-required training_content"
                                                style="width:100%;margin-top:0.5rem"
                                                placeholder="직무와 관련한 교육한 교육의 내용을 요약하여 작성해주세요. (50자이내)"
                                                name="training_content">
