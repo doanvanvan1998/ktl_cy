@@ -13,15 +13,17 @@ $('#signup_form').submit(function (e) {
             function (data, status) {
                 if (status != "fail") {
                    // alert("채용문의 접수가 완료되었습니다.");
-                    if ($("#accuracy").val() == 1) {
-                        window.location.href = "../../../ktl_cy/ktl/verify_email.php?email=" + $("#useremail").val() ;
+                    $("input[name=disabilities]:checked", "#form_step_1").val();
+                    if ($("input[name=disabilities]:checked","signup_form").val() == 1) {
+                        window.location.href = "../../../ktl_cy/ktl/verify_email.php?email=" + $("#useremail").val();
+                    }else {
+                        window.location.href = "../../../ktl_cy/ktl/verify_phone.php?phone=" + userphone.valueOf();
                     }
                     // location.reload();
                 } else {
                     alert("네트워크 오류");
                 }
             });
-
     }
 
 })
