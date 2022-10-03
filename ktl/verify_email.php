@@ -9,15 +9,16 @@
     // get email from url
     $email = $_GET['email'];
     ?>
-    <div class="contents_wrap" >
+    <div class="contents_wrap">
         <div class="container" style=" margin-top: 10rem;">
             <div class="login_form">
                 <form action="../ktl/php/fnc/verify_email.php" method="post" class="login flex-direction">
                     <div class="flex-direction">
                         <span>정확성</span>
-                        <input  name="email"   type="text" id='email' value= "<?php echo  $email; ?>"  >
+                        <input name="email" type="text" id='email' value="<?php echo $email; ?>">
                     </div>
-                    <button class="btn_login flex" id="onSubmit" onclick='handSubmit()' style="height: 2.5rem"><span>본인확인</span></button>
+                    <button class="btn_login flex" id="onSubmit" onclick='handSubmit()' style="height: 2.5rem"><span>본인확인</span>
+                    </button>
                 </form>
             </div>
             <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
@@ -216,7 +217,7 @@
 <?php include 'php/common_script.php' ?>
 
 <script>
-    function handSubmit(){
+    function handSubmit() {
         $('#onSubmit').submit();
     }
 </script>

@@ -263,6 +263,14 @@
                 </div>
             </div>
 
+
+            <div class="row" style="margin-top: 1rem;">
+                <div class="col" style="font-size: 1rem; font-weight: bold">
+                    3. 우대사항
+                </div>
+            </div>
+
+
             <div class="row" style="margin-top: 1rem;">
                 <div class="col">
 
