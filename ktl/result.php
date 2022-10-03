@@ -18,8 +18,10 @@
           </div>
         </div>
         <div class="result_notice flex-direction">
-          <img src="images/icons/ic_result.png" alt="결과 순서">
-          <div class="flex-direction comment">
+          <div style="overflow: hidden; display: flex; justify-content: center; align-items: center" >
+              <img src="images/icons/ic2_result.jpg" alt="결과 순서" style="width: 100%; height: 100%; object-fit: cover">
+          </div>
+          <div class="flex-direction comment" style="display: flex; justify-content: center; align-items: center">
             <h6>유의사항</h6>
             <span>
               · 이력서에 기재된 학력 및 경력사항 등 기재사항이 허위임이 판명될 경우, 합격이 취소될 수 있습니다.<br>
