@@ -973,6 +973,24 @@
 
 <script>
 
+
+    getInforBySession();
+
+
+    function getInforBySession(){
+
+        $.get("php/fnc/getInforUser.php", function(data, status){
+            const obj = JSON.parse(data)
+                $("#field-name").val(obj.username);
+                $("#field-phone").val(obj.phone);
+                $("#field-email").val(obj.email);
+
+        });
+
+    }
+
+
+
     document.querySelectorAll('.writer input').forEach((item, index) => {
         item.addEventListener('click', () => {
             if (index === 0) {
