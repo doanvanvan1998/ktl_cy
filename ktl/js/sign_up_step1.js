@@ -1,14 +1,14 @@
-$('#signup_form').submit(function (e) {
+$('#signup_form').submit(  function (e) {
     e.preventDefault();
-     userphone = $("#userphone").val() + $("#userphone2").val() + $("#userphone2").val();
+    userphone = $("#userphone").val() + $("#userphone2").val() + $("#userphone2").val();
     if (validate()) {
         $.post("php/fnc/save_user_signup.php", {
                 username: $("#username").val(),
                 userphone: userphone,
                 useremail: $("#useremail").val(),
                 userpass: $("#userpass").val(),
-                 acept_rule: sessionStorage.getItem("checked"),
-                rand_code:  Math.floor(Math.random() * 1000000) + 1
+                acept_rule: sessionStorage.getItem("checked"),
+                rand_code: Math.floor(Math.random() * 1000000) + 1
             },
             function (data, status) {
                 if (status != "fail") {
@@ -19,11 +19,11 @@ $('#signup_form').submit(function (e) {
                     alert("네트워크 오류");
                 }
             });
+
     }
     if ($("#accuracy").val() == 1) {
         window.location.href = "../../../ktl_cy/ktl/verify_email.php?email=" + $("#useremail").val();
     }
-
 
 })
 
