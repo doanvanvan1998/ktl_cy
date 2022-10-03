@@ -14,7 +14,7 @@
   $result = mysqli_query($con,$query);
   $row = mysqli_fetch_array($result);
 
-  $useremail = Decrypt($row[0],$secret_key,$secret_iv);
+  $useremail = Decrypt($useremail,$secret_key,$secret_iv);
 
   echo $useremail."::::";
 
