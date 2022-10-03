@@ -343,7 +343,7 @@
                     $(".list").show();
                 }
             </script>
-            <div class="wrtiebtns flex">
+            <div class="wrtiebtns flex" style="margin-bottom: 2rem">
                 <div class="btn btn_writecancel flex"><span>취소</span></div>
                 <div class="btn_writecomplete flex btn" onclick='onInquirySave()'><span>등록</span></div>
             </div>

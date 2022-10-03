@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['Id'])) {
+    header("Location: applicationcorrection.php");
+}
+?>
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -25,6 +31,8 @@
 <link rel="stylesheet" href="css/signup.css">
 <body>
 <?php include 'php/common_header_menu.php' ?>
+
+
 <div class="wrap">
     <br>
     <div class="container">
@@ -966,6 +974,7 @@
         </div>
     </div>
     <br>
+
     <?php include 'php/common_footer.php' ?>
 </div>
 
@@ -977,18 +986,17 @@
     getInforBySession();
 
 
-    function getInforBySession(){
+    function getInforBySession() {
 
-        $.get("php/fnc/getInforUser.php", function(data, status){
+        $.get("php/fnc/getInforUser.php", function (data, status) {
             const obj = JSON.parse(data)
-                $("#field-name").val(obj.username);
-                $("#field-phone").val(obj.phone);
-                $("#field-email").val(obj.email);
+            $("#field-name").val(obj.username);
+            $("#field-phone").val(obj.phone);
+            $("#field-email").val(obj.email);
 
         });
 
     }
-
 
 
     document.querySelectorAll('.writer input').forEach((item, index) => {

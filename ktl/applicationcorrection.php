@@ -70,7 +70,7 @@
                         function (data, status) {
                             if (status != "fail") {
                                 if (data == "success") {
-                                    window.location.href = "../../ktl_cy/ktl/index.php";
+                                    window.location.href = "../../ktl_cy/ktl/signup.php";
                                 } else {
                                     alert(" please check your email or password");
                                 }

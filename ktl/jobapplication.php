@@ -208,18 +208,18 @@
                         </label>
                     </div>
                 </div>
-                <div class="flex baseline">
-                    <div class="form_title">
-                        <h6>인증번호</h6>
-                    </div>
-                    <div class="form_con">
-                        <div class="flex-direction inputbox">
-                            <input name="userpass" type="text" id='userpass' class="userpass"
-                                   placeholder="비밀번호를 입력해주세요."
-                            ">
-                        </div>
-                    </div>
-                </div>
+<!--                <div class="flex baseline">-->
+<!--                    <div class="form_title">-->
+<!--                        <h6>인증번호</h6>-->
+<!--                    </div>-->
+<!--                    <div class="form_con">-->
+<!--                        <div class="flex-direction inputbox">-->
+<!--                            <input name="userpass" type="text" id='userpass' class="userpass"-->
+<!--                                   placeholder="비밀번호를 입력해주세요."-->
+<!--                            ">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
 
 
         </div>
