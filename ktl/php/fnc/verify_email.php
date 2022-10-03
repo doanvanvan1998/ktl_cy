@@ -40,7 +40,7 @@ if ($row[0]) {
         $mail->SetFrom($email, "from-name");
         $mail->AddReplyTo($email, "reply-to-name");
         $mail->AddCC($email, "cc-recipient-name");
-        $mail->Subject = "[  EMAIL VERIFICATION ]";
+        $mail->Subject = "[EMAIL VERIFICATION]";
         $content = "<b>Your verification code is </b>" . $row[0];
         $mail->MsgHTML($content);
         if (!$mail->Send()) {
