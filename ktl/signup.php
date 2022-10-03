@@ -1208,8 +1208,10 @@
         event.preventDefault();
         //validate step 2
         let isValid = true;
-        $('.validate-required').each(function (index, value) {
-            if ($(this).val() == '' && !$(this).closest('.form-item').hasClass('disable-input')) {
+        $(this).find('.validate-required').each(function (index, value) {
+            if (!$(this).val() && !$(this).closest('.form-item').hasClass('disable-input')
+            ) {
+                console.log($(this));
                 $(this).next('.error-msg').html('Trường này là bắt buộc');
                 isValid = false;
             } else {
