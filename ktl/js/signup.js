@@ -5,6 +5,8 @@
 
 
 
+
+
 // handle step 3
 const handSubmitTempStep3 = () => {
     const step4Obj = {
@@ -28,7 +30,7 @@ const handSubmitTempStep3 = () => {
     //handle get award's value
     const awardTags = document.querySelectorAll('.award');
     awardTags.forEach(e => {
-        const selectTag = e.querySelector('.cert_type');
+        const selectTag = e.querySelector('.award_type');
 
         step4Obj.awards
             .push({
@@ -49,6 +51,7 @@ const handSubmitTempStep3 = () => {
     console.log('step3: ', step4Obj);
     return step4Obj;
 };
+
 
 // handle step 4
 const handSubmitTempStep4 = () => {

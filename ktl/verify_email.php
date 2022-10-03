@@ -8,6 +8,7 @@
     <?php
     // get email from url
     $email = $_GET['email'];
+    $phone = $_GET['phone'];
     ?>
     <div class="contents_wrap" >
         <div class="container" style=" margin-top: 10rem;">
@@ -16,6 +17,10 @@
                     <div class="flex-direction">
                         <span>확인 이메일</span>
                         <input  name="email"   type="text" id='email' value= "<?php echo  $email; ?>"  >
+                    </div>
+                    <div class="flex-direction">
+                        <span>전화 번호</span>
+                        <input  name="phone"   type="text" id='email' value= "<?php echo  $phone; ?>"  >
                     </div>
                     <button class="btn_login flex" id="onSubmit" onclick='handSubmit()' style="height: 2.5rem"><span>본인확인</span></button>
                 </form>
