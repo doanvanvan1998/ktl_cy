@@ -9,7 +9,9 @@
         <div class="banner flex">
           <div class="flex-direction">
             <h2>지원서 작성</h2>
-            <span>한국산업기술시험원의 최근 소식을 만나보세요.</span>
+            <span>
+                최종제출 후 지원서 수정이 불가능하므로 반드시 내용 확인 후 제출
+            </span>
           </div>
         </div>
       </div>
