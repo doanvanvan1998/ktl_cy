@@ -119,7 +119,7 @@
                         <div class="flex agree">
                             <div class=" btn_agree flex btnFocus" style="color: white">내용확인</div>
                             <span class="noti errorCheck"
-                                  style="color: red; font-size: small">(*) 필수항목에 동의해주세요.</span>
+                                  style="color: red; font-size: small">(*)</span>
                         </div>
                     </div>
                 </div>
@@ -347,7 +347,6 @@
                 </ul>
             </div>
             <div class="pop_btns flex">
-                <div class="popbtn btn_agreecancel flex" onclick='onPerInfoCheck(0)'><span>취소</span></div>
                 <div class="popbtn btn_confirm flex" onclick='onPerInfoCheck(1)'><span>확인</span></div>
             </div>
         </div>
@@ -407,7 +406,16 @@
     function onPerInfoCheck(nCheck) {
         $('.popup_wrap').hide();
     }
-
+     // if load page     sessionStorage.setItem('checked', '0');
+    function onPerInfoCheckClick() {
+        if ($('.checkbox').hasClass('checked')) {
+            $('.checkbox').removeClass('checked');
+            sessionStorage.setItem('checked', '0');
+        } else {
+            $('.checkbox').addClass('checked');
+            sessionStorage.setItem('checked', '1');
+        }
+    }
     // mở popup
     let btnAgree = $('.btn_agree');
     btnAgree.click(function () {
