@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <script src="js/sign_up_step1.js" charset="utf-8"></script>
+
     <script src="js/signup.js"></script>
 
     <title>한국산업기술시험원</title>
@@ -1378,4 +1378,5 @@
 </style>
 
 
+<script src="js/sign_up_step1.js" charset="utf-8"></script>
 </html>
