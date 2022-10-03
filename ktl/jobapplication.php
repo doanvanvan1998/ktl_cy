@@ -191,14 +191,14 @@
                          style="margin-top:0.5rem;gap:0.5rem;flex-wrap: wrap;align-items: center">
 
                         <label class="custom-circle-radio injoin_university">
-                            <input type="radio" checked name="accuracy"  id="accuracy"  value="1">
+                            <input type="radio" checked name="injoin_university" value="1">
                             <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
                             <span class="text">By Email</span>
                         </label>
                         <label class="custom-circle-radio injoin_university">
-                            <input type="radio" name="accuracy"   id="accuracy"  value="0">
+                            <input type="radio" name="injoin_university" value="0">
                             <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
@@ -206,10 +206,24 @@
                         </label>
                     </div>
                     </div>
+                <div class="flex baseline">
+                    <div class="form_title">
+                        <h6>인증번호</h6>
+                    </div>
+                    <div class="form_con">
+                        <div class="flex-direction inputbox">
+                            <input name="userpass" type="text" id='userpass' class="userpass" placeholder="비밀번호를 입력해주세요."
+                            ">
+                        </div>
+                    </div>
                 </div>
-                <div style="margin-top: 2rem;">
-                    <button class="btn_write flex" ><span>입사지원서 작성</span></button>
+
+
                 </div>
+                    <div style="margin-top: 2rem">
+                        <button class="btn_write flex" ><span>입사지원서 작성</span></button>
+                    </div>
+
             </form>
 
         </div>
