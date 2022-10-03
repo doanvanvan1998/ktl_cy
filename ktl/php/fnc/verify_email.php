@@ -3,7 +3,6 @@ session_start();
 include "../mysql.php";
 include "../crypt.php";
 
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -13,13 +12,12 @@ require '../../vendor/phpmailer/phpmailer/src/SMTP.php';
 
 
 $email = $_POST['email'];
-echo Decrypt($email);
+
 //header("Location: ../../confirm_rand_code.php?email=$email");
 $query = "select rand_code from recruit_able_user where email='$email'";
 $result = mysqli_query($con, $query);
 $row = mysqli_fetch_array($result);
 $mail = new PHPMailer(true);
-var_dump($row);
 if ($row[0]) {
     try {
         //Server settings
