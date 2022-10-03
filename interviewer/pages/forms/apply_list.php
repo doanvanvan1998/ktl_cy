@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -86,7 +88,15 @@
                       include "../../php/crypt.php";
                       $nIndex = 1;
                       if($Id == 1)
-                        $query="select distinct u.status_pass,u.round_one,u.id,a.able_detailAddress,u.username,u.phone,u.email,u.imp_uid,u.status_pass,a3.sent_date,a.is_disabilities,a2.major_main_id, a2.major_sub  , a2.status_graduation_high_school, a2.graduation_high_school_year , a2.name_high_school from recruit_able_user u left join  apply_step_1 a on u.id = a.able_id left join apply_step_2 a2 on u.id = a2.able_id left join apply_step_5 a3 on u.id = a3.userid ";
+
+                        include "../../php/mysql.php";
+                        $userid = $_SESSION["m_sub_user_id"];
+                        $query="select id from recruit_able_subadmin where userid='$userid'";
+                        $Aresult = mysqli_query($con,$query);
+                        $Arow = mysqli_fetch_array($Aresult);
+
+
+                        $query="select distinct p.id as point_id,p.verify,a10.file_portlio,p.point,u.status_pass,u.round_one,u.id,a.able_detailAddress,u.username,u.phone,u.email,u.imp_uid,u.status_pass,a3.sent_date,a.is_disabilities,a2.major_main_id, a2.major_sub  , a2.status_graduation_high_school, a2.graduation_high_school_year , a2.name_high_school from recruit_able_user u left join  apply_step_1 a on u.id = a.able_id left join apply_step_2 a2 on u.id = a2.able_id left join apply_step_5 a3 on u.id = a3.userid left join recruit_able_point p on u.id = p.able_id left join  apply_step_3 a10 on u.id = a10.able_id where p.id_subadmin = ".$Arow[0];
 //quan
                       $Uresult = mysqli_query($con,$query);
                       while($Urow = mysqli_fetch_array($Uresult)) {
@@ -100,10 +110,39 @@
                              <th><?php echo  $Urow['username'];?></th>
                              <th><?php echo  $Urow['email']; ?></th>
                              <th><?php echo  $Urow['phone']; ?></th>
+                             <th><?php echo  $Urow['point']; ?></th>
 
-
+                             <?php
+                             if ($Urow['file_portlio'] != null ){
+                                 ?>
+                                 <th  ><button style='width:100px;border: none;background: none;color: blue;text-decoration: underline;' onclick="openFile('<?php echo $Urow['file_portlio'];?>')">미리보기</button></td>
+                                 <?php
+                             }else{
+                                 ?>
+                                 <th >미첨부</td>
+                                 <?php
+                             }
+                             ?>
                               <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(<?php echo json_encode($Urow, JSON_UNESCAPED_UNICODE); ?>)' >미리보기</button></td>
-                             <th><?php echo  1; ?></th>
+
+                                   <td>
+                                            <select class='custom-select'  style='border: none;width: 90px'  onchange='updateStatusPass(<?php echo $Urow['point_id']?>)' id="status<?php echo $Urow['point_id']?>"  >
+                                            <option selected>
+                                                <?php
+                                            switch ($Urow['verify']){
+                                                case 1:
+                                                    echo "적격";
+                                                    break;
+                                                case 0:
+                                                    echo "불적격";
+                                                    break;
+                                                default:
+                                                    echo "선택";
+                                            }
+                                            echo "</option>
+                                            <option value='1'>합격</option>
+                                            <option value='0'>불합격</option>
+                                          </select></td>";?>
 
                          </tr>
                     <?php
@@ -407,6 +446,30 @@
       $("#table_profile").append(html);
       $("#btn-profile").click();
   }
+  function updateStatusPass(Id)
+  {
+      if(confirm("해당 지원서를 통과하시겠습니까?"))
+      {
+          $.post("../../php/fnc/apply_verify.php",
+              {
+                  Id : Id,
+                  status : $("#status"+Id).val()
+              },
+              function(data,status){
+                  console.log(data);
+                  if(status != "fail"){
+                      alert("해당 지원서가 통과었습니다.");
+                      location.reload();
+                  }
+                  else
+                  {
+                      alert("네트워크 오류");
+                  }
+              });
+      }
+  }
+
+
 </script>
 <!-- ./wrapper -->
 
@@ -503,6 +566,9 @@
               name = "error";
       }
       return name;
+  }
+  function openFile(data){
+      window.open(data);
   }
 </script>
 </body>

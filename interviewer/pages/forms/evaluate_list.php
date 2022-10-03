@@ -126,9 +126,9 @@ session_start();
                                             </div>
                                         </div>";
 
-
                                         }else{
-                                            echo "
+                                            ?>
+
                                                    <tr rowspan ='2'>
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>abc</th>
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 20px'>abc</th>
@@ -151,7 +151,7 @@ session_start();
                                                                  abc
                                                                  </th>
                                                   </tr>
-                                            ";
+                                            <?php
                                             echo "
                                               </tbody>
                                             </table>

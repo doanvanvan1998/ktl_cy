@@ -141,11 +141,21 @@ session_start();
                                         $query = "select p.point from recruit_able_point p inner join recruit_able_user u on p.able_id = u.id  where u.status_pass !='0' and p.able_id = " . $row['id'];
                                         $result = mysqli_query($con, $query);
                                         $medium = 0;
-                                        while ($row1 = mysqli_fetch_array($result)) {
-                                            $medium = $medium + $row1['point'];
-                                            ?>
-                                            <th style='border: 1px solid #dee2e6;padding: 0 22px'><?php echo $row1['point'] ?></th>
-                                            <?php
+                                        for($i = 0; $i < 2; $i++){
+                                            $row1 = mysqli_fetch_array($result);
+                                            echo 1;
+                                            if ($row1 != null){
+                                                $medium = $medium + $row1['point'];
+
+                                                ?>
+                                                <th  style='border: 1px solid #dee2e6;padding: 0 22px'> <?php echo  $row1['point'];?></th>
+                                                <?php
+                                            }else{
+                                                echo 2;
+                                                ?>
+                                                <th style='border: 1px solid #dee2e6;padding: 0 22px'></th>
+                                                <?php
+                                            }
                                         }
                                         $sumAll = 0;
                                         if ($row['is_disabilities'] == 1) {
@@ -239,6 +249,7 @@ session_start();
 
                                     $result10 = mysqli_query($con, $query10);
                                     $nIndex = 1;
+
                                     while ($row = mysqli_fetch_array($result10)) {
                                         $sum = 0;
                                         if ($row['is_disabilities'] == 1) {
@@ -256,21 +267,39 @@ session_start();
                                         $query = "select p.point from recruit_able_point p inner join recruit_able_user u on p.able_id = u.id  where u.status_pass !='0' and p.able_id = " . $row['id'];
                                         $result = mysqli_query($con, $query);
                                         $medium = 0;
-                                        while ($row1 = mysqli_fetch_array($result)) {
-                                            $medium = $medium + $row1['point'];
-                                            ?>
-                                            <th style='border: 1px solid #dee2e6;padding: 0 22px'><?php echo $row1['point'] ?></th>
-                                            <?php
+                                        $check = 0;
+                                        for($i = 0; $i < 2; $i++){
+                                            $row1 = mysqli_fetch_array($result);
+                                            echo 1;
+                                            if ($row1 != null){
+                                                $medium = $medium + $row1['point'];
+
+                                                 ?>
+                                                <th  style='border: 1px solid #dee2e6;padding: 0 22px'> <?php echo  $row1['point'];?></th>
+                                                <?php
+                                            }else{
+                                                $check++;
+                                                ?>
+                                                <th style='border: 1px solid #dee2e6;padding: 0 22px'></th>
+                                                <?php
+                                            }
+
                                         }
 
+
+                                            ?>
+
+                                            <?php
                                         $medium = round($medium/2,2);
                                         if ($row['is_disabilities'] == 1){
                                             $pointResultTwo = $medium + 10;
                                         }else{
                                             $pointResultTwo = $medium + 5;
                                         }
+
+
                                         echo " 
-                                                    <th rowspan ='1' style='border: 1px solid #dee2e6;padding: 0 22px'>".$medium."</th> 
+                                                    <th rowspan ='1' style='border: 1px solid #dee2e6;padding: 0 22px'>"; echo $check == 2 ? "" : $medium; echo "</th> 
                                                   <th rowspan ='1' style='border: 1px solid #dee2e6;'></th>
 
                                                     

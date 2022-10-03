@@ -94,31 +94,151 @@ session_start();
                                               </thead>
                                               <tbody>";
 
-//                                    $query="select id,code_profile,username,phone,email,level_disabilities,subject,sub_subject,Verifi,date from objection_info where Verifi !='부적격'";
-//
-//                                    $result = mysqli_query($con,$query);
-                                    $nIndex=0;
-//                                    while($row = mysqli_fetch_array($result)){
-                                        echo "
+                                    $query="select distinct a2.major_main_id,a2.major_sub, u.round_two,u.round_one,u.round_three,u.phone,u.email,a.veterans,u.id,u.username,
+                                             u.imp_uid,u.status_pass,a.is_disabilities,a.low_income,a.children_of_migrant_families,
+                                             a.immigrant from recruit_able_user u inner join apply_step_1 a on a.able_id = u.id inner join apply_step_2 a2 on a2.able_id = u.id where u.status_pass !='0'";
+
+                                    $result = mysqli_query($con,$query);
+                                    $nIndex=1;
+                                    while($row = mysqli_fetch_array($result)){
+                                        $row['phone'] = Decrypt($row['phone'],$secret_key,$secret_iv);
+                                        $row['email'] = Decrypt($row['email'],$secret_key,$secret_iv);
+                                        ?>
+
                                                <tr>
-                                                    <th    style='border: 1px solid #dee2e6;'>abc</th>
-                                              
-                                                    <th style='border: 1px solid #dee2e6;' >abc</th>   
-                                                    <th  style='border: 1px solid #dee2e6;'>abc </th>   
-                                                    <th   style='border: 1px solid #dee2e6;'>abc</th>    
-                                                    <th  style='border: 1px solid #dee2e6;'>abc</th>  
-                                                    <th   style='border: 1px solid #dee2e6;'>abc</th> 
-                                                     <th style='border: 1px solid #dee2e6;'>abc</th> 
-                                           
-                                                    <th   style='border: 1px solid #dee2e6;'>abc</th>
-                                                    <th   style='border: 1px solid #dee2e6;'>abc</th>  
-                                                    <th  style='border: 1px solid #dee2e6;'>abc</th> 
-                                                    <th  style='border: 1px solid #dee2e6;'>abc</th>  
-                                                    <th  style='border: 1px solid #dee2e6;'>abc</th> 
+                                                    <th style='border: 1px solid #dee2e6;'></th>
+                                                    <th style='border: 1px solid #dee2e6;' ><?php echo $nIndex;?></th>
+                                                    <th  style='border: 1px solid #dee2e6;'><?php echo $row['imp_uid'];?> </th>
+                                                    <th   style='border: 1px solid #dee2e6;'><?php echo $row['username'];?></th>
+                                                    <th  style='border: 1px solid #dee2e6;'><?php echo $row['phone'];?></th>
+                                                    <th   style='border: 1px solid #dee2e6;'><?php echo $row['email'];?></th>
+                                                     <th style='border: 1px solid #dee2e6;'><?php echo $row['is_disabilities'] ==1 ?"중증":"경증";?></th>
+                                                    <th   style='border: 1px solid #dee2e6;'><?php
+                                                        switch ($row['major_main_id']) {
+                                                            case 1:
+                                                                echo "바이올린";
+                                                                break;
+                                                            case 2:
+                                                                echo "첼로";
+                                                                break;
+                                                            case 3:
+                                                                echo "하프";
+                                                                break;
+                                                            case 4:
+                                                                echo "풀루트";
+                                                                break;
+                                                            case 5:
+                                                                echo "오보에";
+                                                                break;
+                                                            case 6:
+                                                                echo "클라리넷";
+                                                                break;
+                                                            case 7:
+                                                                echo "바순";
+                                                                break;
+                                                            case 8:
+                                                                echo "트럼폣";
+                                                                break;
+                                                            case 9:
+                                                                echo "호른";
+                                                                break;
+                                                            case 10:
+                                                                echo "비올라";
+                                                                break;
+                                                            case 11:
+                                                                echo "베이스";
+                                                                break;
+                                                            case 12:
+                                                                echo "팀파니";
+                                                                break;
+                                                            case 0:
+                                                                echo "기타 (직접작성)";
+                                                                break;
+                                                            default:
+                                                                echo "error";
+                                                        }
+                                                        ?></th>
+                                                   <th   style='border: 1px solid #dee2e6;'><?php
+                                                       switch ($row['major_sub']) {
+                                                           case 1:
+                                                               echo "바이올린";
+                                                               break;
+                                                           case 2:
+                                                               echo "첼로";
+                                                               break;
+                                                           case 3:
+                                                               echo "하프";
+                                                               break;
+                                                           case 4:
+                                                               echo "풀루트";
+                                                               break;
+                                                           case 5:
+                                                               echo "오보에";
+                                                               break;
+                                                           case 6:
+                                                               echo "클라리넷";
+                                                               break;
+                                                           case 7:
+                                                               echo "바순";
+                                                               break;
+                                                           case 8:
+                                                               echo "트럼폣";
+                                                               break;
+                                                           case 9:
+                                                               echo "호른";
+                                                               break;
+                                                           case 10:
+                                                               echo "비올라";
+                                                               break;
+                                                           case 11:
+                                                               echo "베이스";
+                                                               break;
+                                                           case 12:
+                                                               echo "팀파니";
+                                                               break;
+                                                           case 0:
+                                                               echo "기타 (직접작성)";
+                                                               break;
+                                                           default:
+                                                               echo "error";
+                                                       }
+                                                       ?></th>
+                                                    <th  style='border: 1px solid #dee2e6;'><?php switch ($row['round_one']) {
+                                                            case 1:
+                                                                echo "합격";
+                                                                break;
+                                                            case 0:
+                                                                echo "불합격";
+                                                                break;
+                                                            default:
+                                                                echo "선택";
+                                                        } ?></th>
+                                                    <th  style='border: 1px solid #dee2e6;'>
+                                                        <?php switch ($row['round_two']) {
+                                                            case 1:
+                                                                echo "합격";
+                                                                break;
+                                                            case 0:
+                                                                echo "불합격";
+                                                                break;
+                                                            default:
+                                                                echo "선택";
+                                                        } ?>
+                                                    </th>
+                                                    <th  style='border: 1px solid #dee2e6;'>
+                                                        <?php switch ($row['round_three']) {
+                                                            case 1:
+                                                                echo "합격";
+                                                                break;
+                                                            case 0:
+                                                                echo "불합격";
+                                                                break;
+                                                            default:
+                                                                echo "선택";
+                                                        }?></th>
                                                   </tr>
-                                            ";
-//                                       break;
-//                                    }
+                                        <?php
+                                    }
                                     echo "
                                               </tbody>
                                             </table>
@@ -177,7 +297,7 @@ session_start();
                                               </tbody>
                                             </table>
                                         </div>";
-
+                                    $nIndex++;
                                 }
                                 mysqli_close($con);
                                 ?>
