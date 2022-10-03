@@ -250,24 +250,33 @@
                                     작성자
                                 </div>
                                 <div class="col-md-9">
-                                    <div class="d-flex radio-required" style="gap:0.5rem">
+                                    <div class="d-flex radio-required writer" style="gap:0.5rem">
                                         <label>
-                                            <input type="radio" name="single_user " value="0">
+                                            <input type="radio" name="single_user" value="0">
                                             <span>본인</span>
                                         </label>
 
                                         <label>
-                                            <input type="radio" name="single_user " value="1">
+                                            <input type="radio" name="single_user" value="1">
                                             <span>보호자</span>
                                         </label>
 
                                         <label>
-                                            <input type="radio" name="single_user " value="2">
+                                            <input type="radio" name="single_user" value="2">
                                             <span>대리인</span>
                                         </label>
                                     </div>
                                     <div class="error-msg">
                                     </div>
+                                    <div class="col-md-9 none more_info_writer">
+                                        *첨부파일 형식은 PDF로 제출부탁드립니다.
+                                        <input type="file" id="writer" style="margin-top: 0.5rem">
+                                        <div class="error-msg">
+                                        </div>
+                                        <a style="color: black; font-size: 17px; text-decoration: underline"
+                                           href="uploads/위임장_신청서류%20작성%20대리인.pdf" download="">※정보제공동의서 파일 다운로드</a>
+                                    </div>
+
                                 </div>
                             </div>
 
@@ -280,13 +289,12 @@
                                     <div>보훈 여부</div>
                                     <div class="d-flex radio-required" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
-                                            <input type="radio" name="meritorious_person " value="0">
-                                            <span>비대상</span>
-                                        </label>
-
-                                        <label>
-                                            <input type="radio" name="meritorious_person " value="1">
+                                            <input type="radio" name="meritorious_person" value="1">
                                             <span>대상</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="meritorious_person" value="0">
+                                            <span>비대상</span>
                                         </label>
                                     </div>
                                     <div class="error-msg">
@@ -296,13 +304,12 @@
                                     <div>저소득증</div>
                                     <div class="d-flex radio-required" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
-                                            <input type="radio" name="low_benefit " value="0">
-                                            <span>비대상</span>
-                                        </label>
-
-                                        <label>
-                                            <input type="radio" name="low_benefit " value="1">
+                                            <input type="radio" name="low_benefit" value="1">
                                             <span>대상</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="low_benefit" value="0">
+                                            <span>비대상</span>
                                         </label>
                                     </div>
                                     <div class="error-msg">
@@ -311,13 +318,12 @@
                                     <div>북한이탈주민</div>
                                     <div class="d-flex radio-required" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
-                                            <input type="radio" name="korea_migrate " value="0">
-                                            <span>비대상</span>
-                                        </label>
-
-                                        <label>
-                                            <input type="radio" name="korea_migrate " value="1">
+                                            <input type="radio" name="korea_migrate" value="1">
                                             <span>대상</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="korea_migrate" value="0">
+                                            <span>비대상</span>
                                         </label>
                                     </div>
                                     <div class="error-msg radio-required">
@@ -326,13 +332,12 @@
                                     <div>다문화가족자녀</div>
                                     <div class="d-flex radio-required" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
-                                            <input type="radio" name="son-of-korea-migrate" value="0">
-                                            <span>비대상</span>
-                                        </label>
-
-                                        <label>
                                             <input type="radio" name="son-of-korea-migrate" value="1">
                                             <span>대상</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="son-of-korea-migrate" value="0">
+                                            <span>비대상</span>
                                         </label>
                                     </div>
                                     <div class="error-msg">
@@ -341,8 +346,8 @@
                             </div>
 
                             <div class="row form-item d-flex justify-content-center pt-2 pb-2" style="gap:0.5rem;">
-                                <button type="submit" class="btn btn-secondary" onclick="save()">임시저장</button>
-                                <button type="submit" class="btn btn-primary" onclick="nextStep()">다음단계</button>
+                                <button type="submit" class="btn btn-secondary">임시저장</button>
+                                <button type="button" class="btn btn-primary" onclick="nextStep()">다음단계</button>
                             </div>
                         </div>
                     </div>
@@ -541,48 +546,48 @@
                             <div class="col-md-9">
                                 <div class="d-flex" style="gap:0.5rem">
                                     <select name="main_experience">
-                                        <option value="15">피아노</option>
-                                        <option value="16">풀루트</option>
-                                        <option value="17">베이스</option>
+                                        <option value="">주 전공명을 선택해주세요</option>
+                                        <option value="1">피아노</option>
+                                        <option value="2">풀루트</option>
+                                        <option value="3">베이스</option>
 
-                                        <option value="0">바이올린</option>
-                                        <option value="1">첼로</option>
-                                        <option value="2">하프</option>
-                                        <option value="3">풀루트</option>
-                                        <option value="4">오보에</option>
-                                        <option value="5">클라리넷</option>
-                                        <option value="6">바순</option>
-                                        <option value="7">트럼폣</option>
-                                        <option value="8">호른</option>
-                                        <option value="9">비올라</option>
-                                        <option value="10">팀파니</option>
-                                        <option value="11">기타 (직접작성)</option>
-                                        <option value="12">부 전공을 선택해주세요</option>
-                                        <option value="13">주요이력</option>
-                                        <option value="14">(중복선택가능)</option>
+                                        <option value="4">바이올린</option>
+                                        <option value="5">첼로</option>
+                                        <option value="6">하프</option>
+                                        <option value="7">오보에</option>
+                                        <option value="8">클라리넷</option>
+                                        <option value="9">바순</option>
+                                        <option value="10">트럼폣</option>
+                                        <option value="11">호른</option>
+                                        <option value="12">비올라</option>
+                                        <option value="13">팀파니</option>
+                                        <option value="14">기타 (직접작성)</option>
+                                        <option value="15">부 전공을 선택해주세요</option>
+                                        <option value="16">주요이력</option>
+                                        <option value="17">(중복선택가능)</option>
 
 
                                     </select>
                                     <select name="extra_experience" id="">
-                                        <option value="15">피아노</option>
-                                        <option value="16">풀루트</option>
-                                        <option value="17">베이스</option>
+                                        <option value="">부전공</option>
+                                        <option value="1">피아노</option>
+                                        <option value="2">풀루트</option>
+                                        <option value="3">베이스</option>
 
-                                        <option value="0">바이올린</option>
-                                        <option value="1">첼로</option>
-                                        <option value="2">하프</option>
-                                        <option value="3">풀루트</option>
-                                        <option value="4">오보에</option>
-                                        <option value="5">클라리넷</option>
-                                        <option value="6">바순</option>
-                                        <option value="7">트럼폣</option>
-                                        <option value="8">호른</option>
-                                        <option value="9">비올라</option>
-                                        <option value="10">팀파니</option>
-                                        <option value="11">기타 (직접작성)</option>
-                                        <option value="12">부 전공을 선택해주세요</option>
-                                        <option value="13">주요이력</option>
-                                        <option value="14">(중복선택가능)</option>
+                                        <option value="4">바이올린</option>
+                                        <option value="5">첼로</option>
+                                        <option value="6">하프</option>
+                                        <option value="7">오보에</option>
+                                        <option value="8">클라리넷</option>
+                                        <option value="9">바순</option>
+                                        <option value="10">트럼폣</option>
+                                        <option value="11">호른</option>
+                                        <option value="12">비올라</option>
+                                        <option value="13">팀파니</option>
+                                        <option value="14">기타 (직접작성)</option>
+                                        <option value="15">부 전공을 선택해주세요</option>
+                                        <option value="16">주요이력</option>
+                                        <option value="17">(중복선택가능)</option>
                                     </select>
                                 </div>
                             </div>
@@ -968,6 +973,18 @@
 
 <script>
 
+    document.querySelectorAll('.writer input').forEach((item, index) => {
+        item.addEventListener('click', () => {
+            if (index === 0) {
+                $('.more_info_writer').addClass('none')
+                    .find('input').val('')
+                    .next('.error-msg').text('');
+            } else {
+                $('.more_info_writer').removeClass('none')
+            }
+        });
+    })
+
     // handle submit step 1
     $('#form_step_1').submit(function (event) {
         console.log('submit step 3');
@@ -984,7 +1001,22 @@
                 if ($(this).find('input[type=radio]')[0].checked)
                     $('#content_disabilities').addClass('validate-required');
                 else
-                    $('#content_disabilities').removeClass('validate-required');
+                    $('#content_disabilities').removeClass('validate-required').next('.error-msg').html('');
+            } else if ($(this).hasClass('writer')) {
+                const radioTags = $(this).find('input[type=radio]');
+                if (radioTags[1].checked || radioTags[2].checked) {
+                    $(this).parent()
+                        .find('.more_info_writer')
+                        .removeClass('none')
+                        .find('input').addClass('validate-required');
+                } else {
+                    $(this).parent().find('.more_info_writer')
+                        .addClass('none')
+                        .find('input')
+                        .val('')
+                        .removeClass('validate-required')
+                        .next('.error-msg').html('');
+                }
             }
 
             if ($(this).find('input[type=radio]:checked').length == 0) {
@@ -992,6 +1024,7 @@
                     .html('이 필드는 필수 항목입니다.');
                 isValid = false;
             } else {
+                isValid = true;
                 $(this).next('.error-msg').html('');
             }
         });
@@ -1010,12 +1043,12 @@
 
         console.log('is valid', isValid);
         if (!isValid) {
-            alert("Vui lòng nhập đầy đủ thông tin");
+            alert("누락된 정보를 확인해주세요.");
             return;
         }
 
         //    handle ajax step1
-
+        save();
     });
 
     //    handle submit step3

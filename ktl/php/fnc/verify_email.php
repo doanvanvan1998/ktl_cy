@@ -10,10 +10,8 @@ require '../../vendor/phpmailer/phpmailer/src/Exception.php';
 require '../../vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require '../../vendor/phpmailer/phpmailer/src/SMTP.php';
 
-
-$email = $_POST['email'];
-
-//header("Location: ../../confirm_rand_code.php?email=$email");
+$email = Encrypt($_POST['email'], $secret_key, $secret_iv);
+header("Location: ../../confirm_rand_code.php?email=$email");
 $query = "select rand_code from recruit_able_user where email='$email'";
 $result = mysqli_query($con, $query);
 $row = mysqli_fetch_array($result);
@@ -31,21 +29,20 @@ if ($row[0]) {
         $mail->SMTPSecure = "tls";
         $mail->Port = 587;
         $mail->Host = "smtp.gmail.com";
-        $mail->Username = $email;
+        $mail->Username = Decrypt($email, $secret_key, $secret_iv);
         $mail->Password = "ixripxfqqlgamxpa";
 
         //Recipients
         $mail->IsHTML(true);
-        $mail->AddAddress($email, "recipient-name");
-        $mail->SetFrom($email, "from-name");
-        $mail->AddReplyTo($email, "reply-to-name");
-        $mail->AddCC($email, "cc-recipient-name");
+        $mail->AddAddress(Decrypt($email, $secret_key, $secret_iv), "recipient-name");
+        $mail->SetFrom(Decrypt($email, $secret_key, $secret_iv), "from-name");
+        $mail->AddReplyTo(Decrypt($email, $secret_key, $secret_iv), "reply-to-name");
+        $mail->AddCC(Decrypt($email, $secret_key, $secret_iv), "cc-recipient-name");
         $mail->Subject = "[EMAIL VERIFICATION]";
         $content = "<b>Your verification code is </b>" . $row[0];
         $mail->MsgHTML($content);
         if (!$mail->Send()) {
             echo "Error while sending Email.";
-            var_dump($mail);
         } else {
             echo "Email sent successfully";
         }
