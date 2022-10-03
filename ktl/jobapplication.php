@@ -108,27 +108,27 @@
                     </div>
                 </div>
 
-                <div class="flex baseline">
-                    <div class="form_title">
-                        <h6>이메일 또는 전화번호 확인</h6>
-                    </div>
-                    <div class="form_con">
-                        <div class="flex-direction inputbox" >
-                           <div style="display: flex ">
-                               <div >
-                                   <button class="btn btn-dark">
-                                       email
-                                   </button>
-                               </div>
-                               <div style="margin-left: 0.5rem;">
-                                   <button class="btn btn-dark">
-                                       password
-                                   </button>
-                               </div>
-                           </div>
-                        </div>
-                    </div>
-                </div>
+                <!--                <div class="flex baseline">-->
+                <!--                    <div class="form_title">-->
+                <!--                        <h6>이메일 또는 전화번호 확인</h6>-->
+                <!--                    </div>-->
+                <!--                    <div class="form_con">-->
+                <!--                        <div class="flex-direction inputbox" >-->
+                <!--                           <div style="display: flex ">-->
+                <!--                               <div >-->
+                <!--                                   <button class="btn btn-dark">-->
+                <!--                                       email-->
+                <!--                                   </button>-->
+                <!--                               </div>-->
+                <!--                               <div style="margin-left: 0.5rem;">-->
+                <!--                                   <button class="btn btn-dark">-->
+                <!--                                       password-->
+                <!--                                   </button>-->
+                <!--                               </div>-->
+                <!--                           </div>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
             </form>
             <div class="btn_write flex" onclick="hanldSubmit()"><span>입사지원서 작성</span></div>
         </div>
