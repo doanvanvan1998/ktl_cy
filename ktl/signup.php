@@ -307,7 +307,8 @@
 
                                     <div class="d-flex"
                                          style="margin-top:0.5rem;gap:0.5rem;flex-wrap: wrap;align-items: center">
-                                        <select class="form-control disable-input" style="width:30%" name="status_graduate"
+                                        <select class="form-control disable-input" style="width:30%"
+                                                name="status_graduate"
                                                 id="status_graduate">
                                             <option value="1">Tốt nghiệp</option>
                                             <option value="0">Chưa tốt nghiệp</option>
@@ -683,6 +684,7 @@
                                 <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
                                     <input type="text" class="award_content" placeholder="Nhập nội dung giải thưởng">
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -1340,11 +1342,12 @@
     }
 
     .academy-row.disable-input,
-    .postgraduate-row.disable-input{
+    .postgraduate-row.disable-input {
         pointer-events: none;
         opacity: 0.5;
     }
-    select.disable-input{
+
+    select.disable-input {
         pointer-events: none;
         opacity: 0.5;
     }
