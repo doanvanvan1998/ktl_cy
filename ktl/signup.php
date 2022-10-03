@@ -46,6 +46,11 @@
                 </div>
 
                 <form id="form_step_1">
+                    <style>
+                        #form_step_1 .error-msg {
+                            display: none;
+                        }
+                    </style>
                     <div class="tab-content">
                         <h3>기본정보 </h3>
                         <hr>
@@ -57,8 +62,11 @@
                                     </label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" class="" id="field-name"
+                                    <input type="text" class="validate-required" id="field-name"
                                            placeholder="이름을　입력해주세요．">
+                                    <div class="error-msg">
+                                        이름을　입력해주세요．
+                                    </div>
                                 </div>
                             </div>
 
@@ -69,8 +77,11 @@
                                     </label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" class="" id="field-phone"
+                                    <input type="text" class="validate-required" id="field-phone"
                                            placeholder="연락처를　입력해주세요．">
+                                    <div class="error-msg">
+                                        연락처를　입력해주세요．
+                                    </div>
                                 </div>
                             </div>
 
@@ -81,8 +92,11 @@
                                     </label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="email" class="" id="field-email"
+                                    <input type="email" class="validate-required" id="field-email"
                                            placeholder="이메일을　입력해주세요．">
+                                    <div class="error-msg">
+                                        이메일을　입력해주세요．
+                                    </div>
                                 </div>
 
                             </div>
@@ -94,14 +108,31 @@
                                     </label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" name="address＿ccid" class="" id="field-address"
-                                           placeholder="시민 등록증상 주소를 입력하세요.">
-                                    <div class="mt-1 mb-1">
-                                        <input type="text" name="address" class="" id="field-address"
-                                               placeholder="주소를　입력해주세요．">
+                                    <div>
+                                        <input type="text" name="address＿ccid" class="validate-required"
+                                               id="field-address"
+                                               placeholder="시민 등록증상 주소를 입력하세요.">
+                                        <div class="error-msg">
+                                            시민 등록증상 주소를 입력하세요.
+                                        </div>
                                     </div>
-                                    <input type="text" name="address_now" class="" id="field-address"
-                                           placeholder="상세 주소를 입력하세요．">
+
+                                    <div class="mt-1 mb-1">
+                                        <input type="text" name="address" class="validate-required" id="field-address"
+                                               placeholder="주소를　입력해주세요．">
+                                        <div class="error-msg">
+                                            주소를　입력해주세요．
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <input type="text" name="address_now" class="validate-required"
+                                               id="field-address"
+                                               placeholder="상세 주소를 입력하세요．">
+                                        <div class="error-msg">
+                                            상세 주소를 입력하세요．
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -114,7 +145,7 @@
                                 <div class="col-md-9">
                                     <div class="d-flex" style="gap:0.5rem">
                                         <label>
-                                            <input type="radio" name="disabilities" value="1">
+                                            <input type="radio" checked name="disabilities" value="1">
                                             <span>
                                                 <span>대상</span>
                                             </span>
@@ -188,7 +219,7 @@
                                 <div class="col-md-9">
                                     <div class="d-flex flex-wrap" style="gap:0.5rem">
                                         <label>
-                                            <input type="radio" name="duty" value="0">
+                                            <input type="radio" checked name="duty" value="0">
                                             <span>비대상</span>
                                         </label>
                                         <label>
@@ -218,7 +249,7 @@
                                 <div class="col-md-9">
                                     <div class="d-flex" style="gap:0.5rem">
                                         <label>
-                                            <input type="radio" name="single_user " value="0">
+                                            <input type="radio" checked name="single_user " value="0">
                                             <span>본인</span>
                                         </label>
 
@@ -244,7 +275,7 @@
                                     <div>보훈 여부</div>
                                     <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
-                                            <input type="radio" name="meritorious_person " value="0">
+                                            <input type="radio"  name="meritorious_person " value="0">
                                             <span>비대상</span>
                                         </label>
 
@@ -255,7 +286,7 @@
                                     </div>
 
 
-                                    <div>저소득증 </div>
+                                    <div>저소득증</div>
                                     <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
                                             <input type="radio" name="low_benefit " value="0">
@@ -923,6 +954,38 @@
 </body>
 
 <script>
+
+    // handle submit step 1
+    $('#form_step_1').submit(function (event) {
+        console.log('submit step 3');
+
+        event.preventDefault();
+
+
+        //validate step 3
+        let isValid = true;
+        $('#form_step_1 .validate-required').each(function (index, value) {
+            if ($(this).val() == '' && !$(this).closest('.form-item').hasClass('disable-input')) {
+                $(this)
+                    .next('.error-msg')
+                    .style('display', 'block')
+                    .html('Trường này là bắt buộc');
+                isValid = false;
+            } else {
+                $(this)
+                    .next('.error-msg')
+                    .style('display', 'block')
+                    .html('');
+            }
+        });
+
+        console.log('is valid', isValid);
+        if (!isValid) {
+            alert("Vui lòng nhập đầy đủ thông tin");
+            return;
+        }
+
+    });
 
     //    handle submit step3
     $('#form_step_3').submit(function (event) {
