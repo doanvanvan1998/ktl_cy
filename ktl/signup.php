@@ -46,11 +46,7 @@
                 </div>
 
                 <form id="form_step_1">
-                    <style>
-                        #form_step_1 .error-msg {
-                            display: none;
-                        }
-                    </style>
+
                     <div class="tab-content">
                         <h3>기본정보 </h3>
                         <hr>
@@ -65,12 +61,11 @@
                                     <input type="text" class="validate-required" id="field-name"
                                            placeholder="이름을　입력해주세요．">
                                     <div class="error-msg">
-                                        이름을　입력해주세요．
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row form-item">
+                            <div class="row form-item ">
                                 <div class="col-md-3">
                                     <label for="">
                                         연락처
@@ -80,7 +75,6 @@
                                     <input type="text" class="validate-required" id="field-phone"
                                            placeholder="연락처를　입력해주세요．">
                                     <div class="error-msg">
-                                        연락처를　입력해주세요．
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +89,6 @@
                                     <input type="email" class="validate-required" id="field-email"
                                            placeholder="이메일을　입력해주세요．">
                                     <div class="error-msg">
-                                        이메일을　입력해주세요．
                                     </div>
                                 </div>
 
@@ -113,7 +106,6 @@
                                                id="field-address"
                                                placeholder="시민 등록증상 주소를 입력하세요.">
                                         <div class="error-msg">
-                                            시민 등록증상 주소를 입력하세요.
                                         </div>
                                     </div>
 
@@ -121,7 +113,6 @@
                                         <input type="text" name="address" class="validate-required" id="field-address"
                                                placeholder="주소를　입력해주세요．">
                                         <div class="error-msg">
-                                            주소를　입력해주세요．
                                         </div>
                                     </div>
 
@@ -130,7 +121,6 @@
                                                id="field-address"
                                                placeholder="상세 주소를 입력하세요．">
                                         <div class="error-msg">
-                                            상세 주소를 입력하세요．
                                         </div>
                                     </div>
                                 </div>
@@ -144,19 +134,26 @@
 
                                 <div class="col-md-9">
                                     <div class="d-flex" style="gap:0.5rem">
-                                        <label>
-                                            <input type="radio" checked name="disabilities" value="1">
-                                            <span>
+                                        <div>
+                                            <div class="radio-required disabilities">
+                                                <label>
+                                                    <input type="radio" name="disabilities" value="1">
+                                                    <span>
                                                 <span>대상</span>
                                             </span>
-                                        </label>
+                                                </label>
 
-                                        <label>
-                                            <input type="radio" name="disabilities" value="0">
-                                            <span>
+                                                <label>
+                                                    <input type="radio" name="disabilities" value="0">
+                                                    <span>
                                                 <span>비대상</span>
                                             </span>
-                                        </label>
+                                                </label>
+
+                                            </div>
+                                            <div class="error-msg">
+                                            </div>
+                                        </div>
 
                                         <select name="level_disabilities " class="form-control" id="level_disabilities"
                                                 style="width: 30%;margin-left:0.1rem">
@@ -165,32 +162,36 @@
 
                                         </select>
 
-                                        <select name="content_disabilities " class="form-control"
-                                                id="content_disabilities"
-                                                style="width: 30%;margin-left:0.1rem">
-                                            <option value="">내용</option>
-                                            <option value="0">간장애</option>
+                                        <div>
+                                            <select name="content_disabilities " class="form-control"
+                                                    id="content_disabilities"
+                                                    style="width: 30%;margin-left:0.1rem">
+                                                <option value="">내용</option>
+                                                <option value="0">간장애</option>
 
-                                            <option value="0">뇌전증장애 (간질장애)</option>
-                                            <option value="0">뇌병변장애</option>
-                                            <option value="0">시각장애</option>
-                                            <option value="0">신장장애</option>
+                                                <option value="0">뇌전증장애 (간질장애)</option>
+                                                <option value="0">뇌병변장애</option>
+                                                <option value="0">시각장애</option>
+                                                <option value="0">신장장애</option>
 
-                                            <option value="0">심장장애</option>
-                                            <option value="0">안면변형장애</option>
-                                            <option value="0">장루/요루장애</option>
-                                            <option value="0">정신장애</option>
+                                                <option value="0">심장장애</option>
+                                                <option value="0">안면변형장애</option>
+                                                <option value="0">장루/요루장애</option>
+                                                <option value="0">정신장애</option>
 
-                                            <option value="0">청각장애</option>
-                                            <option value="0">호흡기장애</option>
-                                            <option value="0">지체장애</option>
-                                            <option value="0">언어장애</option>
+                                                <option value="0">청각장애</option>
+                                                <option value="0">호흡기장애</option>
+                                                <option value="0">지체장애</option>
+                                                <option value="0">언어장애</option>
 
-                                            <option value="0">지적장애</option>
-                                            <option value="0">자폐장애</option>
-                                            <option value="0">기타장애</option>
-                                            <option value="0">병역구분</option>
-                                        </select>
+                                                <option value="0">지적장애</option>
+                                                <option value="0">자폐장애</option>
+                                                <option value="0">기타장애</option>
+                                                <option value="0">병역구분</option>
+                                            </select>
+                                            <div class="error-msg">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -217,9 +218,9 @@
                                 </div>
 
                                 <div class="col-md-9">
-                                    <div class="d-flex flex-wrap" style="gap:0.5rem">
+                                    <div class="d-flex flex-wrap radio-required" style="gap:0.5rem">
                                         <label>
-                                            <input type="radio" checked name="duty" value="0">
+                                            <input type="radio" name="duty" value="0">
                                             <span>비대상</span>
                                         </label>
                                         <label>
@@ -239,6 +240,8 @@
                                             <span>복우중</span>
                                         </label>
                                     </div>
+                                    <div class="error-msg">
+                                    </div>
                                 </div>
                             </div>
 
@@ -247,9 +250,9 @@
                                     작성자
                                 </div>
                                 <div class="col-md-9">
-                                    <div class="d-flex" style="gap:0.5rem">
+                                    <div class="d-flex radio-required" style="gap:0.5rem">
                                         <label>
-                                            <input type="radio" checked name="single_user " value="0">
+                                            <input type="radio" name="single_user " value="0">
                                             <span>본인</span>
                                         </label>
 
@@ -263,6 +266,8 @@
                                             <span>대리인</span>
                                         </label>
                                     </div>
+                                    <div class="error-msg">
+                                    </div>
                                 </div>
                             </div>
 
@@ -273,9 +278,9 @@
                                 <div class="col-md-9">
 
                                     <div>보훈 여부</div>
-                                    <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
+                                    <div class="d-flex radio-required" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
-                                            <input type="radio"  name="meritorious_person " value="0">
+                                            <input type="radio" name="meritorious_person " value="0">
                                             <span>비대상</span>
                                         </label>
 
@@ -284,10 +289,12 @@
                                             <span>대상</span>
                                         </label>
                                     </div>
+                                    <div class="error-msg">
+                                    </div>
 
 
                                     <div>저소득증</div>
-                                    <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
+                                    <div class="d-flex radio-required" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
                                             <input type="radio" name="low_benefit " value="0">
                                             <span>비대상</span>
@@ -298,9 +305,11 @@
                                             <span>대상</span>
                                         </label>
                                     </div>
+                                    <div class="error-msg">
+                                    </div>
 
                                     <div>북한이탈주민</div>
-                                    <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
+                                    <div class="d-flex radio-required" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
                                             <input type="radio" name="korea_migrate " value="0">
                                             <span>비대상</span>
@@ -311,9 +320,11 @@
                                             <span>대상</span>
                                         </label>
                                     </div>
+                                    <div class="error-msg radio-required">
+                                    </div>
 
                                     <div>다문화가족자녀</div>
-                                    <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
+                                    <div class="d-flex radio-required" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
                                             <input type="radio" name="son-of-korea-migrate" value="0">
                                             <span>비대상</span>
@@ -323,6 +334,8 @@
                                             <input type="radio" name="son-of-korea-migrate" value="1">
                                             <span>대상</span>
                                         </label>
+                                    </div>
+                                    <div class="error-msg">
                                     </div>
                                 </div>
                             </div>
@@ -379,7 +392,7 @@
                                         </select>
 
                                         <label class="custom-circle-radio injoin_university">
-                                            <input type="radio" checked name="injoin_university" value="1">
+                                            <input type="radio" name="injoin_university" value="1">
                                             <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
@@ -961,29 +974,47 @@
 
         event.preventDefault();
 
-
-        //validate step 3
+        //validate step 1
         let isValid = true;
-        $('#form_step_1 .validate-required').each(function (index, value) {
-            if ($(this).val() == '' && !$(this).closest('.form-item').hasClass('disable-input')) {
-                $(this)
-                    .next('.error-msg')
-                    .style('display', 'block')
-                    .html('Trường này là bắt buộc');
+
+        $('#form_step_1 .radio-required').each(function (index, value) {
+            console.log('radio-required', $(this).hasClass('disabilities'));
+
+            if ($(this).hasClass('disabilities')) {
+                if ($(this).find('input[type=radio]')[0].checked)
+                    $('#content_disabilities').addClass('validate-required');
+                else
+                    $('#content_disabilities').removeClass('validate-required');
+            }
+
+            if ($(this).find('input[type=radio]:checked').length == 0) {
+                $(this).next('.error-msg')
+                    .html('이 필드는 필수 항목입니다.');
                 isValid = false;
             } else {
-                $(this)
-                    .next('.error-msg')
-                    .style('display', 'block')
-                    .html('');
+                $(this).next('.error-msg').html('');
             }
         });
+
+
+        $('#form_step_1 .validate-required').each(function (index, value) {
+            if ($(this).val() == '' && !$(this).closest('.form-item').hasClass('disable-input')) {
+                $(this).next('.error-msg')
+                    .html('이 필드는 필수 항목입니다.');
+                isValid = false;
+            } else {
+                $(this).next('.error-msg').html('');
+            }
+        });
+
 
         console.log('is valid', isValid);
         if (!isValid) {
             alert("Vui lòng nhập đầy đủ thông tin");
             return;
         }
+
+        //    handle ajax step1
 
     });
 
@@ -998,7 +1029,7 @@
         let isValid = true;
         $('#form_step_3 .validate-required').each(function (index, value) {
             if ($(this).val() == '' && !$(this).closest('.form-item').hasClass('disable-input')) {
-                $(this).next('.error-msg').html('Trường này là bắt buộc');
+                $(this).next('.error-msg').html('이 필드는 필수 항목입니다.');
                 isValid = false;
             } else {
                 $(this).next('.error-msg').html('');
@@ -1012,7 +1043,7 @@
         }
         //end validate
 
-
+        //    handle ajax step2
         const payload = handSubmitTempStep3();
 
         const formData = new FormData();
@@ -1052,7 +1083,7 @@
         let isValid = true;
         $('#form_step_4 .validate-required').each(function (index, value) {
             if ($(this).val() == '' && !$(this).closest('.form-item').hasClass('disable-input')) {
-                $(this).next('.error-msg').html('Trường này là bắt buộc');
+                $(this).next('.error-msg').html('이 필드는 필수 항목입니다.');
                 isValid = false;
             } else {
                 $(this).next('.error-msg').html('');
@@ -1066,6 +1097,7 @@
         }
         //end validate
 
+        //    handle ajax step4
         const payload = handSubmitTempStep4();
 
         const formData = new FormData();
@@ -1311,11 +1343,9 @@
         event.preventDefault();
         //validate step 2
         let isValid = true;
-        $(this).find('.validate-required').each(function (index, value) {
-            if (!$(this).val() && !$(this).closest('.form-item').hasClass('disable-input')
-            ) {
-                console.log($(this));
-                $(this).next('.error-msg').html('Trường này là bắt buộc');
+        $('#form_step_2 .validate-required').each(function (index, value) {
+            if ($(this).val() == '' && !$(this).closest('.form-item').hasClass('disable-input')) {
+                $(this).next('.error-msg').html('이 필드는 필수 항목입니다.');
                 isValid = false;
             } else {
                 $(this).next('.error-msg').html('');
