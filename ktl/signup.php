@@ -53,55 +53,61 @@
                             <div class="row form-item">
                                 <div class="col-md-3">
                                     <label for="">
-                                        Tên
+                                        이름
                                     </label>
                                 </div>
                                 <div class="col-md-9">
                                     <input type="text" class="" id="field-name"
-                                           placeholder="Enter Name">
+                                           placeholder="이름을　입력해주세요．">
                                 </div>
                             </div>
 
                             <div class="row form-item">
                                 <div class="col-md-3">
                                     <label for="">
-                                        SDT
+                                        연락처
                                     </label>
                                 </div>
                                 <div class="col-md-9">
                                     <input type="text" class="" id="field-phone"
-                                           placeholder="Enter Phone">
+                                           placeholder="연락처를　입력해주세요．">
                                 </div>
                             </div>
 
                             <div class="row form-item">
                                 <div class="col-md-3">
                                     <label for="">
-                                        Email
+                                        이메일
                                     </label>
                                 </div>
                                 <div class="col-md-9">
                                     <input type="email" class="" id="field-email"
-                                           placeholder="Enter Email">
+                                           placeholder="이메일을　입력해주세요．">
                                 </div>
-                            </div>
 
+                            </div>
 
                             <div class="row form-item">
                                 <div class="col-md-3">
                                     <label for="">
-                                        Địa chỉ
+                                        주소
                                     </label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" name="address" class="" id="field-address"
-                                           placeholder="Enter address">
+                                    <input type="text" name="address＿ccid" class="" id="field-address"
+                                           placeholder="시민 등록증상 주소를 입력하세요.">
+                                    <div class="mt-1 mb-1">
+                                        <input type="text" name="address" class="" id="field-address"
+                                               placeholder="주소를　입력해주세요．">
+                                    </div>
+                                    <input type="text" name="address_now" class="" id="field-address"
+                                           placeholder="상세 주소를 입력하세요．">
                                 </div>
                             </div>
 
                             <div class="row form-item">
                                 <div class="col-md-3">
-                                    <label for="">Khuyết tật</label>
+                                    <label for="">장애여부</label>
                                 </div>
 
 
@@ -110,30 +116,49 @@
                                         <label>
                                             <input type="radio" name="disabilities" value="1">
                                             <span>
-                                                <span>Có</span>
+                                                <span>대상</span>
                                             </span>
                                         </label>
 
                                         <label>
                                             <input type="radio" name="disabilities" value="0">
                                             <span>
-                                                <span>Không</span>
+                                                <span>비대상</span>
                                             </span>
                                         </label>
 
                                         <select name="level_disabilities " class="form-control" id="level_disabilities"
                                                 style="width: 30%;margin-left:0.1rem">
-                                            <option value="0">Nhẹ</option>
-                                            <option value="1">Nặng</option>
+                                            <option value="0">중증 (기존1~3급)</option>
+                                            <option value="1">경증 (기본 4~6급)</option>
 
                                         </select>
 
                                         <select name="content_disabilities " class="form-control"
                                                 id="content_disabilities"
                                                 style="width: 30%;margin-left:0.1rem">
-                                            <option value="">Nội dung khuyết tật</option>
-                                            <option value="0">Nội dung khuyết tật</option>
-                                            <option value="1">Nội dung khuyết tật</option>
+                                            <option value="">내용</option>
+                                            <option value="0">간장애</option>
+
+                                            <option value="0">뇌전증장애 (간질장애)</option>
+                                            <option value="0">뇌병변장애</option>
+                                            <option value="0">시각장애</option>
+                                            <option value="0">신장장애</option>
+
+                                            <option value="0">심장장애</option>
+                                            <option value="0">안면변형장애</option>
+                                            <option value="0">장루/요루장애</option>
+                                            <option value="0">정신장애</option>
+
+                                            <option value="0">청각장애</option>
+                                            <option value="0">호흡기장애</option>
+                                            <option value="0">지체장애</option>
+                                            <option value="0">언어장애</option>
+
+                                            <option value="0">지적장애</option>
+                                            <option value="0">자폐장애</option>
+                                            <option value="0">기타장애</option>
+                                            <option value="0">병역구분</option>
                                         </select>
                                     </div>
                                 </div>
@@ -141,10 +166,15 @@
 
                             <div class="row form-item">
                                 <div class="col-md-3">
-                                    <label for="">Nghĩa vụ quân sự</label>
+                                    <label for="">병역사항</label>
                                 </div>
 
-                                <div class="col-md-9">
+                                <div class="col-md-9 ">
+                                    <span>
+                                         "<b>[병역사항]</b> <br>
+                                        복무 중인 경우에는 미필로 선택하시기 바랍니다.
+                                        여성의 경우 “비대상”을 선택하시면 됩니다."
+                                    </span>
 
                                 </div>
                             </div>
@@ -152,30 +182,30 @@
 
                             <div class="row form-item">
                                 <div class="col-md-3">
-                                    <label for="">Đối tượng nghĩa vụ quân sự</label>
+                                    <label for="">병역구분</label>
                                 </div>
 
                                 <div class="col-md-9">
                                     <div class="d-flex flex-wrap" style="gap:0.5rem">
                                         <label>
                                             <input type="radio" name="duty" value="0">
-                                            <span>Không thuộc đối tượng</span>
+                                            <span>비대상</span>
                                         </label>
                                         <label>
                                             <input type="radio" name="duty" value="1">
-                                            <span>Đã xuất ngũ</span>
+                                            <span>군필</span>
                                         </label>
                                         <label>
                                             <input type="radio" name="duty" value="2">
-                                            <span>Chưa tham gia</span>
+                                            <span>미필</span>
                                         </label>
                                         <label>
                                             <input type="radio" name="duty" value="3">
-                                            <span>Được miễn</span>
+                                            <span>면제</span>
                                         </label>
                                         <label>
                                             <input type="radio" name="duty" value="4">
-                                            <span>Đang tại ngũ</span>
+                                            <span>복우중</span>
                                         </label>
                                     </div>
                                 </div>
@@ -183,23 +213,23 @@
 
                             <div class="row form-item">
                                 <div class="col-md-3">
-                                    Người điền đơn
+                                    작성자
                                 </div>
                                 <div class="col-md-9">
                                     <div class="d-flex" style="gap:0.5rem">
                                         <label>
                                             <input type="radio" name="single_user " value="0">
-                                            <span>Tôi</span>
+                                            <span>본인</span>
                                         </label>
 
                                         <label>
                                             <input type="radio" name="single_user " value="1">
-                                            <span>Người bảo hộ</span>
+                                            <span>보호자</span>
                                         </label>
 
                                         <label>
                                             <input type="radio" name="single_user " value="2">
-                                            <span>Người uỷ thác</span>
+                                            <span>대리인</span>
                                         </label>
                                     </div>
                                 </div>
@@ -207,68 +237,68 @@
 
                             <div class="row form-item">
                                 <div class="col-md-3">
-                                    Chế độ ưu tiên
+                                    우대사항
                                 </div>
                                 <div class="col-md-9">
 
-                                    <div>Người có công</div>
+                                    <div>보훈 여부</div>
                                     <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
                                             <input type="radio" name="meritorious_person " value="0">
-                                            <span>Không</span>
+                                            <span>비대상</span>
                                         </label>
 
                                         <label>
                                             <input type="radio" name="meritorious_person " value="1">
-                                            <span>Có</span>
+                                            <span>대상</span>
                                         </label>
                                     </div>
 
 
-                                    <div>Tầng lớp thu nhập thấp</div>
+                                    <div>저소득증 </div>
                                     <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
                                             <input type="radio" name="low_benefit " value="0">
-                                            <span>Không</span>
+                                            <span>비대상</span>
                                         </label>
 
                                         <label>
                                             <input type="radio" name="low_benefit " value="1">
-                                            <span>Có</span>
+                                            <span>대상</span>
                                         </label>
                                     </div>
 
-                                    <div>Người Triều Tiên di cư</div>
+                                    <div>북한이탈주민</div>
                                     <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
                                             <input type="radio" name="korea_migrate " value="0">
-                                            <span>Không</span>
+                                            <span>비대상</span>
                                         </label>
 
                                         <label>
                                             <input type="radio" name="korea_migrate " value="1">
-                                            <span>Có</span>
+                                            <span>대상</span>
                                         </label>
                                     </div>
 
-                                    <div>Con của gia đình di cư</div>
+                                    <div>다문화가족자녀</div>
                                     <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
                                         <label>
                                             <input type="radio" name="son-of-korea-migrate" value="0">
-                                            <span>Không</span>
+                                            <span>비대상</span>
                                         </label>
 
                                         <label>
                                             <input type="radio" name="son-of-korea-migrate" value="1">
-                                            <span>Có</span>
+                                            <span>대상</span>
                                         </label>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row form-item d-flex justify-content-center" style="gap:0.5rem;margin-top:1rem">
-                                <button type="submit" class="btn btn-primary" onclick="save()">Submit</button>
-                                <button type="submit" class="btn btn-primary" onclick="nextStep()">Tiếp theo</button>
+                            <div class="row form-item d-flex justify-content-center pt-2 pb-2" style="gap:0.5rem;">
+                                <button type="submit" class="btn btn-secondary" onclick="save()">임시저장</button>
+                                <button type="submit" class="btn btn-primary" onclick="nextStep()">다음단계</button>
                             </div>
                         </div>
                     </div>
@@ -640,18 +670,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div style="display: flex; justify-content: center; align-items: center; margin-top: 1rem;">
-                                <div>
-                                    <div class="btn btn-light">Bước trước</div>
-                                </div>
-                                <div style="margin-left: 0.5rem; margin-right: 0.5rem">
-                                    <div class="btn btn-secondary"> Lưu tạm thời</div>
-                                </div>
-                                <div>
-                                    <button class="btn btn-primary" type="submit"> Submit
-                                    </button>
-                                </div>
-                            </div>
+                        </div>
+
+                        <div style="width: fit-content; " class="pt-2 m-auto">
+                            <div class="btn btn-light border">이전단계</div>
+                            <div class="btn btn-secondary">임시저장</div>
+                            <button class="btn btn-primary" type="submit">다음단계
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -662,24 +687,25 @@
                         <hr>
                         <div class="row form-item">
                             <div class="col-md-3">
-                                Bằng cấp
+                                자격증
                             </div>
                             <div class="col-md-9">
                                 <div class="duplicate-section certificate form-item">
                                     <div class="d-flex" style="gap:0.5rem">
                                         <div>
                                             <input type="text" class="certificate_name validate-required"
-                                                   placeholder="Tên bằng cấp/chứng chỉ">
+                                                   placeholder="자격증명">
                                             <div class="error-msg"></div>
                                         </div>
                                         <div>
                                             <input type="text" class="certificate_issued_by validate-required"
-                                                   placeholder="Nơi cấp">
+                                                   placeholder="발행처">
                                             <div class="error-msg"></div>
                                         </div>
                                         <div>
                                             <input type="date" class="certificate_date_issued validate-required"
-                                                   placeholder="Ngày-tháng-năm">
+                                                   placeholder="dd-mm-yyyy"
+                                                   value="1997-01-01">
                                             <div class="error-msg"></div>
                                         </div>
                                         <button class="btn-add-more" type="button">+</button>
@@ -690,19 +716,19 @@
 
                         <div class="row form-item">
                             <div class="col-md-3">
-                                Giải thưởng
+                                수상
                             </div>
                             <div class="col-md-9">
                                 <div class="duplicate-section award form-item">
                                     <div class="d-flex" style="gap:0.5rem">
                                         <div>
                                             <input type="text" class="award_name validate-required"
-                                                   placeholder="Tên cuộc thi/giải thưởng">
+                                                   placeholder="대회/수상명">
                                             <div class="error-msg"></div>
                                         </div>
                                         <div>
                                             <input type="text" class="award_issued_by validate-required"
-                                                   placeholder="Cơ quan cấp">
+                                                   placeholder="수여기관">
                                             <div class="error-msg"></div>
                                         </div>
                                         <div>
@@ -711,11 +737,20 @@
                                             <div class="error-msg"></div>
                                         </div>
                                         <div>
-                                            <select class="award_type validate-required">
-                                                <option value="">Cert type</option>
-                                                <option value="1">Động cơ</option>
-                                                <option value="2">Điểm mạnh và điểm yếu của nhân các</option>
-                                                <option value="3">Nguyện vọng sau khi tham gia</option>
+                                            <select class="award_type validate-required" style="width: fit-content">
+                                                <option value="">수상구분</option>
+                                                <option value="1">입상</option>
+                                                d
+                                                <option value="2">금상</option>
+                                                d
+                                                <option value="3">은상</option>
+                                                d
+                                                <option value="4">동상</option>
+                                                d
+
+                                                <option value="5">1위</option>
+                                                <option value="6">2위</option>
+                                                <option value="7">3위</option>
                                             </select>
                                             <div class="error-msg"></div>
                                         </div>
@@ -723,7 +758,7 @@
                                     </div>
                                     <div style="gap:0.5rem;margin-top:0.5rem">
                                         <input type="text" class="award_content validate-required"
-                                               placeholder="Nhập nội dung giải thưởng">
+                                               placeholder="수상내용을 입력해주세요.(30자이내)">
                                         <div class="error-msg"></div>
                                     </div>
 
@@ -733,7 +768,7 @@
 
                         <div class="row form-item">
                             <div class="col-md-3">
-                                Portfolio
+                                포트폴리오
                             </div>
                             <div class="col-md-9">
                                 <div style="gap:0.5rem;margin-top:0.5rem">
@@ -747,7 +782,7 @@
 
                         <div class="row form-item">
                             <div class="col-md-3">
-                                Link
+                                링크
                             </div>
                             <div class="col-md-9">
                                 <div style="gap:0.5rem;margin-top:0.5rem">
@@ -758,14 +793,17 @@
                         </div>
                         <div style="display: flex; justify-content: center; align-items: center; margin-top: 1rem;">
                             <div>
-                                <button class="btn btn-light" type="button">Bước trước</button>
+                                <button class="btn btn-light border" type="button">이전단계</button>
                             </div>
+
                             <div style="margin-left: 0.5rem; margin-right: 0.5rem">
-                                <button class="btn btn-secondary" type="button"> Lưu tạm thời</button>
+                                <button class="btn btn-secondary" type="submit">임시저장</button>
                             </div>
+
                             <div>
-                                <button class="btn btn-primary" type="submit"> Submit</button>
+                                <button class="btn btn-primary" type="button">다음단계</button>
                             </div>
+
                         </div>
                     </form>
 
@@ -776,26 +814,23 @@
                         <h3>자기 소개서</h3>
                         <div class="row form-item">
                             <div class="col-md-3">
-                                Quá trình trưởng thành
+                                항목구분
                             </div>
                             <div class="col-md-9">
                                 <div class="duplicate-section self-introduction">
                                     <div class="d-flex" style="gap:0.5rem">
-                                        <select class="self_introduction_type" value="0">
-                                            <option value="0" checked>Quá trình trưởng thành</option>
-                                            <option value="1">Động cơ</option>
-                                            <option value="2">Điểm mạnh và điểm yếu của nhân các</option>
-                                            <option value="3">Nguyện vọng sau khi tham gia</option>
-                                            <option value="4">Mô tả điều gì khác biệt với những người khác và những nỗ
-                                                lực
-                                                bạn đã thực
-                                                hiện để đạt được điều đó
+                                        <select class="self_introduction_type" value="">
+                                            <option value="0" checked>성장과정</option>
+                                            <option value="1">지원동기</option>
+                                            <option value="2">성격의 장단점</option>
+                                            <option value="3">입사 후 포부</option>
+                                            <option value="4">자신이 타인에 비해 차별화 된 점과 이를 갖추기 위해 어떤 노력을 했는지 기술
                                             </option>
                                             <option value="5">
-                                                Chọn và mô tả một ví dụ về trải nghiệm mà bạn đã thành công khi hoàn
-                                                thành
-                                                một
-                                                nhiệm vụ khó khăn và bạn thử nhưng không thành công
+                                                어려운 일을 끝까지 수행해내어 성공하였거나, 노력 했지만 실패한 경험들 중 한 가지 사례를 선태하여 서술
+                                            </option>
+                                            <option value="6">
+                                                직접 입력
                                             </option>
 
                                         </select>
@@ -812,16 +847,15 @@
                         </div>
                         <div style="display: flex; justify-content: center; align-items: center; margin-top: 1rem;">
                             <div>
-                                <button class="btn btn-light">Bước trước</button>
+                                <button class="btn btn-light border" type="button">이전단계</button>
                             </div>
+
                             <div style="margin-left: 0.5rem; margin-right: 0.5rem">
-                                <button class="btn btn-secondary" id="tempStep5"
-                                        type="button"> Lưu tạm thời
-                                </button>
+                                <button class="btn btn-secondary" type="submit">임시저장</button>
                             </div>
+
                             <div>
-                                <button class="btn btn-primary" type="submit"> Submit
-                                </button>
+                                <button class="btn btn-primary" type="button">다음단계</button>
                             </div>
                         </div>
                     </div>
@@ -868,7 +902,13 @@
                             <div class="col-md-9">
                                 *첨부파일 형식은 PDF Word, JPEG, PNG로 제출부탁드립니다.
                                 <input type="file" style="margin-top: 0.5rem">
+                                <a style="color: black; font-size: 17px; text-decoration: underline"
+                                   href="uploads/[별첨1] 개인정보제공동의서.pdf" download="">※정보제공동의서 파일 다운로드</a>
                             </div>
+                        </div>
+                        <div class="m-auto pt-2" style="width: fit-content">
+                            <button class="btn btn-light border">이전단계</button>
+                            <button class="btn btn-primary">최종제출</button>
                         </div>
                     </div>
                 </div>
