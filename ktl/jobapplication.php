@@ -212,7 +212,7 @@
                     </div>
                     <div class="form_con">
                         <div class="flex-direction inputbox">
-                            <input name="userpass" type="password" id='userpass' class="userpass" placeholder="비밀번호를 입력해주세요."
+                            <input name="userpass" type="text" id='userpass' class="userpass" placeholder="비밀번호를 입력해주세요."
                             ">
                         </div>
                     </div>
@@ -220,8 +220,10 @@
 
 
                 </div>
-
+                    <div style="margin-top: 2rem">
                         <button class="btn_write flex" ><span>입사지원서 작성</span></button>
+                    </div>
+
             </form>
 
         </div>
