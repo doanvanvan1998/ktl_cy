@@ -10,7 +10,7 @@ if (isset($_POST['step'])) {
                 ':name_high_school' => $_POST['high_school'],
                 ':graduation_high_school_year' => $_POST['graduation_high_school_year'],
                 ':status_graduation_high_school' => $_POST['status_graduate'],
-                ':participate_exam_college' => $_POST['participate_exam_college'],
+                ':participate_exam_college' => $_POST['injoin_university'] ?? 0,
                 ':not_graduated' => $_POST['status_graduate'] == 1 ? 0 : 1,
                 ':major_sub' => $_POST['main_experience'],
                 ':major_main_id' => $_POST['extra_experience'],
@@ -31,7 +31,7 @@ if (isset($_POST['step'])) {
                     ':type_school' => "university",
                     ':main_major' => $academy['major'],
                     ':able_id' => $_POST['able_id'] ?? 1,
-                    ':degree' => $academy['degree']
+                    //':degree' => $academy['degree']
                 );
             }
 

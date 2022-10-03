@@ -4,19 +4,14 @@ include "../mysql.php";
 include "../crypt.php";
 
 
-
-
-
-
 $imp_uid = "1";
 $username = $_POST['username'];
 $userphone = $_POST['userphone'];
 $userphone2 = $_POST['userphone2'];
 $userphone3 = $_POST['userphone3'];
-$phone = $userphone."-".$userphone2."-".$userphone3;
+$phone = $userphone . "-" . $userphone2 . "-" . $userphone3;
 $userpass = $_POST['userpass'];
 $useremail = $_POST['useremail'];
-$userphone = Encrypt($userphone, $secret_key, $secret_iv);
 //$useremail = Encrypt($useremail, $secret_key, $secret_iv);
 $userpass = Encrypt($userpass, $secret_key, $secret_iv);
 
@@ -52,14 +47,15 @@ $userpass = Encrypt($userpass, $secret_key, $secret_iv);
 //    return;
 //}
 // create random code
+$rand_code = mt_rand(100, 10000);
+$query = "INSERT INTO recruit_able_user( `imp_uid`, `username`, `phone`, `email`, `pass`, `acept_rule`, `status_pass`, `rand_code`)VALUES ('1','$username','$phone','$useremail','$userpass','','0','$rand_code')";
 
-//
-$query = "INSERT INTO `recruit_able_user`( `imp_uid`, `username`, `phone`, `email`, `pass`, `acept_rule`) VALUES ('$imp_uid','$username','$phone','$useremail','$userpass','')";
 $result = mysqli_query($con, $query);
 if ($result) {
-    header("Location: ../../verify_email.php?email=$useremail");
+    header("Location: ../../verify_email.php?email=$useremail&phone=$phone");
 } else {
-    echo " fails";
+    //catch error
+    echo "mysqli_error($con)";
 }
 mysqli_close($con);
 ?>
