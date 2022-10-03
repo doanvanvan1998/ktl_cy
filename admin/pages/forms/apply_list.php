@@ -208,10 +208,10 @@ session_start();
                                             <option selected>";
                                             switch ($row['status_pass']){
                                                 case 1:
-                                                    echo "합격";
+                                                    echo "적격";
                                                     break;
                                                 case 0:
-                                                    echo "불합격";
+                                                    echo "불적격";
                                                     break;
                                                 default:
                                                     echo "선택";
@@ -285,7 +285,7 @@ session_start();
                 <div class="modal-body" id="table_profile" style="padding: 0.5rem">
                 </div>
                 <div class="modal-footer " style="margin: auto ; margin-top: -1.5rem" >
-                    <button type="button" class="btn btn-primary" onclick="update()" style="background: #17a2b8;border: #17a2b8;">저장하다</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"  style="background: #17a2b8;border: #17a2b8;">저장</button>
                 </div>
             </div>
         </div>

@@ -128,7 +128,7 @@ session_start();
                         </div>
                     </form>
                     <div class="modal-footer " style="margin: auto">
-                        <button type="button" class="btn btn-primary" onclick="update()" style="background: #17a2b8;border: #17a2b8;">저장하다</button>
+                        <button type="button" class="btn btn-primary" onclick="update()" style="background: #17a2b8;border: #17a2b8;">저장</button>
                     </div>
                 </div>
             </div>
@@ -216,14 +216,15 @@ session_start();
              연락처
             </div>
                                         <input name="phone" id="연락처" type="text" class="form-control"  placeholder="연락처" value="${data["userphone"]}"> <br>
-            <div>
-            이메일주소
-            </div>
-                            <input name="pass" id="경력설명" type="text" class="form-control"  placeholder="이메일주소" value="${data["pass"]}"> <br>
 <div>
 이메일주소
 </div>
                             <input name="email" id="이메일주소" type="text" class="form-control"  placeholder="경력 & 설명" value="${data["useremail"]}"><br>
+            <div>
+            패스워드
+            </div>
+                            <input name="pass" id="경력설명" type="text" class="form-control"  placeholder="패스워드를 입력해주세요." value="${data["pass"]}"> <br>
+
 <div>
 경력설명
 </div>

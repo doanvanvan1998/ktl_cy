@@ -114,12 +114,7 @@
           <!-- /.card -->
         </div>
       </div>
-      <div class="row">
-        <div class="col-12">
-          <a href="subadmin_list.html" class="btn btn-secondary">리스트 보기</a>
-          <input type="submit" onclick='onSubAdminAdd()' value="등록하기" class="btn btn-success float-right">
-        </div>
-      </div>
+
     </section>
     <!-- /.content -->
   </div>

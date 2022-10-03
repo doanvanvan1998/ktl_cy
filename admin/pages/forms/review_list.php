@@ -88,12 +88,15 @@ session_start();
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 1</th>   
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>평가위원 2</th>    
                                                     
-                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px;color: blue'>평가점수</th> 
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px;color: blue'>평가점수</th>
+                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;'></th> 
+                                                    
                                                      <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>장애정도</th> 
-                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;'></th> 
+                                                    
                                                     <th colspan ='4' style='border: 1px solid #dee2e6;padding: 0 22px'>우대사항</th>
-                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;'></th> 
-                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px ;color: blue'>우대점수</th>  
+                                                
+                                                    <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px ;color: blue'>우대점수</th> 
+                                                        <th rowspan ='2' style='border: 1px solid #dee2e6;'></th>  
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px;color: red'>최종합계</th> 
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>최종순위</th>  
                                                     <th rowspan ='2' style='border: 1px solid #dee2e6;padding: 0 22px'>합격여부</th> 
@@ -153,7 +156,9 @@ session_start();
                                         $pointResultOne = $sumAll;
                                         echo "   
                                                                         <th  style='border: 1px solid #dee2e6;padding: 0 22px'>" . $medium = round($medium / 2, 2) . "</th> 
+                                        <th style='border: 1px solid #dee2e6;'></th>
                                                                         <th  style='border: 1px solid #dee2e6;'>";
+
 
                                         if ($row['is_disabilities'] == 1) {
                                             echo "중증";
@@ -161,13 +166,14 @@ session_start();
                                             echo "경증";
                                         }
                                         echo "</th>"; ?>
-                                        <th style='border: 1px solid #dee2e6;'></th>
+
                                         <th style='border: 1px solid #dee2e6;padding: 0 22px'><?php echo $row['veterans'] == 1 ? "10%" : "5%"; ?></th>
                                         <th style='border: 1px solid #dee2e6;padding: 0 22px'><?php echo $row['low_income'] == 1 ? "v" : ""; ?></th>
                                         <th style='border: 1px solid #dee2e6;padding: 0 22px'><?php echo $row['immigrant'] == 1 ? "v" : ""; ?></th>
                                         <th style='border: 1px solid #dee2e6;padding: 0 22px'><?php echo $row['children_of_migrant_families'] == 1 ? "v" : ""; ?></th>
-                                        <th style='border: 1px solid #dee2e6;'></th>
+
                                         <th style='border: 1px solid #dee2e6;padding: 0 22px'><?php echo $sum ?></th>
+                                        <th style='border: 1px solid #dee2e6;'></th>
                                         <th style='border: 1px solid #dee2e6;padding: 0 22px'><?php echo $sumAll; ?></th>
                                         <th style='border: 1px solid #dee2e6;padding: 0 22px' id="<?php echo $row['id']?>">abc</th>
 
@@ -264,13 +270,15 @@ session_start();
                                             $pointResultTwo = $medium + 5;
                                         }
                                         echo " 
-                                      
                                                     <th rowspan ='1' style='border: 1px solid #dee2e6;padding: 0 22px'>".$medium."</th> 
-                                                    <th rowspan ='1' style='border: 1px solid #dee2e6;'></th>
+                                                  <th rowspan ='1' style='border: 1px solid #dee2e6;'></th>
+
+                                                    
                                                     <th rowspan ='1' style='border: 1px solid #dee2e6;padding: 0 22px'>"; echo $row['is_disabilities'] == 1 ? '중증' : '경증'; echo "</th> 
                                                     <th rowspan ='1' style='border: 1px solid #dee2e6;padding: 0 22px'> "; echo $row['is_disabilities'] == 1 ? '10' : '5'; echo "</th> 
                                                     <th rowspan ='1' style='border: 1px solid #dee2e6;padding: 0 22px'> "; echo $row['is_disabilities'] == 1 ? '10' : '5'; echo "</th>
                                                     <th rowspan ='1' style='border: 1px solid #dee2e6;'></th> 
+
                                                      <th rowspan ='1' style='border: 1px solid #dee2e6;padding: 0 22px'> "; echo $row['is_disabilities'] == 1 ? $medium +10 : $medium +5; echo "</th>
                                                    <th rowspan ='1' style='border: 1px solid #dee2e6;padding: 0 22px' id='".$row['id']."'> abc</th>  
                                                  
@@ -627,7 +635,16 @@ session_start();
                             return Number(b[1]) - Number(a[1]);
                         }
                     )
-                    a.forEach((item,index) => {document.getElementById(item[0]).innerText = index+1;})
+                    a.forEach((item,index) => {
+
+                        if (index >0 && a[index -1][1] == item[1]){
+                            document.getElementById(item[0]).innerText = index;
+                            console.log(1);
+                        }else {
+                            document.getElementById(item[0]).innerText = index+1;
+                            console.log(2);
+                        }
+                    })
                 }
             )
             .catch(error => {
