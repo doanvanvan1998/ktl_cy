@@ -1,4 +1,30 @@
 
+$('#signup_form').submit(function (e){
+    e.preventDefault();
+    userphone = $("#userphone").val()+$("#userphone2").val()+$("#userphone2").val();
+
+
+    if (validate()) {
+        $.post("php/fnc/save_user_signup.php", {
+                username: $("#username").val(),
+                userphone: userphone,
+                useremail: $("#useremail").val(),
+                userpass: $("#userpass").val(),
+                acept_rule : sessionStorage.getItem("checked")
+
+            },
+            function (data, status) {
+                if (status != "fail") {
+                    alert("채용문의 접수가 완료되었습니다.");
+                    location.reload();
+                } else {
+                    alert("네트워크 오류");
+                }
+            });
+    }
+})
+
+
 function save(){
    $name = $("#field-name").val();
    $phone = $("#field-phone").val();
@@ -38,7 +64,78 @@ function save(){
              alert("네트워크 오류");
           }
        });
-
 }
 
+function validate() {
+    if (!sessionStorage.getItem('checked')) {
+        document.querySelector('.errorCheck').style.color = 'red';
+        document.querySelector('.errorCheck').innerHTML = '필수 항목에 동의해주세요.'
+        document.querySelector('.btnFocus').focus();
+        return;
+    } else {
+        document.querySelector('.errorCheck').innerHTML = '확인 완료';
+        document.querySelector('.errorCheck').style.color = 'blue';
+    }
+    if (!document.querySelector('#username').value) {
+        document.querySelector('.errorName').innerHTML = '당신의 이름을 입력하세요'
+        document.querySelector('#username').focus();
+        return;
+    } else {
+        document.querySelector('.errorName').innerHTML = ''
+    }
+    // validate phone using regex number phone in korean
+    // if (!document.querySelector('#userphone').value.match(/^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?([0-9]{3,4})-?([0-9]{4})$/)) {
+    //     document.querySelector('.errorPhone').innerHTML = '휴대전화 번호를 입력하세요'
+    //     document.querySelector('#userphone').focus();
+    //     return;
+    // } else {
+    //     document.querySelector('.errorPhone').innerHTML = ''
+    // }
+    if (!document.querySelector('#useremail').value) {
+        document.querySelector('.errorEmail').innerHTML = '이메일을 입력하세요'
+        document.querySelector('#useremail').focus();
+        return;
+    } else {
+        document.querySelector('.errorEmail').innerHTML = ''
+    }
+    if (!document.querySelector('#useremail_check').value) {
+        document.querySelector('.errorEmail').innerHTML = '이메일을 확인해주세요'
+        document.querySelector('#useremail_check').focus();
+        return;
+    } else {
+        document.querySelector('.errorEmail').innerHTML = ''
+    }
+    if (document.querySelector('#useremail_check').value !== document.querySelector('#useremail').value) {
+        document.querySelector('.errorEmail').innerHTML = '확인 이메일을 입력하세요'
+        document.querySelector('#useremail_check').focus();
+        return;
+    } else {
+        document.querySelector('.errorEmail').innerHTML = ''
+    }
+    if (!document.querySelector('#userpass').value.match(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{10,}$/)) {
+        document.querySelector('.errorPassword').innerHTML = '영문/숫자/특수문자 포함 10자 이상 입력해주세요.'
+        document.querySelector('#userpass').focus();
+        return;
+    } else {
+        document.querySelector('.errorPassword').innerHTML = ''
+    }
+    if (!document.querySelector('#userpass_check').value.match(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{10,}$/)) {
+        document.querySelector('.errorPassword').innerHTML = '비밀번호를 다시 확인'
+        document.querySelector('#userpass_check').focus();
+        return;
+    } else {
+        document.querySelector('.errorPassword').innerHTML = ''
+    }
+    if (document.querySelector('#userpass_check').value !== document.querySelector('#userpass').value) {
+        document.querySelector('.errorPassword').innerHTML = '두 개의 비밀번호가 일치하지 않습니다'
+        document.querySelector('#userpass_check').focus();
+        return;
+    } else {
+        document.querySelector('.errorPassword').innerHTML = ''
+    }
+
+    return true;
+}
+
+// handle form submit
 

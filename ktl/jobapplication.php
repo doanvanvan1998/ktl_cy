@@ -1,6 +1,87 @@
 <!DOCTYPE html>
 <?php include 'php/common_header.php' ?>
 <link rel="stylesheet" href="css/jobapplication.css">
+<style>
+    label input[type="radio"] + span {
+        border: 2px solid #e4e4e4;
+        cursor: pointer;
+        display: inline-block;
+        min-width: 4rem;
+        text-align: center;
+        border-radius: 0.2rem;
+        height: 2.4rem;
+        padding-top: 0.3rem;
+        padding-left: 0.6rem;
+        padding-right: 0.6rem;
+    }
+
+
+    label.custom-circle-radio .icon {
+        display: inline-block;
+        margin-top: 0.2rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        border: 1px solid #e4e4e4;
+        border-radius: 999px;
+        float: left;
+        min-width: unset;
+        padding: unset;
+    }
+
+    label input[type="radio"] + span {
+        border: 2px solid #e4e4e4;
+        cursor: pointer;
+        display: inline-block;
+        min-width: 4rem;
+        text-align: center;
+        border-radius: 0.2rem;
+        height: 2.4rem;
+        padding-top: 0.3rem;
+        padding-left: 0.6rem;
+        padding-right: 0.6rem;
+    }
+
+    label input[type="radio"] {
+        display: none;
+    }
+
+    label input[type="radio"]:checked + span {
+        color: #4880ef;
+        border: 2px solid #4880ef;
+    }
+
+    label.custom-circle-radio .icon {
+        display: inline-block;
+        margin-top: 0.2rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        border: 1px solid #e4e4e4;
+        border-radius: 999px;
+        float: left;
+        min-width: unset;
+        padding: unset;
+    }
+
+    label.custom-circle-radio .icon .fas {
+        display: none;
+        cursor: pointer;
+        color: white;
+        margin-top: 0.1rem;
+    }
+
+    label.custom-circle-radio input:checked + .icon {
+        background: #0077ff;
+    }
+
+    label.custom-circle-radio input:checked + .icon .fas {
+        display: block;
+    }
+
+    label.custom-circle-radio .text {
+        margin-left: 0.2rem
+    }
+
+</style>
 
 <body>
 <div class="wrap">
@@ -19,7 +100,7 @@
                     <span class="bor">채용공고 내용보기</span>
                 </div>
             </div>
-            <form id="onSubmit" action="../ktl/php/fnc/recruit_step.php" method="post">
+            <form id="signup_form" method="post">
                 <div class="flex">
                     <div class="form_title">
                         <h6>공고명</h6>
@@ -36,7 +117,7 @@
                     </div>
                     <div class="form_con">
                         <div class="flex agree">
-                            <button class=" btn_agree flex btnFocus" style="color: white">내용확인</button>
+                            <div class=" btn_agree flex btnFocus" style="color: white">내용확인</div>
                             <span class="noti errorCheck"
                                   style="color: red; font-size: small">(*) 필수항목에 동의해주세요.</span>
                         </div>
@@ -48,7 +129,7 @@
                     </div>
                     <div class="form_con">
                         <div class="flex-direction inputbox">
-                            <input name="username" type="text" id='username' placeholder="이름을 입력해주세요." required>
+                            <input name="username" type="text" id='username' placeholder="이름을 입력해주세요.">
                             <span class="noti errorName" style="color: red; font-size: small"> (*) </span>
                         </div>
                     </div>
@@ -61,25 +142,19 @@
                     <div class="form_con">
                         <div class="flex-direction inputbox">
                             <div class="phone flex">
-                                <input type="text" id="userphone" name="userphone" maxlength="3" required=""
+                                <input type="text" id="userphone" name="userphone" maxlength="3"
                                        numberonly="">
                                 <span class="linebar"></span>
-                                <input type="text" id="userphone2" name="userphone2" maxlength="4" required=""
+                                <input type="text" id="userphone2" name="userphone2" maxlength="4"
                                        numberonly="">
                                 <span class="linebar"></span>
-                                <input type="text" id="userphone3" name="userphone3" maxlength="4" required=""
+                                <input type="text" id="userphone3" name="userphone3" maxlength="4"
                                        numberonly="">
                             </div>
                             <span class="noti errorPhone" style="color: red; font-size: small">(*) </span>
                         </div>
                     </div>
 
-                    <!--                    <div class="form_con">-->
-                    <!--                        <div class="flex-direction inputbox">-->
-                    <!--                            <input name="userphone" placeholder="전화 번호" type="text" id='userphone' required numberOnly>-->
-                    <!--                            <span class="noti errorPhone" style="color: red; font-size: small">(*) </span>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
                 </div>
                 <div class="flex baseline">
                     <div class="form_title">
@@ -87,8 +162,8 @@
                     </div>
                     <div class="form_con">
                         <div class="flex-direction inputbox">
-                            <input name="useremail" type="email" id='useremail' placeholder="이메일을 입력해주세요." required>
-                            <input type="email" id='useremail_check' placeholder="이메일 확인을 위해 다시 한번 입력해주세요." required>
+                            <input name="useremail" type="email" id='useremail' placeholder="이메일을 입력해주세요.">
+                            <input type="email" id='useremail_check' placeholder="이메일 확인을 위해 다시 한번 입력해주세요.">
                             <span class="noti errorEmail" style="color: red; font-size: small">(*)</span>
                         </div>
                     </div>
@@ -99,38 +174,42 @@
                     </div>
                     <div class="form_con">
                         <div class="flex-direction inputbox">
-                            <input name="userpass" type="password" id='userpass' placeholder="비밀번호를 입력해주세요." required
+                            <input name="userpass" type="password" id='userpass' class="userpass" placeholder="비밀번호를 입력해주세요."
                             ">
-                            <input type="password" id='userpass_check' placeholder="비밀번호 확인을 위해 다시 한번 입력해주세요." required>
+                            <input type="password" id='userpass_check' class="userpass_check" placeholder="비밀번호 확인을 위해 다시 한번 입력해주세요.">
                             <span class="noti errorPassword" style="color: red; font-size: small">(*) <span
                                         class="textlength"></span>
                         </div>
                     </div>
                 </div>
 
-                <!--                <div class="flex baseline">-->
-                <!--                    <div class="form_title">-->
-                <!--                        <h6>이메일 또는 전화번호 확인</h6>-->
-                <!--                    </div>-->
-                <!--                    <div class="form_con">-->
-                <!--                        <div class="flex-direction inputbox" >-->
-                <!--                           <div style="display: flex ">-->
-                <!--                               <div >-->
-                <!--                                   <button class="btn btn-dark">-->
-                <!--                                       email-->
-                <!--                                   </button>-->
-                <!--                               </div>-->
-                <!--                               <div style="margin-left: 0.5rem;">-->
-                <!--                                   <button class="btn btn-dark">-->
-                <!--                                       password-->
-                <!--                                   </button>-->
-                <!--                               </div>-->
-                <!--                           </div>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
+                <div class="flex baseline">
+                    <div class="form_title">
+                        <h6>본인 확인</h6>
+                    </div>
+                    <div class="form_con"
+                         style="margin-top:0.5rem;gap:0.5rem;flex-wrap: wrap;align-items: center">
+
+                        <label class="custom-circle-radio injoin_university">
+                            <input type="radio" checked name="injoin_university" value="1">
+                            <span class="icon">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                            <span class="text">By Email</span>
+                        </label>
+                        <label class="custom-circle-radio injoin_university">
+                            <input type="radio" name="injoin_university" value="0">
+                            <span class="icon">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                            <span class="text">By Phone</span>
+                        </label>
+                    </div>
+                    </div>
+                </div>
+                <button class="btn_write flex" ><span>입사지원서 작성</span></button>
             </form>
-            <div class="btn_write flex" onclick="hanldSubmit()"><span>입사지원서 작성</span></div>
+
         </div>
     </div>
     <?php include 'php/common_footer.php' ?>
@@ -145,8 +224,8 @@
         </div>
         <div class="agree_form">
             <div class="all_agree flex">
-                <input type="checkbox" id="all" class="normal">
-                <label for="all"></label>
+                <input type="checkbox" id="all" class="all">
+                <label class="check_acpet" for="all"></label>
                 <span>전체동의</span>
             </div>
             <div class="dropdown">
@@ -401,6 +480,9 @@
     }
 
 
+
+
+
     // miendz comment
     // var nUserCheck = 0;
     // var imp_uid = "";
@@ -538,7 +620,7 @@
         } else {
             dropcheck.prop("checked", false);
         }
-        sessionStorage.setItem("checked", checked ? "1" : "");
+        sessionStorage.setItem("checked", checked ? "1" : "0");
     });
     $(".dropdown ul li .all_agree").on("click", ".normal", function () {
         var is_checked = true;
@@ -551,5 +633,6 @@
     });
 
 </script>
+<script src="js/sign_up_step1.js"></script>
 </body>
 </html>
