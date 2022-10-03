@@ -791,22 +791,24 @@
                 </form>
 
                 <div class="tab-content hidden">
-                    <h3>Bản thân</h3>
+                    <h3>자기소개서 (최대 3개 입력가능)
+                    </h3>
                     <hr>
                     <div style="background:rgba(191,182,182,0.26);padding:0.8rem;border-radius: 0.5rem">
-                        <p>Cam kết đồng ý của ứng viên</p>
+                        <p>지원자 동의 서약서</p>
                         <p>
-                            is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley
-                            of type and scrambled it to make a type specimen book
+                            1. 본인은 “[한국산업기술시험원] 장애인 전형 단기계약근로자(사무보조) 추가채용”에 지원함에 있어 인사 청탁 등 불명예스러운 일을 하지 않을 것이며,
+                            이를 어길 시 어떠한 불이익도 감수 할 것을 서약합니다.
+
+                            2. 지원서 상의 모든 기재 사항은 사실과 다름이 없음을 증명하며, 차후 지원서 상의 내용이 허위로 판명되어 합격 또는 입사가 취소 되더라도
+                            이의를 제기하지 않을것을 서약합니다.
                         </p>
                         <p>
-                            <span>Ngày gửi</span>
+                            <span>제출일</span>
                             <span>2022-12-01</span>
                         </p>
                         <p>
-                            <span>Người gửi</span>
+                            <span>지원자</span>
                             <span>Nguyễn Thành Luân</span>
                         </p>
                     </div>
@@ -814,8 +816,8 @@
 
                     <div class="float-right clear">
                         <label class="accept">
-                            <input type="checkbox">
-                            Click để đồng ý tất cả nội dung trên</label>
+                            <input type="checkbox">&nbsp;위 내용을 모두 확인하였으며, 이에 동의합니다.
+                        </label>
                     </div>
 
                     <hr class="clear">
@@ -823,11 +825,11 @@
                     <div>
                         <div class="form-item row">
                             <div class="col-md-3">
-
+                                필수 첨부자료
                             </div>
 
                             <div class="col-md-9">
-                                Thêm tệp đính kèm bằng cách định dạng như PDF, Word, JPEG, PNG (thêm ghi chú)
+                                *첨부파일 형식은 PDF Word, JPEG, PNG로 제출부탁드립니다.
                                 <input type="file" style="margin-top: 0.5rem">
                             </div>
                         </div>
