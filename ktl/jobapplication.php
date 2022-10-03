@@ -193,14 +193,14 @@
                          style="margin-top:0.5rem;gap:0.5rem;flex-wrap: wrap;align-items: center">
 
                         <label class="custom-circle-radio injoin_university">
-                            <input type="radio" checked name="injoin_university" id="accuracy" value="1">
+                            <input type="radio" checked name="accuracy" id="accuracy" value="1">
                             <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
                             <span class="text">By Email</span>
                         </label>
                         <label class="custom-circle-radio injoin_university">
-                            <input type="radio" name="injoin_university" id="accuracy" value="0">
+                            <input type="radio" name="accuracy" id="accuracy" value="0">
                             <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>

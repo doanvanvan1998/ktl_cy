@@ -1,5 +1,25 @@
 <?php
 session_start();
+function Encrypt($str, $secret_key='secret key', $secret_iv='secret iv')
+{
+		$key = hash('sha256', $secret_key);
+		$iv = substr(hash('sha256', $secret_iv), 0, 32)    ;
+
+		return str_replace("=", "", base64_encode(
+								 openssl_encrypt($str, "AES-256-CBC", $key, 0, $iv))
+		);
+}
+
+
+function Decrypt($str, $secret_key='secret key', $secret_iv='secret iv')
+{
+		$key = hash('sha256', $secret_key);
+		$iv = substr(hash('sha256', $secret_iv), 0, 32);
+
+		return openssl_decrypt(
+						base64_decode($str), "AES-256-CBC", $key, 0, $iv
+		);
+}
 
 include_once "../coolsms.php";
 
@@ -8,18 +28,33 @@ include_once "../coolsms.php";
  */
 
 include "mysql.php";
-include "crypt.php";
-echo "dddddddddddddddddddddddd";
-$Id 								= $_POST["Id"];
-$txt 								= $_POST["txt"];
 
-$query="select id,username,phone,email,apply_num,result_check_num,result_check from recruit_able_user where id='$Id'";
-$TransResult = mysqli_query($con,$query);
-$TransRow = mysqli_fetch_array($TransResult);
+$Id         		      = $_POST["Id"];     //병원아이디
+$userId               = $_SESSION['allhan_userid'];
+$loginId              = $_POST["loginId"];
 
-$TransRow[2] = Decrypt($TransRow[2], $secret_key, $secret_iv);
+$query="select h_name,h_address,h_address_detail,h_tel from TinkerBell_hospital where id = '$Id'";
+$Hospitalresult = mysql_query($query,$con);
+$Hospitalrow = mysql_fetch_array($Hospitalresult);
 
-$rest = new coolsms("NCSXOU8UCIPG01NE", "XCLICLKYKXBPCW0CXVXTYLE2S97OM7OX");
+$query="select phone from hanbang_user where userid = '$loginId'";
+$Selresult = mysql_query($query,$con);
+$Selrow = mysql_fetch_array($Selresult);
+
+
+$secret_key = "artidevelp";
+$secret_iv = "artidevelp!+0730";
+
+$p = Decrypt($Selrow[phone], $secret_key, $secret_iv);
+
+//$p 										= $_POST["phone"];
+$phonechk 						= $_POST["phonechk"];
+$loginPhone 						= $_POST["loginPhone"];
+
+
+//$encrypted = Encrypt($p, $secret_key, $secret_iv);
+
+$rest = new coolsms("NCSPNO8PUHIS7LCV", "NM7SUPS3WKERI7JSK4QGAIOCR3BKANTR");
 
 /*
  **  5 options(timestamp, to, from, type, text) are mandatory. must be filled
@@ -27,16 +62,11 @@ $rest = new coolsms("NCSXOU8UCIPG01NE", "XCLICLKYKXBPCW0CXVXTYLE2S97OM7OX");
 $chkNum = rand ( 1000,9999 );
 $options = new StdClass();
 $options->timestamp = (string)time();
-$options->to = $TransRow[2];
-$options->from = '02-2662-5571';
-
-//$encrypted = Encrypt($p, $secret_key, $secret_iv);
-
-$textq = $txt;
-$options->type = 'LMS'; // SMS, MMS, LMS, ATA
-
-$options->text = $textq;
+$options->to = $p;
+$options->from = '023135667';
+$options->text = $Hospitalrow[0]."\n".$Hospitalrow[1]."".$Hospitalrow[2]."\n".$Hospitalrow[3];
 $options->app_version = 'test app 1.2';  // application name and version
+$options->type = 'SMS'; // SMS, MMS, LMS, ATA
 
 // Alimtalk example. https://www.coolsms.co.kr/AboutAlimTalk
 // $options->type = 'ATA';
@@ -46,7 +76,7 @@ $options->app_version = 'test app 1.2';  // application name and version
 //  Optional parameters for your own needs
 // $options->image = 'test.png'; 			// image for MMS. type must be set as 'MMS'
 // $options->refname = '';					// Reference name
-$options->country = 82;
+$options->country = '82';
 
 
 // $options->datetime = '20140106153000';	// Format must be(YYYYMMDDHHMISS) 2014 01 06 15 30 00 (2014 Jan 06th 3pm 30 00)
@@ -68,6 +98,6 @@ $response = $rest->send($options);
 // get result
 $result = $response->getResult();
 
-echo $chkNum;
+echo $Hospitalrow[0]."\n".$Hospitalrow[1]."".$Hospitalrow[2]."\n".$Hospitalrow[3];
 
 ?>

@@ -1,6 +1,6 @@
 $('#signup_form').submit(  function (e) {
     e.preventDefault();
-    userphone = $("#userphone").val() + $("#userphone2").val() + $("#userphone2").val();
+     userphone = $("#userphone").val() + $("#userphone2").val() + $("#userphone2").val();
     if (validate()) {
         $.post("php/fnc/save_user_signup.php", {
                 username: $("#username").val(),
@@ -21,8 +21,11 @@ $('#signup_form').submit(  function (e) {
             });
 
     }
-    if ($("#accuracy").val() == 1) {
+    $("input[name=disabilities]:checked", "#form_step_1").val();
+    if ($("input[name=disabilities]:checked","signup_form").val() == 1) {
         window.location.href = "../../../ktl_cy/ktl/verify_email.php?email=" + $("#useremail").val();
+    }else {
+        window.location.href = "../../../ktl_cy/ktl/verify_phone.php?phone=" + userphone.valueOf();
     }
 
 })

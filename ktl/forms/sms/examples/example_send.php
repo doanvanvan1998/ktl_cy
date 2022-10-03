@@ -9,17 +9,18 @@ include_once "../coolsms.php";
 
 include "mysql.php";
 include "crypt.php";
-echo "dddddddddddddddddddddddd";
 $Id 								= $_POST["Id"];
 $txt 								= $_POST["txt"];
 
-$query="select id,username,phone,email,apply_num,result_check_num,result_check from recruit_able_user where id='$Id'";
+$query="select id,username,phone,email,pass,acept_rule,status_pass,rand_code from recruit_able_user where id='$Id'";
+
 $TransResult = mysqli_query($con,$query);
-$TransRow = mysqli_fetch_array($TransResult);
+$TransRow = mysqli_fetch_array($TransResult,MYSQLI_NUM);
 
 $TransRow[2] = Decrypt($TransRow[2], $secret_key, $secret_iv);
-
-$rest = new coolsms("NCSXOU8UCIPG01NE", "XCLICLKYKXBPCW0CXVXTYLE2S97OM7OX");
+$phone ='010 3127 0053';
+echo $phone;
+$rest = new coolsms("NCSXOU8UCIPG01NE", " XCLICLKYKXBPCW0CXVXTYLE2S97OM7OX");
 
 /*
  **  5 options(timestamp, to, from, type, text) are mandatory. must be filled
@@ -27,13 +28,13 @@ $rest = new coolsms("NCSXOU8UCIPG01NE", "XCLICLKYKXBPCW0CXVXTYLE2S97OM7OX");
 $chkNum = rand ( 1000,9999 );
 $options = new StdClass();
 $options->timestamp = (string)time();
-$options->to = $TransRow[2];
+$options->to = $phone;
 $options->from = '02-2662-5571';
 
 //$encrypted = Encrypt($p, $secret_key, $secret_iv);
 
 $textq = $txt;
-$options->type = 'LMS'; // SMS, MMS, LMS, ATA
+$options->type = 'SMS'; // SMS, MMS, LMS, ATA
 
 $options->text = $textq;
 $options->app_version = 'test app 1.2';  // application name and version
@@ -67,7 +68,7 @@ $response = $rest->send($options);
 
 // get result
 $result = $response->getResult();
-
-echo $chkNum;
+echo $response;
+echo $result;
 
 ?>
