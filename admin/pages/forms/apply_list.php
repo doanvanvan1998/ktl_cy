@@ -541,17 +541,17 @@ session_start();
                 }
 
                 for (let i = 0 ; i < dataUniversity.length; i++){
-                    if (dataUniversity[i].type == 'college'){
+                    if (dataUniversity[i].type_school == 'college'){
                         htmlSchool += `
                          <tr style="font-size: 14px">
                             <th scope="col">대학 학위</th>
                     `
-                    }else if (dataUniversity[i].type == 'university'){
+                    }else if (dataUniversity[i].type_school == 'university'){
                         htmlSchool += `
                          <tr style="font-size: 14px">
                             <th scope="col">대학 학위</th>
                     `
-                    }else if (dataUniversity[i].type == 'postgraduate' && dataUniversity[i].degree == 1 ){
+                    }else if (dataUniversity[i].type_school == 'postgraduate' && dataUniversity[i].degree == 1 ){
                         htmlSchool += `
                          <tr style="font-size: 14px">
                             <th scope="col">석사 학위</th>

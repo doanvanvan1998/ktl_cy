@@ -86,77 +86,29 @@
                       include "../../php/crypt.php";
                       $nIndex = 1;
                       if($Id == 1)
-                        $query="select id,username,phone,email from recruit_able_user";
+                        $query="select distinct u.status_pass,u.round_one,u.id,a.able_detailAddress,u.username,u.phone,u.email,u.imp_uid,u.status_pass,a3.sent_date,a.is_disabilities,a2.major_main_id, a2.major_sub  , a2.status_graduation_high_school, a2.graduation_high_school_year , a2.name_high_school from recruit_able_user u left join  apply_step_1 a on u.id = a.able_id left join apply_step_2 a2 on u.id = a2.able_id left join apply_step_5 a3 on u.id = a3.userid ";
 //quan
                       $Uresult = mysqli_query($con,$query);
                       while($Urow = mysqli_fetch_array($Uresult)) {
+
                           $Urow['phone'] = Decrypt($Urow['phone'], $secret_key, $secret_iv);
-                          $Urow['username'] = Decrypt($Urow['username'], $secret_key, $secret_iv);
+                          $Urow['email'] = Decrypt($Urow['email'], $secret_key, $secret_iv);
+                          ?>
+                         <tr>
+                             <th><?php echo  $nIndex ?></th>
+                             <th><?php echo  $Urow['imp_uid'];?></th>
+                             <th><?php echo  $Urow['username'];?></th>
+                             <th><?php echo  $Urow['email']; ?></th>
+                             <th><?php echo  $Urow['phone']; ?></th>
+
+
+                              <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(<?php echo json_encode($Urow, JSON_UNESCAPED_UNICODE); ?>)' >미리보기</button></td>
+                             <th><?php echo  1; ?></th>
+
+                         </tr>
+                    <?php
                       }
-//                        echo "</td><td><button class='btn btn-primary' onclick='onApplyView($Urow[0],$Id)'>지원페이지로 이동</button></td>";
-//
-//                        if($Id == 1) {
-//                          if($Urow['result_check_num'] == 1)
-//                          {
-//                            //지원상태
-//                            echo "<td><button class='btn btn-info' onclick='onApplySuc($Urow[0],2)'>서류통과</button></td>";
-//                          }
-//                          else
-//                          {
-//                            if($Urow['result_check'] == 1)
-//                            {
-//                              echo "<td>서류통과</td>";
-//                            }
-//                            else if($Urow['result_check'] == 0)
-//                            {
-//                              echo "<td>서류 불합격</td>";
-//                            }
-//                          }
-//                        }
-//                        else if($Id == 2) {
-//                          if($Urow['result_check_num'] == 2)
-//                          {
-//                            //서류통과한 상태
-//                            echo "<td><button class='btn btn-info' onclick='onApplySuc($Urow[0],3)'>최종합격</button></td>";
-//                          }
-//                          else
-//                          {
-//                            if($Urow['result_check'] == 1)
-//                            {
-//                              echo "<td>면접통과</td>";
-//                            }
-//                            else if($Urow['result_check'] == 0)
-//                            {
-//                              echo "<td>면접 불합격</td>";
-//                            }
-//                          }
-//                        }
-//                        else if($Id == 3) {
-//                          if($Urow['result_check_num'] == 3)
-//                          {
-//                            //서류통과한 상태
-//                            echo "<td>최종합격</td>";
-//                          }
-//                          else
-//                          {
-//                            if($Urow['result_check'] == 1)
-//                            {
-//                              echo "<td>최종합격 통과</td>";
-//                            }
-//                            else if($Urow['result_check'] == 0)
-//                            {
-//                              echo "<td>최종합격 불합격</td>";
-//                            }
-//                          }
-//                        }
-//
-//                        else if($Id == 2) { echo "<td><button class='btn btn-info' onclick='onApplySuc($Urow[0])'>최종합격</button></td>"; }
-//                        else if($Id == 3) { echo "<td>최종합격자</td>"; }
-//
-//                        echo "</tr>";
-//
-//                        $nIndex++;
-//                      }
+
                       mysqli_close($con);
                     ?>
                   </tbody>
@@ -186,6 +138,24 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 1200px">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #17a2b8;color: white ;padding: 0.5rem">
+                    <h5 class="modal-title" id="exampleModalLabel"> 수정 </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="color: white">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="table_profile" style="padding: 0.5rem">
+                </div>
+                <div class="modal-footer " style="margin: auto ; margin-top: -1.5rem" >
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"  style="background: #17a2b8;border: #17a2b8;">저장</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button data-toggle='modal' data-target='#exampleModal' style="display: none" id="btn-profile"></button>
 </div>
 <script>
 
@@ -233,6 +203,209 @@
        }
       });
     }
+  }
+
+  function preview(data) {
+
+      fetch("/ktl_cy/admin/php/fnc/prize.php?Id="+data['id'])
+          .then(res=>res.json())
+          .then(dataPrize => {
+              let htmlPrize ='';
+              console.log(dataPrize);
+              for (let i = 0 ; i < dataPrize.length; i++){
+                  htmlPrize += `
+                    <tr style="font-size: 14px">
+                        <td>${dataPrize[i].title}</td>
+                        <td>${dataPrize[i].date}</td>
+                    </tr>
+                    `
+              }
+              $('#dataPrize').empty();
+              $('#dataPrize').append(htmlPrize);
+
+          })
+          .catch(error => {console.log(error)});
+
+      fetch("/ktl_cy/admin/php/fnc/university.php?Id="+data['id'])
+          .then(res=>res.json())
+          .then(dataUniversity => {
+              console.log(dataUniversity);
+              let htmlSchool='';
+              if (data['status_graduation_high_school'] == 1){
+                  htmlSchool = `<tr style="font-size: 14px">
+                            <th scope="col">대학</th>
+                            <th scope="col">  </th>
+                            <th scope="col">${data['graduation_high_school_year'] == null ? "" : data['graduation_high_school_year'] } </th>
+                            <th scope="col"> ${data['name_high_school'] == null ? "" : data['name_high_school'] }</th>
+                            <th scope="col"></th>
+                            <th scope="col"> </th>
+                             <th scope="col"> </th>
+                        </tr>`;
+              }
+
+              for (let i = 0 ; i < dataUniversity.length; i++){
+                  if (dataUniversity[i].type_school == 'college'){
+                      htmlSchool += `
+                         <tr style="font-size: 14px">
+                            <th scope="col">대학 학위</th>
+                    `
+                  }else if (dataUniversity[i].type_school == 'university'){
+                      htmlSchool += `
+                         <tr style="font-size: 14px">
+                            <th scope="col">대학 학위</th>
+                    `
+                  }else if (dataUniversity[i].type_school == 'postgraduate' && dataUniversity[i].degree == 1 ){
+                      htmlSchool += `
+                         <tr style="font-size: 14px">
+                            <th scope="col">석사 학위</th>
+                    `
+                  }else {
+                      htmlSchool += `
+                         <tr style="font-size: 14px">
+                            <th scope="col">박사</th>
+                    `
+                  }
+                  htmlSchool += `
+                            <th scope="col">${dataUniversity[i].date_start}</th>
+                            <th scope="col">${dataUniversity[i].date_end} </th>
+                            <th scope="col"> ${dataUniversity[i].name}</th>
+                            <th scope="col">${checkName(parseInt(dataUniversity[i].main_major))}</th>
+                            <th scope="col">${dataUniversity[i].poit_average} </th>
+                            <th scope="col">${dataUniversity[i].total_point} </th>
+                        </tr>`
+              }
+              $('#degree').empty();
+              $('#degree').append(htmlSchool);
+          })
+          .catch(error => {console.log(error)});
+      fetch("/ktl_cy/admin/php/fnc/resume.php?Id="+data['id'])
+          .then(res=>res.json())
+          .then(dataPrize => {
+              let htmlResume ='';
+              console.log(dataPrize);
+              for (let i = 0 ; i < dataPrize.length; i++){
+                  htmlResume += `
+                            <tr style="font-size: 16px">
+                                <th scope="row">${dataPrize[i].name_type}</th>
+                            </tr>
+                            <tr style="font-size: 14px">
+                                <td>${dataPrize[i].content}</td>
+                            </tr>
+                    `
+              }
+              $('#resume').empty();
+              $('#resume').append(htmlResume);
+
+          })
+          .catch(error => {console.log(error)});
+
+      let html = `
+        <div  >
+
+        <div class="container-fluid ">
+            <div class="row " style=" border-bottom: 1px solid grey">
+                <div class="col " style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
+                   ${data['username']}
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col " >
+                    <span style=" font-size: 1.3rem; color: #212121;font-weight: bold;"></span>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid mt-2 mb-2" style="margin-left: 8px;">
+            <div class="row mx">
+                <div class="mr-5">
+                    <i class="fa-solid fa-square-envelope" style="color: grey"></i> <span>${data['email']}</span>
+                </div>
+                <div class=" mr-5">
+                    <i class="fa-solid fa-phone" style="color: grey"></i> <span>${data['phone']}</span>
+                </div>
+                <div class="mr-5">
+                    <i class="fa-solid fa-house-user" style="color: grey"></i><span>Address: ${data['able_detailAddress']}</span>
+                </div>
+            </div>
+        </div>
+        <!-- Content Header (Page header) -->
+
+   <div class="row mt-3">
+         <div class=" col-lg-12 col-xl-12  col-md-12 col-sm-12 col-xs-12">
+          <div class="container-fluid" >
+            <div class="row">
+                <div class="col mx" style="margin-right: 1rem">
+                    <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
+                        학력사항
+                    </div>
+                     <table class="table table-borderless" style="text-align: center">
+                        <thead style="background:#e1fbff;border-top: 1px solid">
+                        <tr style="font-size: 16px">
+                            <th scope="col">학력</th>
+                            <th scope="col">입학년일 </th>
+                            <th scope="col">졸업년일 </th>
+                            <th scope="col">학교명 </th>
+
+                            <th scope="col">전공</th>
+                            <th scope="col">학점</th>
+                            <th scope="col">총점</th>
+                        </tr>
+                        </thead>
+                        <tbody id="degree">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-6 mt-3">
+             <div class="container-fluid">
+                <div class="row">
+                    <div class="col mx" style="margin-right: 1rem">
+                        <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
+                            수상
+                        </div>
+                         <table class="table table-borderless">
+                            <thead style="background:#e1fbff;border-top: 1px solid" >
+                            <tr style="font-size: 16px">
+                                <th scope="col">수상명</th>
+                                <th scope="col">수상 날짜</th>
+                            </tr>
+                            </thead>
+                            <tbody id="dataPrize">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-6 mt-3">
+             <div class="container-fluid">
+                <div class="row">
+                    <div class="col mx" style="margin-right: 1rem">
+                        <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;border-bottom: 1px solid">
+                         자기소개서
+                        </div>
+                         <table class="table table-borderless">
+                            <tbody id='resume'>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+        `
+      $("#table_profile").empty();
+      $("#table_profile").append(html);
+      $("#btn-profile").click();
   }
 </script>
 <!-- ./wrapper -->
@@ -285,6 +458,52 @@
   $("#nav_15_"+$("#SelId").val()).attr("class","nav-link active");
   $("#" + "nav_19").attr("class","nav-item menu-is-opening menu-open");
   $("#nav_20_"+$("#SelId").val()).attr("class","nav-link active");
+  function checkName(name){
+      switch (name) {
+          case 1:
+              name =  "바이올린";
+              break;
+          case 2:
+              name = "첼로";
+              break;
+          case 3:
+              name = "하프";
+              break;
+          case 4:
+              name = "풀루트";
+              break;
+          case 5:
+              name = "오보에";
+              break;
+          case 6:
+              name = "클라리넷";
+              break;
+          case 7:
+              name = "바순";
+              break;
+          case 8:
+              name = "트럼폣";
+              break;
+          case 9:
+              name = "호른";
+              break;
+          case 10:
+              name = "비올라";
+              break;
+          case 11:
+              name = "베이스";
+              break;
+          case 12:
+              name = "팀파니";
+              break;
+          case 0:
+              name = "기타 (직접작성)";
+              break;
+          default:
+              name = "error";
+      }
+      return name;
+  }
 </script>
 </body>
 </html>
