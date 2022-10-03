@@ -29,6 +29,10 @@ function save() {
     $phone = $("#field-phone").val();
     $email = $("#field-email").val();
     $address = $("#field-address").val();
+    $file = null;
+    if ($('#writer')[0].files.length > 0) {
+        $file = $('#writer')[0].files[0];
+    }
     $disabilities = $("input[name=disabilities]:checked", "#form_step_1").val();
     $level_disabilities = $("#level_disabilities option:selected").val();
     $content_disabilities = $("#content_disabilities option:selected").val();
@@ -45,6 +49,7 @@ function save() {
             phone: $phone,
             email: $email,
             address: $address,
+            file: $file,
             disabilities: $disabilities,
             level_disabilities: $level_disabilities,
             content_disabilities: $content_disabilities,
@@ -58,7 +63,7 @@ function save() {
         function (data, status) {
             if (status != "fail") {
                 alert("채용문의 접수가 완료되었습니다.");
-                location.reload();
+                // location.reload();
             } else {
                 alert("네트워크 오류");
             }
