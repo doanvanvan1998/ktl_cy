@@ -11,6 +11,7 @@ $acept_rule =$_POST["acept_rule"];
 $rand_code = $_POST["rand_code"];
 
 
+
 $useremail = Encrypt($useremail1,$secret_key,$secret_iv);
 $userphone = Encrypt($userphone1,$secret_key,$secret_iv);
 $userpass = Encrypt($userpass1,$secret_key,$secret_iv);
