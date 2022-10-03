@@ -1,4 +1,4 @@
-$('#signup_form').submit(  function (e) {
+$('#signup_form').submit(function (e) {
     e.preventDefault();
     userphone = $("#userphone").val() + $("#userphone2").val() + $("#userphone2").val();
     if (validate()) {
@@ -34,8 +34,8 @@ function save() {
     $email = $("#field-email").val();
     $address = $("#field-address").val();
     $file = null;
-    if ($('#writer')[0].files.length > 0) {
-        $file = $('#writer')[0].files[0];
+    if (document.querySelector('#writer').files.length > 0) {
+        $file = document.querySelector('#writer').files[0];
     }
     $disabilities = $("input[name=disabilities]:checked", "#form_step_1").val();
     $level_disabilities = $("#level_disabilities option:selected").val();
@@ -45,33 +45,69 @@ function save() {
     $meritorious_person = $("input[name=meritorious_person]:checked", "#form_step_1").val();
     $low_benefit = $("input[name=low_benefit]:checked", "#form_step_1").val();
     $korea_migrate = $("input[name=korea_migrate]:checked", "#form_step_1").val();
-    $son_of_korea_migrate = $("input[name=son_of_korea_migrate]:checked", "#form_step_1").val();
+    // $son_of_korea_migrate = $("input[name=son_of_korea_migrate]:checked", "#form_step_1").val();
 
-    $.post("php/fnc/signup_step1.php",
-        {
-            name: $name,
-            phone: $phone,
-            email: $email,
-            address: $address,
-            file: $file,
-            disabilities: $disabilities,
-            level_disabilities: $level_disabilities,
-            content_disabilities: $content_disabilities,
-            duty: $duty,
-            single_user: $single_user,
-            meritorious_person: $meritorious_person,
-            low_benefit: $low_benefit,
-            korea_migrate: $korea_migrate,
-            son_of_korea_migrate: $son_of_korea_migrate
-        },
-        function (data, status) {
+    const formData = new FormData();
+    formData.append('name', $name);
+    formData.append('phone', $phone);
+    formData.append('email', $email);
+    formData.append('address', $address);
+    formData.append('file', $file);
+    formData.append('disabilities', $disabilities);
+    formData.append('level_disabilities', $level_disabilities);
+    formData.append('content_disabilities', $content_disabilities);
+    formData.append('duty', $duty);
+    formData.append('single_user', $single_user);
+    formData.append('meritorious_person', $meritorious_person);
+    formData.append('low_benefit', $low_benefit);
+    formData.append('korea_migrate', $korea_migrate);
+    // formData.append('son_of_korea_migrate', $son_of_korea_migrate);
+
+    $.ajax({
+        url: 'php/fnc/signup_step1.php',
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (data, status) {
             if (status != "fail") {
                 alert("채용문의 접수가 완료되었습니다.");
                 // location.reload();
             } else {
                 alert("네트워크 오류");
             }
-        });
+
+        },
+        error: function (data) {
+            alert('Server got error!')
+        }
+    });
+
+    // $.post("php/fnc/signup_step1.php",
+    //     {
+    //         name: $name,
+    //         phone: $phone,
+    //         email: $email,
+    //         address: $address,
+    //         file: $file,
+    //         disabilities: $disabilities,
+    //         level_disabilities: $level_disabilities,
+    //         content_disabilities: $content_disabilities,
+    //         duty: $duty,
+    //         single_user: $single_user,
+    //         meritorious_person: $meritorious_person,
+    //         low_benefit: $low_benefit,
+    //         korea_migrate: $korea_migrate,
+    //         // son_of_korea_migrate: $son_of_korea_migrate
+    //     },
+    //     function (data, status) {
+    //         if (status != "fail") {
+    //             alert("채용문의 접수가 완료되었습니다.");
+    //             // location.reload();
+    //         } else {
+    //             alert("네트워크 오류");
+    //         }
+    //     });
 }
 
 function validate() {

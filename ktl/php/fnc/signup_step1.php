@@ -16,13 +16,14 @@ $single_user=$_POST["single_user"];
 $meritorious_person=$_POST["meritorious_person"];
 $low_benefit=$_POST["low_benefit"];
 $korea_migrate=$_POST["korea_migrate"];
-$son_of_korea_migrate=$_POST["son_of_korea_migrate"];
+$son_of_korea_migrate= isset($_POST["son_of_korea_migrate"]) ? $_POST["son_of_korea_migrate"] : 0;
 
 $file = isset($_FILES['file']) ? $_FILES['file'] : null;
 $writerFileName = '';
+
 if ($file != null) {
     $filename = $file['name'];
-
+    $writerFileName = $filename;
     $filetmpname = $file['tmp_name'];
     $filesize = $file['size'];
     $fileerror = $file['error'];
