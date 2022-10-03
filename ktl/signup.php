@@ -1013,8 +1013,8 @@
             alert("Vui lòng nhập đầy đủ thông tin");
             return;
         }
-
         //    handle ajax step1
+        save();
 
     });
 
@@ -1023,25 +1023,6 @@
         console.log('submit step 3');
 
         event.preventDefault();
-
-
-        //validate step 3
-        let isValid = true;
-        $('#form_step_3 .validate-required').each(function (index, value) {
-            if ($(this).val() == '' && !$(this).closest('.form-item').hasClass('disable-input')) {
-                $(this).next('.error-msg').html('이 필드는 필수 항목입니다.');
-                isValid = false;
-            } else {
-                $(this).next('.error-msg').html('');
-            }
-        });
-
-        console.log('is valid', isValid);
-        if (!isValid) {
-            alert("Vui lòng nhập đầy đủ thông tin");
-            return;
-        }
-        //end validate
 
         //    handle ajax step2
         const payload = handSubmitTempStep3();
@@ -1077,26 +1058,6 @@
     $('#form_step_4').submit(function (event) {
         console.log('submit step 4');
         event.preventDefault();
-
-
-        //validate step 3
-        let isValid = true;
-        $('#form_step_4 .validate-required').each(function (index, value) {
-            if ($(this).val() == '' && !$(this).closest('.form-item').hasClass('disable-input')) {
-                $(this).next('.error-msg').html('이 필드는 필수 항목입니다.');
-                isValid = false;
-            } else {
-                $(this).next('.error-msg').html('');
-            }
-        });
-
-        console.log('is valid', isValid);
-        if (!isValid) {
-            alert("Vui lòng nhập đầy đủ thông tin");
-            return;
-        }
-        //end validate
-
         //    handle ajax step4
         const payload = handSubmitTempStep4();
 
