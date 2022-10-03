@@ -356,7 +356,7 @@
                             </div>
                         </div>
 
-                        <div class="row form-item">
+                        <div class="row form-item postgraduate-row">
                             <div class="col-md-3">
                                 Cao học
                             </div>
@@ -911,6 +911,8 @@
                 $('.disable-input').removeClass('disable-input');
                 $(this).closest('.high-school-row').parent().find('.academy-row')
                     .addClass('disable-input');
+                $(this).closest('.high-school-row').parent().find('.postgraduate-row')
+                    .addClass('disable-input');
             }
         });
 
@@ -1197,7 +1199,9 @@
         margin-left: 0.2rem
     }
 
-    .academy-row.disable-input {
+    .academy-row.disable-input,
+    .postgraduate-row.disable-input
+    {
         pointer-events: none;
         opacity: 0.5;
     }
