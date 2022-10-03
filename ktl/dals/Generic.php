@@ -18,14 +18,16 @@ class Generic extends DB
     {
         try {
             $this->pdo->beginTransaction();
-            $this->pdo->prepare("INSERT INTO apply_step_2(able_id,
+            $this->pdo->prepare("INSERT INTO apply_step_2(
+                         able_id,
                          name_high_school,
                          graduation_high_school_year,
                          status_graduation_high_school,
                          participate_exam_college,
                          not_graduated,
                          major_main_id,
-                         major_sub
+                         major_sub,
+                         main_profile
                          ) VALUES (:able_id,
                                    :name_high_school,
                                    :graduation_high_school_year,
@@ -33,10 +35,13 @@ class Generic extends DB
                                    :participate_exam_college,
                                    :not_graduated,
                                    :major_main_id,
-                                   :major_sub)")->execute($mainPayload);
+                                   :major_sub,
+                                   :main_profile
+                                   )")->execute($mainPayload);
 
             foreach ($academies as $academy) {
-                $this->pdo->prepare("INSERT INTO university(name,
+                if ($academy[':start_date']) {
+                    $this->pdo->prepare("INSERT INTO university(name,
                        date_start,
                        date_end,
                        status_graduate,
@@ -44,8 +49,7 @@ class Generic extends DB
                        total_point,
                        type_school,
                        main_major,
-                       able_id,
-                       degree 
+                       able_id
                          ) VALUES (
                        :name,
                        :date_start,
@@ -55,13 +59,15 @@ class Generic extends DB
                        :total_point,
                        :type_school,
                        :main_major,
-                       :able_id,
-                       :degree )")->execute($academy);
+                       :able_id
+                       )")->execute($academy);
+                }
             }
 
 
             foreach ($postgraduates as $postgraduate) {
-                $this->pdo->prepare("INSERT INTO university(name,
+                if ($postgraduate[':start_date']) {
+                    $this->pdo->prepare("INSERT INTO university(name,
                        date_start,
                        date_end,
                        status_graduate,
@@ -82,6 +88,7 @@ class Generic extends DB
                        :main_major,
                        :able_id,
                        :degree )")->execute($postgraduate);
+                }
             }
 
 
@@ -120,6 +127,9 @@ class Generic extends DB
 
             $this->pdo->commit();
         } catch (Exception $exception) {
+            echo $exception->getMessage();
+            echo $exception->getLine();
+            echo $exception->getFile();
             $this->pdo->rollBack();
             return false;
         }
