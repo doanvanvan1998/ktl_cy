@@ -14,7 +14,8 @@ if (isset($_POST['step'])) {
                 ':not_graduated' => $_POST['status_graduate'] == 1 ? 0 : 1,
                 ':major_sub' => $_POST['main_experience'],
                 ':major_main_id' => $_POST['extra_experience'],
-                ':able_id' => $_POST['able_id'] ?? 1
+                ':able_id' => $_POST['able_id'] ?? 1,
+                ':main_profile' => json_encode($_POST['main_profile']),
             );
 
 

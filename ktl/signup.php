@@ -33,21 +33,21 @@
             <div class="tab-wrapper">
                 <div class="tab-heading d-flex cursor">
                     <div class="tab-item active" tabindex="1">
-                        Thông tin cơ bản
+                        기본정보
                     </div>
                     <div class="tab-item" tabindex="2">
-                        Học lực/ kinh nghiệm
+                        학력/경럭/교육활동
                     </div>
-                    <div class="tab-item" tabindex="3">Chứng chỉ/giải thưởng</div>
-                    <div class="tab-item" tabindex="4">Bản giới thiệu bản thân</div>
+                    <div class="tab-item" tabindex="3">자격증/수상/포트폴리오</div>
+                    <div class="tab-item" tabindex="4">자기 소개서</div>
                     <div class="tab-item" tabindex="5">
-                        Nộp
+                        최종제출
                     </div>
                 </div>
 
                 <form id="form_step_1">
                     <div class="tab-content">
-                        <h3>Thông tin cơ bản</h3>
+                        <h3>기본정보 </h3>
                         <hr>
                         <div>
                             <div class="row form-item">
@@ -277,9 +277,9 @@
                 <form method="post" id="form_step_2">
                     <input type="hidden" name="step" value="2">
                     <div class="tab-content hidden">
-                        <h3>Học vấn/ Kinh nghiệm/ Chương trình giáo dục</h3>
+                        <h3>학력/경럭/교육활동</h3>
                         <hr>
-                        <div class="row form-item high-school-row">
+                        <div class="row form-item high-school-row disable-input">
                             <div class="col-md-3 disable-section">
                                 <label for="">
                                     고등학교 학력
@@ -287,38 +287,51 @@
                             </div>
 
                             <div class="col-md-9">
-                                <div class="d-flex" style="gap:0.5rem">
+                                <div class="" style="gap:0.5rem">
                                     <div class="d-flex disable-section" style="gap:0.5rem;flex-basis: 80%">
-                                        <input type="text" name="high_school_name" class="high_school" id="high_school"
-                                               placeholder="학교명" style="width:30%">
-                                        <input type="date" class="date_graduate_school" id="date_graduate_school"
-                                               placeholder="Năm tốt nghiệp" style="width: 30%">
-                                        <select class="form-control" style="width:30%" name="status_graduate"
-                                                id="status_graduate">
-                                            <option value="1">Tốt nghiệp</option>
-                                            <option value="0">Chưa tốt nghiệp</option>
-                                        </select>
+                                        <div style="width:50%">
+                                            <input type="text" name="high_school_name"
+                                                   class="high_school validate-required" id="high_school"
+                                                   placeholder="학교명">
+                                            <div class="error-msg"></div>
+                                        </div>
+
+                                        <div style="width:50%">
+                                            <input type="date" class="date_graduate_school validate-required"
+                                                   id="date_graduate_school"
+                                                   placeholder="졸업연도">
+                                            <div class="error-msg"></div>
+                                        </div>
+
                                     </div>
 
-                                    <div style="flex-wrap: wrap;gap:0.5rem" class="d-flex main-profile-wrapper">
+                                    <div class="d-flex"
+                                         style="margin-top:0.5rem;gap:0.5rem;flex-wrap: wrap;align-items: center">
+                                        <select class="form-control disable-input" style="width:30%"
+                                                name="status_graduate"
+                                                id="status_graduate">
+                                            <!--Chưa TN-->
+                                            <option value="1">졸업</option>
+                                            <!--ĐÃ TN-->
+                                            <option value="0">졸업예정</option>
+                                        </select>
+
                                         <label class="custom-circle-radio injoin_university">
-                                            <input type="radio" name="injoin_university" value="1">
+                                            <input type="radio" checked name="injoin_university" value="1">
                                             <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
-                                            <span class="text">Tham gia tuyển sinh đại học</span>
+                                            <span class="text">대입검정고시</span>
                                         </label>
-
-
                                         <label class="custom-circle-radio injoin_university">
                                             <input type="radio" name="injoin_university" value="0">
                                             <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
-                                            <span class="text">Chưa tốt nghiệp THPT</span>
+                                            <span class="text">고등학교미만 졸업</span>
                                         </label>
-
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -326,63 +339,121 @@
 
                         <div class="row form-item academy-row">
                             <div class="col-md-3">
-                                <label>Đại học</label>
+                                <label>대학교 학력</label>
                             </div>
 
                             <div class="col-md-9">
                                 <div class="duplicate-section academy">
                                     <div class="d-flex" style="gap:0.5rem">
-                                        <input type="text" class="academy_name" placeholder="Tên trường"
-                                               id="academy_name">
-                                        <input type="date" class="academy_start_date" placeholder="Tháng  năm nhập học"
-                                               id="academy_start_date">
-                                        <input type="date" class="academy_end_date" placeholder="Tháng năm tốt nghiệp"
-                                               id="academy_end_date">
+                                        <div>
+                                            <input type="date" class="academy_start_date validate-required"
+                                                   placeholder="입학년월"
+                                                   id="academy_start_date">
+                                            <div class="error-msg"></div>
+                                        </div>
+
+                                        <div>
+                                            <input type="date" class="academy_end_date validate-required"
+                                                   placeholder="졸업년월"
+                                                   id="academy_end_date">
+
+                                            <div class="error-msg"></div>
+                                        </div>
+
+
                                         <select class="academy_status">
-                                            <option value="1">Tốt nghiệp</option>
-                                            <option value="0">Chưa tốt nghiệp</option>
+                                            <!--Chưa TN-->
+                                            <option value="1">졸업</option>
+                                            <!--ĐÃ TN-->
+                                            <option value="0">졸업예정</option>
                                         </select>
 
                                         <div class="btn-add-more">+</div>
                                     </div>
 
                                     <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
-                                        <input type="text" class="academy_major" placeholder="Tên chuyên ngành">
-                                        <input type="text" class="academy_gpa" placeholder="Điểm trung bình">
-                                        <input type="text" class="academy_total_score" placeholder="Tổng điểm">
-
+                                        <div>
+                                            <input type="text" class="academy_name validate-required"
+                                                   placeholder="학교명"
+                                                   id="academy_name">
+                                            <div class="error-msg">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="academy_major validate-required"
+                                                   placeholder="전공명">
+                                            <div class="error-msg"></div>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="academy_gpa validate-required"
+                                                   placeholder="전공명">
+                                            <div class="error-msg"></div>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="academy_total_score validate-required"
+                                                   placeholder="학점">
+                                            <div class="error-msg"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row form-item">
+                        <div class="row form-item postgraduate-row">
                             <div class="col-md-3">
-                                Cao học
+                                대학원 학력
                             </div>
                             <div class="col-md-9">
                                 <div class="duplicate-section postgraduate">
                                     <div class="d-flex" style="gap:0.5rem">
-                                        <input type="text" class="postgraduate_name" placeholder="Tên trường">
-                                        <input type="date" class="postgraduate_start_date"
-                                               placeholder="Tháng năm nhập học">
-                                        <input type="date" class="postgraduate_end_date"
-                                               placeholder="Tháng năm tốt nghiệp">
+                                        <div>
+                                            <input type="date" class="postgraduate_start_date validate-required"
+                                                   placeholder="입학년월">
+                                            <div class="error-msg"></div>
+                                        </div>
+                                        <div>
+                                            <input type="date" class="postgraduate_end_date validate-required"
+                                                   placeholder="졸업년월">
+                                            <div class="error-msg"></div>
+                                        </div>
                                         <select class="postgraduate_type">
-                                            <option value="1"> Tốt nghiệp</option>
-                                            <option value="0">Chưa tốt nghiệp</option>
+                                            <option value="1">졸업</option>
+                                            <option value="0">졸업예정</option>
                                         </select>
+
                                         <div class="btn-add-more">+</div>
                                     </div>
                                     <div class="d-flex" style="margin-top: 0.5rem;gap:0.5rem">
-                                        <input type="text" class="postgraduate_major" placeholder="Tên chuyên ngành">
-                                        <input type="text" class="postgraduate_gpa" placeholder="Điểm trung bình">
-                                        <input type="text" class="postgraduate_total_score" placeholder="Tổng điểm">
+                                        <div>
+                                            <input type="text" class="postgraduate_name validate-required"
+                                                   placeholder="학교명">
+                                            <div class="error-msg"></div>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="postgraduate_major validate-required"
+                                                   placeholder="전공명">
+                                            <div class="error-msg"></div>
+                                        </div>
 
-                                        <select class="postgraduate_degree">
-                                            <option value="0">Thạc sĩ</option>
-                                            <option value="1">Tiến sĩ</option>
-                                        </select>
+                                        <div>
+                                            <input type="text" class="postgraduate_gpa validate-required"
+                                                   placeholder="학점">
+                                            <div class="error-msg"></div>
+                                        </div>
+
+                                        <div>
+                                            <input type="text" class="postgraduate_total_score validate-required"
+                                                   placeholder="총점">
+                                            <div class="error-msg"></div>
+                                        </div>
+
+                                        <div>
+                                            <select class="postgraduate_degree">
+                                                <option value="0">석사</option>
+                                                <option value="1">박사</option>
+                                            </select>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -390,11 +461,15 @@
 
                         <div class="row form-item">
                             <div class="col-md-3">
-                                Kinh nghiệm
+                                경력
                             </div>
                             <div class="col-md-9">
                                 <div class="d-flex" style="gap:0.5rem">
                                     <select name="main_experience">
+                                        <option value="15">피아노</option>
+                                        <option value="16">풀루트</option>
+                                        <option value="17">베이스</option>
+
                                         <option value="0">바이올린</option>
                                         <option value="1">첼로</option>
                                         <option value="2">하프</option>
@@ -414,6 +489,10 @@
 
                                     </select>
                                     <select name="extra_experience" id="">
+                                        <option value="15">피아노</option>
+                                        <option value="16">풀루트</option>
+                                        <option value="17">베이스</option>
+
                                         <option value="0">바이올린</option>
                                         <option value="1">첼로</option>
                                         <option value="2">하프</option>
@@ -436,44 +515,45 @@
 
                         <div class="row form-item">
                             <div class="col-md-3">
-                                Lý lịch chính
+                                주요이력
                             </div>
                             <div class="col-md-9">
                                 <div style="flex-wrap: wrap;gap:0.5rem" class="d-flex main-profile-wrapper">
                                     <label class="custom-checkbox">
-                                        <input type="checkbox" name="main_portfolio[]">
+                                        <input type="checkbox" name="main_profile[]" value="1">
                                         <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
-                                        <span class="text">Tham gia cuộc thi buổi biễn diễn quy mô toàn quốc</span>
+                                        <span class="text">
+전국규모 (콩쿨)대회 및 연주회 참여</span>
                                     </label>
                                     <label class="custom-checkbox">
-                                        <input type="checkbox" name="main_portfolio[]">
+                                        <input type="checkbox" name="main_profile[]" value="2">
                                         <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
-                                        <span class="text">Tham gia buổi biểu diễn quy mô tỉnh</span>
+                                        <span class="text">시·도규모 (콩쿨) 대회 및 연주회 참여</span>
                                     </label>
                                     <label class="custom-checkbox">
-                                        <input type="checkbox" name="main_portfolio[]">
+                                        <input type="checkbox" name="main_profile[]" value="3">
                                         <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
-                                        <span class="text">Tham gia cuộc thi buổi biểu diễn do các tổ chức công tổ chức</span>
+                                        <span class="text">공공·민간기관 주최 (콩쿨) 대회 및 연주회 참여</span>
                                     </label>
                                     <label class="custom-checkbox">
-                                        <input type="checkbox" name="main_portfolio[]">
+                                        <input type="checkbox" name="main_profile[]" value="4">
                                         <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
-                                        <span class="text"> Từng tham gia đoàn diễn của cơ quan, xí nghiệp nhỏ</span>
+                                        <span class="text">기관 및 기업소속 연주단 소속 경력</span>
                                     </label>
                                     <label class="custom-checkbox">
-                                        <input type="checkbox" name="main_portfolio[]">
+                                        <input type="checkbox" name="main_profile[]" value="5">
                                         <span class="icon">
                                     <i class="fas fa-check"></i>
                                 </span>
-                                        <span class="text">Đi diễn tự do</span>
+                                        <span class="text">프리랜서 연주자 활동</span>
                                     </label>
                                 </div>
                             </div>
@@ -481,23 +561,39 @@
 
                         <div class="row form-item">
                             <div class="col-md-3">
-                                Nội dung hoạt động
+                                활동내용
                             </div>
                             <div class="col-md-9">
                                 <div class="duplicate-section activity">
                                     <div class="d-flex" style="gap:0.5rem">
-                                        <input type="date" class="activity_start_date" style="width:30%"
-                                               placeholder="Năm/Tháng/Ngày">
-                                        <input type="date" class="activity_end_date" style="width: 30%"
-                                               placeholder="Năm/Tháng/Ngày">
-                                        <input type="text" style="width:60%"
-                                               class="activity_organization"
-                                               placeholder=" Vui lòng nhập tên chi nhánh / tổ chức / nhóm hoặc tên cuộc thi / buổi hòa nhạc bạn đã tham gia.">
-                                    </div>
-                                    <div class="d-flex" style="margin-top:0.5rem;gap:0.5rem">
-                                        <input class="activity_content" type="text"
-                                               placeholder="Nhập nội dung hoạt động">
+                                        <div style="width:33%">
+                                            <input type="date" class="activity_start_date validate-required"
+                                                   placeholder="년도 월 일" style="width:100%">
+                                            <div class="error-msg"></div>
+                                        </div>
+
+                                        <div style="width:33%">
+                                            <input type="date" class="activity_end_date validate-required"
+                                                   placeholder="년도 월 일" style="width:100%">
+                                            <div class="error-msg"></div>
+                                        </div>
+
+                                        <div style="width:33%">
+                                            <input type="text"
+                                                   class="activity_organization validate-required"
+                                                   style="width:100%"
+                                                   placeholder="소속/기관/단체명 또는 대회/연주회명을 입력해주세요.">
+                                            <div class="error-msg"></div>
+                                        </div>
+
                                         <div class="btn-add-more">+</div>
+                                    </div>
+
+                                    <div style="margin-top:0.5rem">
+                                        <input class="activity_content validate-required" type="text"
+                                               style="width:100%"
+                                               placeholder="직무와 관련한 교육한 교육의 내용을 요약하여 작성해주세요. (50자이내)">
+                                        <div class="error-msg"></div>
                                     </div>
                                 </div>
                             </div>
@@ -505,21 +601,42 @@
 
                         <div class="row form-item">
                             <div class="col-md-3">
-                                Đào tạo
+                                교육
                             </div>
                             <div class="col-md-9">
                                 <div class="duplicate-section training">
                                     <div class="d-flex" style="gap:0.5rem">
-                                        <input type="text" class="training_name" placeholder="Tên Chương trình đào tạo">
-                                        <input type="text" class="training_organization"
-                                               placeholder="Tên tổ chức đào tạo">
-                                        <input type="date" class="training_date_start" placeholder="Ngày bắt đầu">
-                                        <input type="date" class="training_end_date" placeholder="Ngày kết thúc">
+                                        <div>
+                                            <input type="text" class="training_name"
+                                                   placeholder="교육명">
+                                            <div class="error-msg"></div>
+                                        </div>
+
+                                        <div>
+                                            <input type="text" class="training_organization"
+                                                   placeholder="교육기관">
+                                            <div class="error-msg"></div>
+                                        </div>
+
+                                        <div>
+                                            <input type="date" class="training_date_start" placeholder="년도 월 일">
+                                            <div class="error-msg"></div>
+                                        </div>
+
+                                        <div>
+                                            <input type="date" class="training_end_date" placeholder="년도 월 일">
+                                            <div class="error-msg"></div>
+                                        </div>
+
+
                                         <div class="btn-add-more">+</div>
                                     </div>
-                                    <div class="d-flex" style="margin-top:0.5rem">
-                                        <input type="text" placeholder="Tóm tắt nội dung đào tạo"
+                                    <div>
+                                        <input type="text" class="validate-required"
+                                               style="width:100%;margin-top:0.5rem"
+                                               placeholder="직무와 관련한 교육한 교육의 내용을 요약하여 작성해주세요. (50자이내)"
                                                name="training_content">
+                                        <div class="error-msg"></div>
                                     </div>
                                 </div>
                             </div>
@@ -531,7 +648,7 @@
                                     <div class="btn btn-secondary"> Lưu tạm thời</div>
                                 </div>
                                 <div>
-                                    <button class="btn btn-primary" type="submit" onclick="handSubmitStep2()"> Submit
+                                    <button class="btn btn-primary" type="submit"> Submit
                                     </button>
                                 </div>
                             </div>
@@ -540,89 +657,123 @@
                 </form>
 
                 <div class="tab-content hidden">
-                    <h3>Bằng cấp, giải thưởng</h3>
-                    <hr>
-                    <div class="row form-item">
-                        <div class="col-md-3">
-                            Bằng cấp
-                        </div>
-                        <div class="col-md-9">
-                            <div class="duplicate-section certificate">
-                                <div class="d-flex" style="gap:0.5rem">
-                                    <input type="text" class="certificate_name" placeholder="Tên bằng cấp/chứng chỉ">
-                                    <input type="text" class="certificate_issued_by" placeholder="Nơi cấp">
-                                    <input type="date" class="certificate_date_issued" placeholder="Ngày-tháng-năm">
-                                    <button class="btn-add-more">+</button>
+                    <form id="form_step_3" method="post" class="needs-validation">
+                        <h3>자격증/수상/포트폴리오</h3>
+                        <hr>
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                Bằng cấp
+                            </div>
+                            <div class="col-md-9">
+                                <div class="duplicate-section certificate form-item">
+                                    <div class="d-flex" style="gap:0.5rem">
+                                        <div>
+                                            <input type="text" class="certificate_name validate-required"
+                                                   placeholder="Tên bằng cấp/chứng chỉ">
+                                            <div class="error-msg"></div>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="certificate_issued_by validate-required"
+                                                   placeholder="Nơi cấp">
+                                            <div class="error-msg"></div>
+                                        </div>
+                                        <div>
+                                            <input type="date" class="certificate_date_issued validate-required"
+                                                   placeholder="Ngày-tháng-năm">
+                                            <div class="error-msg"></div>
+                                        </div>
+                                        <button class="btn-add-more" type="button">+</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row form-item">
-                        <div class="col-md-3">
-                            Giải thưởng
-                        </div>
-                        <div class="col-md-9">
-                            <div class="duplicate-section award">
-                                <div class="d-flex" style="gap:0.5rem">
-                                    <input type="text" class="award_name" placeholder="Tên cuộc thi/giải thưởng">
-                                    <input type="text" class="award_issued_by" placeholder="Cơ quan cấp">
-                                    <input type="date" class="award_date_issued" placeholder="Ngày-tháng-năm">
-                                    <select class="cert_type">
-                                        <option value="">Cert type</option>
-                                        <option value="1">Động cơ</option>
-                                        <option value="2">Điểm mạnh và điểm yếu của nhân các</option>
-                                        <option value="3">Nguyện vọng sau khi tham gia</option>
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                Giải thưởng
+                            </div>
+                            <div class="col-md-9">
+                                <div class="duplicate-section award form-item">
+                                    <div class="d-flex" style="gap:0.5rem">
+                                        <div>
+                                            <input type="text" class="award_name validate-required"
+                                                   placeholder="Tên cuộc thi/giải thưởng">
+                                            <div class="error-msg"></div>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="award_issued_by validate-required"
+                                                   placeholder="Cơ quan cấp">
+                                            <div class="error-msg"></div>
+                                        </div>
+                                        <div>
+                                            <input type="date" class="award_date_issued validate-required"
+                                                   placeholder="Ngày-tháng-năm">
+                                            <div class="error-msg"></div>
+                                        </div>
+                                        <div>
+                                            <select class="award_type validate-required">
+                                                <option value="">Cert type</option>
+                                                <option value="1">Động cơ</option>
+                                                <option value="2">Điểm mạnh và điểm yếu của nhân các</option>
+                                                <option value="3">Nguyện vọng sau khi tham gia</option>
+                                            </select>
+                                            <div class="error-msg"></div>
+                                        </div>
+                                        <button class="btn-add-more" type="button">+</button>
+                                    </div>
+                                    <div style="gap:0.5rem;margin-top:0.5rem">
+                                        <input type="text" class="award_content validate-required"
+                                               placeholder="Nhập nội dung giải thưởng">
+                                        <div class="error-msg"></div>
+                                    </div>
 
-                                    </select>
-                                    <button class="btn-add-more">+</button>
                                 </div>
-                                <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
-                                    <input type="text" class="award_content" placeholder="Nhập nội dung giải thưởng">
+                            </div>
+                        </div>
+
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                Portfolio
+                            </div>
+                            <div class="col-md-9">
+                                <div style="gap:0.5rem;margin-top:0.5rem">
+                                    <input type="file" id="portfolio_file" accept="image/*"
+                                           class="validate-required"
+                                           placeholder="Chưa có file nào được chọn">
+                                    <div class="error-msg"></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row form-item">
-                        <div class="col-md-3">
-                            Portfolio
-                        </div>
-                        <div class="col-md-9">
-                            <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
-                                <input type="file" id="portfolio_file" accept="image/*"
-                                       placeholder="Chưa có file nào được chọn">
+                        <div class="row form-item">
+                            <div class="col-md-3">
+                                Link
+                            </div>
+                            <div class="col-md-9">
+                                <div style="gap:0.5rem;margin-top:0.5rem">
+                                    <input type="url" id="step4Url" class="validate-required" placeholder="https://">
+                                    <div class="error-msg"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row form-item">
-                        <div class="col-md-3">
-                            Link
-                        </div>
-                        <div class="col-md-9">
-                            <div class="d-flex" style="gap:0.5rem;margin-top:0.5rem">
-                                <input type="url" id="step4Url" placeholder="https://">
+                        <div style="display: flex; justify-content: center; align-items: center; margin-top: 1rem;">
+                            <div>
+                                <button class="btn btn-light" type="button">Bước trước</button>
+                            </div>
+                            <div style="margin-left: 0.5rem; margin-right: 0.5rem">
+                                <button class="btn btn-secondary" type="button"> Lưu tạm thời</button>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary" type="submit"> Submit</button>
                             </div>
                         </div>
-                    </div>
-                    <div style="display: flex; justify-content: center; align-items: center; margin-top: 1rem;">
-                        <div>
-                            <button class="btn btn-light">Bước trước</button>
-                        </div>
-                        <div style="margin-left: 0.5rem; margin-right: 0.5rem">
-                            <button class="btn btn-secondary" onclick="handSubmitTempStep3()"> Lưu tạm thời</button>
-                        </div>
-                        <div>
-                            <button class="btn btn-primary" onclick="handSubmitStep3()"> Submit</button>
-                        </div>
-                    </div>
+                    </form>
 
                 </div>
                 </form>
                 <form action="../ktl/php/fnc/signup_step_4.php" method="post" id="form_step_4">
                     <div class="tab-content hidden">
-                        <h3>Bản giới thiệu bản thân</h3>
+                        <h3>자기 소개서</h3>
                         <div class="row form-item">
                             <div class="col-md-3">
                                 Quá trình trưởng thành
@@ -650,8 +801,11 @@
                                         </select>
                                         <div class="btn-add-more">+</div>
                                     </div>
-                                    <textarea class="form-control self_introduction_content"
-                                              style="margin-top:0.5rem;height: 10rem"></textarea>
+                                    <div>
+                                        <textarea class="form-control self_introduction_content validate-required"
+                                                  style="margin-top:0.5rem;height: 10rem"></textarea>
+                                        <div class="error-msg"></div>
+                                    </div>
 
                                 </div>
                             </div>
@@ -661,12 +815,12 @@
                                 <button class="btn btn-light">Bước trước</button>
                             </div>
                             <div style="margin-left: 0.5rem; margin-right: 0.5rem">
-                                <button class="btn btn-secondary" id="tempStep5" onclick="handSubmitTempStep4()"
+                                <button class="btn btn-secondary" id="tempStep5"
                                         type="button"> Lưu tạm thời
                                 </button>
                             </div>
                             <div>
-                                <button class="btn btn-primary" onclick="handSubmitStep4()" type="button"> Submit
+                                <button class="btn btn-primary" type="submit"> Submit
                                 </button>
                             </div>
                         </div>
@@ -674,22 +828,24 @@
                 </form>
 
                 <div class="tab-content hidden">
-                    <h3>Bản thân</h3>
+                    <h3>자기소개서 (최대 3개 입력가능)
+                    </h3>
                     <hr>
                     <div style="background:rgba(191,182,182,0.26);padding:0.8rem;border-radius: 0.5rem">
-                        <p>Cam kết đồng ý của ứng viên</p>
+                        <p>지원자 동의 서약서</p>
                         <p>
-                            is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley
-                            of type and scrambled it to make a type specimen book
+                            1. 본인은 “[한국산업기술시험원] 장애인 전형 단기계약근로자(사무보조) 추가채용”에 지원함에 있어 인사 청탁 등 불명예스러운 일을 하지 않을 것이며,
+                            이를 어길 시 어떠한 불이익도 감수 할 것을 서약합니다.
+
+                            2. 지원서 상의 모든 기재 사항은 사실과 다름이 없음을 증명하며, 차후 지원서 상의 내용이 허위로 판명되어 합격 또는 입사가 취소 되더라도
+                            이의를 제기하지 않을것을 서약합니다.
                         </p>
                         <p>
-                            <span>Ngày gửi</span>
+                            <span>제출일</span>
                             <span>2022-12-01</span>
                         </p>
                         <p>
-                            <span>Người gửi</span>
+                            <span>지원자</span>
                             <span>Nguyễn Thành Luân</span>
                         </p>
                     </div>
@@ -697,8 +853,8 @@
 
                     <div class="float-right clear">
                         <label class="accept">
-                            <input type="checkbox">
-                            Click để đồng ý tất cả nội dung trên</label>
+                            <input type="checkbox">&nbsp;위 내용을 모두 확인하였으며, 이에 동의합니다.
+                        </label>
                     </div>
 
                     <hr class="clear">
@@ -706,11 +862,11 @@
                     <div>
                         <div class="form-item row">
                             <div class="col-md-3">
-
+                                필수 첨부자료
                             </div>
 
                             <div class="col-md-9">
-                                Thêm tệp đính kèm bằng cách định dạng như PDF, Word, JPEG, PNG (thêm ghi chú)
+                                *첨부파일 형식은 PDF Word, JPEG, PNG로 제출부탁드립니다.
                                 <input type="file" style="margin-top: 0.5rem">
                             </div>
                         </div>
@@ -727,11 +883,33 @@
 
 <script>
 
-    function handSubmitStep3() {
-        console.log('submit step3')
+    //    handle submit step3
+    $('#form_step_3').submit(function (event) {
+        console.log('submit step 3');
+
+        event.preventDefault();
+
+
+        //validate step 3
+        let isValid = true;
+        $('#form_step_3 .validate-required').each(function (index, value) {
+            if ($(this).val() == '' && !$(this).closest('.form-item').hasClass('disable-input')) {
+                $(this).next('.error-msg').html('Trường này là bắt buộc');
+                isValid = false;
+            } else {
+                $(this).next('.error-msg').html('');
+            }
+        });
+
+        console.log('is valid', isValid);
+        if (!isValid) {
+            alert("Vui lòng nhập đầy đủ thông tin");
+            return;
+        }
+        //end validate
+
 
         const payload = handSubmitTempStep3();
-
 
         const formData = new FormData();
         formData.append('data', JSON.stringify(payload));
@@ -746,6 +924,7 @@
             contentType: false,
             success: function (data) {
                 if (data == 1) {
+                    $('#form_step_3')[0].reset();
                     alert('Đăng ký thành công')
                 } else {
                     alert('Đăng ký thất bại')
@@ -757,11 +936,31 @@
             }
         });
 
+    });
 
-    }
+    //    handle submit step4
+    $('#form_step_4').submit(function (event) {
+        console.log('submit step 4');
+        event.preventDefault();
 
-    function handSubmitStep4() {
-        console.log('submit step4');
+
+        //validate step 3
+        let isValid = true;
+        $('#form_step_4 .validate-required').each(function (index, value) {
+            if ($(this).val() == '' && !$(this).closest('.form-item').hasClass('disable-input')) {
+                $(this).next('.error-msg').html('Trường này là bắt buộc');
+                isValid = false;
+            } else {
+                $(this).next('.error-msg').html('');
+            }
+        });
+
+        console.log('is valid', isValid);
+        if (!isValid) {
+            alert("Vui lòng nhập đầy đủ thông tin");
+            return;
+        }
+        //end validate
 
         const payload = handSubmitTempStep4();
 
@@ -776,6 +975,9 @@
             contentType: false,
             success: function (data) {
                 if (data == 1) {
+                    // reset original form
+                    $("#form_step_4 .self-introduction:not(#form_step_4 .self-introduction:first)").remove();
+                    $("#form_step_4 .self_introduction_content:first").val('');
                     alert('Đăng ký thành công')
                 } else {
                     alert('Đăng ký thất bại')
@@ -786,7 +988,10 @@
                 alert('Server got error!')
             }
         });
-    }
+
+
+    });
+
 
     // function handSubmitStep2() {
     //     $('#form_step_2').submit(function (){
@@ -844,7 +1049,11 @@
 
     function reIndex() {
         $('.self-introduction').each(function (index, value) {
-            $(this).find('select.self_introduction_type').attr('name', `self_introduction[${index}][type]`);
+            $(this).find('select.self_introduction_type')
+                .attr('name', `self_introduction[${index}][type]`)
+                .attr('data-index', index);
+
+            console.log('current index', index);
             $(this).find('textarea.self_introduction_content').attr('name', `self_introduction[${index}][content]`);
         });
 
@@ -901,20 +1110,21 @@
         });
     }
 
-    $(document).ready(function () {
 
+    $(document).ready(function () {
         $('.injoin_university input[type="radio"]').change(function () {
             if ($(this).is(':checked') && $(this).val() == 1) {
                 $('.disable-input').removeClass('disable-input');
                 $(this).closest('.high-school-row').addClass('disable-input');
+                $(this).closest('.high-school-row').find('select[name="status_graduate"]').addClass('disable-input');
             } else {
                 $('.disable-input').removeClass('disable-input');
                 $(this).closest('.high-school-row').parent().find('.academy-row')
                     .addClass('disable-input');
+                $(this).closest('.high-school-row').parent().find('.postgraduate-row')
+                    .addClass('disable-input');
             }
         });
-
-
         reIndex();
         $('.tab-heading .tab-item').click(function () {
             $(this).closest('.tab-wrapper').find('.tab-item').removeClass('active');
@@ -936,14 +1146,19 @@
                 $(this).closest('.duplicate-section').parent().find('.duplicate-section').last().find('textarea').val('');
                 $(this).attr('data-count', dataCount);
             }
-        });
+        })
 
         const indexing = () => {
             reIndex();
 
             $('.self-introduction .btn-add-more').each(function (index, value) {
                 changePlusToMinus.call(this, index, removeDuplicateSection);
+                setTimeout(() => {
+                    const lastSelectTag = $('select.self_introduction_type:last');
+                    lastSelectTag.val(lastSelectTag.attr('data-index'));
+                }, 100);
             });
+
             $('.academy .btn-add-more').each(function (index, value) {
                 changePlusToMinus.call(this, index, removeDuplicateSection);
             });
@@ -987,6 +1202,41 @@
 
     });
 </script>
+<script>
+    $('#form_step_2').submit(function (event) {
+        event.preventDefault();
+        //validate step 2
+        let isValid = true;
+        $('.validate-required').each(function (index, value) {
+            if ($(this).val() == '' && !$(this).closest('.form-item').hasClass('disable-input')) {
+                $(this).next('.error-msg').html('Trường này là bắt buộc');
+                isValid = false;
+            } else {
+                $(this).next('.error-msg').html('');
+            }
+        });
+        if (!isValid) {
+            alert("Vui lòng nhập đầy đủ thông tin");
+            return;
+        }
+        //end validate
+
+
+        const payload = $(this).serialize();
+        $.ajax({
+            type: "POST",
+            url: "ajax/save-signup.php",
+            data: payload,
+            success: function () {
+                alert("Add OK");
+            },
+            error: function () {
+                alert("Add Lỗi");
+            }
+        });
+    });
+</script>
+
 <style>
     .hidden {
         display: none
@@ -1118,6 +1368,9 @@
         border-radius: 0.2rem;
         background: black;
         color: white;
+        margin-bottom: auto;
+        margin-top: 0.2rem;
+        cursor: pointer;
     }
 
     h3 {
@@ -1197,7 +1450,13 @@
         margin-left: 0.2rem
     }
 
-    .academy-row.disable-input {
+    .academy-row.disable-input,
+    .postgraduate-row.disable-input {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    select.disable-input {
         pointer-events: none;
         opacity: 0.5;
     }
@@ -1206,24 +1465,12 @@
         pointer-events: none;
         opacity: 0.5;
     }
+
+    .error-msg {
+        font-size: 0.6rem;
+        color: red;
+    }
 </style>
 
 
-<script>
-    $('#form_step_2').submit(function (event) {
-        event.preventDefault();
-        const payload = $(this).serialize();
-        $.ajax({
-            type: "POST",
-            url: "ajax/save-signup.php",
-            data: payload,
-            success: function () {
-                alert("Add OK");
-            },
-            error: function () {
-                alert("Add Lỗi");
-            }
-        });
-    });
-</script>
 </html>
