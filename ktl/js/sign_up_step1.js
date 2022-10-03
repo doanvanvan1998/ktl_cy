@@ -12,17 +12,16 @@ $('#signup_form').submit(  function (e) {
             },
             function (data, status) {
                 if (status != "fail") {
-                    alert("채용문의 접수가 완료되었습니다.");
-
+                   // alert("채용문의 접수가 완료되었습니다.");
+                    if ($("#accuracy").val() == 1) {
+                        window.location.href = "../../../ktl_cy/ktl/verify_email.php?email=" + $("#useremail").val() ;
+                    }
                     // location.reload();
                 } else {
                     alert("네트워크 오류");
                 }
             });
 
-    }
-    if ($("#accuracy").val() == 1) {
-        window.location.href = "../../../ktl_cy/ktl/verify_email.php?email=" + $("#useremail").val();
     }
 
 })
