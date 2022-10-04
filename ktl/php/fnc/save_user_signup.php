@@ -6,20 +6,34 @@ include "../crypt.php";
 $username = $_POST["username"];
 $userphone1 = $_POST["userphone"];
 $useremail1 = $_POST["useremail"];
-$userpass1= $_POST["userpass"];
-$acept_rule =$_POST["acept_rule"];
+$userpass1 = $_POST["userpass"];
+$acept_rule = $_POST["acept_rule"];
 $rand_code = $_POST["rand_code"];
+$round_one = $_POST['round_one'] ?? 0;
+$round_two = $_POST['round_two'] ?? 0;
+$round_three = $_POST['round_three'] ?? 0;
 
-
-
-$useremail = Encrypt($useremail1,$secret_key,$secret_iv);
-$userphone = Encrypt($userphone1,$secret_key,$secret_iv);
-$userpass = Encrypt($userpass1,$secret_key,$secret_iv);
-$query ="insert into recruit_able_user(username,phone,email,pass,acept_rule,status_pass,rand_code)
-  VALUES('$username','$userphone','$useremail','$userpass',$acept_rule ,0,$rand_code)";
-echo $query;
+$useremail = Encrypt($useremail1, $secret_key, $secret_iv);
+$userphone = Encrypt($userphone1, $secret_key, $secret_iv);
+$userpass = Encrypt($userpass1, $secret_key, $secret_iv);
 mysqli_query($con, "set names utf8");
-mysqli_query($con, "insert into recruit_able_user(username,phone,email,pass,acept_rule,status_pass,rand_code,round_one,round_two,round_three,note)
-  VALUES('$username','$userphone','$useremail','$userpass',$acept_rule ,0,$rand_code,0,0,0,0)");
-
+mysqli_query($con, "insert into 
+    recruit_able_user(username,
+                      phone,
+                      email,
+                      pass,
+                      acept_rule,
+                      status_pass,
+                      rand_code,
+                      round_one,
+                      round_two,
+                      round_three,
+                      note,active)
+  VALUES('$username',
+         '$userphone',
+         '$useremail',
+         '$userpass',
+         $acept_rule,
+         0,
+         $rand_code,0,0,0,0,0)");
 mysqli_close($con);
