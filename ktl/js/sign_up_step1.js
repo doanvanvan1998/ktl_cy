@@ -1,7 +1,8 @@
 
 $('#signup_form').submit(function (e) {
     e.preventDefault();
-    let userphone = $("#userphone").val() + $("#userphone2").val() + $("#userphone2").val();
+    let userphone = $("#userphone").val() + $("#userphone2").val() + $("#userphone3").val();
+    alert(userphone);
     if (validate()) {
         $.post("php/fnc/save_user_signup.php", {
                 username: $("#username").val(),

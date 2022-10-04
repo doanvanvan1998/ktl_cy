@@ -11,7 +11,7 @@
     include "php/crypt.php";
     $phone = $_GET['phone'];
     $email = Encrypt($_GET['email'], $secret_key, $secret_iv);
-    $query = "select rand_code from recruit_able_user where email='$email'";
+    $query = "select id, rand_code from recruit_able_user where email='$email'";
     $result = mysqli_query($con, $query);
     $row = mysqli_fetch_array($result);
     $rand_code = $row['rand_code'];
@@ -22,7 +22,7 @@
                 <form method="post" class="login flex-direction">
                     <div class="flex-direction">
                         <span>정확성</span>
-                        <input name="phone" disabled="true" type="text" id='phone' value="<?php echo $phone; ?>">
+                        <input name="phone" readonly type="text" id='phone' value="<?php echo $phone; ?>">
                     </div>
                     <button class="btn_login flex" id="onSubmit" style="height: 2.5rem"><span>본인확인</span></button>
                 </form>
@@ -225,11 +225,10 @@
 
 <script>
     $("form").submit(function () {
-
+        alert(1);
         $.post("forms/sms/examples/example_send.php",
             {
-                email: <?php echo $email; ?> ,
-                txt: <?php echo $rand_code; ?>
+                Id: <?php $row['id']; ?>
             },
             function (data, status) {
                 alert(data);

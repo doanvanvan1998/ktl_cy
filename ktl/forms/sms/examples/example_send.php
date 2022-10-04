@@ -2,29 +2,23 @@
 session_start();
 
 include_once "../coolsms.php";
-
-
-require '../../../php/mysql.php';
-require '../../../php/crypt.php';
 /*
  **  api_key and api_secret can be obtained from www.coolsms.co.kr/credentials
  */
 
+
 include "mysql.php";
 include "crypt.php";
-$email = Decrypt($_POST["email"], $secret_key, $secret_iv);
-$txt = $_POST["txt"];
 
-$query = "select id,username,phone,email,pass,acept_rule,status_pass,rand_code from recruit_able_user where id='$email'";
+$Id 								= $_POST["Id"];
+$query="select id,username,phone,email,pass,acept_rule,status_pass,rand_code from recruit_able_user where id='$Id'";
 
-$TransResult = mysqli_query($con, $query);
-$TransRow = mysqli_fetch_array($TransResult, MYSQLI_NUM);
+$TransResult = mysqli_query($con,$query);
+$TransRow = mysqli_fetch_array($TransResult,MYSQLI_NUM);
+$phone =Decrypt($TransRow['phone'], $secret_key, $secret_iv);
+$rand_code = $TransRow['rand_code'];
 
-$TransRow[2] = Decrypt($TransRow[2], $secret_key, $secret_iv);
-$phone = '010 3127 0053';
-echo $phone;
-$rest = new coolsms("NCSXOU8UCIPG01NE", " XCLICLKYKXBPCW0CXVXTYLE2S97OM7OX");
-
+$rest = new coolsms("NCSXOU8UCIPG01NE", "XCLICLKYKXBPCW0CXVXTYLE2S97OM7OX");
 /*
  **  5 options(timestamp, to, from, type, text) are mandatory. must be filled
  */
@@ -36,7 +30,7 @@ $options->from = '02-2662-5571';
 
 //$encrypted = Encrypt($p, $secret_key, $secret_iv);
 
-$textq = $txt;
+$textq = $rand_code;
 $options->type = 'SMS'; // SMS, MMS, LMS, ATA
 
 $options->text = $textq;
@@ -71,7 +65,5 @@ $response = $rest->send($options);
 
 // get result
 $result = $response->getResult();
-echo $response;
-echo $result;
-
+header("Location: ../../confirm_rand_code.php?email");
 ?>
