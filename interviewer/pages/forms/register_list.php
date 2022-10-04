@@ -93,17 +93,17 @@ session_start();
 
                                                 $arr = $resultSql->fetch_all();
                                                 $length = count($arr);
-                                                if ($length < 2){
-                                                    $length = 1;
+                                                if ($length < 1){
+                                                    $length = 0;
                                                 }
 
                                                 ?>
                                                  <tr>
                                                     <th style='border: 1px solid #dee2e6;width: 100px' rowspan='<?php echo $length ?>'><?php echo $nIndex; ?></th>
-                                                    <th rowspan='<?php echo $length; ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php echo $row['imp_uid']; ?></th>
-                                                    <th rowspan='<?php echo $length; ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php echo $row['username']; ?></th>
-                                                    <th rowspan='<?php echo $length; ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php echo $row['is_disabilities'] == 1 ? "중증" :'경증' ?></th>
-                                                    <th rowspan='<?php echo $length; ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php
+                                                    <th rowspan='<?php echo $length == 0 ? "1" :  $length; ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php echo $row['imp_uid']; ?></th>
+                                                    <th rowspan='<?php echo $length == 0 ? "1" :  $length; ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php echo $row['username']; ?></th>
+                                                    <th rowspan='<?php echo $length == 0 ? "1" :  $length; ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php echo $row['is_disabilities'] == 1 ? "중증" :'경증' ?></th>
+                                                    <th rowspan='<?php echo $length == 0 ? "1" :  $length; ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php
                                                         switch ($row['major_main_id']) {
                                                             case 1:
                                                                 echo "바이올린";
@@ -147,7 +147,7 @@ session_start();
                                                             default:
                                                                 echo "error";
                                                         } ?></th>
-                                                    <th rowspan='<?php echo $length; ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php
+                                                    <th rowspan='<?php echo $length == 0 ? "1" :  $length; ?>' style='border: 1px solid #dee2e6;padding: 10px 25px'><?php
                                                         switch ($row['major_sub']) {
                                                             case 1:
                                                                 echo "바이올린";
@@ -191,26 +191,27 @@ session_start();
                                                             default:
                                                                 echo "error";
                                                         } ?></th>
-                                                     <th rowspan='<?php echo $length; ?>' style='border: 1px solid #dee2e6;padding: 0 25px'>
+                                                     <th rowspan='<?php echo $length == 0 ? "1" :  $length; ?>' style='border: 1px solid #dee2e6;padding: 0 25px'>
                                                 <?php
-
-                                                foreach ($arr as $item) {
-                                                   echo $item[2] ."<br>";
-                                                   }
+                                                $queryResume = "select distinct e.content from main_resume e where e.able_id=".$row['id'];
+                                                $Resume = mysqli_query($con, $queryResume);
+                                                while ($RowResume = mysqli_fetch_array($Resume)) {
+                                                    echo $RowResume['content'] ."<br>";
+                                                }
                                                 ?>
                                                      </th>
                                                      <?php
-                                                     if ($length == 1){
+                                                     if ($length == 0){
                                                          ?>
                                                          <th  style='border: 1px solid #dee2e6;padding: 10px 25px'></th>
                                                          <th  style='border: 1px solid #dee2e6;padding: 10px 25px'></th>
-                                                             <?php
+                                                         <?php
                                                      }
                                                      foreach ($arr as $item) {
                                                          ?>
-                                                         <th  style='border: 1px solid #dee2e6;padding: 10px 25px'>abd</th>
-                                                         <th  style='border: 1px solid #dee2e6;padding: 10px 25px'>abd</th>
-                                                             <?php
+                                                         <th  style='border: 1px solid #dee2e6;padding: 10px 25px'><?php echo $item[3]; ?></th>
+                                                         <th  style='border: 1px solid #dee2e6;padding: 10px 25px'><?php echo 2; ?></th>
+                                                         <?php
                                                          break;
                                                      }
                                                      ?>
@@ -218,17 +219,17 @@ session_start();
                                                      <?php
                                                         if ($row['file_portlio'] != null ){
                                                             ?>
-                                                            <th rowspan='<?php echo $length; ?>' style='border: 1px solid #dee2e6;'><button style='width:100px;border: none;background: none;color: blue;text-decoration: underline;' onclick="openFile('<?php echo $row['file_portlio'];?>')">미리보기</button></td>
+                                                            <th rowspan='<?php echo $length == 0 ? "1" :  $length; ?>' style='border: 1px solid #dee2e6;'><button style='width:100px;border: none;background: none;color: blue;text-decoration: underline;' onclick="openFile('<?php echo $row['file_portlio'];?>')">미리보기</button></td>
                                                             <?php
                                                         }else{
                                                             ?>
-                                                            <th rowspan='<?php echo $length; ?>' style='border: 1px solid #dee2e6;'>미첨부</td>
+                                                            <th rowspan='<?php echo $length == 0 ? "1" :  $length; ?>' style='border: 1px solid #dee2e6;'>미첨부</td>
                                                             <?php
                                                         }
                                                      ?>
 
-                                                     <th rowspan='<?php echo $length ?>'> <textarea id="note<?php echo $row['id']; ?>"><?php echo $row['note']; ?></textarea></th>
-                                                     <th rowspan='<?php echo $length ?>'> <button class="btn btn-info" onclick="updateNote(<?php echo $row['id']; ?>)">수정</button></th>
+                                                     <th rowspan='<?php echo $length == 0 ? "1" :  $length; ?>'> <textarea id="note<?php echo $row['id']; ?>"><?php echo $row['note']; ?></textarea></th>
+                                                     <th rowspan='<?php echo $length == 0 ? "1" :  $length; ?>'> <button class="btn btn-info" onclick="updateNote(<?php echo $row['id']; ?>)">수정</button></th>
                                                  </tr>
                                                      <?php
 
@@ -238,8 +239,8 @@ session_start();
                                                     while ($row2 = mysqli_fetch_array($resultSql2)) {
                                                         ?>
                                                         <tr>
-                                                            <th  style='border: 1px solid #dee2e6;padding: 0 25px'>abd</th>
-                                                            <th  style='border: 1px solid #dee2e6;padding: 0 25px'>abd</th>
+                                                            <th  style='border: 1px solid #dee2e6;padding: 0 25px'><?php echo $row2['title']; ?></th>
+                                                            <th  style='border: 1px solid #dee2e6;padding: 0 25px'><?php echo 1; ?></th>
                                                         </tr>
                                                         <?php
                                                     }
