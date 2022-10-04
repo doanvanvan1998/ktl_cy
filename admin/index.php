@@ -1,5 +1,6 @@
 <?php
-session_start();
+require_once '../session/loggedUser.php';
+forceLogin();
 ?>
 
 <!DOCTYPE html>

@@ -1,5 +1,6 @@
 <?php
-  session_start();
+require_once '../../../session/loggedUser.php';
+forceLogin();
 ?>
 <!DOCTYPE html>
 <html lang="kr">
@@ -63,24 +64,14 @@
               <h3 class="card-title">로그인정보</h3>
 
             </div>
-            <?php
-              include "../../php/mysql.php";
-              include "../../php/crypt.php";
 
-              $query="select username,userphone,useremail from recruit_able_admin where userid='$userid'";
-              $Aresult = mysqli_query($con,$query);
-              $Arow = mysqli_fetch_array($Aresult);
-
-
-              $Arow[1] = Decrypt($Arow[1],$secret_key,$secret_iv);
-              $Arow[2] = Decrypt($Arow[2],$secret_key,$secret_iv);
-
-              mysqli_close($con);
-            ?>
+              <?php
+              require '../../php/crypt.php';
+              ?>
             <div class="card-body">
             <div class="form-group">
               <label for="inputClientCompany">아이디</label>
-              <input type="text" id="userid" value='<?=$userid?>' class="form-control "  placeholder="아이디를 입력하세요.">
+              <input type="text" id="userid" readonly value='<?=$loggedUser['userid']?>' class="form-control "  placeholder="아이디를 입력하세요.">
             </div>
             <div class="form-group">
               <label for="inputProjectLeader">수정하실 패스워드</label>
@@ -99,15 +90,15 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="inputName">이름</label>
-                <input type="text" id="username" value='<?=$Arow[0]?>' class="form-control"  placeholder="이름을 입력하세요.">
+                <input type="text" id="username" value='<?=$loggedUser['username']?>' class="form-control"  placeholder="이름을 입력하세요.">
               </div>
               <div class="form-group " style="display: none;" >
                 <label for="inputEstimatedBudget">휴대폰번호</label>
-                <input type="number" id="userphone" value='<?=$Arow[1]?>' class="form-control" placeholder="휴대폰번호를 입력하세요.">
+                <input type="number" id="userphone" value='<?=Decrypt($loggedUser['userphone'], $secret_key, $secret_iv)?>' class="form-control" placeholder="휴대폰번호를 입력하세요.">
               </div>
               <div class="form-group " style="display: none;">
                 <label for="inputSpentBudget">E-mail</label>
-                <input type="email" id="useremail" value='<?=$Arow[2]?>' class="form-control"  placeholder="이메일주소를 입력하세요.">
+                <input type="email" id="useremail" value='<?=Decrypt($loggedUser['useremail'], $secret_key, $secret_iv)?>' class="form-control"  placeholder="이메일주소를 입력하세요.">
               </div>
             </div>
             <!-- /.card-body -->

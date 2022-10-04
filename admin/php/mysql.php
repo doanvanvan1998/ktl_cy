@@ -1,5 +1,5 @@
 <?php
-	$con = mysqli_connect("localhost","root","","ktl",3308);
+	$con = mysqli_connect("uws7-166.cafe24.com","ableup","able1004!@","ableup");
 	if(!$con)
 	{
 		echo "error";

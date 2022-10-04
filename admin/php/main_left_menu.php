@@ -1,10 +1,13 @@
 <style>
-    .none { display:none; }
+    .none {
+        display: none;
+    }
 </style>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="../../index.html" class="brand-link">
-        <span class="brand-text font-weight-bold"><img src='http://ktl-recruit.ableup.kr/images/icons/ic_logo_off.png' style='width:100%;padding:20px;' /></span>
+        <span class="brand-text font-weight-bold"><img src='http://ktl-recruit.ableup.kr/images/icons/ic_logo_off.png'
+                                                       style='width:100%;padding:20px;'/></span>
     </a>
 
     <!-- Sidebar -->
@@ -12,7 +15,8 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="info">
-                <span class="d-block" style='color:#fff'><?=$Arow[0]?> 관리자 <a href='#' onclick='onLogout()'>[ 로그아웃 ]</a></span>
+                <span class="d-block" style='color:#fff'><?= $loggedUser['username'] ?> 관리자 <a href='#'
+                                                                                               onclick='onLogout()'>[ 로그아웃 ]</a></span>
             </div>
         </div>
 
@@ -129,7 +133,7 @@
                     </ul>
                 </li>
                 <li class="nav-item " id='nav_12'>
-                <a href="#" class="nav-link" id='nav_13_1'>
+                    <a href="#" class="nav-link" id='nav_13_1'>
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
                             전형결과
@@ -202,18 +206,14 @@
     <!-- /.sidebar -->
 </aside>
 <script>
-    
-    function onLogout()
-    {
+
+    function onLogout() {
         $.post("../../php/fnc/logout.php",
-            {
-            },
-            function(data,status){
-                if(status != "fail"){
-                    location.href='login.php';
-                }
-                else
-                {
+            {},
+            function (data, status) {
+                if (status != "fail") {
+                    location.href = 'login.php';
+                } else {
                     alert("네트워크 오류");
                 }
             });
