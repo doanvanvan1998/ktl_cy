@@ -11,18 +11,25 @@
     <?php
     require 'php/mysql.php';
     require 'php/crypt.php';
+
+    if (isset($_SESSION['Id'])) {
+        $idUser = $_SESSION['Id'];
+    }
+
     if (isset($_POST['unlock'])) {
         $unlock = $_POST['unlock'];
     }
-    if(isset($_GET['id'])){
+    $id = '';
+    if (isset($_GET['id'])) {
         $id = $_GET['id'];
     }
-    $query = "SELECT * FROM recruit_able_user WHERE imp_uid =1";
+    $query = "SELECT * FROM recruit_able_user WHERE id = $idUser";
     $result = mysqli_query($con, $query);
     $row = mysqli_fetch_array($result);
     if (isset($_POST['unlock'])) {
-        if ($row[5] == Encrypt($unlock, $secret_key, $secret_iv)) {
-            echo "<script>location.href='./detail_inquiry.php';</script>";
+        if ($row['pass'] == Encrypt($unlock, $secret_key, $secret_iv)) {
+            echo "<script> 
+               window.location.href = './detail_inquiry.php';</script>";
         } else {
             echo "<script>alert('mật khẩu k đúng');</script>";
         }
@@ -290,7 +297,8 @@
                             <h6>채용문의</h6>
                         </div>
                         <span>작성일 : <?= $today ?></span>
-                    </div>
+                    </
+                    >
                     <div class="write_form flex-direction">
                         <div class="flex">
                             <div class="form_hd"><h6>채용공고</h6></div>

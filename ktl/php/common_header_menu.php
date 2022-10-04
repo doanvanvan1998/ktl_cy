@@ -18,7 +18,7 @@
                     <li>
                         <a href="#">공지사항</a>
                         <ul class="main_sub_menu flex-direction">
-                            <li><a href="notice.php">공지사항</a></li>
+                            <li><a href="../../ktl_cy/ktl/list_notification.php ">공지사항</a></li>
                             <li><a href="faq.php">자주하는질문 FAQ</a></li>
                         </ul>
                     </li>

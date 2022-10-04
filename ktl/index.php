@@ -25,7 +25,7 @@
               <li>
                 <a href="#">공지사항</a>
                 <ul class="flex-direction">
-                  <li><a href="notice.php">공지사항</a></li>
+                  <li><a href="list_notification.php">공지사항</a></li>
                   <li><a href="faq.php">자주하는질문 FAQ</a></li>
                   <li><a href="#">직무소개</a></li>
                 </ul>

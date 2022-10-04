@@ -18,10 +18,13 @@ if ($row[0] == 0) {
     $name = $row['username'];
     $emailDe = Decrypt($row['email'], $secret_key, $secret_iv);
     $phone = Decrypt($row['phone'], $secret_key, $secret_iv);
+
     $_SESSION['Id'] = $id;
     $_SESSION['username'] = $name;
     $_SESSION['email'] = $emailDe;
     $_SESSION['phone'] = $phone;
+
+
     echo "success";
 //    header("Location: ../../../ktl/signup.php");
 }

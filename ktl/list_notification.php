@@ -28,10 +28,10 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th scope="col">STT</th>
-                    <th scope="col">Tiêu đề</th>
-                    <th scope="col">Người viết </th>
-                    <th scope="col">Người đăng ký</th>
+                    <th scope="col">  숫자 순서</th>
+                    <th scope="col">제목</th>
+                    <th scope="col">작가 </th>
+                    <th scope="col">구독자</th>
                 </tr>
                 </thead>
                 <tbody>
