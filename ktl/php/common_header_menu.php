@@ -1,3 +1,8 @@
+<?php
+$abPath = __DIR__;
+$abPath = str_replace('ktl/php', '', $abPath);
+require_once $abPath . 'config.php';
+?>
 <div class="header_wrap">
     <div class="container flex">
         <div class="flex">
@@ -18,7 +23,7 @@
                     <li>
                         <a href="#">공지사항</a>
                         <ul class="main_sub_menu flex-direction">
-                            <li><a href="../../ktl_cy/ktl/list_notification.php ">공지사항</a></li>
+                            <li><a href="<?php echo BASE_URL; ?>ktl/list_notification.php ">공지사항</a></li>
                             <li><a href="faq.php">자주하는질문 FAQ</a></li>
                         </ul>
                     </li>
