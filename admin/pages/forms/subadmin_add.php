@@ -1,5 +1,6 @@
 <?php
-  session_start();
+require_once '../../../session/loggedUser.php';
+forceLogin();
 ?>
 <!DOCTYPE html>
 <html lang="kr">
@@ -101,7 +102,7 @@
               </div>
                 <div class="form-group">
                     <label for="inputProjectLeader">소속</label>
-                    <input type="password" id="pass" class="form-control" placeholder="소속명을 입력해주세요.">
+                    <input type="text" id="company" class="form-control" placeholder="소속명을 입력해주세요.">
                 </div>
               <div class="form-group">
                 <label for="inputEstimatedBudget">휴대폰번호</label>
@@ -159,6 +160,7 @@
       description : $("#description").val(),
       userphone : $("#userphone").val(),
       useremail : $("#useremail").val(),
+        company :  $("#company").val(),
       role : $("#role").val()
     },
      function(data,status){
