@@ -22,7 +22,7 @@ $('#signup_form').submit(function (e) {
         if ($("input[name=accuracy]:checked", "#signup_form").val() == 1) {
             window.location.href = "../../../ktl_cy/ktl/verify_email.php?email=" + $("#useremail").val();
         } else {
-            window.location.href = "../../../ktl_cy/ktl/verify_phone.php?phone=" + userphone.valueOf();
+            window.location.href = "../../../ktl_cy/ktl/verify_phone.php?phone=" + userphone.valueOf() + "&email=" + $("#useremail").val();
         }
     }
 })

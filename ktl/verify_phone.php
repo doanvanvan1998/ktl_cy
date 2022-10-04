@@ -6,16 +6,23 @@
     <?php include 'php/common_header_menu.php' ?>
 
     <?php
-    // get email from url
+    include "php/mysql.php";
+    include "php/mysql.php";
+    include "php/crypt.php";
     $phone = $_GET['phone'];
+    $email = Encrypt($_GET['email'], $secret_key, $secret_iv);
+    $query = "select rand_code from recruit_able_user where email='$email'";
+    $result = mysqli_query($con, $query);
+    $row = mysqli_fetch_array($result);
+    $rand_code = $row['rand_code'];
     ?>
-    <div class="contents_wrap" >
+    <div class="contents_wrap">
         <div class="container" style=" margin-top: 10rem;">
             <div class="login_form">
                 <form method="post" class="login flex-direction">
                     <div class="flex-direction">
                         <span>정확성</span>
-                        <input  name="phone"   type="text" id='phone' value= "<?php echo  $phone; ?>"  >
+                        <input name="phone" disabled="true" type="text" id='phone' value="<?php echo $phone; ?>">
                     </div>
                     <button class="btn_login flex" id="onSubmit" style="height: 2.5rem"><span>본인확인</span></button>
                 </form>
@@ -215,28 +222,27 @@
 </div>
 <?php include 'php/common_script.php' ?>
 
+
 <script>
-    $("form").submit(function (){
+    $("form").submit(function () {
+
         $.post("forms/sms/examples/example_send.php",
-                {
-                    Id: 22,
-                    txt: "hello_vandv_1"
-                },
-                function (data, status) {
-                    alert(data);
-                    if (status != "fail") {
-                        alert("채용문의 접수가 완료되었습니다.");
-                        location.reload();
-                    } else {
-                        alert("네트워크 오류");
-                    }
-                });
+            {
+                email: <?php echo $email; ?> ,
+                txt: <?php echo $rand_code; ?>
+            },
+            function (data, status) {
+                alert(data);
+                if (status != "fail") {
+                    alert("채용문의 접수가 완료되었습니다.");
+                    location.reload();
+                } else {
+                    alert("네트워크 오류");
+                }
+            });
 
 
     })
-
-
-
 
 
     // function handSubmit(){
