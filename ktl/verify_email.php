@@ -12,7 +12,7 @@
     <div class="contents_wrap">
         <div class="container" style=" margin-top: 10rem;">
             <div class="login_form">
-                <form action="../ktl/php/fnc/verify_email.php" method="post" class="login flex-direction">
+                <form action="../php/fnc/verify_email.php" method="post" class="login flex-direction">
                     <div class="flex-direction">
                         <span>정확성</span>
                         <input name="email" readonly type="text" id='email' value="<?php echo $email; ?>">

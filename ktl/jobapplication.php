@@ -659,6 +659,6 @@
     });
 
 </script>
-<script src="js/sign_up_step1.js"></script>
+<script src="js/sign_up_step1.js?x=<?php echo time(); ?>"></script>
 </body>
 </html>
