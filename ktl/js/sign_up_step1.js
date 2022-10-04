@@ -32,9 +32,6 @@ $('#signup_form').submit(function (e) {
 
 
 function save() {
-    $name = $("#field-name").val();
-    $phone = $("#field-phone").val();
-    $email = $("#field-email").val();
     $address = $("#field-address").val();
     $file = null;
     if (document.querySelector('#writer').files.length > 0) {
@@ -51,9 +48,6 @@ function save() {
     // $son_of_korea_migrate = $("input[name=son_of_korea_migrate]:checked", "#form_step_1").val();
 
     const formData = new FormData();
-    formData.append('name', $name);
-    formData.append('phone', $phone);
-    formData.append('email', $email);
     formData.append('address', $address);
     formData.append('file', $file);
     formData.append('disabilities', $disabilities);
