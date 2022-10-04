@@ -17,7 +17,7 @@ $query="select id,username,phone,email,pass,acept_rule,status_pass,rand_code fro
 
 $rs = mysqli_query($con,$query);
 $TransRow = mysqli_fetch_assoc($rs);
-
+$rand_codeStr = $TransRow['rand_code'];
 //$emailGet = $TransRow['email'];
 $phone =$TransRow['phone'];
 
@@ -30,9 +30,7 @@ $phone = substr($phone, 0, 3) . " " . substr($phone, 3, 4) . " " . substr($phone
 
 //echo $phone;
 //exit();
-
 $rand_code = $TransRow['rand_code'];
-$rand_codeStr = "$rand_code";
 $email = $TransRow['email'];
 
 $rest = new coolsms("NCSXOU8UCIPG01NE", "XCLICLKYKXBPCW0CXVXTYLE2S97OM7OX");
