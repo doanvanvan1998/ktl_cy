@@ -108,7 +108,7 @@
     },
      function(data,status){
      if(status != "fail"){
-      location.href='pages/forms/login.html';
+      location.href='pages/forms/login.php';
      }
      else
      {

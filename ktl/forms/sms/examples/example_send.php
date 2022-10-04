@@ -3,29 +3,32 @@ session_start();
 
 include_once "../coolsms.php";
 
+
+require '../../../php/mysql.php';
+require '../../../php/crypt.php';
 /*
  **  api_key and api_secret can be obtained from www.coolsms.co.kr/credentials
  */
 
 include "mysql.php";
 include "crypt.php";
-$Id 								= $_POST["Id"];
-$txt 								= $_POST["txt"];
+$email = Decrypt($_POST["email"], $secret_key, $secret_iv);
+$txt = $_POST["txt"];
 
-$query="select id,username,phone,email,pass,acept_rule,status_pass,rand_code from recruit_able_user where id='$Id'";
+$query = "select id,username,phone,email,pass,acept_rule,status_pass,rand_code from recruit_able_user where id='$email'";
 
-$TransResult = mysqli_query($con,$query);
-$TransRow = mysqli_fetch_array($TransResult,MYSQLI_NUM);
+$TransResult = mysqli_query($con, $query);
+$TransRow = mysqli_fetch_array($TransResult, MYSQLI_NUM);
 
 $TransRow[2] = Decrypt($TransRow[2], $secret_key, $secret_iv);
-$phone ='010 3127 0053';
+$phone = '010 3127 0053';
 echo $phone;
 $rest = new coolsms("NCSXOU8UCIPG01NE", " XCLICLKYKXBPCW0CXVXTYLE2S97OM7OX");
 
 /*
  **  5 options(timestamp, to, from, type, text) are mandatory. must be filled
  */
-$chkNum = rand ( 1000,9999 );
+$chkNum = rand(1000, 9999);
 $options = new StdClass();
 $options->timestamp = (string)time();
 $options->to = $phone;
@@ -60,7 +63,7 @@ $options->country = 82;
  * added REST API v1.5
  **/
 // $options->os_platform = 'Windows 7';		// Operating System. SDK creates automatically if empty
- $options->dev_lang = 'PHP 5.3.3';		// Application development language. SDK creates automatically if empty
+$options->dev_lang = 'PHP 5.3.3';        // Application development language. SDK creates automatically if empty
 // $options->sdk_version = 'PHP SDK 1.1';	// SDK version being used. SDK creates automatically if empty
 
 // send messages

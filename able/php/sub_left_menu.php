@@ -136,7 +136,7 @@
     },
      function(data,status){
      if(status != "fail"){
-      location.href='login.html';
+      location.href='login.php';
      }
      else
      {
