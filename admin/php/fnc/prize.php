@@ -4,6 +4,7 @@ function connect(){
     include "../mysql.php";
     include "../crypt.php";
     $Id = $_GET['Id'];
+
     $a1="select * from recruit_able_award p where p.able_id ='$Id'";
     $result= mysqli_query($con, $a1);
 

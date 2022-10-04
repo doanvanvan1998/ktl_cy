@@ -68,7 +68,7 @@ foreach ($awards as $award) {
     $awardType = $award->{'awardType'};
     $awardContent = $award->{'awardContent'};
 
-    $insertAwardQuery = "INSERT INTO `recruit_able_award` (`id`, `title`, `place_of_issue`, `contents`, `date`, `able_id`, `award_type`) VALUES (NULL, '$awardName', '$awardIssuedBy', '$awardContent', '$awardIssuedDate', '1', '$awardType');";
+    $insertAwardQuery = "INSERT INTO `recruit_able_award` (`id`, `title`, `place_of_issue`, `contents`, `date`, `able_id`, `cert_type`) VALUES (NULL, '$awardName', '$awardIssuedBy', '$awardContent', '$awardIssuedDate', '1', '$awardType');";
 
     $rs = mysqli_query($con, $insertAwardQuery);
     if (!$rs) {

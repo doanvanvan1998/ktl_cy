@@ -1339,13 +1339,13 @@ if (!isset($_SESSION['Id'])) {
         });
 
         reIndex();
-     /*   $('.tab-heading .tab-item').click(function () {
-            $(this).closest('.tab-wrapper').find('.tab-item').removeClass('active');
-            $(this).addClass('active');
-            const tabIndex = parseInt($(this).attr('tabindex')) - 1;
-            $('.tab-wrapper .tab-content').addClass('hidden');
-            $(this).closest('.tab-wrapper').find('.tab-content').eq(tabIndex).removeClass('hidden');
-        });*/
+        /*   $('.tab-heading .tab-item').click(function () {
+               $(this).closest('.tab-wrapper').find('.tab-item').removeClass('active');
+               $(this).addClass('active');
+               const tabIndex = parseInt($(this).attr('tabindex')) - 1;
+               $('.tab-wrapper .tab-content').addClass('hidden');
+               $(this).closest('.tab-wrapper').find('.tab-content').eq(tabIndex).removeClass('hidden');
+           });*/
 
         $('.btn-add-more').click(function () {
             let dataCount = parseInt($(this).attr('data-count'));

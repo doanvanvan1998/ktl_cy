@@ -4,60 +4,60 @@ function connect(){
     include "../mysql.php";
     include "../crypt.php";
     //
-    $a1="select count(*) as total from university a where a.main_major = 1 and a.status_graduate=1 group by a.main_major ";
+    $a1="select count(*) as total from apply_step_2 a where a.major_main_id = 1 group by a.major_main_id ";
     $resultA1= mysqli_query($con, $a1);
     $row1 = mysqli_fetch_array($resultA1);
     //
-    $a2="select count(*) as total from university a where a.main_major = 2 and a.status_graduate=1 group by a.main_major ";
+    $a2="select count(*) as total from apply_step_2 a where a.major_main_id = 2 group by a.major_main_id ";
     $resultA2= mysqli_query($con, $a2);
     $row2 = mysqli_fetch_array($resultA2);
     //
-    $a3="select count(*) as total from university a where a.main_major = 3 and a.status_graduate=1 group by a.main_major ";
+    $a3="select count(*) as total from apply_step_2 a where a.major_main_id = 3 group by a.major_main_id ";
     $resultA3= mysqli_query($con, $a3);
     $row3 = mysqli_fetch_array($resultA3);
     //
-    $a4="select count(*) as total from university a where a.main_major = 4 and a.status_graduate=1 group by a.main_major ";
+    $a4="select count(*) as total from apply_step_2 a where a.major_main_id = 4 group by a.major_main_id ";
     $resultA4= mysqli_query($con, $a4);
     $row4 = mysqli_fetch_array($resultA4);
     //
-    $a5="select count(*) as total from university a where a.main_major = 5 and a.status_graduate=1 group by a.main_major ";
+    $a5="select count(*) as total from apply_step_2 a where a.major_main_id = 5 group by a.major_main_id ";
     $resultA5= mysqli_query($con, $a5);
     $row5 = mysqli_fetch_array($resultA5);
     //
-    $a6="select count(*) as total from university a where a.main_major = 6 and a.status_graduate=1 group by a.main_major ";
+    $a6="select count(*) as total from apply_step_2 a where a.major_main_id = 6 group by a.major_main_id ";
     $resultA6= mysqli_query($con, $a6);
     $row6 = mysqli_fetch_array($resultA6);
     //
-    $a7="select count(*) as total from university a where a.main_major = 7 and a.status_graduate=1 group by a.main_major ";
+    $a7="select count(*) as total from apply_step_2 a where a.major_main_id = 7 group by a.major_main_id ";
     $resultA7= mysqli_query($con, $a7);
     $row7 = mysqli_fetch_array($resultA7);
     //
-    $a8="select count(*) as total from university a where a.main_major = 8 and a.status_graduate=1 group by a.main_major ";
+    $a8="select count(*) as total from apply_step_2 a where a.major_main_id = 8 group by a.major_main_id ";
     $resultA8= mysqli_query($con, $a8);
     $row8 = mysqli_fetch_array($resultA8);
 
     //
-    $a9="select count(*) as total from university a where a.main_major = 9 and a.status_graduate=1 group by a.main_major ";
+    $a9="select count(*) as total from apply_step_2 a where a.major_main_id = 9 group by a.major_main_id ";
     $resultA9= mysqli_query($con, $a9);
     $row9 = mysqli_fetch_array($resultA9);
 
     //
-    $a10="select count(*) as total from university a where a.main_major = 10 and a.status_graduate=1 group by a.main_major ";
+    $a10="select count(*) as total from apply_step_2 a where a.major_main_id = 10 group by a.major_main_id ";
     $resultA10= mysqli_query($con, $a10);
     $row10 = mysqli_fetch_array($resultA10);
     //
-    $a11="select count(*) as total from university a where a.main_major = 11 and a.status_graduate=1 group by a.main_major ";
+    $a11="select count(*) as total from apply_step_2 a where a.major_main_id = 11  group by a.major_main_id ";
     $resultA11= mysqli_query($con, $a11);
     $row11 = mysqli_fetch_array($resultA11);
     //
-    $a12="select count(*) as total from university a where a.main_major = 12 and a.status_graduate=1 group by a.main_major ";
+    $a12="select count(*) as total from apply_step_2 a where a.major_main_id = 12  group by a.major_main_id ";
     $resultA12= mysqli_query($con, $a12);
     $row12 = mysqli_fetch_array($resultA12);
     //
-    $a13="select count(*) as total from university a where a.main_major = 0 and a.status_graduate=1 group by a.main_major ";
+    $a13="select count(*) as total from apply_step_2 a where a.major_main_id = 0  group by a.major_main_id ";
     $resultA13= mysqli_query($con, $a13);
     $row13 = mysqli_fetch_array($resultA13);
-    //
+
 
 
     $data1 = $row1 == null ? "0" : $row1[0];
