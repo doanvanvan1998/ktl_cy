@@ -1,5 +1,6 @@
 <?php
-  session_start();
+require_once '../../../session/loggedUser.php';
+forceLogin();
 ?>
 <!DOCTYPE html>
 <html lang="kr">
@@ -67,19 +68,21 @@
                   </thead>
                   <tbody>
                   <?php
-                    include "../../php/mysql.php";
-                    $nIndex = 1;
-                    $query="select id,subject,contents,date from recruit_able_notice order by id desc";
-                    $result = mysqli_query($con,$query);
-                    while($row = mysqli_fetch_array($result))
-                    {
-                      echo "<tr id='tr_$row[0]'><td>$nIndex</td><td><div class='view_input' id='subject_view_$row[0]'>".$row['subject']."</div></td><td>".$row['date']."</td>";
-                      echo "<td><button class='btn btn-primary' id='ch_btn_$row[0]'  onclick='onCh($row[0])'>수정</button> <button class='btn btn-danger' onclick='onDel($row[0])'>삭제</button></td></tr>";
-
-
-                      $nIndex++;
-                    }
-                    mysqli_close($con);
+//                  quang comment
+//                    include "../../php/mysql.php";
+//                    $nIndex = 1;
+//                    $query="select id,subject,contents,date from recruit_able_notice order by id desc";
+//                    $result = mysqli_query($con, $query);
+//
+//                    while($row = mysqli_fetch_array($result))
+//                    {
+//                      echo "<tr id='tr_$row[0]'><td>$nIndex</td><td><div class='view_input' id='subject_view_$row[0]'>".$row['subject']."</div></td><td>".$row['date']."</td>";
+//                      echo "<td><button class='btn btn-primary' id='ch_btn_$row[0]'  onclick='onCh($row[0])'>수정</button> <button class='btn btn-danger' onclick='onDel($row[0])'>삭제</button></td></tr>";
+//
+//
+//                      $nIndex++;
+//                    }
+//                    mysqli_close($con);
                   ?>
                   </tbody>
                 </table>

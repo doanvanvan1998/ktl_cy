@@ -16,6 +16,10 @@ $query = "select COUNT(*) from recruit_able_admin where userid='$userid' and pas
 $result = mysqli_query($con, $query);
 $row = mysqli_fetch_array($result);
 
+
+die();
+
+
 if ($row[0] == 0) {
     echo "fail";
 } else {

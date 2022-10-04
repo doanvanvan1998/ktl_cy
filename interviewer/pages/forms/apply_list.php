@@ -97,14 +97,7 @@ session_start();
                                     $nIndex = 1;
                                     if ($Id == 1)
 
-                                        include "../../php/mysql.php";
-                                    $userid = $_SESSION["m_sub_user_id"];
-                                    $query = "select id from recruit_able_subadmin where userid='$userid'";
-                                    $Aresult = mysqli_query($con, $query);
-                                    $Arow = mysqli_fetch_array($Aresult);
-
-
-                                    $query = "select distinct p.id as point_id,p.verify,a10.file_portlio,p.point,u.status_pass,u.round_one,u.id,a.able_detailAddress,u.username,u.phone,u.email,u.imp_uid,u.status_pass,a3.sent_date,a.is_disabilities,a2.major_main_id, a2.major_sub  , a2.status_graduation_high_school, a2.graduation_high_school_year , a2.name_high_school from recruit_able_user u left join  apply_step_1 a on u.id = a.able_id left join apply_step_2 a2 on u.id = a2.able_id left join apply_step_5 a3 on u.id = a3.userid left join recruit_able_point p on u.id = p.able_id left join  apply_step_3 a10 on u.id = a10.able_id where u.pointed = 1 and p.id_subadmin = " . $Arow[0];
+                                    $query = "select distinct p.id as point_id,p.verify,a10.file_portlio,p.point,u.status_pass,u.round_one,u.id,a.able_detailAddress,u.username,u.phone,u.email,u.imp_uid,u.status_pass,a3.sent_date,a.is_disabilities,a2.major_main_id, a2.major_sub  , a2.status_graduation_high_school, a2.graduation_high_school_year , a2.name_high_school from recruit_able_user u left join  apply_step_1 a on u.id = a.able_id left join apply_step_2 a2 on u.id = a2.able_id left join apply_step_5 a3 on u.id = a3.userid left join recruit_able_point p on u.id = p.able_id left join  apply_step_3 a10 on u.id = a10.able_id where u.pointed = 1 and p.id_subadmin = " . $loggedUser['id'];
                                     //quan
                                     $Uresult = mysqli_query($con, $query);
                                     while ($Urow = mysqli_fetch_array($Uresult)) {
