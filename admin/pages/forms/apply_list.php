@@ -204,17 +204,17 @@ session_start();
                                         <td>". $row['sent_date'] ."</td>
                                         <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(";echo json_encode($row, JSON_UNESCAPED_UNICODE); ?><?php echo ")' >미리보기</button></td>
                                         <td>
-                                            <select class='custom-select'  style='border: none' id='status". $row['id']."'  onchange='updateStatusPass(";echo $row['id']; ?><?php echo ")' id= 1>
+                                            <select class='custom-select'  style='border: none;width: 90px' id='status". $row['id']."'  onchange='updateStatusPass(";echo $row['id']; ?><?php echo ")' id= 1>
                                             <option selected>";
                                             switch ($row['status_pass']){
                                                 case 1:
-                                                    echo "합격";
+                                                    echo "적격";
                                                     break;
                                                 case 0:
-                                                    echo "불합격";
+                                                    echo "불적격";
                                                     break;
                                                 default:
-                                                    "선택";
+                                                    echo "선택";
                                             }
                                             echo "</option>
                                             <option value='1'>합격</option>
@@ -285,7 +285,7 @@ session_start();
                 <div class="modal-body" id="table_profile" style="padding: 0.5rem">
                 </div>
                 <div class="modal-footer " style="margin: auto ; margin-top: -1.5rem" >
-                    <button type="button" class="btn btn-primary" onclick="update()" style="background: #17a2b8;border: #17a2b8;">저장하다</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"  style="background: #17a2b8;border: #17a2b8;">저장</button>
                 </div>
             </div>
         </div>
@@ -541,17 +541,17 @@ session_start();
                 }
 
                 for (let i = 0 ; i < dataUniversity.length; i++){
-                    if (dataUniversity[i].type == 'college'){
+                    if (dataUniversity[i].type_school == 'college'){
                         htmlSchool += `
                          <tr style="font-size: 14px">
                             <th scope="col">대학 학위</th>
                     `
-                    }else if (dataUniversity[i].type == 'university'){
+                    }else if (dataUniversity[i].type_school == 'university'){
                         htmlSchool += `
                          <tr style="font-size: 14px">
                             <th scope="col">대학 학위</th>
                     `
-                    }if (dataUniversity[i].type == 'postgraduate' && dataUniversity[i].degree == 1 ){
+                    }else if (dataUniversity[i].type_school == 'postgraduate' && dataUniversity[i].degree == 1 ){
                         htmlSchool += `
                          <tr style="font-size: 14px">
                             <th scope="col">석사 학위</th>

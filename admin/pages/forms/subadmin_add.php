@@ -75,10 +75,11 @@
                 <div class="form-group">
                     <label for="inputProjectLeader">권한</label>
                    <select class='custom-select'   name='role' id="role">
-                       <option value='1' selected>평가위원</option>
-                       <option value='2 '>인터뷰</option>
+                       <option value='1' selected>서류 평가위원</option>
+                       <option value='2'>면접 평가위원</option>
                    </select>
                 </div>
+
             </div>
             <!-- /.card-body -->
           </div>
@@ -98,6 +99,10 @@
                 <label for="inputDescription">면접관 경력 및 설명</label>
                 <textarea id="description" class="form-control" rows="4"></textarea>
               </div>
+                <div class="form-group">
+                    <label for="inputProjectLeader">소속</label>
+                    <input type="password" id="pass" class="form-control" placeholder="소속명을 입력해주세요.">
+                </div>
               <div class="form-group">
                 <label for="inputEstimatedBudget">휴대폰번호</label>
                 <input type="number" id="userphone" class="form-control" placeholder="휴대폰번호를 입력하세요.">

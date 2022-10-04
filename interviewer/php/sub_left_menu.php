@@ -50,7 +50,8 @@
            </li>
          </ul>
        </li>
-          <li class="nav-item" id='nav_1'>
+
+          <li class="nav-item" '>
               <a href="register_list.php" class="nav-link" id='nav_1_1'>
                   <i class="nav-icon fas fa-book"></i>
                   <p>
@@ -79,8 +80,6 @@
                           <p>면접평가</p>
                       </a>
                   </li>
-
-
                   <li class="nav-item">
                       <a href="infor_general.php" class="nav-link" >
                           <i class="far fa-circle nav-icon"></i>
@@ -89,8 +88,6 @@
                           </p>
                       </a>
                   </li>
-
-
               </ul>
           </li>
         <li class="nav-header">사이트</li>

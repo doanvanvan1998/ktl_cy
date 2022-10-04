@@ -23,6 +23,8 @@
   <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -77,50 +79,70 @@
                   </tr>
                   </thead>
                   <tbody>
-                    <?php
-                      include "php/mysql.php";
-                      include "php/crypt.php";
+                  <?php
+                  include "../interviewer/php/mysql.php";
+                  include "../interviewer/php/crypt.php";
+                  $nIndex = 1;
 
-//                      $nIndex = 1;
-//                      $query="select id,username,phone,email,apply_num,result_check_num,result_check from recruit_able_user where apply_step=5  order by id desc";
-//                      $Uresult = mysqli_query($con,$query);
-//                      while($Urow = mysqli_fetch_array($Uresult))
-//                      {
-//                        $query="select user_address,user_detailAddress,sel_tab_num,step0_view_sel,step0_view_sel2,sel2_tab_num,sel3_tab_num,sel4_tab_num,data1,data2,data3,data4,data5,data6,data7,data8,check_phone,data12,data13 from apply_step_1 where userid='$Urow[0]'";
-//                        $ApplyResult1 = mysqli_query($con,$query);
-//                        $ApplyRow1 = mysqli_fetch_array($ApplyResult1);
-//
-//                        $Urow[2] = Decrypt($Urow[2],$secret_key,$secret_iv);
-//                        $Urow[3] = Decrypt($Urow[3],$secret_key,$secret_iv);
-//
-//                        echo "<tr><td>$nIndex</td><td>$Urow[4]</td><td>$Urow[1]</td><td>$Urow[2]</td><td>$Urow[3]</td><td>";
-//                        $strPdf = "../ktl/portfolio/".$Urow[0].".pdf";
-//                        if(file_exists("../ktl/portfolio/".$Urow[0].".pdf")) {
-//                            echo "<a href='$strPdf' target='_blank' class='btn btn-info'>새창으로 보기</a>";
-//                        }else{
-//                            echo "없음";
-//                        }
-//                        echo "</td><td><button class='btn btn-primary' onclick='onApplyView($Urow[0])'>지원페이지로 이동</button></td>";
-//
-//                        if($Urow['result_check_num'] == 1) { echo "<td>최종제출</td>"; }
-//                        else if($Urow['result_check_num'] == 2) {
-//                          if($Urow['result_check'] == 1) echo "<td>서류통과</td>";
-//                          else echo "<td>서류 불합격</td>";
-//                        }
-//                        else if($Urow['result_check_num'] == 3) {
-//                          if($Urow['result_check'] == 1) echo "<td>면접통과</td>";
-//                          else echo "<td>면접 불합격</td>";
-//                        }
-//                        else if($Urow['result_check_num'] == 4) {
-//                          echo "<td>최종합격자</td>";
-//                        }
-//
-//                        echo "</tr>";
-//
-//                        $nIndex++;
-//                      }
-                      mysqli_close($con);
-                    ?>
+                  $userid = $_SESSION["m_sub_user_id"];
+                  $query="select id from recruit_able_subadmin where userid='$userid'";
+                  $Aresult = mysqli_query($con,$query);
+                  $Arow = mysqli_fetch_array($Aresult);
+
+
+                  $query="select distinct p.id as point_id,p.verify,a10.file_portlio,p.point,u.status_pass,u.round_one,u.id,a.able_detailAddress,u.username,u.phone,u.email,u.imp_uid,u.status_pass,a3.sent_date,a.is_disabilities,a2.major_main_id, a2.major_sub  , a2.status_graduation_high_school, a2.graduation_high_school_year , a2.name_high_school from recruit_able_user u left join  apply_step_1 a on u.id = a.able_id left join apply_step_2 a2 on u.id = a2.able_id left join apply_step_5 a3 on u.id = a3.userid left join recruit_able_point p on u.id = p.able_id left join  apply_step_3 a10 on u.id = a10.able_id where p.id_subadmin = ".$Arow[0];
+                  //quan
+                  $Uresult = mysqli_query($con,$query);
+                  while($Urow = mysqli_fetch_array($Uresult)) {
+                      $Urow['phone'] = Decrypt($Urow['phone'], $secret_key, $secret_iv);
+                      $Urow['email'] = Decrypt($Urow['email'], $secret_key, $secret_iv);
+                      ?>
+                      <tr>
+                          <th><?php echo  $nIndex ?></th>
+                          <th><?php echo  $Urow['imp_uid'];?></th>
+                          <th><?php echo  $Urow['username'];?></th>
+                          <th><?php echo  $Urow['email']; ?></th>
+                          <th><?php echo  $Urow['phone']; ?></th>
+
+
+                          <?php
+                          if ($Urow['file_portlio'] != null ){
+                              ?>
+                              <th  ><button style='width:100px;border: none;background: none;color: blue;text-decoration: underline;' onclick="openFile('<?php echo $Urow['file_portlio'];?>')">미리보기</button></td>
+                              <?php
+                          }else{
+                              ?>
+                              <th >미첨부</td>
+                              <?php
+                          }
+                          ?>
+                          <td><button style='border: none;background: none;color: blue;text-decoration: underline;' onclick='preview(<?php echo json_encode($Urow, JSON_UNESCAPED_UNICODE); ?>)' >미리보기</button></td>
+
+                          <td>
+                              <select class='custom-select'  style='border: none;width: 90px'  onchange='updateStatusPass(<?php echo $Urow['point_id']?>)' id="status<?php echo $Urow['point_id']?>"  >
+                                  <option selected>
+                                      <?php
+                                      switch ($Urow['verify']){
+                                          case 1:
+                                              echo "적격";
+                                              break;
+                                          case 0:
+                                              echo "불적격";
+                                              break;
+                                          default:
+                                              echo "선택";
+                                      }
+                                      echo "</option>
+                                            <option value='1'>합격</option>
+                                            <option value='0'>불합격</option>
+                                          </select></td>";?>
+
+                      </tr>
+                      <?php
+                  }
+
+                  mysqli_close($con);
+                  ?>
                   </tbody>
                 </table>
               </div>
@@ -149,6 +171,25 @@
   <?php
     include "php/footer.php";
   ?>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 1200px">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #17a2b8;color: white ;padding: 0.5rem">
+                    <h5 class="modal-title" id="exampleModalLabel"> 수정 </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="color: white">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="table_profile" style="padding: 0.5rem">
+                </div>
+                <div class="modal-footer " style="margin: auto ; margin-top: -1.5rem" >
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"  style="background: #17a2b8;border: #17a2b8;">저장</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button data-toggle='modal' data-target='#exampleModal' style="display: none" id="btn-profile"></button>
+</div>
 </div>
 <!-- ./wrapper -->
 
@@ -176,6 +217,208 @@
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 <script>
+    function preview(data) {
+
+        fetch("/ktl_cy/admin/php/fnc/prize.php?Id="+data['id'])
+            .then(res=>res.json())
+            .then(dataPrize => {
+                let htmlPrize ='';
+                console.log(dataPrize);
+                for (let i = 0 ; i < dataPrize.length; i++){
+                    htmlPrize += `
+                    <tr style="font-size: 14px">
+                        <td>${dataPrize[i].title}</td>
+                        <td>${dataPrize[i].date}</td>
+                    </tr>
+                    `
+                }
+                $('#dataPrize').empty();
+                $('#dataPrize').append(htmlPrize);
+
+            })
+            .catch(error => {console.log(error)});
+
+        fetch("/ktl_cy/admin/php/fnc/university.php?Id="+data['id'])
+            .then(res=>res.json())
+            .then(dataUniversity => {
+                console.log(dataUniversity);
+                let htmlSchool='';
+                if (data['status_graduation_high_school'] == 1){
+                    htmlSchool = `<tr style="font-size: 14px">
+                            <th scope="col">대학</th>
+                            <th scope="col">  </th>
+                            <th scope="col">${data['graduation_high_school_year'] == null ? "" : data['graduation_high_school_year'] } </th>
+                            <th scope="col"> ${data['name_high_school'] == null ? "" : data['name_high_school'] }</th>
+                            <th scope="col"></th>
+                            <th scope="col"> </th>
+                             <th scope="col"> </th>
+                        </tr>`;
+                }
+
+                for (let i = 0 ; i < dataUniversity.length; i++){
+                    if (dataUniversity[i].type_school == 'college'){
+                        htmlSchool += `
+                         <tr style="font-size: 14px">
+                            <th scope="col">대학 학위</th>
+                    `
+                    }else if (dataUniversity[i].type_school == 'university'){
+                        htmlSchool += `
+                         <tr style="font-size: 14px">
+                            <th scope="col">대학 학위</th>
+                    `
+                    }else if (dataUniversity[i].type_school == 'postgraduate' && dataUniversity[i].degree == 1 ){
+                        htmlSchool += `
+                         <tr style="font-size: 14px">
+                            <th scope="col">석사 학위</th>
+                    `
+                    }else {
+                        htmlSchool += `
+                         <tr style="font-size: 14px">
+                            <th scope="col">박사</th>
+                    `
+                    }
+                    htmlSchool += `
+                            <th scope="col">${dataUniversity[i].date_start}</th>
+                            <th scope="col">${dataUniversity[i].date_end} </th>
+                            <th scope="col"> ${dataUniversity[i].name}</th>
+                            <th scope="col">${checkName(parseInt(dataUniversity[i].main_major))}</th>
+                            <th scope="col">${dataUniversity[i].poit_average} </th>
+                            <th scope="col">${dataUniversity[i].total_point} </th>
+                        </tr>`
+                }
+                $('#degree').empty();
+                $('#degree').append(htmlSchool);
+            })
+            .catch(error => {console.log(error)});
+        fetch("/ktl_cy/admin/php/fnc/resume.php?Id="+data['id'])
+            .then(res=>res.json())
+            .then(dataPrize => {
+                let htmlResume ='';
+                console.log(dataPrize);
+                for (let i = 0 ; i < dataPrize.length; i++){
+                    htmlResume += `
+                            <tr style="font-size: 16px">
+                                <th scope="row">${dataPrize[i].name_type}</th>
+                            </tr>
+                            <tr style="font-size: 14px">
+                                <td>${dataPrize[i].content}</td>
+                            </tr>
+                    `
+                }
+                $('#resume').empty();
+                $('#resume').append(htmlResume);
+
+            })
+            .catch(error => {console.log(error)});
+
+        let html = `
+        <div  >
+
+        <div class="container-fluid ">
+            <div class="row " style=" border-bottom: 1px solid grey">
+                <div class="col " style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
+                   ${data['username']}
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col " >
+                    <span style=" font-size: 1.3rem; color: #212121;font-weight: bold;"></span>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid mt-2 mb-2" style="margin-left: 8px;">
+            <div class="row mx">
+                <div class="mr-5">
+                    <i class="fa-solid fa-square-envelope" style="color: grey"></i> <span>${data['email']}</span>
+                </div>
+                <div class=" mr-5">
+                    <i class="fa-solid fa-phone" style="color: grey"></i> <span>${data['phone']}</span>
+                </div>
+                <div class="mr-5">
+                    <i class="fa-solid fa-house-user" style="color: grey"></i><span>Address: ${data['able_detailAddress']}</span>
+                </div>
+            </div>
+        </div>
+        <!-- Content Header (Page header) -->
+
+   <div class="row mt-3">
+         <div class=" col-lg-12 col-xl-12  col-md-12 col-sm-12 col-xs-12">
+          <div class="container-fluid" >
+            <div class="row">
+                <div class="col mx" style="margin-right: 1rem">
+                    <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
+                        학력사항
+                    </div>
+                     <table class="table table-borderless" style="text-align: center">
+                        <thead style="background:#e1fbff;border-top: 1px solid">
+                        <tr style="font-size: 16px">
+                            <th scope="col">학력</th>
+                            <th scope="col">입학년일 </th>
+                            <th scope="col">졸업년일 </th>
+                            <th scope="col">학교명 </th>
+
+                            <th scope="col">전공</th>
+                            <th scope="col">학점</th>
+                            <th scope="col">총점</th>
+                        </tr>
+                        </thead>
+                        <tbody id="degree">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-6 mt-3">
+             <div class="container-fluid">
+                <div class="row">
+                    <div class="col mx" style="margin-right: 1rem">
+                        <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;">
+                            수상
+                        </div>
+                         <table class="table table-borderless">
+                            <thead style="background:#e1fbff;border-top: 1px solid" >
+                            <tr style="font-size: 16px">
+                                <th scope="col">수상명</th>
+                                <th scope="col">수상 날짜</th>
+                            </tr>
+                            </thead>
+                            <tbody id="dataPrize">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-6 mt-3">
+             <div class="container-fluid">
+                <div class="row">
+                    <div class="col mx" style="margin-right: 1rem">
+                        <div style=" font-size: 1.3rem; color: #212121;font-weight: bold;border-bottom: 1px solid">
+                         자기소개서
+                        </div>
+                         <table class="table table-borderless">
+                            <tbody id='resume'>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+        `
+        $("#table_profile").empty();
+        $("#table_profile").append(html);
+        $("#btn-profile").click();
+    }
   function onApplyView(Id)
   {
     location.href='http://ktl-recruit.ableup.kr/apply_view_interview.html?Id='+Id+"&userid="+$("#sel_userid").val();
@@ -195,6 +438,9 @@
       "responsive": true,
     });
   });
+    function openFile(data){
+        window.open(data);
+    }
 </script>
 </body>
 </html>
