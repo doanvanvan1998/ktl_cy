@@ -15,7 +15,7 @@
                 <form action="../ktl/php/fnc/verify_email.php" method="post" class="login flex-direction">
                     <div class="flex-direction">
                         <span>정확성</span>
-                        <input name="email" type="text" id='email' value="<?php echo $email; ?>">
+                        <input name="email" disabled="true" type="text" id='email' value="<?php echo $email; ?>">
                     </div>
                     <button class="btn_login flex" id="onSubmit" onclick='handSubmit()' style="height: 2.5rem"><span>본인확인</span>
                     </button>
