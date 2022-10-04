@@ -1,7 +1,7 @@
 <?php
 $abPath = __DIR__;
 $abPath = str_replace('ktl/php', '', $abPath);
-require_once $abPath . 'config.php';
+//require_once $abPath . 'config.php';
 ?>
 <div class="header_wrap">
     <div class="container flex">

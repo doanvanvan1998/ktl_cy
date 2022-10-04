@@ -1,3 +1,4 @@
+
 $('#signup_form').submit(function (e) {
     e.preventDefault();
     let userphone = $("#userphone").val() + $("#userphone2").val() + $("#userphone2").val();
@@ -20,9 +21,9 @@ $('#signup_form').submit(function (e) {
                 }
             });
         if ($("input[name=accuracy]:checked", "#signup_form").val() == 1) {
-            window.location.href = "../../../ktl_cy/ktl/verify_email.php?email=" + $("#useremail").val();
+            window.location.href = "/ktl_cy/ktl/verify_email.php?email=" + $("#useremail").val();
         } else {
-            window.location.href = "../../../ktl_cy/ktl/verify_phone.php?phone=" + userphone.valueOf() + "&email=" + $("#useremail").val();
+            window.location.href = "/ktl_cy/ktl/verify_phone.php?phone=" + userphone.valueOf() + "&email=" + $("#useremail").val();
         }
     }
 })

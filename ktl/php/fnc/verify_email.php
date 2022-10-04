@@ -12,11 +12,13 @@ require '../../vendor/phpmailer/phpmailer/src/SMTP.php';
 $email = Encrypt($_POST['email'], $secret_key, $secret_iv);
 header("Location: ../../confirm_rand_code.php?email=$email");
 echo $email;
+die();
 $query = "select rand_code from recruit_able_user where email='$email'";
 $result = mysqli_query($con, $query);
 $row = mysqli_fetch_array($result);
 $mail = new PHPMailer(true);
 $emailSend = Decrypt($email, $secret_key, $secret_iv);
+
 if (true) {
     try {
         //Server settings
@@ -29,12 +31,12 @@ if (true) {
         $mail->SMTPSecure = "tls";
         $mail->Port = 587;
         $mail->Host = "smtp.gmail.com";
-        $mail->Username = '2502mien@gmail.com';
-        $mail->Password = "ixripxfqqlgamxpa";
+        $mail->Username = 'ehgusfn12@gmail.com';
+        $mail->Password = "yzdkhwbrivkzijow";
 
         //Recipients
         $mail->IsHTML(true);
-        $mail->AddAddress($emailSend, "recipient-name");
+        $mail->AddAddress("nguyenhuyen68ulis@gmail.com", "recipient-name");
         $mail->Subject = "[EMAIL VERIFICATION]";
         $content = "<b>Your verification code is </b> $row[0]";
         $mail->MsgHTML($content);

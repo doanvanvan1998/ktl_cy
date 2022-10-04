@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("uws7-166.cafe24.com", "ableup", "able1004!@", "ableup");
+$con = mysqli_connect("localhost", "root", "", "dy_db",3306);
 //	@mysqli_select_db("todito", $con) or die("DB 연결실패");
 mysqli_query($con, "set names utf8");
 
