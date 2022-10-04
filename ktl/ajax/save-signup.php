@@ -10,7 +10,7 @@ if (isset($_POST['step'])) {
             $generic = new Generic();
             $mainPayload = array(
                 ':name_high_school' => $_POST['high_school'],
-                ':graduation_high_school_year' => $_POST['graduation_high_school_year'],
+                ':graduation_high_school_year' => !empty($_POST['graduation_high_school_year']) ? $_POST['graduation_high_school_year'] : null,
                 ':status_graduation_high_school' => $_POST['status_graduate'],
                 ':participate_exam_college' => $_POST['injoin_university'] == 1 ? 0 : 1,
                 ':not_graduated' => $_POST['status_graduate'] == 1 ? 0 : 1,
