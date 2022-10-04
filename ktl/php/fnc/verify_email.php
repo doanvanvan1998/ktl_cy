@@ -10,17 +10,18 @@ use PHPMailer\PHPMailer\Exception;
 require '../../vendor/phpmailer/phpmailer/src/Exception.php';
 require '../../vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require '../../vendor/phpmailer/phpmailer/src/SMTP.php';
-$email = Encrypt($_POST['email'], $secret_key, $secret_iv);
+//echo $_POST['email'];
+$email = Encrypt($_POST['email']);
 
-//echo $email;
-//die();
-$query = "select rand_code from recruit_able_user where email='$email'";
+
+$query = "select rand_code,email from recruit_able_user where email='$email'";
+//echo $query;
 $result = mysqli_query($con, $query);
-$row = mysqli_fetch_array($result);
+$row = mysqli_fetch_assoc($result);
 $mail = new PHPMailer(true);
-$emailSend = Decrypt($email, $secret_key, $secret_iv);
-
-
+$emailSend = Decrypt($row['email']);
+//echo $row['rand_code'];
+//die();
 try {
     //echo $_POST['email'];
     // die();
@@ -42,7 +43,7 @@ try {
     $mail->IsHTML(true);
     $mail->AddAddress($_POST['email'], "recipient-name");
     $mail->Subject = "[EMAIL VERIFICATION]";
-    $content = "<b>Your verification code is </b> $row[0]";
+    $content = "<b>Your verification code is </b> " . $row['rand_code'];
     $mail->MsgHTML($content);
     if (!$mail->Send()) {
         echo "Error while sending Email.";

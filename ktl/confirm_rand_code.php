@@ -10,7 +10,7 @@
     <div class="contents_wrap" >
         <div class="container" style=" margin-top: 10rem;">
             <div class="login_form">
-                <form action="../ktl/php/fnc/confirm_rand_code.php" method="post" class="login flex-direction">
+                <form action="../php/fnc/confirm_rand_code.php" method="post" class="login flex-direction">
                     <div class="flex-direction">
                         <span>   코드 확인</span>
                         <input name="code"  type="number" id='code' placeholder="코드를 입력.">
