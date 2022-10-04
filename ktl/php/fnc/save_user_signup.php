@@ -9,9 +9,9 @@ $useremail1 = $_POST["useremail"];
 $userpass1 = $_POST["userpass"];
 $acept_rule = $_POST["acept_rule"];
 $rand_code = $_POST["rand_code"];
-$round_one = $_POST['round_one'] ?? 0;
-$round_two = $_POST['round_two'] ?? 0;
-$round_three = $_POST['round_three'] ?? 0;
+$round_one = 0 ;
+$round_two = 0 ;
+$round_three = 0;
 
 $useremail = Encrypt($useremail1, $secret_key, $secret_iv);
 $userphone = Encrypt($userphone1, $secret_key, $secret_iv);

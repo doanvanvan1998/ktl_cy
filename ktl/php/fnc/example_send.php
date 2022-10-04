@@ -1,23 +1,38 @@
 <?php
 session_start();
 ob_start();
-
-include_once "../coolsms.php";
+header('application/json');
+include_once "coolsms.php";
 /*
  **  api_key and api_secret can be obtained from www.coolsms.co.kr/credentials
  */
 
 
-include "mysql.php";
-include "crypt.php";
+include "../mysql.php";
+include "../crypt.php";
 
-$Id 								= $_POST["Id"];
+$Id = $_POST["Id"];
+
 $query="select id,username,phone,email,pass,acept_rule,status_pass,rand_code from recruit_able_user where id='$Id'";
 
-$TransResult = mysqli_query($con,$query);
-$TransRow = mysqli_fetch_array($TransResult,MYSQLI_NUM);
-$phone =Decrypt($TransRow['phone'], $secret_key, $secret_iv);
+$rs = mysqli_query($con,$query);
+$TransRow = mysqli_fetch_assoc($rs);
+
+//$emailGet = $TransRow['email'];
+$phone =$TransRow['phone'];
+
+
+$phone = Decrypt($phone,$secret_key,$secret_iv);
+//echo $phone;
+// split phone into korean number format
+$phone = preg_replace("/[^0-9]/", "", $phone);
+$phone = substr($phone, 0, 3) . " " . substr($phone, 3, 4) . " " . substr($phone, 7, 4);
+
+//echo $phone;
+//exit();
+
 $rand_code = $TransRow['rand_code'];
+$rand_codeStr = "$rand_code";
 $email = $TransRow['email'];
 
 $rest = new coolsms("NCSXOU8UCIPG01NE", "XCLICLKYKXBPCW0CXVXTYLE2S97OM7OX");
@@ -32,7 +47,7 @@ $options->from = '02-2662-5571';
 
 //$encrypted = Encrypt($p, $secret_key, $secret_iv);
 
-$textq = $rand_code;
+$textq = $rand_codeStr;
 $options->type = 'SMS'; // SMS, MMS, LMS, ATA
 
 $options->text = $textq;
@@ -66,6 +81,8 @@ $options->dev_lang = 'PHP 5.3.3';        // Application development language. SD
 $response = $rest->send($options);
 // get result
 $result = $response->getResult();
-echo "success";
-
+$email = Decrypt($TransRow['email']);
+echo json_encode(['email'=>$email]);
+//header("Location: ../../confirm_rand_code.php?email=$emailGet");
+//ob_end_flush();
 ?>

@@ -15,6 +15,7 @@
     $result = mysqli_query($con, $query);
     $row = mysqli_fetch_array($result);
     $rand_code = $row['rand_code'];
+    $id = $row['id'];
     ?>
     <div class="contents_wrap">
         <div class="container" style=" margin-top: 10rem;">
@@ -225,46 +226,23 @@
 
 <script>
     $("form").submit(function () {
-        alert(1);
-        $.post("forms/sms/examples/example_send.php",
-            {
-                Id: <?php $row['id']; ?>
+       let id = <?php echo $id; ?>;
+        $.ajax({
+            url: './php/fnc/example_send.php',
+            type: "POST",
+            dataType: "json",
+            data:{
+               Id:id
             },
-            function (data, status) {
-                alert(data);
-                if (status != "fail") {
-                    alert("채용문의 접수가 완료되었습니다.");
-                    location.reload();
-                } else {
-                    alert("네트워크 오류");
-                }
-            });
-
-
+            success: function (resp) {
+                alert("채용문의 접수가 완료되었습니다.");
+                window.location.href = "confirm_rand_code.php?email="+resp.email;
+            },
+            error: function (data) {
+                alert("네트워크 오류");
+            }
+        });
     })
-
-
-    // function handSubmit(){
-    //
-    //
-    //
-    //
-    //     $.post("../php/fnc/example_send.php",
-    //         {
-    //             Id: 14,
-    //             txt: "hello_vandv_1"
-    //         },
-    //         function (data, status) {
-    //             alert(data);
-    //             if (status != "fail") {
-    //                 alert("채용문의 접수가 완료되었습니다.");
-    //                 location.reload();
-    //             } else {
-    //                 alert("네트워크 오류");
-    //             }
-    //         });
-    //
-    // }
 </script>
 </body>
 </html>
