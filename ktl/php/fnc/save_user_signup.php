@@ -21,7 +21,8 @@ $query = "select COUNT(*) from recruit_able_user where email='$useremail'";
 $result = mysqli_query($con, $query);
 $row = mysqli_fetch_array($result);
 if ($row[0] != 0) {
-    echo "error";
+    echo "error-email";
+    exit();
 }
 
 $query = "select COUNT(*) from recruit_able_user where phone='$userphone'";
@@ -29,13 +30,12 @@ $result = mysqli_query($con, $query);
 $row = mysqli_fetch_array($result);
 
 if ($row[0] != 0) {
-    echo "error";
-
+    echo "error-phone";
+    exit();
 }
 
-
-mysqli_query($con, "set names utf8");
-mysqli_query($con, "insert into 
+    mysqli_query($con, "set names utf8");
+    mysqli_query($con, "insert into 
     recruit_able_user(username,
                       phone,
                       email,
@@ -54,4 +54,4 @@ mysqli_query($con, "insert into
          $acept_rule,
          0,
          $rand_code,0,0,0,0,0)");
-mysqli_close($con);
+    mysqli_close($con);
