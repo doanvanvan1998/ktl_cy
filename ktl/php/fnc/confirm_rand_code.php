@@ -11,9 +11,10 @@ $row = mysqli_fetch_array($result);
 if ($row[0] != 0) {
     $query = "UPDATE recruit_able_user SET active=1 WHERE email='$email'";
     $result = mysqli_query($con, $query);
-    header("Location: ../../index.php");
+    header("Location:../../../ktl/applicationcorrection.php");
 
 } else {
     echo "code is not correct";
 }
+
 ?>

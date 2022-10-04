@@ -9,7 +9,7 @@ include_once "../coolsms.php";
 
 include "mysql.php";
 include "crypt.php";
-
+echo "dddddddddddddddddddddddd";
 $Id 								= $_POST["Id"];
 $txt 								= $_POST["txt"];
 

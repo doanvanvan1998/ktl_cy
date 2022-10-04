@@ -3,6 +3,9 @@
 <link rel="stylesheet" href="css/inquiry.css">
 <link rel="stylesheet" href="css/login.css">
 <body>
+
+
+
 <div class="wrap">
     <?php include 'php/common_header_menu.php' ?>
     <div class="contents_wrap">

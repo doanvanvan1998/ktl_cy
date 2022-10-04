@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include "../mysql.php";
 include "../crypt.php";
 
@@ -11,11 +11,13 @@ $acept_rule =$_POST["acept_rule"];
 $rand_code = $_POST["rand_code"];
 
 
+
 $useremail = Encrypt($useremail1,$secret_key,$secret_iv);
 $userphone = Encrypt($userphone1,$secret_key,$secret_iv);
 $userpass = Encrypt($userpass1,$secret_key,$secret_iv);
-echo $useremail;
-
+$query ="insert into recruit_able_user(username,phone,email,pass,acept_rule,status_pass,rand_code)
+  VALUES('$username','$userphone','$useremail','$userpass',$acept_rule ,0,$rand_code)";
+echo $query;
 mysqli_query($con, "set names utf8");
 mysqli_query($con, "insert into recruit_able_user(username,phone,email,pass,acept_rule,status_pass,rand_code,round_one,round_two,round_three,note)
   VALUES('$username','$userphone','$useremail','$userpass',$acept_rule ,0,$rand_code,0,0,0,0)");

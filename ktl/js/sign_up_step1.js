@@ -12,26 +12,26 @@ $('#signup_form').submit(function (e) {
             },
             function (data, status) {
                 if (status != "fail") {
-                    alert("채용문의 접수가 완료되었습니다.");
-
-                    // location.reload();
+                   // alert("채용문의 접수가 완료되었습니다.");
+                    location.reload();
                 } else {
                     alert("네트워크 오류");
+                    return;
                 }
             });
 
+        if ($("input[name=accuracy]:checked","#signup_form").val() == 1) {
+            window.location.href = "../../../ktl_cy/ktl/verify_email.php?email=" + $("#useremail").val();
+        }else {
+            window.location.href = "../../../ktl_cy/ktl/verify_phone.php?phone=" + userphone.valueOf();
+        }
     }
-    if ($("#accuracy").val() == 1) {
-        window.location.href = "../../../ktl_cy/ktl/verify_email.php?email=" + $("#useremail").val();
-    }
+
 
 })
 
 
 function save() {
-    $name = $("#field-name").val();
-    $phone = $("#field-phone").val();
-    $email = $("#field-email").val();
     $address = $("#field-address").val();
     $file = null;
     if (document.querySelector('#writer').files.length > 0) {
@@ -48,9 +48,6 @@ function save() {
     // $son_of_korea_migrate = $("input[name=son_of_korea_migrate]:checked", "#form_step_1").val();
 
     const formData = new FormData();
-    formData.append('name', $name);
-    formData.append('phone', $phone);
-    formData.append('email', $email);
     formData.append('address', $address);
     formData.append('file', $file);
     formData.append('disabilities', $disabilities);
