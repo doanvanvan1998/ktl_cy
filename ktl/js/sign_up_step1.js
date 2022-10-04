@@ -1,6 +1,6 @@
 $('#signup_form').submit(function (e) {
     e.preventDefault();
-    userphone = $("#userphone").val() + $("#userphone2").val() + $("#userphone2").val();
+    let userphone = $("#userphone").val() + $("#userphone2").val() + $("#userphone2").val();
     if (validate()) {
         $.post("php/fnc/save_user_signup.php", {
                 username: $("#username").val(),
@@ -12,22 +12,19 @@ $('#signup_form').submit(function (e) {
             },
             function (data, status) {
                 if (status != "fail") {
-                   // alert("채용문의 접수가 완료되었습니다.");
-                    location.reload();
+                    // alert("채용문의 접수가 완료되었습니다.");
+                    // location.reload();
                 } else {
                     alert("네트워크 오류");
                     return;
                 }
             });
-
-        if ($("input[name=accuracy]:checked","#signup_form").val() == 1) {
+        if ($("input[name=accuracy]:checked", "#signup_form").val() == 1) {
             window.location.href = "../../../ktl_cy/ktl/verify_email.php?email=" + $("#useremail").val();
-        }else {
+        } else {
             window.location.href = "../../../ktl_cy/ktl/verify_phone.php?phone=" + userphone.valueOf();
         }
     }
-
-
 })
 
 
@@ -69,42 +66,19 @@ function save() {
         success: function (data, status) {
             if (status != "fail") {
                 alert("채용문의 접수가 완료되었습니다.");
+                $('.tab-item').eq(0).removeClass('active');
+                $('.tab-item').eq(1).addClass('active');
+                $('.tab-content').eq(0).addClass('hidden');
+                $('.tab-content').eq(1).removeClass('hidden');
                 // location.reload();
             } else {
                 alert("네트워크 오류");
             }
-
         },
         error: function (data) {
-            alert('Server got error!')
+            alert('네트워크 오류')
         }
     });
-
-    // $.post("php/fnc/signup_step1.php",
-    //     {
-    //         name: $name,
-    //         phone: $phone,
-    //         email: $email,
-    //         address: $address,
-    //         file: $file,
-    //         disabilities: $disabilities,
-    //         level_disabilities: $level_disabilities,
-    //         content_disabilities: $content_disabilities,
-    //         duty: $duty,
-    //         single_user: $single_user,
-    //         meritorious_person: $meritorious_person,
-    //         low_benefit: $low_benefit,
-    //         korea_migrate: $korea_migrate,
-    //         // son_of_korea_migrate: $son_of_korea_migrate
-    //     },
-    //     function (data, status) {
-    //         if (status != "fail") {
-    //             alert("채용문의 접수가 완료되었습니다.");
-    //             // location.reload();
-    //         } else {
-    //             alert("네트워크 오류");
-    //         }
-    //     });
 }
 
 function validate() {

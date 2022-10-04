@@ -157,21 +157,19 @@ if (!isset($_SESSION['Id'])) {
                                                 <span>비대상</span>
                                             </span>
                                                 </label>
-
                                             </div>
                                             <div class="error-msg">
                                             </div>
                                         </div>
 
-                                        <select name="level_disabilities " class="form-control" id="level_disabilities"
+                                        <select name="level_disabilities" class="form-control" id="level_disabilities"
                                                 style="width: 30%;margin-left:0.1rem">
                                             <option value="0">중증 (기존1~3급)</option>
                                             <option value="1">경증 (기본 4~6급)</option>
-
                                         </select>
 
                                         <div>
-                                            <select name="content_disabilities " class="form-control"
+                                            <select name="content_disabilities" class="form-control"
                                                     id="content_disabilities"
                                                     style="width: 30%;margin-left:0.1rem">
                                                 <option value="">내용</option>
@@ -354,8 +352,9 @@ if (!isset($_SESSION['Id'])) {
                             </div>
 
                             <div class="row form-item d-flex justify-content-center pt-2 pb-2" style="gap:0.5rem;">
-                                <button type="submit" class="btn btn-secondary">임시저장</button>
-                                <button type="button" class="btn btn-primary" onclick="nextStep()">다음단계</button>
+                                <!--<button type="submit" class="btn btn-secondary">임시저장</button>-->
+                                <!--<button type="submit" class="btn btn-primary">다음단계</button>-->
+                                <button type="button" class="btn btn-primary" onclick="nextStep2()">다음단계</button>
                             </div>
                         </div>
                     </div>
@@ -553,12 +552,12 @@ if (!isset($_SESSION['Id'])) {
                             </div>
                             <div class="col-md-9">
                                 <div class="d-flex" style="gap:0.5rem">
+
                                     <select name="main_experience">
                                         <option value="">주 전공명을 선택해주세요</option>
                                         <option value="1">피아노</option>
                                         <option value="2">풀루트</option>
                                         <option value="3">베이스</option>
-
                                         <option value="4">바이올린</option>
                                         <option value="5">첼로</option>
                                         <option value="6">하프</option>
@@ -570,18 +569,15 @@ if (!isset($_SESSION['Id'])) {
                                         <option value="12">비올라</option>
                                         <option value="13">팀파니</option>
                                         <option value="14">기타 (직접작성)</option>
-                                        <option value="15">부 전공을 선택해주세요</option>
-                                        <option value="16">주요이력</option>
-                                        <option value="17">(중복선택가능)</option>
-
-
+                                        <option value="15">주요이력</option>
+                                        <option value="16">(중복선택가능)</option>
                                     </select>
+
                                     <select name="extra_experience" id="">
-                                        <option value="">부전공</option>
+                                        <option value="0">부전공을 선택해주세요</option>
                                         <option value="1">피아노</option>
                                         <option value="2">풀루트</option>
                                         <option value="3">베이스</option>
-
                                         <option value="4">바이올린</option>
                                         <option value="5">첼로</option>
                                         <option value="6">하프</option>
@@ -593,9 +589,8 @@ if (!isset($_SESSION['Id'])) {
                                         <option value="12">비올라</option>
                                         <option value="13">팀파니</option>
                                         <option value="14">기타 (직접작성)</option>
-                                        <option value="15">부 전공을 선택해주세요</option>
-                                        <option value="16">주요이력</option>
-                                        <option value="17">(중복선택가능)</option>
+                                        <option value="15">주요이력</option>
+                                        <option value="16">(중복선택가능)</option>
                                     </select>
                                 </div>
                             </div>
@@ -731,8 +726,8 @@ if (!isset($_SESSION['Id'])) {
                         </div>
 
                         <div style="width: fit-content; " class="pt-2 m-auto">
-                            <div class="btn btn-light border">이전단계</div>
-                            <div class="btn btn-secondary">임시저장</div>
+                            <div class="btn btn-light border" onclick="backStep(1)">이전단계</div>
+                            <!-- <div class="btn btn-secondary">임시저장</div>-->
                             <button class="btn btn-primary" type="submit">다음단계
                             </button>
                         </div>
@@ -748,7 +743,7 @@ if (!isset($_SESSION['Id'])) {
                                 자격증
                             </div>
                             <div class="col-md-9">
-                                <div class="duplicate-section certificate form-item">
+                                <div class="duplicate-section certificate">
                                     <div class="d-flex" style="gap:0.5rem">
                                         <div>
                                             <input type="text" class="certificate_name validate-required"
@@ -762,8 +757,7 @@ if (!isset($_SESSION['Id'])) {
                                         </div>
                                         <div>
                                             <input type="date" class="certificate_date_issued validate-required"
-                                                   placeholder="dd-mm-yyyy"
-                                                   value="1997-01-01">
+                                                   placeholder="dd-mm-yyyy">
                                             <div class="error-msg"></div>
                                         </div>
                                         <button class="btn-add-more" type="button">+</button>
@@ -819,7 +813,6 @@ if (!isset($_SESSION['Id'])) {
                                                placeholder="수상내용을 입력해주세요.(30자이내)">
                                         <div class="error-msg"></div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -851,21 +844,21 @@ if (!isset($_SESSION['Id'])) {
                         </div>
                         <div style="display: flex; justify-content: center; align-items: center; margin-top: 1rem;">
                             <div>
-                                <button class="btn btn-light border" type="button">이전단계</button>
+                                <div class="btn btn-light border" onclick="backStep(2)">이전단계</div>
                             </div>
 
-                            <div style="margin-left: 0.5rem; margin-right: 0.5rem">
-                                <button class="btn btn-secondary" type="submit">임시저장</button>
-                            </div>
+                            <!--    <div style="margin-left: 0.5rem; margin-right: 0.5rem">
+                                    <button class="btn btn-secondary" type="submit">임시저장</button>
+                                </div>-->
 
                             <div>
-                                <button class="btn btn-primary" type="button">다음단계</button>
+                                <button class="btn btn-primary" type="button" onclick="nextStep4()">다음단계</button>
                             </div>
 
                         </div>
                     </form>
-
                 </div>
+
                 </form>
                 <form action="../ktl/php/fnc/signup_step_4.php" method="post" id="form_step_4">
                     <div class="tab-content hidden">
@@ -905,15 +898,15 @@ if (!isset($_SESSION['Id'])) {
                         </div>
                         <div style="display: flex; justify-content: center; align-items: center; margin-top: 1rem;">
                             <div>
-                                <button class="btn btn-light border" type="button">이전단계</button>
+                                <div class="btn btn-light border" onclick="backStep(3)">이전단계</div>
                             </div>
 
-                            <div style="margin-left: 0.5rem; margin-right: 0.5rem">
-                                <button class="btn btn-secondary" type="submit">임시저장</button>
-                            </div>
+                            <!--  <div style="margin-left: 0.5rem; margin-right: 0.5rem">
+                                  <button class="btn btn-secondary">임시저장</button>
+                              </div>-->
 
                             <div>
-                                <button class="btn btn-primary" type="button">다음단계</button>
+                                <button class="btn btn-primary" type="button" onclick="nextStep5()">다음단계</button>
                             </div>
                         </div>
                     </div>
@@ -965,7 +958,7 @@ if (!isset($_SESSION['Id'])) {
                             </div>
                         </div>
                         <div class="m-auto pt-2" style="width: fit-content">
-                            <button class="btn btn-light border">이전단계</button>
+                            <button class="btn btn-light border" onclick="backStep(4)">이전단계</button>
                             <button class="btn btn-primary">최종제출</button>
                         </div>
                     </div>
@@ -1014,12 +1007,10 @@ if (!isset($_SESSION['Id'])) {
     // handle submit step 1
     $('#form_step_1').submit(function (event) {
         console.log('submit step 3');
-
         event.preventDefault();
 
         //validate step 1
         let isValid = true;
-
         $('#form_step_1 .radio-required').each(function (index, value) {
             console.log('radio-required', $(this).hasClass('disabilities'));
 
@@ -1054,8 +1045,6 @@ if (!isset($_SESSION['Id'])) {
                 $(this).next('.error-msg').html('');
             }
         });
-
-
         $('#form_step_1 .validate-required').each(function (index, value) {
             if ($(this).val() == '' && !$(this).closest('.form-item').hasClass('disable-input')) {
                 $(this).next('.error-msg')
@@ -1073,17 +1062,25 @@ if (!isset($_SESSION['Id'])) {
             return;
         }
 
-        //    handle ajax step1
+        //handle ajax step1
         save();
     });
 
+    function nextStep2() {
+        $('#form_step_1').submit();
+    }
+
+    function nextStep4() {
+        $('#form_step_3').submit();
+    }
+
+    function nextStep5() {
+        $('#form_step_4').submit();
+    }
+
     //    handle submit step3
     $('#form_step_3').submit(function (event) {
-        console.log('submit step 3');
-
         event.preventDefault();
-
-
         //validate step 3
         let isValid = true;
         $('#form_step_3 .validate-required').each(function (index, value) {
@@ -1095,9 +1092,9 @@ if (!isset($_SESSION['Id'])) {
             }
         });
 
-        console.log('is valid', isValid);
         if (!isValid) {
-            alert("Vui lòng nhập đầy đủ thông tin");
+            //Vui lòng nhập đầy đủ thông tin
+            alert("필수 내용을 입력해주세요.");
             return;
         }
         //end validate
@@ -1118,15 +1115,18 @@ if (!isset($_SESSION['Id'])) {
             contentType: false,
             success: function (data) {
                 if (data == 1) {
-                    $('#form_step_3')[0].reset();
-                    alert('Đăng ký thành công')
+                    //$('#form_step_3')[0].reset();
+                    alert('정보 추가 성공하였습니다.');
+                    $('.tab-item').eq(2).removeClass('active');
+                    $('.tab-item').eq(3).addClass('active');
+                    $('.tab-content').eq(2).addClass('hidden');
+                    $('.tab-content').eq(3).removeClass('hidden');
                 } else {
-                    alert('Đăng ký thất bại')
+                    alert('정보 추가 실패하였습니다.');
                 }
-
             },
             error: function (data) {
-                alert('Server got error!')
+                alert('정보 추가 실패하였습니다.');
             }
         });
 
@@ -1136,8 +1136,6 @@ if (!isset($_SESSION['Id'])) {
     $('#form_step_4').submit(function (event) {
         console.log('submit step 4');
         event.preventDefault();
-
-
         //validate step 3
         let isValid = true;
         $('#form_step_4 .validate-required').each(function (index, value) {
@@ -1173,19 +1171,28 @@ if (!isset($_SESSION['Id'])) {
                     // reset original form
                     $("#form_step_4 .self-introduction:not(#form_step_4 .self-introduction:first)").remove();
                     $("#form_step_4 .self_introduction_content:first").val('');
-                    alert('Đăng ký thành công')
+                    alert('정보 추가 성공하였습니다.');
+                    $('.tab-item').eq(3).removeClass('active');
+                    $('.tab-item').eq(4).addClass('active');
+                    $('.tab-content').eq(3).addClass('hidden');
+                    $('.tab-content').eq(4).removeClass('hidden');
                 } else {
-                    alert('Đăng ký thất bại')
+                    alert('정보 추가 실패하였습니다.')
                 }
 
             },
             error: function (data) {
-                alert('Server got error!')
+                alert('정보 추가 실패하였습니다.')
             }
         });
-
-
     });
+
+    function backStep(index) {
+        $('.tab-item').eq(index).removeClass('active');
+        $('.tab-item').eq(index - 1).addClass('active');
+        $('.tab-content').eq(index).addClass('hidden');
+        $('.tab-content').eq(index - 1).removeClass('hidden');
+    }
 
 
     // function handSubmitStep2() {
@@ -1320,14 +1327,25 @@ if (!isset($_SESSION['Id'])) {
                     .addClass('disable-input');
             }
         });
+
+        $('.disabilities input[type="radio"]').change(function () {
+            if ($(this).is(':checked') && $(this).val() == 0) {
+                $('select[name="level_disabilities"]').addClass('disable-input');
+                $('select[name="content_disabilities"]').addClass('disable-input');
+            } else {
+                $('select[name="level_disabilities"]').removeClass('disable-input')
+                $('select[name="content_disabilities"]').removeClass('disable-input')
+            }
+        });
+
         reIndex();
-        $('.tab-heading .tab-item').click(function () {
+     /*   $('.tab-heading .tab-item').click(function () {
             $(this).closest('.tab-wrapper').find('.tab-item').removeClass('active');
             $(this).addClass('active');
             const tabIndex = parseInt($(this).attr('tabindex')) - 1;
             $('.tab-wrapper .tab-content').addClass('hidden');
             $(this).closest('.tab-wrapper').find('.tab-content').eq(tabIndex).removeClass('hidden');
-        })
+        });*/
 
         $('.btn-add-more').click(function () {
             let dataCount = parseInt($(this).attr('data-count'));
@@ -1422,11 +1440,20 @@ if (!isset($_SESSION['Id'])) {
             type: "POST",
             url: "ajax/save-signup.php",
             data: payload,
-            success: function () {
-                alert("Add OK");
+            dataType: "json",
+            success: function (resp) {
+                if (resp.status == 'success') {
+                    alert('입력완료되었습니다.');
+                    $('.tab-item').eq(1).removeClass('active');
+                    $('.tab-item').eq(2).addClass('active');
+                    $('.tab-content').eq(1).addClass('hidden');
+                    $('.tab-content').eq(2).removeClass('hidden');
+                } else {
+                    alert('채용문의 접수가 완료되었습니다.');
+                }
             },
             error: function () {
-                alert("Add Lỗi");
+                alert('채용문의 접수가 완료되었습니다.');
             }
         });
     });
@@ -1666,7 +1693,5 @@ if (!isset($_SESSION['Id'])) {
         color: red;
     }
 </style>
-
-
 <script src="js/sign_up_step1.js" charset="utf-8"></script>
 </html>
