@@ -1,8 +1,8 @@
 $('#signup_form').submit(function (e) {
     e.preventDefault();
-    let userphone = $("#userphone").val() + $("#userphone2").val() + $("#userphone3").val();
-    alert(userphone);
+    let userphone = $("#userphone").val()+ $("#userphone2").val() + $("#userphone3").val();
     if (validate()) {
+
         $.post("php/fnc/save_user_signup.php", {
                 username: $("#username").val(),
                 userphone: userphone,
@@ -12,6 +12,10 @@ $('#signup_form').submit(function (e) {
                 rand_code: Math.floor(Math.random() * 1000000) + 1
             },
             function (data, status) {
+                if (data =="error"){
+                    alert("Email or phone number has already existed!!!");
+                 return;
+                }
                 if (status != "fail") {
                     alert("채용문의 접수가 완료되었습니다.");
                     if ($("input[name=accuracy]:checked", "#signup_form").val() == 1) {

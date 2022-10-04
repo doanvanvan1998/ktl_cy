@@ -16,6 +16,24 @@ $round_three = 0;
 $useremail = Encrypt($useremail1, $secret_key, $secret_iv);
 $userphone = Encrypt($userphone1, $secret_key, $secret_iv);
 $userpass = Encrypt($userpass1, $secret_key, $secret_iv);
+
+$query = "select COUNT(*) from recruit_able_user where email='$useremail'";
+$result = mysqli_query($con, $query);
+$row = mysqli_fetch_array($result);
+if ($row[0] != 0) {
+    echo "error";
+}
+
+$query = "select COUNT(*) from recruit_able_user where phone='$userphone'";
+$result = mysqli_query($con, $query);
+$row = mysqli_fetch_array($result);
+
+if ($row[0] != 0) {
+    echo "error";
+
+}
+
+
 mysqli_query($con, "set names utf8");
 mysqli_query($con, "insert into 
     recruit_able_user(username,
