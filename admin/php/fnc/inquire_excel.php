@@ -139,7 +139,7 @@ while($row = mysqli_fetch_array($result)) {
     $excel->getActiveSheet()->setCellValue('C' . $numRow, $row['username'] . " ");
     $excel->getActiveSheet()->setCellValue('D' . $numRow, $row['phone'] . " ");
     $excel->getActiveSheet()->setCellValue('E' . $numRow, $row['email'] . " ");
-    $excel->getActiveSheet()->setCellValue('F' . $numRow, $row['is_disabilities'] == 1 ? "중증" : "경증" + " ");
+    $excel->getActiveSheet()->setCellValue('F' . $numRow, $row['is_disabilities'] == 1 ? "중증" : "경증");
 
     $excel->getActiveSheet()->setCellValue('G' . $numRow, $major_main_id . " ");
     $excel->getActiveSheet()->setCellValue('H' . $numRow, $major_sub . " ");
