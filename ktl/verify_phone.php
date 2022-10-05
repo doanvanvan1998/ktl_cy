@@ -11,10 +11,11 @@
     include "php/crypt.php";
     $phone = $_GET['phone'];
     $email = Encrypt($_GET['email'], $secret_key, $secret_iv);
-    $query = "select rand_code from recruit_able_user where email='$email'";
+    $query = "select id, rand_code from recruit_able_user where email='$email'";
     $result = mysqli_query($con, $query);
     $row = mysqli_fetch_array($result);
     $rand_code = $row['rand_code'];
+    $id = $row['id'];
     ?>
     <div class="contents_wrap">
         <div class="container" style=" margin-top: 10rem;">
@@ -22,7 +23,7 @@
                 <form method="post" class="login flex-direction">
                     <div class="flex-direction">
                         <span>정확성</span>
-                        <input name="phone" disabled="true" type="text" id='phone' value="<?php echo $phone; ?>">
+                        <input name="phone" readonly type="text" id='phone' value="<?php echo $phone; ?>">
                     </div>
                     <button class="btn_login flex" id="onSubmit" style="height: 2.5rem"><span>본인확인</span></button>
                 </form>
@@ -225,47 +226,23 @@
 
 <script>
     $("form").submit(function () {
-
-        $.post("forms/sms/examples/example_send.php",
-            {
-                email: <?php echo $email; ?> ,
-                txt: <?php echo $rand_code; ?>
+       let id = <?php echo $id; ?>;
+        $.ajax({
+            url: './php/fnc/example_send.php',
+            type: "POST",
+            dataType: "json",
+            data:{
+               Id:id
             },
-            function (data, status) {
-                alert(data);
-                if (status != "fail") {
-                    alert("채용문의 접수가 완료되었습니다.");
-                    location.reload();
-                } else {
-                    alert("네트워크 오류");
-                }
-            });
-
-
+            success: function (resp) {
+                alert("채용문의 접수가 완료되었습니다.");
+                window.location.href = "confirm_rand_code.php?email="+resp.email;
+            },
+            error: function (data) {
+                alert("네트워크 오류");
+            }
+        });
     })
-
-
-    // function handSubmit(){
-    //
-    //
-    //
-    //
-    //     $.post("../php/fnc/example_send.php",
-    //         {
-    //             Id: 14,
-    //             txt: "hello_vandv_1"
-    //         },
-    //         function (data, status) {
-    //             alert(data);
-    //             if (status != "fail") {
-    //                 alert("채용문의 접수가 완료되었습니다.");
-    //                 location.reload();
-    //             } else {
-    //                 alert("네트워크 오류");
-    //             }
-    //         });
-    //
-    // }
 </script>
 </body>
 </html>

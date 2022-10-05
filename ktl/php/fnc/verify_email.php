@@ -53,6 +53,6 @@ try {
 } catch (Exception $e) {
     echo "$e";
 }
-header("Location: ../../confirm_rand_code.php?email=$email");
+header("Location: ../../confirm_rand_code.php?email=" . $_POST['email']);
 ob_end_flush();
 ?>

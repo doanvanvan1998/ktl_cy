@@ -1,6 +1,6 @@
 $('#signup_form').submit(function (e) {
     e.preventDefault();
-    let userphone = $("#userphone").val() + $("#userphone2").val() + $("#userphone2").val();
+    let userphone = $("#userphone").val() + $("#userphone2").val() + $("#userphone3").val();
     if (validate()) {
         $.post("php/fnc/save_user_signup.php", {
                 username: $("#username").val(),
@@ -10,12 +10,22 @@ $('#signup_form').submit(function (e) {
                 acept_rule: sessionStorage.getItem("checked"),
                 rand_code: Math.floor(Math.random() * 1000000) + 1
             },
-            function (data, status) {
-                if (status != "fail") {
+            function (data, status ) {
+                if (data =="error-email"){
+                    alert("이미 존재하는 이메일 주소입니다");
+                    return;
+                }
+                if (data =="error-phone"){
+                    alert("이미 존재하는 휴대폰 번호입니다!!!");
+                    return;
+                }
+                 if (status != "fail") {
                     alert("채용문의 접수가 완료되었습니다.");
                     if ($("input[name=accuracy]:checked", "#signup_form").val() == 1) {
+                        //window.location.href = "/ktl_cy/ktl/verify_email.php?email=" + $("#useremail").val();
                         window.location.href = "../verify_email.php?email=" + $("#useremail").val();
                     } else {
+                        //window.location.href = "/ktl_cy/ktl/verify_phone.php?phone=" + userphone.valueOf() + "&email=" + $("#useremail").val();
                         window.location.href = "../verify_phone.php?phone=" + userphone.valueOf() + "&email=" + $("#useremail").val();
                     }
                 } else {
