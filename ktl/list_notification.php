@@ -37,9 +37,9 @@
                 <tbody>
                 <tr>
                     <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>제목</td>
+                    <td>작가</td>
+                    <td>@구독자</td>
                 </tr>
                 </tbody>
             </table>
